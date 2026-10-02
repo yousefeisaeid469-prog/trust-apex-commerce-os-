@@ -99,7 +99,7 @@ export async function commitGlobalCheckout(client:PoolClient,input:GlobalCommitI
       if(merchantRow.rows[0]?.merchant_id) await recordSellerOrderAcceptedTx(client,String(merchantRow.rows[0].merchant_id),orderId,String(line.offerId));
     }
   }
-  const plan=(q.pricing_json as any)?.fulfillmentPlan;
+plan = (q.pricing_json as any)?.fulfillmentPlan;
   if(plan?.shipments) for(const shipment of plan.shipments){
     await client.query(`insert into trust_order_shipments(order_id,merchant_id,location_id,destination_region,min_days,max_days,shipping_cost,fulfillment_cost,source,offer_ids) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb)`,[orderId,shipment.merchantId,shipment.locationId??null,shipment.destinationRegion,shipment.minDays,shipment.maxDays,shipment.shippingCost,shipment.fulfillmentCost,shipment.source,JSON.stringify(shipment.offerIds)]);
   }
