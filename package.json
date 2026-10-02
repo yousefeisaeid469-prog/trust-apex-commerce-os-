@@ -295,8 +295,7 @@
     "state-reconciliation-audit": "node scripts/v419_state_reconciliation_audit.mjs"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "bcryptjs": "^3.0.3",
+"bcryptjs": "^3.0.3",
     "next": "14.2.31",
     "pg": "8.16.3",
     "react": "18.3.1",
@@ -308,28 +307,11 @@
     "@types/react": "18.3.18",
     "@types/react-dom": "18.3.5",
     "typescript": "5.8.2"
-=======
-    "next": "14.2.31",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "pg": "8.16.3"
-  },
-  "devDependencies": {
-    "@types/node": "20.17.30",
-    "@types/react": "18.3.18",
-    "@types/react-dom": "18.3.5",
-    "typescript": "5.8.2",
-    "@types/pg": "8.15.5"
->>>>>>> 132be240c88d40a87f366b812ddb12760cc122bb
   },
   "engines": {
     "node": ">=18.17.0"
   },
-<<<<<<< HEAD
   "description": "ثِقة (TRUST) — AI-first global marketplace and commerce operating system.",
-=======
-  "description": "\u062b\u0650\u0642\u0629 (TRUST) \u2014 AI-first global marketplace and commerce operating system.",
->>>>>>> 132be240c88d40a87f366b812ddb12760cc122bb
   "packageManager": "npm@10.9.2",
   "type": "module"
 }
