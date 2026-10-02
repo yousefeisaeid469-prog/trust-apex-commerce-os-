@@ -1,0 +1,4 @@
+import { buildSnapshot, scoreScenario } from '../../../../modules/intelligence/engine';
+import { requireAdminSession } from '../../../../modules/platform/security/route-auth';
+export const dynamic='force-dynamic';
+export async function POST(request:Request){try{await requireAdminSession(request);const body=await request.json().catch(()=>({}));if(typeof body.scenarioId!=='string')return Response.json({error:'SCENARIO_ID_REQUIRED'},{status:400});const result=scoreScenario(buildSnapshot(),body.scenarioId);if(!result)return Response.json({error:'SCENARIO_NOT_FOUND'},{status:404});return Response.json(result,{headers:{'Cache-Control':'no-store'}});}catch(e){return Response.json({ok:false,error:e instanceof Error&&e.message==='ADMIN_AUTH_REQUIRED'?'Unauthorized':'CONTROL_SURFACE_ERROR'},{status:e instanceof Error&&e.message==='ADMIN_AUTH_REQUIRED'?401:400});}}

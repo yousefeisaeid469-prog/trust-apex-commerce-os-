@@ -1,0 +1,7 @@
+{
+  "version": "V165.0.0",
+  "codename": "AI SHOPPING OS",
+  "capabilities": ["conversational-shopping","recommendations","comparisons","price-intelligence","shopping-plans","seller-health","replenishment","promotion-windows"],
+  "tests": 174,
+  "status": "verified-tests"
+}

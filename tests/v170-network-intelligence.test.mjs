@@ -1,0 +1,9 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import {buildNetworkSnapshot,detectSignals,propagateDecisions,optimizeDecisions,graphInfluence} from '../modules/platform/network-intelligence/core.ts';
+const nodes=[{id:'p1',tenantId:'t1',type:'PRODUCT'},{id:'w1',tenantId:'t1',type:'WAREHOUSE'},{id:'s1',tenantId:'t1',type:'SUPPLIER'}];
+const now=Date.now(); const events=[{id:'e1',tenantId:'t1',type:'STOCKOUT',at:now-1000,subjectId:'p1',relatedIds:['w1']},{id:'e2',tenantId:'t1',type:'STOCKOUT',at:now-2000,subjectId:'p1',relatedIds:['w1']},{id:'e3',tenantId:'t1',type:'PURCHASE',at:now-3000,subjectId:'p1',relatedIds:[]},{id:'e4',tenantId:'t1',type:'RETURN',at:now-4000,subjectId:'p1',relatedIds:[]},{id:'e5',tenantId:'t1',type:'SUPPLIER_RISK',at:now-5000,subjectId:'s1',relatedIds:['p1']}];
+test('builds graph and deduplicates weighted edges',()=>{const s=buildNetworkSnapshot(nodes,events);assert.equal(s.edges.length,2);assert.equal(s.edges.find(e=>e.from==='p1')?.weight,2);});
+test('detects cross-domain operational signals',()=>{const s=detectSignals(buildNetworkSnapshot(nodes,events),now);assert.ok(s.some(x=>x.domain==='INVENTORY'));assert.ok(s.some(x=>x.domain==='SUPPLY'));});
+test('propagates deterministic decisions',()=>{const s=detectSignals(buildNetworkSnapshot(nodes,events),now);const d=propagateDecisions(s);assert.equal(d[0].requiresApproval,true);assert.ok(d.every(x=>x.decisionId.startsWith('dec-')));});
+test('optimization enforces constraints',()=>{const s=detectSignals(buildNetworkSnapshot(nodes,events),now);const d=propagateDecisions(s);const r=optimizeDecisions(d,[{domain:'SUPPLY',maxRiskBps:1000}]);assert.ok(r.selected.length>=1);});
+test('graph influence is bounded and ranked',()=>{const s=buildNetworkSnapshot(nodes,events);const r=graphInfluence(s,'p1');assert.equal(r[0].nodeId,'p1');assert.ok(r.every(x=>x.score<=100));});

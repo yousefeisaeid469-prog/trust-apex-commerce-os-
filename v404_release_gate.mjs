@@ -1,0 +1,10 @@
+import fs from 'node:fs'; import crypto from 'node:crypto';
+const errors=[]; const read=f=>fs.readFileSync(f,'utf8'); const exists=f=>fs.existsSync(f);
+const pkg=JSON.parse(read('package.json')); const lock=JSON.parse(read('package-lock.json')); const runtime=read('lib/runtime/version.ts'); const manifest=JSON.parse(read('db/migrations/MANIFEST.json'));
+if(pkg.version!=='404.0.0')errors.push('package version'); if(lock.version!=='404.0.0')errors.push('lock version');
+for(const t of ["TRUST_RUNTIME_VERSION='V404.0.0'","TRUST_VERSION='V404.0.0'","TRUST_VERSION_NUMBER='V404.0.0'"])if(!runtime.includes(t))errors.push('runtime '+t);
+const head=manifest.migrations.at(-1); if(manifest.version!=='V404.0.0'||String(head?.id)!=='229'||head?.version!=='V404.0.0')errors.push('migration head');
+for(const f of ['db/migrations/229_v404_global_command_bus.sql','modules/platform/command-bus.ts','modules/platform/commands/registry.ts','scripts/command_worker.mjs','scripts/v404_command_bus_audit.mjs','scripts/v404_release_gate.mjs','app/api/commands/route.ts','app/api/commands/[id]/route.ts','MASTER-RELEASE.md'])if(!exists(f))errors.push('missing '+f);
+const migration=read('db/migrations/229_v404_global_command_bus.sql'); for(const t of ['trust_commands','trust_command_attempts','trust_commands_idempotency_uq'])if(!migration.includes(t))errors.push('migration contract '+t);
+const checksum=crypto.createHash('sha256').update(fs.readFileSync('db/migrations/229_v404_global_command_bus.sql')).digest('hex'); if(head?.checksum!==checksum)errors.push('migration checksum mismatch');
+if(errors.length){console.error('V404 RELEASE GATE FAILED');errors.forEach(e=>console.error('- '+e));process.exit(1)} console.log('V404 RELEASE GATE PASS — durable command bus is versioned, idempotent and backed by a lease-based worker.');

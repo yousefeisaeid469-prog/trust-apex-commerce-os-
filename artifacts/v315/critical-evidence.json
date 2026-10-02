@@ -1,0 +1,20 @@
+{
+  "version": "V315.0.0",
+  "status": "PASS",
+  "workflow": "critical-verification-platform",
+  "checks": [
+    "failure-injection",
+    "deterministic-replay",
+    "payment-sandbox",
+    "carrier-sandbox",
+    "double-entry-regression",
+    "load-gates",
+    "postgres-harness",
+    "durable-evidence"
+  ],
+  "liveDatabase": false,
+  "livePaymentProviders": false,
+  "liveCarrierProviders": false,
+  "criticalScenario": "PASS",
+  "livePostgresExecuted": false
+}

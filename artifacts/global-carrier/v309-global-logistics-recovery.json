@@ -1,0 +1,8 @@
+{
+  "version":"V309.0.0",
+  "status":"GLOBAL_LOGISTICS_RECOVERY_VERIFIED",
+  "migration":147,
+  "liveCarrierConnectivity":false,
+  "externalProviderExecution":false,
+  "capabilities":["control-tower recovery planning","durable recovery plans","idempotent recovery actions","leased worker queue","bounded retries","execution retry delegation","carrier refresh outbox dispatch","customer promise review dispatch","critical escalation dispatch"]
+}

@@ -1,0 +1,16 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {executeCase} from '../modules/platform/reliability-lab/engine.ts';
+import {InMemoryProgressiveDeliveryAdapter} from '../modules/platform/progressive-delivery/adapter.ts';
+import {runProgressiveDelivery} from '../modules/platform/progressive-delivery/controller.ts';
+import {createReleaseCandidate} from '../modules/platform/production-reliability/candidate.ts';
+const candidate=()=>createReleaseCandidate({version:'147.0.0',sourceFingerprint:'source',migrationFingerprint:'migration',policyRevision:'policy',buildRef:'build-147',createdAt:'2026-09-03T00:00:00.000Z'});
+const plan={stages:[1,5,25,50,100].map((percent,ordinal)=>({ordinal,percent,regions:['eu','me'],observeWindowMs:1000})),maxBlastRadiusPct:100,rollbackBudgetPct:25,requireSequentialPromotion:true};
+const healthy=()=>({availability:1,errorRate:0,p95Ms:10,budgetConsumedPct:0,replayMatches:true,newFailure:false,labResult:executeCase(1471,[{id:'1',kind:'OPEN'}],[])});
+const failed=()=>({availability:.8,errorRate:.2,p95Ms:900,budgetConsumedPct:20,replayMatches:false,newFailure:true,labResult:executeCase(1472,[{id:'1',kind:'OPEN'}],[{at:0,kind:'THROW',operationId:'1'}])});
+const obs=v=>Object.fromEntries(v.map(p=>[p,healthy()]));
+test('V147 promotes sequentially through 100%',()=>{const a=new InMemoryProgressiveDeliveryAdapter();const out=runProgressiveDelivery({deploymentId:'d1',rolloutId:'r1',candidate:candidate(),plan,observations:obs([1,5,25,50,100])},a);assert.equal(out.decision,'PROMOTE');assert.equal(out.completedPercent,100);assert.equal(out.runtimeVerified,true);assert.deepEqual(out.stages.map(x=>x.stage.percent),[1,5,25,50,100]);});
+test('V147 halts on failed stage without rollback evidence',()=>{const a=new InMemoryProgressiveDeliveryAdapter();const o=obs([1,5,25,50,100]);o[25]=failed();const out=runProgressiveDelivery({deploymentId:'d2',rolloutId:'r2',candidate:candidate(),plan,observations:o},a);assert.equal(out.decision,'HALT');assert.equal(out.completedPercent,5);assert.equal(a.snapshot().halted,true);});
+test('V147 automatically rolls back after failed stage when rollback verification passes',()=>{const a=new InMemoryProgressiveDeliveryAdapter();const o=obs([1,5,25,50,100]);o[25]=failed();const out=runProgressiveDelivery({deploymentId:'d3',rolloutId:'r3',candidate:candidate(),plan,observations:o,rollbackObservation:healthy()},a);assert.equal(out.decision,'ROLLBACK');assert.equal(out.runtimeVerified,true);assert.equal(a.snapshot().rolledBack,true);assert.equal(a.snapshot().halted,false);});
+test('V147 fail-closes on invalid blast radius',()=>{const a=new InMemoryProgressiveDeliveryAdapter();const out=runProgressiveDelivery({deploymentId:'d4',rolloutId:'r4',candidate:candidate(),plan:{...plan,maxBlastRadiusPct:10},observations:obs([1,5,25,50,100])},a);assert.equal(out.decision,'ESCALATE');});
+test('V147 evidence is deterministic',()=>{const run=()=>runProgressiveDelivery({deploymentId:'d5',rolloutId:'r5',candidate:candidate(),plan,observations:obs([1,5,25,50,100])},new InMemoryProgressiveDeliveryAdapter());assert.equal(run().evidenceHash,run().evidenceHash);});

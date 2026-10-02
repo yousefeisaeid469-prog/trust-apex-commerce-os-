@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: trust-postgres-backup
+  namespace: trust-prod
+spec:
+  schedule: "17 */6 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: backup
+              image: postgres:16-alpine
+              envFrom:
+                - secretRef: {name: trust-postgres}
+              command: ["sh","-c"]
+              args:
+                - >-
+                  pg_dump --format=custom "$DATABASE_URL" > /backup/trust-$(date +%Y%m%d%H%M).dump
+                  && pg_restore --list /backup/trust-$(ls -t /backup/trust-*.dump | head -1) > /backup/latest.restore-list
+                  && test -s /backup/latest.restore-list
+              volumeMounts: [{name: backup, mountPath: /backup}]
+          volumes: [{name: backup, emptyDir: {}}]

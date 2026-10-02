@@ -1,0 +1,178 @@
+{
+  "id": "evidence-packet:capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist",
+  "contractId": "capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V192.md:5",
+  "claim": "V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities, and int",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v139-autonomous-platform.test.mjs",
+      "tests/v140-reliability.test.mjs",
+      "tests/v141-verification-chaos.test.mjs",
+      "tests/v143-reliability-control-plane.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v146-deployment-autopilot.test.mjs",
+      "tests/v147-progressive-delivery.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 562,
+        "token": "upgrades",
+        "excerpt": "\"text\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 57,
+        "token": "upgrades",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V192.md:5 (docs line 5) — V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unif",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 1035,
+        "token": "upgrades",
+        "excerpt": "\"id\": \"capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 36,
+        "token": "upgrades",
+        "excerpt": "- **capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist** — unassigned — DRAFT — V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 924,
+        "token": "upgrades",
+        "excerpt": "\"claim\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention prioritie",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 5058,
+        "token": "upgrades",
+        "excerpt": "\"claim\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention prioritie",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 611,
+        "token": "upgrades",
+        "excerpt": "\"text\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 418,
+        "token": "upgrades",
+        "excerpt": "\"text\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "deterministic",
+          "bounded"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v139-autonomous-platform.test.mjs",
+        "hits": [
+          "deterministic",
+          "bounded"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v140-reliability.test.mjs",
+        "hits": [
+          "deterministic",
+          "bounded"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v141-verification-chaos.test.mjs",
+        "hits": [
+          "deterministic",
+          "bounded"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v143-reliability-control-plane.test.mjs",
+        "hits": [
+          "deterministic",
+          "returns"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "production",
+          "deterministic"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v146-deployment-autopilot.test.mjs",
+        "hits": [
+          "production",
+          "deterministic"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v147-progressive-delivery.test.mjs",
+        "hits": [
+          "production",
+          "deterministic"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "ff5e9ba7b357c026a8a3aa3b618b0ef55b15855c1ccb94990b07c227543e4ada",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

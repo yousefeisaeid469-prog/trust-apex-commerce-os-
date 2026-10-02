@@ -1,0 +1,12 @@
+{
+  "version": "V262.0.0",
+  "schemaVersion": "1.0",
+  "baseline": "artifacts/reality/reality-capability-evidence-execution-v261.json",
+  "policy": "Attestation verifies that previously executed evidence still matches the exact source files and tests. Drift invalidates the attestation. Attestation never promotes a capability.",
+  "capabilities": [
+    "capability-003-approval-gates-and-idempotent-execution-receipts",
+    "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+    "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+    "capability-012-reduced-motion-accessibility-support"
+  ]
+}

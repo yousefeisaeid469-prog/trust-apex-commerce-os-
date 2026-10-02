@@ -1,0 +1,5 @@
+import {NextRequest,NextResponse} from 'next/server';
+import {getReturnProvider,persistReturnProviderEvent} from '../../../../modules/platform/returns/providers';
+import {query,withPgTransaction} from '../../../../modules/platform/db/postgres';
+export const dynamic='force-dynamic';export const runtime='nodejs';
+export async function POST(req:NextRequest){const raw=await req.text();const provider=getReturnProvider();const signature=req.headers.get('x-trust-signature')||'';const timestamp=req.headers.get('x-trust-timestamp')||'';if(!provider.verifyWebhook(raw,signature,timestamp))return NextResponse.json({ok:false,error:'INVALID_PROVIDER_SIGNATURE'},{status:401});try{const event=provider.parseWebhook(raw);const result=await persistReturnProviderEvent({query,transaction:withPgTransaction},event);return NextResponse.json({ok:true,...result,surfaceStatus:'LIVE'},{headers:{'Cache-Control':'no-store'}});}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'RETURN_WEBHOOK_FAILED'},{status:400});}}

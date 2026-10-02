@@ -1,0 +1,116 @@
+# TRUST V261.0.0 — Reality Claim Resolution
+
+Generated: 2026-09-09T01:47:10.623Z
+
+The resolver separates capability claims from limitation/title/verification prose and produces discovery candidates without treating lexical matches as proof. Only an explicit structured contract may enter promotion.
+
+## Counts
+- NON_CLAIM_LIMITATION: 24
+- NON_CLAIM_TITLE: 13
+- NEEDS_EXPLICIT_AUTHORING: 58
+- VERIFICATION_NARRATIVE: 1
+
+## Resolution rules
+- Limitation statements are classified as boundaries/non-claims and cannot be promoted.
+- Release titles are metadata and cannot be promoted.
+- Verification narratives are kept separate from capability contracts.
+- Capability claims receive implementation/marker/test discovery candidates only.
+- Lexical candidates are never proof.
+
+## Records
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V138.md:31 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V139.md:10 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V140.md:18 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V141.md:9 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V142.md:13 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V144.md:19 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V145.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 6 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V147.md:13 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V148.md:10 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V149.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 1 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V150.md:1 — RELEASE_TITLE — 8 implementation candidates, 8 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V151.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 1 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V166.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V167.md:15 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V168.md:9 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 2 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V169.md:14 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V171.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V172.md:12 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V173.md:10 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 2 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V174.md:5 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V175.md:7 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V176.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V177.md:6 — CAPABILITY_CLAIM — 8 implementation candidates, 8 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V178.md:19 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V179.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V180.md:1 — RELEASE_TITLE — 8 implementation candidates, 8 marker candidates, 0 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V181.md:4 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V182.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V183.md:13 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V185.md:1 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **VERIFICATION_NARRATIVE** — draft-doc:docs/releases/MASTER-RELEASE-V186.md:3 — VERIFICATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V187.md:6 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V188.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V189.md:14 — CAPABILITY_CLAIM — 8 implementation candidates, 8 marker candidates, 1 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V190.md:14 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 1 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V192.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V193.md:15 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V194.md:7 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V195.md:7 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V196.md:19 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 4 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V197.md:12 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 6 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V198.md:7 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V199.md:4 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V200.md:4 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V201.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V203.md:13 — CAPABILITY_CLAIM — 8 implementation candidates, 8 marker candidates, 3 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V206.md:26 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V207.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V208.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/MASTER-RELEASE-V209.md:14 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V211.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V212.md:14 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 5 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V214.md:11 — CAPABILITY_CLAIM — 8 implementation candidates, 0 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V216.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V217.md:6 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 7 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V220.md:15 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V221.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 5 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V222.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 5 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V223.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V224.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 5 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V227.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V228.md:16 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 4 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V231.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V233.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V234.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V236.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/MASTER-RELEASE-V237.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/MASTER-RELEASE-V250.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/V161-GLOBAL-MARKETPLACE.md:12 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/V162-GLOBAL-DISCOVERY.md:19 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/V163-MARKETPLACE-OFFERS.md:12 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/V164-SUPER-COMMERCE.md:19 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 2 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/releases/V237-REALITY-CONSOLIDATION.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 5 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/releases/V238-PRODUCTION-REALITY-HARDENING.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 2 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/releases/V240-PROVIDER-RELIABILITY.md:5 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/AUTONOMOUS-CONTROL-PLANE-V139.md:9 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/architecture/AUTONOMOUS-RELIABILITY-LOOP-V144.md:20 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/CELL-SCALE-V241.md:19 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 1 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/CUSTOMER-COMMERCE-OS-V236.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/CUSTOMER-DATA-PLATFORM-V236.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/DEPLOYMENT-AUTOPILOT-V146.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/architecture/DURABLE-EVENT-BACKBONE-V242.md:1 — RELEASE_TITLE — 8 implementation candidates, 8 marker candidates, 1 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/architecture/EXECUTABLE-RELIABILITY-LABORATORY-V142.md:6 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/FULFILLMENT-PROVIDER-EXECUTION-V233.md:9 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/architecture/GLOBAL-DEPLOYMENT-INTELLIGENCE-V148.md:15 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/architecture/PRODUCTION-CONTROL-PLANE-V150.md:1 — RELEASE_TITLE — 8 implementation candidates, 8 marker candidates, 8 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/architecture/PRODUCTION-INFRASTRUCTURE-V149.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 1 test candidates
+- **NON_CLAIM_TITLE** — draft-doc:docs/architecture/PRODUCTION-RELIABILITY-INTEGRATION-V145.md:1 — RELEASE_TITLE — 8 implementation candidates, 12 marker candidates, 6 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 4 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/REALITY-CONSOLIDATION-V237.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md:3 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NEEDS_EXPLICIT_AUTHORING** — draft-doc:docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md:5 — CAPABILITY_CLAIM — 8 implementation candidates, 12 marker candidates, 8 test candidates
+- **NON_CLAIM_LIMITATION** — draft-doc:docs/architecture/VERIFICATION-CHAOS-ENGINE-V141.md:7 — LIMITATION_STATEMENT — 8 implementation candidates, 12 marker candidates, 8 test candidates

@@ -1,0 +1,2 @@
+CREATE TABLE IF NOT EXISTS trust_v149_deployments (deployment_id TEXT PRIMARY KEY, owner TEXT NOT NULL, target JSONB NOT NULL, traffic JSONB NOT NULL, status TEXT NOT NULL, revision TEXT, idempotency_key TEXT NOT NULL UNIQUE, created_at TIMESTAMPTZ NOT NULL DEFAULT now(), updated_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_trust_v149_deployments_status ON trust_v149_deployments(status);

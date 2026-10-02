@@ -1,0 +1,5 @@
+import crypto from 'node:crypto';
+import type {BootstrapConfig,BootstrapProbeClient,BootstrapReport,ComponentProbe} from './contracts.ts';
+const stable=(x:unknown):unknown=>Array.isArray(x)?x.map(stable):x&&typeof x==='object'?Object.fromEntries(Object.entries(x as Record<string,unknown>).sort(([a],[b])=>a.localeCompare(b)).map(([k,v])=>[k,stable(v)])):x;
+export const evidence=(r:Omit<BootstrapReport,'evidenceHash'>)=>crypto.createHash('sha256').update(JSON.stringify(stable(r))).digest('hex');
+export class ProductionBootstrap { private config:BootstrapConfig; private probes:BootstrapProbeClient; constructor(config:BootstrapConfig,probes:BootstrapProbeClient){this.config=config;this.probes=probes} async run():Promise<BootstrapReport>{const probes:ComponentProbe[]=[];for(const c of this.config.requiredComponents)probes.push(await this.probes.probe(c));const ready=probes.every(p=>p.ok);const base={version:'V177.0.0',ready,probes,generatedAt:new Date().toISOString()};return {...base,evidenceHash:evidence(base)}}}

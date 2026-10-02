@@ -1,0 +1,180 @@
+{
+  "id": "evidence-packet:capability-020-v200-establishes-a-durable-post-purchase-notification-control-plane",
+  "contractId": "capability-020-v200-establishes-a-durable-post-purchase-notification-control-plane",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V200.md:4",
+  "claim": "V200 establishes a durable post purchase notification control plane.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/source-invariants.test.mjs",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v199-order-experience.test.mjs",
+      "tests/v200-notifications-post-purchase.test.mjs",
+      "tests/v201-fulfillment-tracking.test.mjs",
+      "tests/v227-owner-live-controls.test.mjs",
+      "tests/v228-reality-rebuild.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 485,
+        "token": "establishes",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 50,
+        "token": "establishes",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V183.md:13 (docs line 13) — The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable a",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 1521,
+        "token": "establishes",
+        "excerpt": "\"id\": \"capability-020-v200-establishes-a-durable-post-purchase-notification-control-plane\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 42,
+        "token": "establishes",
+        "excerpt": "- **capability-020-v200-establishes-a-durable-post-purchase-notification-control-plane** — unassigned — DRAFT — V200 establishes a durable post purchase notification control plane.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 742,
+        "token": "establishes",
+        "excerpt": "\"claim\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing pro",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 4100,
+        "token": "establishes",
+        "excerpt": "\"claim\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing pro",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 492,
+        "token": "establishes",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 362,
+        "token": "establishes",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "durable",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "notification",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "durable",
+          "purchase"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v199-order-experience.test.mjs",
+        "hits": [
+          "durable",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v200-notifications-post-purchase.test.mjs",
+        "hits": [
+          "durable",
+          "purchase",
+          "notification",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v201-fulfillment-tracking.test.mjs",
+        "hits": [
+          "durable",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v227-owner-live-controls.test.mjs",
+        "hits": [
+          "durable",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v228-reality-rebuild.test.mjs",
+        "hits": [
+          "durable",
+          "control"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "e98836d8acd005aece8f2af1d24cbe6a75a9ba54a2b2273ee294b3328749440b",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

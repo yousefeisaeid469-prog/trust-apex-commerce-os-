@@ -1,0 +1,1 @@
+export default function NotFound(){return <main style={{minHeight:'100vh',display:'grid',placeItems:'center',background:'#050505',color:'#fff',fontFamily:'system-ui',textAlign:'center'}}><div><p style={{color:'#d4af37'}}>TRUST / 404</p><h1>الصفحة غير موجودة</h1><a href="/" style={{color:'#fff'}}>العودة للمتجر ←</a></div></main>}

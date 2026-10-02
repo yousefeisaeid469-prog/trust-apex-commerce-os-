@@ -1,0 +1,26 @@
+{
+  "version": "V269.0.0",
+  "name": "reality-loop-breaker",
+  "purpose": "Prevent repeated audit/evidence/governance releases from being mistaken for implementation progress.",
+  "historicalClaimRule": "Claims whose provenance is a release/architecture document are historical assertions, not implementation work items, unless explicitly promoted by a current work-item manifest.",
+  "productiveSurface": [
+    "app",
+    "components",
+    "lib",
+    "modules",
+    "db/migrations"
+  ],
+  "nonProductiveSurface": [
+    "scripts",
+    "docs",
+    "artifacts/reality",
+    "config/reality",
+    "tests"
+  ],
+  "maxConsecutiveAuditOnlyReleases": 1,
+  "failOnAuditOnlyRelease": true,
+  "requireExplicitWorkItemForNewCapability": true,
+  "autoCreateWorkItemsFromDocs": false,
+  "autoPromoteClaims": false,
+  "generatedArtifactsAreNeverEvidenceOfImplementation": true
+}

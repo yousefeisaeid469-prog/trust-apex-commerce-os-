@@ -1,0 +1,2 @@
+export type DeliveryPromise = { carrier:string; service:string; etaStart:string; etaEnd:string; costCents:number };
+export function deliveryPromise(now = new Date(), handlingDays = 1, transitDays = 2): DeliveryPromise { const start = new Date(now); start.setDate(start.getDate()+handlingDays+transitDays); const end = new Date(start); end.setDate(end.getDate()+1); return { carrier:'TRUST Logistics', service:'standard', etaStart:start.toISOString(), etaEnd:end.toISOString(), costCents:0 }; }

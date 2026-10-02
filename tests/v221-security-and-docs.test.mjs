@@ -1,0 +1,6 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import fs from 'node:fs';
+test('V221 has security headers and production posture modules',()=>{const n=fs.readFileSync('next.config.mjs','utf8');const m=fs.readFileSync('middleware.ts','utf8');assert.match(n,/Strict-Transport-Security/);assert.match(m,/Content-Security-Policy/);assert.match(m,/nonce-/);assert.ok(fs.existsSync('modules/platform/security/field-crypto.ts'));});
+test('V221 has generated OpenAPI inventory',()=>{const d=JSON.parse(fs.readFileSync('docs/api/openapi-v1.json','utf8'));assert.equal(d.openapi,'3.0.3');assert.ok(Object.keys(d.paths).length>=50);});
+test('V221 has authorized load harness in dry-run mode',()=>{const s=fs.readFileSync('scripts/load_stress_v221.mjs','utf8');assert.match(s,/LOAD_TEST_TARGET/);assert.match(s,/DRY_RUN/);});
+
+test('V221 field encryption round-trips with AES-256-GCM',async()=>{process.env.TRUST_FIELD_ENCRYPTION_KEY=Buffer.alloc(32,7).toString('base64');const {encryptSensitive,decryptSensitive}=await import('../modules/platform/security/field-crypto.ts');const sealed=encryptSensitive('sensitive-transaction-value');assert.notEqual(sealed,'sensitive-transaction-value');assert.equal(decryptSensitive(sealed),'sensitive-transaction-value');delete process.env.TRUST_FIELD_ENCRYPTION_KEY;});

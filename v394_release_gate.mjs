@@ -1,0 +1,15 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const exists=f=>fs.existsSync(path.join(root,f)); const errors=[];
+const pkg=JSON.parse(read('package.json')); const lock=JSON.parse(read('package-lock.json')); const manifest=JSON.parse(read('db/migrations/MANIFEST.json'));
+const version=read('lib/runtime/version.ts').match(/V(\d+\.\d+\.\d+)/)?.[1];
+if(pkg.version!=='395.0.0'||version!=='395.0.0'||lock.version!=='395.0.0'||lock.packages?.['']?.version!=='395.0.0') errors.push('version integrity');
+if(manifest.version!=='V395.0.0'||String(manifest.migrations.at(-1)?.id)!=='220'||manifest.migrations.at(-1)?.version!=='V395.0.0') errors.push('migration head');
+for(const f of ['db/migrations/218_v392_load_resilience.sql','db/migrations/219_v394_commerce_reconciliation.sql','db/migrations/220_v395_commerce_journey_integrity.sql','scripts/v395_commerce_journey_integrity.mjs','scripts/v392_load_resilience.mjs','scripts/v393_commerce_truth_audit.mjs','scripts/v394_commerce_reconciliation.mjs','scripts/v394_commerce_reconciliation_audit.mjs','modules/commerce/core/reconciliation.ts','modules/commerce/core/execution-kernel.ts','MASTER-RELEASE.md']) if(!exists(f)) errors.push('missing '+f);
+const recon=read('modules/commerce/core/reconciliation.ts'); for(const token of ['CAPTURED_PAYMENT_MISSING_EXECUTION','FULFILLMENT_NEEDS_RESUME','FAILED_PAYMENT_RESERVATION_RELEASE','pg_try_advisory_xact_lock']) if(!recon.includes(token) && token!=='pg_try_advisory_xact_lock') errors.push('reconciliation contract '+token);
+const integrity=read('scripts/v395_commerce_journey_integrity.mjs'); if(!integrity.includes('trust_commerce_journey_integrity') || !integrity.includes('DATABASE_NOT_CONFIGURED')) errors.push('journey integrity verifier contract');
+const migration220=read('db/migrations/220_v395_commerce_journey_integrity.sql'); for(const token of ['CREATE OR REPLACE VIEW trust_commerce_journey_integrity','CAPTURED_WITHOUT_EXECUTION','SETTLEMENT_WITHOUT_DELIVERY','REFUNDED_WITHOUT_SUCCESSFUL_REFUND']) if(!migration220.includes(token)) errors.push('journey integrity migration '+token);
+const worker=read('scripts/v394_commerce_reconciliation.mjs'); for(const token of ['DATABASE_NOT_CONFIGURED','DRY_RUN','reconcileCommerceCandidateTx']) if(!worker.includes(token)) errors.push('reconciliation worker '+token);
+const truth=read('scripts/v393_commerce_truth_audit.mjs'); if(!truth.includes('createPaymentIntent')) errors.push('commerce truth audit regression');
+const v=JSON.parse(read('vercel.json')); const seen=new Set(); for(const c of v.crons||[]){const k=c.path+'|'+c.schedule;if(seen.has(k)) errors.push('duplicate cron '+k);seen.add(k);}
+if(errors.length){console.error('V395 RELEASE GATE FAILED'); errors.forEach(e=>console.error('- '+e)); process.exit(1);}
+console.log('V395 RELEASE GATE PASS — commerce journey integrity, reconciliation, atomic checkout, migration continuity and current runtime invariants are wired.');

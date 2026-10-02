@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const {createSandboxLabel}=await import('../modules/platform/global-logistics-v306/sandbox.ts');
+const x={shipmentId:'s1',orderId:'o1',service:'TRUST-E2E-EXPRESS',destination:{country:'EG'}};
+const one=createSandboxLabel(x),two=createSandboxLabel(x);
+assert.deepEqual(one,two);
+assert.notEqual(one.trackingNumber,createSandboxLabel({...x,service:'TRUST-E2E-STANDARD'}).trackingNumber);
+assert.ok(fs.readFileSync('db/migrations/144_v306_global_logistics_execution.sql','utf8').includes('trust_global_logistics_execution_attempts'));
+assert.ok(fs.readFileSync('modules/platform/global-logistics-v306/runtime.ts','utf8').includes('queueGlobalLogisticsExecutionTx'));
+assert.ok(fs.readFileSync('app/api/fulfillment/global-carriers/execute/route.ts','utf8').includes("status:202"));
+console.log('V306 global logistics execution PASS — deterministic label idempotency, durable execution/attempt ledger, and API contract verified.');

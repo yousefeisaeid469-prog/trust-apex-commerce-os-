@@ -1,0 +1,1 @@
+export function parseArabicCommerceQuery(text:string){return {query:text.trim(),language:"ar",normalized:true};}

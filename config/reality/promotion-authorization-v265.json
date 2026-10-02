@@ -1,0 +1,14 @@
+{
+  "version": "V265.0.0",
+  "algorithm": "ed25519",
+  "privateKeyStorage": "external-secret-or-kms-only",
+  "policy": {
+    "signatureRequiredForEveryTransition": true,
+    "activePublicKeyRequired": true,
+    "actorKeyBindingRequired": true,
+    "payloadBindingRequired": true,
+    "replayBinding": "decisionId+decisionHash+fromState+toState+actorId+keyId+rationale+attestationRoot+evidenceLeaf",
+    "autoPromotion": false
+  },
+  "protectedTransitions": ["APPROVED", "REJECTED", "PROMOTED", "REVOKED"]
+}

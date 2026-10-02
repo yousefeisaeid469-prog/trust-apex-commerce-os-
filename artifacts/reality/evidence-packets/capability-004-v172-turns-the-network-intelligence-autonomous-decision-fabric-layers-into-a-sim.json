@@ -1,0 +1,179 @@
+{
+  "id": "evidence-packet:capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim",
+  "contractId": "capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V172.md:12",
+  "claim": "V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be evaluated against a counterfactual twin before production execution.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/decision-fabric.test.ts",
+      "tests/source-invariants.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v144-autonomous-reliability-loop.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v146-deployment-autopilot.test.mjs",
+      "tests/v147-progressive-delivery.test.mjs",
+      "tests/v148-global-deployment-control.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 320,
+        "token": "network",
+        "excerpt": "\"text\": \"This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 35,
+        "token": "network",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V167.md:15 (docs line 15) — This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require r",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 257,
+        "token": "network",
+        "excerpt": "\"id\": \"capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 26,
+        "token": "network",
+        "excerpt": "- **capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim** — unassigned — DRAFT — V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 352,
+        "token": "network",
+        "excerpt": "\"claim\": \"This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 1943,
+        "token": "network",
+        "excerpt": "\"claim\": \"This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 237,
+        "token": "network",
+        "excerpt": "\"text\": \"This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 242,
+        "token": "network",
+        "excerpt": "\"text\": \"This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/decision-fabric.test.ts",
+        "hits": [
+          "decision",
+          "evaluated"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "decision",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "decision",
+          "decisions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v144-autonomous-reliability-loop.test.mjs",
+        "hits": [
+          "autonomous",
+          "decision",
+          "decisions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "decision",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v146-deployment-autopilot.test.mjs",
+        "hits": [
+          "decision",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v147-progressive-delivery.test.mjs",
+        "hits": [
+          "decision",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v148-global-deployment-control.test.mjs",
+        "hits": [
+          "decision",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "511e9228a24b6da8b6b08c675cbbfded49ba7ab37693a5449647f654d7c4d979",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

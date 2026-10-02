@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+for (const f of ['modules/platform/commerce-events/contracts.ts','modules/platform/commerce-events/core.ts','modules/platform/commerce-events/registry.ts']) assert.ok(fs.existsSync(path.join(root,f)),`missing ${f}`);
+const registry=fs.readFileSync(path.join(root,'modules/platform/commerce-events/registry.ts'),'utf8');
+const core=fs.readFileSync(path.join(root,'modules/platform/commerce-events/core.ts'),'utf8');
+const publisher=fs.readFileSync(path.join(root,'scripts/commerce_event_publisher.mjs'),'utf8');
+assert.match(registry,/enqueueSubscribedDeliveriesTx/); assert.match(registry,/validateEventContractTx/); assert.match(registry,/getSubscription/);
+assert.match(core,/normalizeOutboxEventType/); assert.match(publisher,/runCommerceEventPublisher/); assert.match(read('modules/platform/commerce-events/publisher.ts'),/appendEventTx/); assert.match(read('modules/platform/durable-events/tx.ts'),/enqueueSubscribedDeliveriesTx/);
+assert.match(core,/order\.created/); assert.match(core,/PAYMENT_CONFIRMED/);
+console.log('V360 real commerce event backbone: PASS');

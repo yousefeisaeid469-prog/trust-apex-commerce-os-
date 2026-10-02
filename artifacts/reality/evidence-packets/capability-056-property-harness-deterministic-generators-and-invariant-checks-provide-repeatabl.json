@@ -1,0 +1,182 @@
+{
+  "id": "evidence-packet:capability-056-property-harness-deterministic-generators-and-invariant-checks-provide-repeatabl",
+  "contractId": "capability-056-property-harness-deterministic-generators-and-invariant-checks-provide-repeatabl",
+  "sourceId": "draft-doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8",
+  "claim": "Property Harness: deterministic generators and invariant checks provide repeatable regression cases.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v140-reliability.test.mjs",
+      "tests/v141-verification-chaos.test.mjs",
+      "tests/v181-production-integration.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v201-fulfillment-tracking.test.mjs",
+      "tests/v223-observability.test.mjs",
+      "tests/v233-fulfillment-operations.test.mjs",
+      "tests/v234-returns-refunds.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 1211,
+        "token": "property",
+        "excerpt": "\"text\": \"Property Harness: deterministic generators and invariant checks provide repeatable regression cases.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 116,
+        "token": "property",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8 (docs line 8) — Property Harness: deterministic generators and invariant checks provide repeatable regression cases.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 4372,
+        "token": "property",
+        "excerpt": "\"id\": \"capability-056-property-harness-deterministic-generators-and-invariant-checks-provide-repeatabl\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 78,
+        "token": "property",
+        "excerpt": "- **capability-056-property-harness-deterministic-generators-and-invariant-checks-provide-repeatabl** — unassigned — DRAFT — Property Harness: deterministic generators and invariant checks provide repeatable regression cases.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 2406,
+        "token": "property",
+        "excerpt": "\"claim\": \"Property Harness: deterministic generators and invariant checks provide repeatable regression cases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 13227,
+        "token": "property",
+        "excerpt": "\"claim\": \"Property Harness: deterministic generators and invariant checks provide repeatable regression cases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1580,
+        "token": "property",
+        "excerpt": "\"text\": \"Property Harness: deterministic generators and invariant checks provide repeatable regression cases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 874,
+        "token": "property",
+        "excerpt": "\"text\": \"Property Harness: deterministic generators and invariant checks provide repeatable regression cases.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v140-reliability.test.mjs",
+        "hits": [
+          "property",
+          "harness",
+          "deterministic",
+          "invariant",
+          "repeatable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v141-verification-chaos.test.mjs",
+        "hits": [
+          "deterministic",
+          "invariant",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v181-production-integration.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v201-fulfillment-tracking.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v223-observability.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v233-fulfillment-operations.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v234-returns-refunds.test.mjs",
+        "hits": [
+          "deterministic",
+          "provide"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "d65a9e21018cc1502d3adacd12037922dc34491677991b0bc8c8c4cc88d25391",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

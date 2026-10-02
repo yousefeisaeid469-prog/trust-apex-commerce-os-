@@ -1,0 +1,3 @@
+import {buildRevenueDecisionLoop} from '../modules/platform/revenue-decision-loop/index.ts';
+const plan=buildRevenueDecisionLoop({optimizationInputs:[{programId:'marketplace-commission',observedEvents:100,eligibleUnits:120,averageChargeMinor:1500n,variableCostBps:800,demandScore:88,conversionScore:82,retentionScore:70,operationalScore:92,riskScore:18,evidenceCoverage:96}],experiments:[{experimentId:'commission-rate-01',programId:'marketplace-commission',controlEligible:120,treatmentEligible:125,controlConversions:42,treatmentConversions:50,controlRevenueMinor:63000n,treatmentRevenueMinor:81250n,controlCostMinor:7000n,treatmentCostMinor:9000n}]});
+console.log(JSON.stringify(plan,(_,v)=>typeof v==='bigint'?v.toString():v,null,2));

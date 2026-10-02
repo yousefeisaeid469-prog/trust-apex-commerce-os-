@@ -1,0 +1,13 @@
+# V122 Release Checklist
+- [x] Merchant graph contracts
+- [x] Explainable routing engine
+- [x] Eligibility gates for seller/offer/quantity
+- [x] Region/currency boundaries
+- [x] Private admin surface
+- [x] PostgreSQL graph + routing decision migration
+- [x] Release scripts updated to V122
+- [x] ZIP integrity verified
+- [x] TypeScript syntax transpile verified
+- [ ] Production database migration executed
+- [ ] Live inventory/carrier/FX/tax/KYC providers connected and verified
+- [ ] Full next build in dependency-complete environment

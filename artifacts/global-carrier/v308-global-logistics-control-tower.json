@@ -1,0 +1,7 @@
+{
+  "version":"V308.0.0",
+  "status":"GLOBAL_LOGISTICS_CONTROL_TOWER_VERIFIED",
+  "migration":146,
+  "liveCarrierConnectivity":false,
+  "capabilities":["order-level logistics control tower","fleet-level carrier visibility","deterministic shipment risk scoring","ETA/SLA drift detection","exception-aware operator actions","durable risk snapshots","carrier-agnostic monitoring"]
+}

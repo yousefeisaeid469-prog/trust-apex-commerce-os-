@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";export async function POST(req:Request){const b=await req.json().catch(()=>({}));return NextResponse.json({accepted:true,status:"simulated",scenario:b?.scenario??"base",productionMutation:false})}

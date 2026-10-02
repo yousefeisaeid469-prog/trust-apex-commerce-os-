@@ -1,0 +1,1 @@
+export function recommend(i:{heightCm:number;weightKg:number;preference:string}){const bmi=i.weightKg/((i.heightCm/100)**2);return {bmiBand:bmi<18.5?"slim":bmi<25?"regular":bmi<30?"broad":"plus",preference:i.preference,requiresMerchantSizeChart:true};}

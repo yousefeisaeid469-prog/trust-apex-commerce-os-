@@ -1,0 +1,119 @@
+# TRUST V261.0.0 — Reality Evidence Promotion
+
+Generated: 2026-09-09T01:46:49.332Z
+
+Promotion is conservative: a record is promoted only when an explicit structured claim has all declared implementation artifacts, runtime markers, and regression tests. Documentation-only records are queued for contract authoring, never promoted by lexical inference.
+
+## Counts
+- Structured claims: 8
+- Ready for promotion: 8
+- Blocked structured claims: 0
+- Documentation-only queue: 96
+
+## Structured claims
+- **READY_FOR_PROMOTION** — v244-runtime-subscriptions — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v244-contract-versions — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v244-bounded-retries — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v244-ordering — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v244-poison-isolation — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v245-domain-effects — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v246-registry-authority — implementation=true, markers=true, tests=true
+- **READY_FOR_PROMOTION** — v247-schema-validation — implementation=true, markers=true, tests=true
+
+## Documentation-only queue
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V138.md:31 — Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of production sca
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V139.md:10 — This release does not claim that source verification substitutes for production deployment, real concurrency/load tests, disaster recovery exercises, third party penetration testing, provider certification, or commercial traction.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V140.md:18 — Source level verification does not imply live production load, chaos, DR restore, penetration testing, provider certification or commercial traction. Those require deployment evidence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V141.md:9 — Production certification still requires real infrastructure, load, security and DR evidence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V142.md:13 — This release provides executable in process reliability evidence. It does not claim live production fault injection, production SLO attainment, or infrastructure RTO/RPO without corresponding deployment evidence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V144.md:19 — Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V145.md:1 — TRUST V145 — PRODUCTION RELIABILITY INTEGRATION
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V147.md:13 — The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconciliation, 
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V148.md:10 — Reference adapter is in memory and explicitly bounded; live cloud control requires production adapters and credentials.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V149.md:1 — TRUST V149 — Production Infrastructure
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V150.md:1 — TRUST V150 — Production Control Plane
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V151.md:1 — TRUST V151 — Production Bootstrap
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V166.md:3 — TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent commerce e
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V167.md:15 — This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V168.md:9 — Supplier decisions fail closed for critical risk suppliers.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V169.md:14 — This release provides financial domain primitives and contracts. It does not claim to be a bank, tax authority, payment processor, accounting certification, or live banking integration. Production settlement requires approved payment/bankin
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V171.md:8 — Approval gates and idempotent execution receipts
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V172.md:12 — V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be evaluated against a counterfactual twin before production execution.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V173.md:10 — No direct production side effects from learning
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V174.md:5 — Verification is reported by the release gate and test suite for this build. External integrations, real production traffic, browser E2E, DR, and independent security testing remain environment dependent evidence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V175.md:7 — Validation targets: full automated suite, migration integrity, contract integrity, and release gate. Environment dependent claims remain unproven until real infrastructure, providers, production traffic, browser E2E, disaster recovery, and 
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V176.md:3 — V176 adds the execution boundary beneath the Chief Decision Orchestrator: policy validation, approval gates, idempotent execution receipts, tenant scoped rollback, and simulation.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V177.md:6 — Adapter routing for pricing, supply, fulfillment, finance, support, trust, and generic actions.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V178.md:19 — Local tests prove deterministic contracts and in memory semantics. Production broker durability, PostgreSQL transactionality, cross process ordering, external exactly once effects, and provider integration remain environment dependent until
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V179.md:8 — Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V180.md:1 — TRUST V180 — Production Data Plane
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V181.md:4 — Release: Real Production Integration Layer
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V182.md:3 — V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V183.md:13 — The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing production in
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V185.md:1 — TRUST APEX OS V185 — Purchase Guardian Production Hardening
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V186.md:3 — V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V187.md:6 — Webhook receipt persists a durable reconciliation job.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V188.md:5 — Durable provider registry with SANDBOX/LIVE separation.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V189.md:14 — Reduced motion accessibility support.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V190.md:14 — Preserved accessibility and reduced motion support
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V192.md:5 — V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities, and int
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V193.md:15 — Real payment, fulfillment, tax, advertising, and provider connectivity still require their configured production adapters and credentials. V193 does not claim those integrations merely from UI presence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V194.md:7 — Unified AI Experience contracts and deterministic decision support core.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V195.md:7 — Unified AI Experience contracts and deterministic decision support core.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V196.md:19 — No production performance metrics are fabricated.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V197.md:12 — V197 does not claim a distributed production search cluster or live semantic/vector search. Ranking runs against the active catalog data returned by the existing PostgreSQL repository.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V198.md:7 — A safer product → cart → server preview → order confirmation path with authoritative price/stock/shipping checks, explicit stale state recovery, and idempotent checkout concurrency protection.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V199.md:4 — V199 delivers a durable post purchase customer experience on top of the V198 checkout/cart boundary.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V200.md:4 — V200 establishes a durable post purchase notification control plane.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V201.md:5 — V201 adds a durable shipment and tracking domain on top of the V199 order lifecycle and V200 post purchase notifications foundation.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V203.md:13 — Durable revenue event and growth experiment schema.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V206.md:26 — Production provider integrations remain explicit adapter work.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V207.md:5 — V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V208.md:5 — V208 adds TRUST One Commerce Network: a unified retention, protection, savings, bundle, reorder, support, and loyalty decision layer.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V209.md:14 — This release improves product coherence and navigation. Production billing, membership, wallet/cashback, carrier, advertising and authenticated personalization still require their real providers and account context.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V211.md:8 — Explicit separation between decision support and sensitive execution.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V212.md:14 — Reconciliation is expected only after a real provider result exists.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V214.md:11 — No durable cross process command store is claimed in this release
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V216.md:8 — Durable PostgreSQL revenue ledger with tenant + idempotency uniqueness.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V217.md:6 — Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V220.md:15 — A scale signal is not automatic permission to change live economics. Production changes require explicit policy, provider readiness, deployment controls, and evidence.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V221.md:1 — TRUST V221 — Production Readiness, Security & Scale
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V222.md:3 — Production Security & Scalability Hardening
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V223.md:3 — Current release: V223.0.0 — Production Observability & Global Infrastructure
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V224.md:3 — Production Security & Scale Hardening 2.0
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V227.md:5 — V227 upgrades the V226 owner room from request only controls to a durable owner live control state for three emergency controls: maintenance mode, global freeze, and autonomy kill switch.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V228.md:16 — npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V231.md:3 — V231 hardens the path from durable checkout to payment evidence and merchant order execution.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V233.md:8 — Durable provider event and reconciliation job queues.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V234.md:3 — Durable returns, inspection, refund settlement, reconciliation and customer resolution.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V236.md:3 — V236 adds a durable customer experience kernel: profiles, addresses, wishlists, saved carts, reviews, preferences, privacy workflows, timeline and maintenance workers.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V237.md:3 — V237 extends the V236 customer commerce/data platform with a durable merchant operating system and control plane. It adds merchant scoped persistence and execution primitives across catalog, inventory, pricing, promotions, payouts, tax, sta
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/MASTER-RELEASE-V250.md:1 — TRUST V250.0.0 — Durable Autonomous Commerce Orchestrator
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V161-GLOBAL-MARKETPLACE.md:12 — Stronger TypeScript configuration and production control plane typing fixes.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V162-GLOBAL-DISCOVERY.md:19 — The engine is intentionally deterministic and dependency free. For very large catalogs, the next production step is to back the same contract with PostgreSQL full text/trigram indexes or a dedicated search provider, then blend lexical relev
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V163-MARKETPLACE-OFFERS.md:12 — This is an engine layer, not a claim that live Amazon/Temu/Shein scale carrier, payment, seller, or inventory networks exist locally. Production deployment still requires real databases, payment providers, carriers, tax engines and seller i
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V164-SUPER-COMMERCE.md:19 — Outputs remain explainable so production policy can audit why an outcome occurred.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V237-REALITY-CONSOLIDATION.md:3 — This patch hardens V237 around one rule: production state must be durable and truthful .
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V238-PRODUCTION-REALITY-HARDENING.md:1 — TRUST V238 — Production Reality Hardening
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/releases/V240-PROVIDER-RELIABILITY.md:5 — V240 hardens the V239 real provider execution boundary. It does not claim a production provider is certified merely because the generic adapter exists.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/AUTONOMOUS-CONTROL-PLANE-V139.md:9 — Controlled chaos scenarios for failure injection tests; production enablement must remain explicitly gated.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/AUTONOMOUS-RELIABILITY-LOOP-V144.md:20 — V144 does not pretend that an in process adapter is live production infrastructure. InMemoryRuntimeEnforcer is executable integration evidence. A production deployment supplies an implementation of RuntimeEnforcer connected to its orchestra
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/CELL-SCALE-V241.md:19 — Important production boundary
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16 — persisted SQL schemas provide durable targets for campaign/verdict/corpus records.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/CUSTOMER-COMMERCE-OS-V236.md:3 — V236 makes customer owned commerce state durable and auditable. It adds PostgreSQL backed profiles, addresses, wishlists, saved carts, reviews, preferences, privacy jobs and a customer timeline.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/CUSTOMER-DATA-PLATFORM-V236.md:3 — This layer turns customer experience into a durable operational domain. It contains an event ledger, deterministic segmentation, consent evaluation, customer search/context, journey execution, analytics, quality policies and maintenance dia
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/DEPLOYMENT-AUTOPILOT-V146.md:3 — V146 turns the V145 production reliability boundary into a deterministic deployment state machine.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/DURABLE-EVENT-BACKBONE-V242.md:1 — TRUST V242 — Durable Event Backbone
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/EXECUTABLE-RELIABILITY-LABORATORY-V142.md:6 — Faults are injected into the TRUST reliability execution boundary, not into a live production environment. Production fault injection still requires an explicitly authorized deployment adapter.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/FULFILLMENT-PROVIDER-EXECUTION-V233.md:9 — 3. The adapter performs a real HTTP request when provider endpoint and secret are configured. Otherwise the operation fails closed with PROVIDER REQUIRED .
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/GLOBAL-DEPLOYMENT-INTELLIGENCE-V148.md:15 — The reference implementation is an in memory verification adapter. It does not claim live control of Kubernetes, AWS, GCP, Azure, DNS, service mesh, or CDN traffic. Production deployment requires concrete adapters, credentials, RBAC, idempo
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md:3 — V237 turns the merchant surface into a durable operating control plane. It introduces canonical persistence for merchant operating accounts, catalog publication, inventory balances/reservations/movements, price books and rules, promotions, 
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/PRODUCTION-CONTROL-PLANE-V150.md:1 — TRUST V150 — Production Control Plane
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/PRODUCTION-INFRASTRUCTURE-V149.md:1 — TRUST V149 — Production Infrastructure
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/PRODUCTION-RELIABILITY-INTEGRATION-V145.md:1 — TRUST V145 — Production Reliability Integration
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11 — scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/REALITY-CONSOLIDATION-V237.md:5 — V237 is now split into one canonical runtime path and explicitly non runtime legacy contracts. Production commerce state is durable PostgreSQL state; process memory and fixtures are not accepted as a production data source.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8 — Property Harness: deterministic generators and invariant checks provide repeatable regression cases.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md:3 — V234 turns returns into a durable commerce workflow rather than a support only flag.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md:5 — V235 turns the post delivery side of commerce into a durable execution layer. A return is no longer the end of the workflow: recovered inventory, replacements, store credit and financial evidence are first class aggregates.
+- **BLOCKED_NO_STRUCTURED_CLAIM** — doc:docs/architecture/VERIFICATION-CHAOS-ENGINE-V141.md:7 — The system is not considered verified because a happy path test passes. A scenario must be reproducible from a seed, bounded by explicit limits, fail closed on invariant violations, and produce evidence suitable for release review.

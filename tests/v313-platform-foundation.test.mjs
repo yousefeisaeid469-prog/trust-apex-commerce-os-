@@ -1,0 +1,30 @@
+import assert from 'node:assert/strict';
+import {selectFailoverRegion,deploymentGate,restoreDrill} from '../modules/platform/v313/infrastructure/core.ts';
+import {normalizeTelemetry,telemetryMetric} from '../modules/platform/v313/infrastructure/observability.ts';
+import {routePayment,captureJournal,reconcileProvider,acceptFinancialOperation,settlementJournal} from '../modules/platform/v313/payments/core.ts';
+import {optimizeShipment,shouldReroute,allocateWarehouse} from '../modules/platform/v313/logistics/core.ts';
+import {decide,advanceDecision,learningUpdate,runDecisionLoop} from '../modules/platform/v313/decision-engine/core.ts';
+import {scoreRisk} from '../modules/platform/v313/risk/core.ts';
+import {localizeCommerce} from '../modules/platform/v313/commerce/core.ts';
+import {authorize,securityEvent,rotateKey} from '../modules/platform/v313/security/core.ts';
+import {assertTenantIsolation,tenantCanOperate} from '../modules/platform/v313/tenancy/core.ts';
+import {normalizeEvent,aggregate} from '../modules/platform/v313/analytics/core.ts';
+import {evidenceHash,criticalWorkflowGate} from '../modules/platform/v313/evidence/core.ts';
+
+const r=selectFailoverRegion([{id:'eu',priority:2,state:'FAILED',capacityPct:90},{id:'eg',priority:1,state:'HEALTHY',capacityPct:20}]);assert.equal(r.id,'eg');
+assert.equal(deploymentGate({healthyRegions:2,minHealthyRegions:2,errorRate:.01,p95Ms:100,maxErrorRate:.05,maxP95Ms:300}),true);
+assert.equal(restoreDrill({backupChecksum:'a',restoredChecksum:'a',criticalRowsBefore:10,criticalRowsAfter:10}).passed,true);
+const provider=routePayment([{id:'p1',currencies:['USD'],methods:['card'],health:.7,priority:2,enabled:true},{id:'p2',currencies:['USD'],methods:['card'],health:.9,priority:3,enabled:true}],{currency:'USD',method:'card'});assert.equal(provider.id,'p2');
+const journal=captureJournal({amountMinor:10000n,currency:'USD',platformFeeMinor:1000n,paymentFeeMinor:300n});assert.equal(journal.length,4);
+assert.equal(reconcileProvider({expectedMinor:10000n,providerMinor:10000n}).status,'MATCH');assert.equal(acceptFinancialOperation({operation:'REFUND',idempotencyKey:'r1',amountMinor:100n,currency:'USD'}).status,'ACCEPTED');assert.equal(settlementJournal({grossMinor:10000n,platformFeeMinor:1000n,paymentFeeMinor:300n,taxMinor:700n,currency:'USD'}).length,5);
+const ship=optimizeShipment([{id:'a',country:'EG',currency:'EGP',costMinor:500n,etaDays:4,reliability:.8,capacityAvailable:true,promiseDays:5},{id:'b',country:'EG',currency:'EGP',costMinor:400n,etaDays:7,reliability:.95,capacityAvailable:true,promiseDays:5}],'PROMISE');assert.equal(ship.id,'a');assert.equal(shouldReroute({etaDays:8,promiseDays:5,reliability:.9,threshold:.8}),true);assert.equal(allocateWarehouse([{id:'w1',country:'EG',inventoryUnits:10,handlingCostMinor:200n,distanceDays:2,active:true}],{country:'EG',units:2}).id,'w1');
+let d=decide({delayRisk:95,costIncreasePct:20,confidence:.8,action:'REPLAN_CARRIER',highRiskThreshold:70});assert.equal(d.requiresHumanApproval,true);d=advanceDecision(d,'ACT');assert.equal(d.stage,'ACT');assert(learningUpdate(.5,'SUCCESS',1)>.5);assert.equal(runDecisionLoop({delayRisk:20,costIncreasePct:5,confidence:.9,action:'MONITOR',highRiskThreshold:70,verified:true,outcome:'SUCCESS'}).stage,'LEARN');
+const risk=scoreRisk({accountVelocity:12,paymentFailures:3,sellerChargebacks:2,deviceAnomaly:.8,graphLinks:6});assert.equal(risk.band,'BLOCK');assert.equal(risk.explainable,true);
+const loc=localizeCommerce({country:'EG',currency:'EGP',languages:['ar','en'],taxModel:'VAT',checkoutMethods:['card','cod'],catalogRegion:'mena'},{language:'ar',method:'cod'});assert.equal(loc.language,'ar');
+assert.equal(authorize({role:'merchant',permissions:[{action:'read',resource:'orders'}],required:{action:'read',resource:'orders'}}),true);assert.equal(securityEvent({type:'KEY_ROTATED',actorId:'a',tenantId:'t'}).type,'KEY_ROTATED');assert.equal(rotateKey(4).newVersion,5);
+assert.throws(()=>assertTenantIsolation('t1','t2'),/TENANT_ISOLATION_VIOLATION/);assert.equal(tenantCanOperate({id:'t',status:'ACTIVE',plan:'pro'}),true);
+const e1=normalizeEvent({id:'1',tenantId:'t',type:'sale',occurredAt:'2026-09-10T00:00:00Z',properties:{amount:10}});const e2=normalizeEvent({id:'2',tenantId:'t',type:'sale',occurredAt:'2026-09-10T00:01:00Z',properties:{amount:20}});assert.equal(aggregate([e1,e2],'amount').get('t'),30);
+const ev={workflow:'critical-checkout',status:'PASS',checks:['db','payment','order'],timestamp:'2026-09-10T00:00:00Z'};criticalWorkflowGate(ev);assert.equal(evidenceHash(ev).length,64);
+console.log('V313 platform foundation tests PASS');
+
+const t1=normalizeTelemetry({traceId:'tr1',service:'trust-api',region:'eg1',durationMs:100,error:false,attributes:{route:'/api'}});const t2=normalizeTelemetry({traceId:'tr2',service:'trust-api',region:'eg1',durationMs:300,error:true,attributes:{route:'/api'}});assert.equal(telemetryMetric([t1,t2]).count,2);

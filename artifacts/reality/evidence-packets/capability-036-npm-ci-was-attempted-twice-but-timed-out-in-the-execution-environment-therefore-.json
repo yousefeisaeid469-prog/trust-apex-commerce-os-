@@ -1,0 +1,142 @@
+{
+  "id": "evidence-packet:capability-036-npm-ci-was-attempted-twice-but-timed-out-in-the-execution-environment-therefore-",
+  "contractId": "capability-036-npm-ci-was-attempted-twice-but-timed-out-in-the-execution-environment-therefore-",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V228.md:16",
+  "claim": "npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v148-global-deployment-control.test.mjs",
+      "tests/v184-purchase-guardian-execution.test.mjs",
+      "tests/v188-provider-capability-registry.test.mjs",
+      "tests/v230-production-kernel.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 848,
+        "token": "attempted",
+        "excerpt": "\"text\": \"npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 83,
+        "token": "attempted",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V228.md:16 (docs line 16) — npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 2752,
+        "token": "attempted",
+        "excerpt": "\"id\": \"capability-036-npm-ci-was-attempted-twice-but-timed-out-in-the-execution-environment-therefore-\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 58,
+        "token": "attempted",
+        "excerpt": "- **capability-036-npm-ci-was-attempted-twice-but-timed-out-in-the-execution-environment-therefore-** — unassigned — DRAFT — npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot hon",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 1600,
+        "token": "attempted",
+        "excerpt": "\"claim\": \"npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 8801,
+        "token": "attempted",
+        "excerpt": "\"claim\": \"npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1053,
+        "token": "attempted",
+        "excerpt": "\"text\": \"npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 626,
+        "token": "attempted",
+        "excerpt": "\"text\": \"npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v148-global-deployment-control.test.mjs",
+        "hits": [
+          "production",
+          "dependencies"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v184-purchase-guardian-execution.test.mjs",
+        "hits": [
+          "execution",
+          "honestly"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v188-provider-capability-registry.test.mjs",
+        "hits": [
+          "execution",
+          "environment"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v230-production-kernel.test.mjs",
+        "hits": [
+          "execution",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "98f7c25cf832ad05793f35cb78ca09bb9cd4e1464a36c88d3fbfd505dca56fce",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

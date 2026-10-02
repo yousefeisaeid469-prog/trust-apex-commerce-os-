@@ -1,0 +1,3 @@
+import {NextResponse} from 'next/server';
+import {previewAdaptiveNetwork} from '../../../../../modules/platform/global-logistics-v312/runtime';
+export async function POST(req:Request){try{const body=await req.json();if(!Array.isArray(body.shipments)||!body.shipments.length)return NextResponse.json({error:'SHIPMENTS_REQUIRED'},{status:400});return NextResponse.json(await previewAdaptiveNetwork({shipments:body.shipments,capacities:body.capacities??[],objective:body.objective??'BALANCED',now:body.now,idempotencyKey:body.idempotencyKey??`adaptive:${Date.now()}`}));}catch(error){return NextResponse.json({error:error instanceof Error?error.message:'ADAPTIVE_OPTIMIZATION_FAILED'},{status:400});}}

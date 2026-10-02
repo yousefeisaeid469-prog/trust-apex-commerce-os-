@@ -1,0 +1,5 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getCurrentUser } from '../../../../modules/platform/auth/current-user';
+import { query } from '../../../../modules/platform/db/postgres';
+export const dynamic='force-dynamic';
+export async function GET(req:NextRequest){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});const [orders,cart,returns,notes]=await Promise.all([query(`select id,status,total,created_at from trust_orders where customer_id=$1 order by created_at desc limit 10`,[u.id]),query(`select coalesce(sum(ci.quantity),0)::int items from trust_cart_items ci join trust_carts c on c.id=ci.cart_id where c.customer_id=$1`,[u.id]),query(`select count(*)::int count from trust_returns where customer_id=$1`,[u.id]),query(`select count(*)::int count from trust_notifications where user_id=$1 and status in ('QUEUED','SENT')`,[u.id])]);return NextResponse.json({ok:true,dashboard:{orders:orders.rows,cartItems:Number(cart.rows[0]?.items??0),returns:Number(returns.rows[0]?.count??0),notifications:Number(notes.rows[0]?.count??0)}})}

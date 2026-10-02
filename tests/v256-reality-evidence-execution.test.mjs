@@ -1,0 +1,12 @@
+import fs from 'node:fs';
+const a = JSON.parse(fs.readFileSync('artifacts/reality/reality-evidence-execution.json','utf8'));
+const pkg = JSON.parse(fs.readFileSync('package.json','utf8'));
+if (a.version !== `V${pkg.version}`) throw new Error(`version=${a.version}`);
+if (a.counts.structuredClaims !== 8) throw new Error(`structuredClaims=${a.counts.structuredClaims}`);
+if (a.counts.evidenceExecuted !== 8) throw new Error(`evidenceExecuted=${a.counts.evidenceExecuted}`);
+if (a.counts.blocked !== 0) throw new Error(`blocked=${a.counts.blocked}`);
+if (a.counts.autoPromoted !== 0) throw new Error(`autoPromoted=${a.counts.autoPromoted}`);
+if (a.results.some(r => r.status !== 'EVIDENCE_EXECUTED')) throw new Error('not all claims executed');
+if (a.results.some(r => !r.gates.implementation || !r.gates.runtimeMarkers || !r.gates.regressionTests)) throw new Error('incomplete evidence gate');
+if (a.results.some(r => r.tests.some(t => t.exitCode !== 0))) throw new Error('regression test execution failure');
+console.log('V256 reality evidence execution PASS — all explicit claims have executable evidence; no auto-promotion.');

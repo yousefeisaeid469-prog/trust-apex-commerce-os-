@@ -1,0 +1,49 @@
+{
+  "status": "FAIL",
+  "seed": 142142,
+  "operations": [
+    {
+      "id": "op-20",
+      "kind": "PROCESS",
+      "payload": "p-1314894081"
+    }
+  ],
+  "faults": [
+    {
+      "at": 0,
+      "kind": "REORDER",
+      "operationId": "op-20"
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "operation": {
+        "id": "op-20",
+        "kind": "PROCESS",
+        "payload": "p-1314894081"
+      },
+      "stateBefore": "NEW",
+      "stateAfter": "NEW",
+      "injectedFault": {
+        "at": 0,
+        "kind": "REORDER",
+        "operationId": "op-20"
+      },
+      "ok": false,
+      "error": "ILLEGAL_TRANSITION:NEW:PROCESS"
+    }
+  ],
+  "invariant": "STATE_TERMINAL_INVALID",
+  "failure": "ILLEGAL_TRANSITION:NEW:PROCESS",
+  "latencyMs": [
+    1
+  ],
+  "slo": {
+    "errorRate": 2,
+    "p95Ms": 1,
+    "availability": -1,
+    "budgetConsumedPct": 100
+  },
+  "fingerprint": "7d5519a6e9de0c99aadd91c6a13ec6d58a4957289efd793a04874f58e90b9448"
+}

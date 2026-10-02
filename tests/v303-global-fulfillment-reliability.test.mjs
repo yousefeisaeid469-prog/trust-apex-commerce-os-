@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const required=['db/migrations/141_v303_global_fulfillment_reliability.sql','modules/platform/global-fulfillment-v303/reliability.ts','modules/platform/global-fulfillment-v303/index.ts','app/api/orders/global/[id]/reliability/route.ts','docs/architecture/GLOBAL-FULFILLMENT-RELIABILITY-V303.md'];
+for(const f of required)assert.ok(fs.existsSync(f),`missing ${f}`);
+const m=fs.readFileSync(required[0],'utf8');
+for(const x of ['trust_global_fulfillment_exceptions','trust_global_fulfillment_recovery_actions','trust_global_fulfillment_sla_snapshots','RETRY_TRACKING','max_attempts','health'])assert.match(m,new RegExp(x));
+const r=fs.readFileSync(required[1],'utf8');
+for(const x of ['openFulfillmentExceptionTx','createRecoveryActionTx','runRecoveryActionTx','resolveFulfillmentExceptionTx','snapshotGlobalFulfillmentHealthTx','GLOBAL_FULFILLMENT_RELIABILITY_VERSION','V303.0.0','exhausted'])assert.match(r,new RegExp(x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+const t=fs.readFileSync('modules/platform/fulfillment-tracking-3/core.ts','utf8');assert.match(t,/openFulfillmentExceptionTx/);assert.match(t,/status==='EXCEPTION' && input\.exceptionCode/);
+console.log('V303 exception runtime contract PASS');
+console.log('V303 bounded recovery contract PASS');
+console.log('V303 fulfillment health evidence contract PASS');

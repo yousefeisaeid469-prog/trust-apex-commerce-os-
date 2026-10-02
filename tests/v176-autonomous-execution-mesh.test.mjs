@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {planExecution,executeOnce,rollback,simulateExecution} from '../modules/platform/autonomous-execution-mesh/core.ts';
+const policy={maxRiskBps:3000,maxBudgetMinor:100000n,requireApprovalAboveRiskBps:2500};
+const base={commandId:'cmd-1',tenantId:'t1',decisionId:'d1',action:'PRICE',riskBps:1200,budgetMinor:5000n,payload:{sku:'sku-1'},createdAt:1};
+test('execution mesh plans policy-safe commands',()=>{const p=planExecution(base,policy);assert.equal(p.status,'READY');assert.equal(p.requiresApproval,false);});
+test('high-risk commands require approval',()=>{const p=planExecution({...base,commandId:'cmd-2',riskBps:2800},policy);assert.equal(p.status,'READY');assert.equal(p.requiresApproval,true);assert.equal(executeOnce(p,false,2,new Set()).status,'BLOCKED');assert.equal(executeOnce(p,true,2,new Set()).status,'EXECUTED');});
+test('policy blocks unsafe action and budget',()=>{const p=planExecution({...base,commandId:'cmd-3',budgetMinor:100001n},policy);assert.equal(p.status,'BLOCKED');const q=planExecution({...base,commandId:'cmd-4',action:'FINANCE'}, {...policy,allowedActions:['PRICE']});assert.equal(q.status,'BLOCKED');});
+test('execution is idempotent and rollback is tenant-scoped',()=>{const p=planExecution(base,policy),seen=new Set(),a=executeOnce(p,false,3,seen),b=executeOnce(p,false,4,seen);assert.equal(a.status,'EXECUTED');assert.equal(b.status,'DUPLICATE');assert.equal(rollback(a,'other',5).status,'NOT_FOUND');assert.equal(rollback(a,'t1',6).status,'ROLLED_BACK');});
+test('simulation does not execute',()=>{const p=simulateExecution({...base,commandId:'cmd-sim'},policy);assert.equal(p.status,'READY');assert.equal(p.commandId,'cmd-sim');});

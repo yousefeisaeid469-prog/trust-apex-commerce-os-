@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';
+import { resolveDelivery } from '../../../../modules/marketplace/fulfillment';
+export async function GET(req:Request){const u=new URL(req.url),offerId=u.searchParams.get('offerId')?.trim(),region=u.searchParams.get('region')?.trim(),qty=Math.max(1,Number(u.searchParams.get('qty')??1));if(!offerId||!region||!Number.isInteger(qty))return NextResponse.json({error:'OFFER_REGION_QTY_REQUIRED'},{status:400});const option=await resolveDelivery(offerId,region,qty);if(!option)return NextResponse.json({error:'NO_FULFILLMENT_OPTION'},{status:404});return NextResponse.json({fulfillment:option});}

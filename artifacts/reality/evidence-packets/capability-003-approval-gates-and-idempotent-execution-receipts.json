@@ -1,0 +1,182 @@
+{
+  "id": "evidence-packet:capability-003-approval-gates-and-idempotent-execution-receipts",
+  "contractId": "capability-003-approval-gates-and-idempotent-execution-receipts",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V171.md:8",
+  "claim": "Approval gates and idempotent execution receipts",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v171-autonomous-decision-fabric.test.mjs",
+      "tests/v174-agent-orchestration.test.mjs",
+      "tests/v176-autonomous-execution-mesh.test.mjs",
+      "tests/v178-event-driven-execution-fabric.test.mjs",
+      "tests/v179-autonomous-commerce-reality.test.mjs",
+      "tests/v194-ai-experience.test.mjs",
+      "tests/v207-commerce-ai-copilot.test.mjs",
+      "tests/v211-commerce-brain.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 353,
+        "token": "approval",
+        "excerpt": "\"text\": \"Approval gates and idempotent execution receipts\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 38,
+        "token": "approval",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V171.md:8 (docs line 8) — Approval gates and idempotent execution receipts",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 176,
+        "token": "approval",
+        "excerpt": "\"id\": \"capability-003-approval-gates-and-idempotent-execution-receipts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 25,
+        "token": "approval",
+        "excerpt": "- **capability-003-approval-gates-and-idempotent-execution-receipts** — unassigned — DRAFT — Approval gates and idempotent execution receipts",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 430,
+        "token": "approval",
+        "excerpt": "\"claim\": \"Approval gates and idempotent execution receipts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 2366,
+        "token": "approval",
+        "excerpt": "\"claim\": \"Approval gates and idempotent execution receipts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 288,
+        "token": "approval",
+        "excerpt": "\"text\": \"Approval gates and idempotent execution receipts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 266,
+        "token": "approval",
+        "excerpt": "\"text\": \"Approval gates and idempotent execution receipts\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v171-autonomous-decision-fabric.test.mjs",
+        "hits": [
+          "approval",
+          "idempotent",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v174-agent-orchestration.test.mjs",
+        "hits": [
+          "approval",
+          "idempotent",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v176-autonomous-execution-mesh.test.mjs",
+        "hits": [
+          "approval",
+          "idempotent",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v178-event-driven-execution-fabric.test.mjs",
+        "hits": [
+          "idempotent",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v179-autonomous-commerce-reality.test.mjs",
+        "hits": [
+          "approval",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v194-ai-experience.test.mjs",
+        "hits": [
+          "approval",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v207-commerce-ai-copilot.test.mjs",
+        "hits": [
+          "approval",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v211-commerce-brain.test.mjs",
+        "hits": [
+          "approval",
+          "idempotent",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "4ca491c2241713bd5f149c08de9b6f59dbe081005233643a22a34c07b0c41a8e",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

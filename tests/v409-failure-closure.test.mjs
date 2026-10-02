@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const sql=fs.readFileSync('db/migrations/234_v409_production_failure_closure.sql','utf8');
+assert.match(sql,/boundary text NOT NULL CHECK/);
+assert.match(sql,/trust_commerce_recovery_cases/);
+assert.match(sql,/trust_commerce_recovery_attempts/);
+assert.match(sql,/trust_commerce_recovery_snapshot/);
+const recovery=fs.readFileSync('modules/commerce/core/recovery-closure.ts','utf8');
+assert.match(recovery,/PAYMENT.*INVENTORY.*FULFILLMENT.*DELIVERY.*SETTLEMENT.*RUNTIME.*UNKNOWN/s);
+assert.match(recovery,/ESCALATED/);
+assert.match(recovery,/recovery\.resumed/);
+const worker=fs.readFileSync('modules/commerce/core/execution-worker.ts','utf8');
+assert.match(worker,/recordCommerceFailureTx/);
+assert.match(worker,/resolveCommerceRecoveryTx/);
+console.log('V409 FAILURE CLOSURE TEST PASS');

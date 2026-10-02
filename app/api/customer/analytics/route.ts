@@ -1,0 +1,8 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getCurrentUser, requirePermission } from '../../../../modules/platform/auth/current-user';
+export const dynamic='force-dynamic';
+export function ok(data:Record<string,unknown>,status=200){return NextResponse.json({ok:true,surfaceStatus:'LIVE',...data},{status,headers:{'Cache-Control':'no-store'}})}
+export function fail(e:unknown,status=400){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'REQUEST_FAILED',surfaceStatus:'ERROR'},{status,headers:{'Cache-Control':'no-store'}})}
+import { getProfile } from '../../../../modules/customer-experience/profile';
+import * as analytics from '../../../../modules/customer-experience/analytics';
+export async function GET(request:NextRequest){try{const u=await getCurrentUser(request);if(!u)return fail(new Error('AUTH_REQUIRED'),401);const p=await getProfile(u.id);if(!p)return fail(new Error('PROFILE_NOT_FOUND'),404);const [orderCount,lifetimeValue,averageOrderValue,lastOrderAt,openOrderCount,returnedOrderCount,refundAmount,reviewCount,wishlistItemCount,savedCartValue]=await Promise.all([analytics.orderCount(u.id),analytics.lifetimeValue(u.id),analytics.averageOrderValue(u.id),analytics.lastOrderAt(u.id),analytics.openOrderCount(u.id),analytics.returnedOrderCount(u.id),analytics.refundAmount(u.id),analytics.reviewCount(u.id),analytics.wishlistItemCount(u.id),analytics.savedCartValue(u.id)]);return ok({metrics:{orderCount,lifetimeValue,averageOrderValue,lastOrderAt,openOrderCount,returnedOrderCount,refundAmount,reviewCount,wishlistItemCount,savedCartValue}})}catch(e){return fail(e,500)}}

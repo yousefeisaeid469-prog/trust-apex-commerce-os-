@@ -1,0 +1,12 @@
+{
+  "version": "V263.0.0",
+  "schemaVersion": "1.0",
+  "attestation": "artifacts/reality/reality-evidence-attestation-v262.json",
+  "policy": "Promotion requires an explicit decision record bound to an attestation root and exact evidence leaves. This control plane never auto-promotes; pending decisions remain non-authoritative until an authorized explicit decision is supplied.",
+  "capabilities": [
+    "capability-003-approval-gates-and-idempotent-execution-receipts",
+    "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+    "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+    "capability-012-reduced-motion-accessibility-support"
+  ]
+}

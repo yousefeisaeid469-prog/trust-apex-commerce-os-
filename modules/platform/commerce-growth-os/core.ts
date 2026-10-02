@@ -1,0 +1,7 @@
+export function rankBuyBox(xs:any[]){return xs.filter(x=>x.stock>0).map(x=>({...x,offerId:x.id,score:x.rating*100+x.deliveryScore+x.merchantScore-Number(x.priceMinor+x.shippingMinor)/10})).sort((a,b)=>b.score-a.score);}
+export function selectDeal(price:bigint,original:bigint,minDiscount:number){const pct=Number((original-price)*100n/original);return {eligible:pct>=minDiscount,discountPct:pct};}
+export function subscriptionSchedule(days:number,start:string){if(days<7||!/^\d{4}-\d{2}-\d{2}$/.test(start))throw new Error('INVALID_SUBSCRIPTION_INTERVAL');return {intervalDays:days,start,customerCancelable:true};}
+export function reorderScore(days:number,threshold:number,stock:number){return stock<=0?0:Math.max(0,Math.min(100,Math.round((days/Math.max(1,threshold))*100)));}
+export function referralReward(base:bigint,pct:number,cap:bigint){const r=base*BigInt(pct)/100n;return r>cap?cap:r;}
+export function revenuePlan(events:any[]){const bySurface:any={};for(const e of events)bySurface[e.surface]=(bySurface[e.surface]??0n)+e.amountMinor;return {totalMinor:Object.values(bySurface).reduce((a:any,b:any)=>a+b,0n),bySurface};}
+export function buildGrowthPlan(x:any){const a=[{capability:'DEALS',score:x.inventoryRisk,monetizable:true},{capability:'ADVERTISING',score:x.adDemand,monetizable:true},{capability:'REORDER',score:x.repeatRate,monetizable:true},{capability:'B2B',score:x.b2bDemand,monetizable:true},{capability:'CROSS_BORDER',score:x.crossBorderDemand,monetizable:true}];return a.sort((u,v)=>v.score-u.score);}

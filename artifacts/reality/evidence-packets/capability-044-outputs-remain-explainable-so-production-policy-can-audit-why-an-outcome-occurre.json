@@ -1,0 +1,124 @@
+{
+  "id": "evidence-packet:capability-044-outputs-remain-explainable-so-production-policy-can-audit-why-an-outcome-occurre",
+  "contractId": "capability-044-outputs-remain-explainable-so-production-policy-can-audit-why-an-outcome-occurre",
+  "sourceId": "draft-doc:docs/releases/V164-SUPER-COMMERCE.md:19",
+  "claim": "Outputs remain explainable so production policy can audit why an outcome occurred.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v203-commerce-growth-os.test.mjs",
+      "tests/v212-autonomous-commerce-control-plane.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 980,
+        "token": "outputs",
+        "excerpt": "\"text\": \"Outputs remain explainable so production policy can audit why an outcome occurred.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 95,
+        "token": "outputs",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/V164-SUPER-COMMERCE.md:19 (docs line 19) — Outputs remain explainable so production policy can audit why an outcome occurred.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 3400,
+        "token": "outputs",
+        "excerpt": "\"id\": \"capability-044-outputs-remain-explainable-so-production-policy-can-audit-why-an-outcome-occurre\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 66,
+        "token": "outputs",
+        "excerpt": "- **capability-044-outputs-remain-explainable-so-production-policy-can-audit-why-an-outcome-occurre** — unassigned — DRAFT — Outputs remain explainable so production policy can audit why an outcome occurred.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 1860,
+        "token": "outputs",
+        "excerpt": "\"claim\": \"Outputs remain explainable so production policy can audit why an outcome occurred.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 10330,
+        "token": "outputs",
+        "excerpt": "\"claim\": \"Outputs remain explainable so production policy can audit why an outcome occurred.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1223,
+        "token": "outputs",
+        "excerpt": "\"text\": \"Outputs remain explainable so production policy can audit why an outcome occurred.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 706,
+        "token": "outputs",
+        "excerpt": "\"text\": \"Outputs remain explainable so production policy can audit why an outcome occurred.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v203-commerce-growth-os.test.mjs",
+        "hits": [
+          "explainable",
+          "occurred"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v212-autonomous-commerce-control-plane.test.mjs",
+        "hits": [
+          "outcome",
+          "occurred"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "d19c37398906039592181008256777ed6bd445f6698c7b855d6acfe5831b47c6",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';
+import { routeShipment } from '../../../../../modules/platform/global-carrier-v304';
+export async function POST(req:Request){try{const b=await req.json();return NextResponse.json(await routeShipment({orderId:String(b.orderId),shipmentId:b.shipmentId?String(b.shipmentId):null,country:String(b.country),currency:String(b.currency),mode:b.mode,idempotencyKey:String(b.idempotencyKey),preferredCarrier:b.preferredCarrier?String(b.preferredCarrier):undefined,avoidCarriers:Array.isArray(b.avoidCarriers)?b.avoidCarriers.map(String):undefined}));}catch(e){return NextResponse.json({error:e instanceof Error?e.message:'CARRIER_ROUTE_FAILED'},{status:400});}}

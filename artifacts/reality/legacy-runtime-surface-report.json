@@ -1,0 +1,9 @@
+{
+  "version": "V251.0.0",
+  "generatedAt": "2026-09-21T12:30:57.992Z",
+  "policy": "Production code must enter autonomous orchestration through the durable PostgreSQL boundary; legacy process-local orchestration remains test/compatibility-only.",
+  "violations": [
+    "MISSING:legacy compatibility boundary"
+  ],
+  "legacyCompatibility": "modules/platform/autonomous-commerce-orchestrator/core.ts"
+}

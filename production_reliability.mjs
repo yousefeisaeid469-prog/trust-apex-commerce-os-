@@ -1,0 +1,16 @@
+import {executeCase} from '../modules/platform/reliability-lab/engine.ts';
+import {InMemoryProductionReliabilityRuntime} from '../modules/platform/production-reliability/runtime.ts';
+import {runProductionReliabilityCycle} from '../modules/platform/production-reliability/controller.ts';
+import {createReleaseCandidate} from '../modules/platform/production-reliability/candidate.ts';
+import {createEvidenceBundle} from '../modules/platform/production-reliability/evidence.ts';
+import {TRUST_VERSION} from '../lib/runtime/version.ts';
+import fs from 'node:fs'; import crypto from 'node:crypto';
+const runtime=new InMemoryProductionReliabilityRuntime();
+const signal={serviceId:'checkout',tenantId:'tenant-demo',rolloutId:'rollout-v145',availability:.8,errorRate:.2,p95Ms:900,budgetConsumedPct:100,replayMatches:false,newFailure:true};runtime.setSignal(signal);
+const failed=executeCase(145145,[{id:'1',kind:'OPEN'}],[{at:0,kind:'THROW',operationId:'1'}]);
+const healthy=executeCase(145145,[{id:'1',kind:'OPEN'}],[]);
+const cycle=runProductionReliabilityCycle({incidentId:'inc-v145-demo',serviceId:'checkout',tenantId:'tenant-demo',rolloutId:'rollout-v145',result:failed,blastRadius:{serviceIds:['checkout'],tenantIds:['tenant-demo'],rolloutIds:['rollout-v145']}},runtime,undefined,undefined,healthy);
+const sourceFingerprint=crypto.createHash('sha256').update(fs.readFileSync('lib/runtime/version.ts')).digest('hex');
+const migrationFingerprint=crypto.createHash('sha256').update(fs.readFileSync('db/migrations/MANIFEST.json')).digest('hex');
+const candidate=createReleaseCandidate({version:TRUST_VERSION,sourceFingerprint,migrationFingerprint,policyRevision:'v145-default-reliability-policy',buildRef:'local-production-reliability',createdAt:'2026-09-03T00:00:00.000Z'});
+const evidence=createEvidenceBundle(candidate.candidateHash,cycle);fs.mkdirSync('artifacts/production-reliability',{recursive:true});fs.writeFileSync('artifacts/production-reliability/release-candidate.json',JSON.stringify(candidate,null,2));fs.writeFileSync('artifacts/production-reliability/evidence-bundle.json',JSON.stringify(evidence,null,2));console.log(JSON.stringify({version:TRUST_VERSION,candidateHash:candidate.candidateHash,decision:cycle.loop.decision,status:cycle.loop.status,runtimeVerified:cycle.runtimeVerified,evidenceHash:evidence.bundleHash},null,2));

@@ -1,0 +1,26 @@
+name: TRUST V315 Verification
+on:
+  push:
+    paths:
+      - 'modules/platform/v315/**'
+      - 'tests/v315-verification-platform.test.mjs'
+      - 'db/migrations/153_v315_verification_platform.sql'
+      - 'scripts/v315_*.mjs'
+  pull_request:
+    paths:
+      - 'modules/platform/v315/**'
+      - 'tests/v315-verification-platform.test.mjs'
+      - 'db/migrations/153_v315_verification_platform.sql'
+      - 'scripts/v315_*.mjs'
+jobs:
+  verification:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --experimental-strip-types tests/v315-verification-platform.test.mjs
+      - run: node scripts/v315_verification_suite.mjs
+      - run: node scripts/v315_audit.mjs
+      - run: node scripts/migration_check.mjs

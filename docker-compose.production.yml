@@ -1,0 +1,30 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: trust
+      POSTGRES_USER: trust
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD}
+    volumes: [trust_pg:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL","pg_isready -U trust -d trust"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+  otel:
+    image: otel/opentelemetry-collector-contrib:0.133.0
+    command: ["--config=/etc/otelcol/config.yaml"]
+    volumes: [./ops/otel/collector.yaml:/etc/otelcol/config.yaml:ro]
+    ports: ["4318:4318"]
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgres://trust:${POSTGRES_PASSWORD}@postgres:5432/trust
+      TRUST_OTLP_ENDPOINT: http://otel:4318/v1/logs
+      TRUST_REQUIRE_TLS: "false"
+    depends_on:
+      postgres: {condition: service_healthy}
+      otel: {condition: service_started}
+    ports: ["3000:3000"]
+volumes:
+  trust_pg:

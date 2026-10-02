@@ -1,0 +1,9 @@
+{
+  "version": "V280.0.0",
+  "release": "network-intelligence",
+  "modules": [
+    "network-intelligence"
+  ],
+  "migration": "050_v170_network_intelligence.sql",
+  "verification": "tests/v170-network-intelligence.test.mjs"
+}

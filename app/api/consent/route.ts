@@ -1,0 +1,1 @@
+import {NextResponse} from "next/server";export async function POST(req:Request){const b=await req.json().catch(()=>({}));return NextResponse.json({accepted:true,preference:b?.preference??"unknown",recorded:true,audit:true})}

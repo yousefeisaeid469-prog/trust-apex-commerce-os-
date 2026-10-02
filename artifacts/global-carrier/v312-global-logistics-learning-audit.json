@@ -1,0 +1,9 @@
+{
+  "version": "V312.0.0",
+  "status": "GLOBAL_LOGISTICS_ADAPTIVE_LEARNING_VERIFIED",
+  "sampleCount": 10,
+  "profileCount": 1,
+  "confidence": 0.666667,
+  "externalCarrierConnectivity": false,
+  "liveCapacityProviderIntegration": false
+}

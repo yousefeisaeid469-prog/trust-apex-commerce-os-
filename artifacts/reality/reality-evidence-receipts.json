@@ -1,0 +1,510 @@
+{
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:57.711Z",
+  "schemaVersion": "1.0",
+  "policy": "An evidence receipt is valid only when every declared artifact exists and its SHA-256 digest is recorded, every exact runtime marker is present in a declared artifact, and every declared regression test command exits with code 0. Receipts never promote claims by themselves.",
+  "integrity": "SHA-256 artifact digests + exact marker presence + executable test exit status",
+  "counts": {
+    "receipts": 8,
+    "valid": 8,
+    "blocked": 0,
+    "promotionAllowed": 0
+  },
+  "receipts": [
+    {
+      "id": "v244-runtime-subscriptions",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:56.377Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true,
+          "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+        },
+        {
+          "file": "scripts/commerce_event_publisher.mjs",
+          "exists": true,
+          "sha256": "738907d5616f93825247ff501c517d2180ac0b96517af35fb7f7a855ca51720b"
+        },
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true,
+          "sha256": "4e2ebd9f143faa4d3cda497c8e4dc42f3b3bea77c8cd6ba612dc5b4a28e5acca"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "listEnabledSubscriptions",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "enqueueSubscribedDeliveriesTx",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/commerce_event_publisher.mjs"
+          ]
+        },
+        {
+          "marker": "getSubscription",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        },
+        {
+          "marker": "subscription.maxAttempts",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "command": "node --experimental-strip-types tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v244-contract-versions",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:56.720Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/schema-validator.ts",
+          "exists": true,
+          "sha256": "c202f5d86e21c9a0b82274f34057b6f8a60f626c8104c459870037818bfaab55"
+        },
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true,
+          "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+        },
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true,
+          "sha256": "a2f9a97a0960eb0d1754e58b01995808cabed7cc96cee5633d749b37d98b327f"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "validateJsonSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "validateEventContractTx",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "schema_version",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "modules/platform/durable-events/tx.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v247-schema-contract.test.mjs",
+          "command": "node --experimental-strip-types tests/v247-schema-contract.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V247 schema contract test: PASS",
+          "stderr": "(node:1410) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v244-bounded-retries",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:56.839Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true,
+          "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+        },
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true,
+          "sha256": "4e2ebd9f143faa4d3cda497c8e4dc42f3b3bea77c8cd6ba612dc5b4a28e5acca"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "max_attempts",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "subscription.maxAttempts",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "command": "node --experimental-strip-types tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v244-ordering",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:56.954Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true,
+          "sha256": "a2f9a97a0960eb0d1754e58b01995808cabed7cc96cee5633d749b37d98b327f"
+        },
+        {
+          "file": "modules/platform/durable-events/store.ts",
+          "exists": true,
+          "sha256": "82c0ce0369dabc5abaa3c32c83d66b8231cf89509c477cb1c597365b1ef44abd"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "pg_advisory_xact_lock",
+          "foundIn": [
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "FOR UPDATE",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        },
+        {
+          "marker": "NOT EXISTS",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v244-consumer-mesh.test.mjs",
+          "command": "node --experimental-strip-types tests/v244-consumer-mesh.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V244 consumer mesh contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v244-poison-isolation",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:57.075Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true,
+          "sha256": "4e2ebd9f143faa4d3cda497c8e4dc42f3b3bea77c8cd6ba612dc5b4a28e5acca"
+        },
+        {
+          "file": "modules/platform/durable-events/store.ts",
+          "exists": true,
+          "sha256": "82c0ce0369dabc5abaa3c32c83d66b8231cf89509c477cb1c597365b1ef44abd"
+        },
+        {
+          "file": "db/migrations/098_v244_consumer_mesh.sql",
+          "exists": true,
+          "sha256": "9237985be149facd8a23fe4c23aba73d78157cb1825a498695b1a677a7497a5a"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "trust_event_consumer_failures",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts",
+            "db/migrations/098_v244_consumer_mesh.sql"
+          ]
+        },
+        {
+          "marker": "DEAD_LETTERED",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        },
+        {
+          "marker": "retryDelivery",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs",
+            "modules/platform/durable-events/store.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v244-consumer-mesh.test.mjs",
+          "command": "node --experimental-strip-types tests/v244-consumer-mesh.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V244 consumer mesh contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v245-domain-effects",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:57.196Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/commerce/consumers/runtime.ts",
+          "exists": true,
+          "sha256": "e28eae0ebdbfb9b09abcef90e1bc44638bdb48d75582bc3c9665d5824e352eda"
+        },
+        {
+          "file": "modules/commerce/consumers/order.ts",
+          "exists": true,
+          "sha256": "18af02b85e86bb63d1e1190669f9f02072fdadafb2c0534a15ef733d60cc9185"
+        },
+        {
+          "file": "modules/commerce/consumers/payment.ts",
+          "exists": true,
+          "sha256": "63d81cc75f253fef1ebbdbdee00a3f679d9e65e9124f8c853d217b7465bf9d7e"
+        },
+        {
+          "file": "modules/commerce/consumers/inventory.ts",
+          "exists": true,
+          "sha256": "0f8f3b486bb2d1ccbafac70748a15ce0fe290efc4ded2efddef1fa22caa3a7ca"
+        },
+        {
+          "file": "modules/commerce/consumers/fulfillment.ts",
+          "exists": true,
+          "sha256": "d8c4fd337c8ba92595038dbec526ab959970eadc28f8caa1987b248d0f8e8264"
+        },
+        {
+          "file": "db/migrations/099_v245_real_domain_execution.sql",
+          "exists": true,
+          "sha256": "edf06218c2a00c08b1660263b77055150b8d6c959dcb133dff6040a888be64c4"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "trust_domain_effects",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "db/migrations/099_v245_real_domain_execution.sql"
+          ]
+        },
+        {
+          "marker": "runEffect",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "modules/commerce/consumers/order.ts",
+            "modules/commerce/consumers/payment.ts",
+            "modules/commerce/consumers/inventory.ts",
+            "modules/commerce/consumers/fulfillment.ts"
+          ]
+        },
+        {
+          "marker": "PROCESSING",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "db/migrations/099_v245_real_domain_execution.sql"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v245-domain-execution.test.mjs",
+          "command": "node --experimental-strip-types tests/v245-domain-execution.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V245 domain execution contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v246-registry-authority",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:57.323Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true,
+          "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+        },
+        {
+          "file": "db/migrations/100_v246_runtime_consumer_registry.sql",
+          "exists": true,
+          "sha256": "0c83fb27ed5d19a9a1ccb16385fe88fb28daa011fd68b769571c185551e6e969"
+        },
+        {
+          "file": "scripts/consumer_registry_audit.mjs",
+          "exists": true,
+          "sha256": "975cce6252484db940da9ae6f3fd3d407c46adaa17c0fc9dfb5c4288f3545c7b"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "setSubscription",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        },
+        {
+          "marker": "registerEventSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        },
+        {
+          "marker": "getEventSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "command": "node --experimental-strip-types tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ],
+      "promotionAllowed": false
+    },
+    {
+      "id": "v247-schema-validation",
+      "version": "V261.0.0",
+      "generatedAt": "2026-09-09T01:46:57.711Z",
+      "status": "EVIDENCE_RECEIPT_VALID",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/schema-validator.ts",
+          "exists": true,
+          "sha256": "c202f5d86e21c9a0b82274f34057b6f8a60f626c8104c459870037818bfaab55"
+        },
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true,
+          "sha256": "a2f9a97a0960eb0d1754e58b01995808cabed7cc96cee5633d749b37d98b327f"
+        },
+        {
+          "file": "scripts/reality_proof_audit.mjs",
+          "exists": true,
+          "sha256": "ae39bb08db99751e21f1dc6f298a062c7be789c14d6470b60ad1f1793800f101"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "validateJsonSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "scripts/reality_proof_audit.mjs"
+          ]
+        },
+        {
+          "marker": "EVENT_PAYLOAD_TOO_LARGE",
+          "foundIn": [
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "additionalProperties",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "scripts/reality_proof_audit.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v247-schema-contract.test.mjs",
+          "command": "node --experimental-strip-types tests/v247-schema-contract.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "V247 schema contract test: PASS",
+          "stderr": "(node:1476) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ],
+      "promotionAllowed": false
+    }
+  ]
+}

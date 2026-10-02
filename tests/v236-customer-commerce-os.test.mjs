@@ -1,0 +1,68 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+const exists=f=>fs.existsSync(path.join(root,f));
+const checks=[];
+function test(name,fn){try{fn();checks.push([name,true]);}catch(e){checks.push([name,false,e]);}}
+const required=[
+'modules/customer-experience/contracts.ts','modules/customer-experience/helpers.ts','modules/customer-experience/profile.ts','modules/customer-experience/wishlist.ts','modules/customer-experience/saved-carts.ts','modules/customer-experience/reviews.ts','modules/customer-experience/preferences.ts','modules/customer-experience/privacy.ts','modules/customer-experience/core.ts','modules/customer-experience/worker.ts','modules/customer-experience/index.ts',
+'app/api/customer/dashboard/route.ts','app/api/customer/profile/route.ts','app/api/customer/addresses/route.ts','app/api/customer/addresses/[id]/route.ts','app/api/customer/wishlists/route.ts','app/api/customer/wishlists/[id]/route.ts','app/api/customer/saved-carts/route.ts','app/api/customer/saved-carts/[id]/route.ts','app/api/customer/reviews/route.ts','app/api/customer/reviews/[id]/route.ts','app/api/customer/preferences/route.ts','app/api/customer/privacy/route.ts','app/api/customer/timeline/route.ts','app/api/customer/maintenance/route.ts','app/customer-commerce/page.tsx','db/migrations/088_v236_customer_commerce_os.sql'];
+for(const f of required)test(`artifact:${f}`,()=>assert.equal(exists(f),true));
+const contracts=read('modules/customer-experience/contracts.ts');
+test('contracts: lifecycle',()=>assert.match(contracts,/ACTIVE.*SUSPENDED.*DELETED.*PENDING_DELETION/s));
+test('contracts: address kind',()=>assert.match(contracts,/SHIPPING.*BILLING/s));
+test('contracts: wishlist cap',()=>assert.match(contracts,/WISHLIST_MAX_ITEMS=500/));
+test('contracts: saved cart cap',()=>assert.match(contracts,/SAVED_CART_MAX_ITEMS=100/));
+test('contracts: review range',()=>assert.match(contracts,/REVIEW_RATING_MIN=1/));
+const sql=read('db/migrations/088_v236_customer_commerce_os.sql');
+for(const table of ['trust_customer_profiles','trust_customer_addresses','trust_wishlists','trust_wishlist_items','trust_saved_carts','trust_saved_cart_items','trust_customer_reviews','trust_customer_preferences','trust_customer_privacy_jobs','trust_customer_timeline','trust_customer_activity'])test(`sql:${table}`,()=>assert.match(sql,new RegExp(`create table if not exists ${table}`)));
+test('sql: customer FK',()=>assert.match(sql,/references trust_customer_profiles\(id\) on delete cascade/g));
+test('sql: review rating constraint',()=>assert.match(sql,/rating integer not null check\(rating between 1 and 5\)/));
+test('sql: privacy queue index',()=>assert.match(sql,/trust_customer_privacy_jobs_queue_idx/));
+test('sql: timeline uniqueness',()=>assert.match(sql,/unique\(customer_id,entity_type,entity_id,action\)/));
+const profile=read('modules/customer-experience/profile.ts');
+test('profile: transactional address create',()=>assert.match(profile,/return transaction\(async client/));
+test('profile: address row lock',()=>assert.match(profile,/for update/));
+test('profile: customer ownership address update',()=>assert.match(profile,/where id=\$1 and customer_id=\$2/));
+test('profile: default address reset',()=>assert.match(profile,/set is_default=false/));
+test('profile: lifecycle active gate',()=>assert.match(profile,/lifecycle='ACTIVE'/));
+const wishlist=read('modules/customer-experience/wishlist.ts');
+test('wishlist: ownership',()=>assert.match(wishlist,/customer_id=\$2/));
+test('wishlist: transaction item add',()=>assert.match(wishlist,/withPgTransaction/));
+test('wishlist: item limit',()=>assert.match(wishlist,/WISHLIST_LIMIT_REACHED/));
+test('wishlist: duplicate safe',()=>assert.match(wishlist,/on conflict\(wishlist_id,product_id/));
+test('wishlist: move ownership',()=>assert.match(wishlist,/w.customer_id=\$3/));
+const carts=read('modules/customer-experience/saved-carts.ts');
+test('cart: active gate',()=>assert.match(carts,/status!=='ACTIVE'/));
+test('cart: currency match',()=>assert.match(carts,/CURRENCY_MISMATCH/));
+test('cart: quantity cap',()=>assert.match(carts,/least\(trust_saved_cart_items.quantity\+excluded.quantity,100\)/));
+test('cart: expiry worker',()=>assert.match(carts,/expires_at<=now\(\)/));
+const reviews=read('modules/customer-experience/reviews.ts');
+test('reviews: rating validation',()=>assert.match(reviews,/rating\(input.rating\)/));
+test('reviews: verified purchase query',()=>assert.match(reviews,/join order_items/));
+test('reviews: duplicate guard',()=>assert.match(reviews,/REVIEW_ALREADY_EXISTS/));
+test('reviews: moderation',()=>assert.match(reviews,/CONTENT_POLICY/));
+test('reviews: customer ownership edit',()=>assert.match(reviews,/customer_id=\$2/));
+const prefs=read('modules/customer-experience/preferences.ts');
+test('prefs: allowlist',()=>assert.match(prefs,/CUSTOMER_PREFERENCE_KEYS/));
+test('prefs: transaction',()=>assert.match(prefs,/withPgTransaction/));
+test('prefs: primary key upsert',()=>assert.match(prefs,/on conflict\(customer_id,scope,key\)/));
+const privacy=read('modules/customer-experience/privacy.ts');
+test('privacy: export dedupe',()=>assert.match(privacy,/type='EXPORT' and status in/));
+test('privacy: deletion lifecycle',()=>assert.match(privacy,/lifecycle='PENDING_DELETION'/));
+test('privacy: deletion lock',()=>assert.match(privacy,/for update/));
+test('privacy: delete profile fields',()=>assert.match(privacy,/display_name=null/));
+test('privacy: export data includes timeline',()=>assert.match(privacy,/timeline/));
+const worker=read('modules/customer-experience/worker.ts');
+test('worker: skip locked',()=>assert.match(worker,/for update skip locked/));
+test('worker: stale recovery',()=>assert.match(worker,/status='QUEUED'/));
+test('worker: failure state',()=>assert.match(worker,/status='FAILED'/));
+for(const f of ['app/api/customer/profile/route.ts','app/api/customer/addresses/route.ts','app/api/customer/wishlists/route.ts','app/api/customer/saved-carts/route.ts','app/api/customer/reviews/route.ts','app/api/customer/preferences/route.ts','app/api/customer/privacy/route.ts','app/api/customer/timeline/route.ts']){const s=read(f);test(`api:${f}:auth`,()=>assert.match(s,/getCurrentUser/));test(`api:${f}:live`,()=>assert.match(s,/surfaceStatus:'LIVE'/));test(`api:${f}:error`,()=>assert.match(s,/surfaceStatus:'ERROR'/));}
+const page=read('app/customer-commerce/page.tsx');
+for(const tab of ['overview','addresses','wishlists','saved','reviews','preferences','privacy','timeline'])test(`ui:${tab}`,()=>assert.match(page,new RegExp(tab)));
+const allSource=[];function walk(d){for(const e of fs.readdirSync(d,{withFileTypes:true})){if(['node_modules','.next','.git'].includes(e.name))continue;const p=path.join(d,e.name);if(e.isDirectory())walk(p);else if(/\.(ts|tsx|mjs|sql)$/.test(e.name))allSource.push(p)}}walk(root);
+test('source: no customer process-local state',()=>{for(const f of allSource.filter(x=>x.includes('customer-experience'))){const s=fs.readFileSync(f,'utf8');assert.doesNotMatch(s,/new Map\(|new Set\(\).*customer|let users\s*=|const users\s*=|process\.memory/);}});
+test('source: no fake customer live success',()=>{for(const f of allSource.filter(x=>x.includes('app/api/customer/'))){const s=fs.readFileSync(f,'utf8');assert.doesNotMatch(s,/accepted:\s*true|simulated:\s*true/);}});
+const failed=checks.filter(x=>!x[1]);console.log(`V236 customer-commerce tests: ${checks.length-failed.length}/${checks.length} pass`);if(failed.length){for(const [n,,e] of failed)console.error(`FAIL ${n}: ${e.message}`);process.exit(1);}

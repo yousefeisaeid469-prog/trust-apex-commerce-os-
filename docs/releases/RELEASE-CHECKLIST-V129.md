@@ -1,0 +1,28 @@
+# TRUST V129 Release Checklist
+
+- [x] Version `129.0.0` in `package.json`
+- [x] Package manager metadata + lockfile committed
+- [x] Canonical migration numbering validated
+- [x] Migration checksums validated
+- [x] Durable identity/session implementation
+- [x] Durable cart/profile/review/return/payment-intent stores
+- [x] Durable agent control state
+- [x] Durable admin control state
+- [x] Distributed admin login throttling via PostgreSQL
+- [x] Evidence validation and tenant binding
+- [x] Decision persistence + audit + outbox
+- [x] Sensitive Fabric route authorization
+- [x] Refund route bug fixed
+- [x] MFA UI/API path complete
+- [x] Admin redirect allow-list
+- [x] Critical invariant tests
+- [x] Release audit
+- [x] Release gate
+- [x] Deployment smoke
+- [x] Contract check
+- [x] Parity check
+- [x] TS/TSX syntax validation
+- [ ] Production PostgreSQL migration against real environment
+- [ ] `next build` after installing the complete dependency graph
+- [ ] Provider integration verification
+- [ ] Full browser E2E/security/load/DR test suite

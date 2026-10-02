@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict'; import {readFile} from 'node:fs/promises';
+const core=await readFile('modules/platform/global-commerce-automation/core.ts','utf8');
+const migration=await readFile('db/migrations/206_v377_global_commerce_automation.sql','utf8');
+const api=await readFile('app/api/commerce/automation/route.ts','utf8'); const actions=await readFile('app/api/commerce/automation/actions/route.ts','utf8'); const ui=await readFile('app/global-commerce-automation/page.tsx','utf8');
+const checks=[['automation lifecycle',/DETECT.*CORRELATE.*EXPLAIN.*PLAN.*APPROVE.*EXECUTE.*VERIFY.*LEARN/s.test(core)],['durable plans',/trust_commerce_automation_plans/.test(core)&&/trust_commerce_automation_plans/.test(migration)],['learning evidence',/trust_commerce_automation_learning/.test(core)&&/trust_commerce_automation_learning/.test(migration)],['bounded execution',/autoExecute:false/.test(core)&&/executeSafeIncidentAction/.test(core)],['owner approval',/requireOwnerSession/.test(actions)&&/APPROVE/.test(actions)&&/EXECUTE/.test(actions)],['api surface',/getAutomationOverview/.test(api)&&/createAutomationPlan/.test(api)&&/Global Commerce Automation/.test(ui)]];
+for(const [name,ok] of checks){console.log(`${ok?'PASS':'FAIL'} ${name}`); assert.ok(ok,name)} console.log(`V377 automation audit: ${checks.length}/${checks.length} PASS`);

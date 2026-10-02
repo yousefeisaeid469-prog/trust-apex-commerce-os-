@@ -1,0 +1,4 @@
+export type PgLike={query:(text:string,values?:unknown[])=>Promise<{rows:any[]}>};
+export type DatabaseProbe={name:string;sql:string;expected:(rows:any[])=>boolean};
+export async function runDatabaseProbes(db:PgLike,probes:DatabaseProbe[]){const results=[];for(const p of probes){try{const r=await db.query(p.sql);results.push({name:p.name,status:p.expected(r.rows)?'PASS':'FAIL',rows:r.rows.length});}catch(e){results.push({name:p.name,status:'FAIL',error:e instanceof Error?e.message:String(e)});}}return results;}
+export async function verifyTransactionRollback(db:PgLike){await db.query('BEGIN');try{await db.query('CREATE TEMP TABLE v315_rollback_probe(id integer)');await db.query('INSERT INTO v315_rollback_probe VALUES ($1)',[1]);await db.query('ROLLBACK');return {passed:true};}catch(e){await db.query('ROLLBACK').catch(()=>{});return {passed:false,error:e instanceof Error?e.message:String(e)};}}

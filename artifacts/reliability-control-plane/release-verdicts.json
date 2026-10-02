@@ -1,0 +1,122 @@
+{
+  "version": "V143.0.0",
+  "campaigns": [
+    {
+      "campaignId": "v143-1",
+      "seed": 143143,
+      "verdict": {
+        "status": "BLOCK",
+        "reasons": [
+          "SLO_AVAILABILITY_BREACH",
+          "SLO_ERROR_RATE_BREACH",
+          "ERROR_BUDGET_BREACH",
+          "NEW_FAILURE"
+        ],
+        "measured": {
+          "availability": -1,
+          "errorRate": 2,
+          "p95Ms": 1,
+          "budgetConsumedPct": 100
+        }
+      },
+      "failureHash": "89468f953a411fa0ef5a024517676d991c20571490efc7f59108a8f2ed5bce24",
+      "replayMatches": true,
+      "operations": 1
+    },
+    {
+      "campaignId": "v143-2",
+      "seed": 143144,
+      "verdict": {
+        "status": "BLOCK",
+        "reasons": [
+          "SLO_AVAILABILITY_BREACH",
+          "SLO_ERROR_RATE_BREACH",
+          "ERROR_BUDGET_BREACH",
+          "NEW_FAILURE"
+        ],
+        "measured": {
+          "availability": -1,
+          "errorRate": 2,
+          "p95Ms": 1,
+          "budgetConsumedPct": 100
+        }
+      },
+      "failureHash": "1d05077dceb842a417da55f727f47b213104a208b016c257c12656034b6e754b",
+      "replayMatches": true,
+      "operations": 1
+    },
+    {
+      "campaignId": "v143-3",
+      "seed": 143145,
+      "verdict": {
+        "status": "BLOCK",
+        "reasons": [
+          "SLO_AVAILABILITY_BREACH",
+          "SLO_ERROR_RATE_BREACH",
+          "ERROR_BUDGET_BREACH",
+          "NEW_FAILURE"
+        ],
+        "measured": {
+          "availability": 0,
+          "errorRate": 1,
+          "p95Ms": 1,
+          "budgetConsumedPct": 100
+        }
+      },
+      "failureHash": "dfe058a5a7416c1b3fca9c29415e28c85d4271c26e56a172a346bd197234c5e6",
+      "replayMatches": true,
+      "operations": 1
+    },
+    {
+      "campaignId": "v143-4",
+      "seed": 143146,
+      "verdict": {
+        "status": "BLOCK",
+        "reasons": [
+          "SLO_AVAILABILITY_BREACH",
+          "SLO_ERROR_RATE_BREACH",
+          "ERROR_BUDGET_BREACH",
+          "NEW_FAILURE"
+        ],
+        "measured": {
+          "availability": -1,
+          "errorRate": 2,
+          "p95Ms": 1,
+          "budgetConsumedPct": 100
+        }
+      },
+      "failureHash": "f7174f139927973e0aacd8caecf44bcda207669f0ee5dee85a76b115e7c191d0",
+      "replayMatches": true,
+      "operations": 1
+    },
+    {
+      "campaignId": "v143-5",
+      "seed": 143147,
+      "verdict": {
+        "status": "BLOCK",
+        "reasons": [
+          "SLO_AVAILABILITY_BREACH",
+          "SLO_ERROR_RATE_BREACH",
+          "ERROR_BUDGET_BREACH",
+          "NEW_FAILURE"
+        ],
+        "measured": {
+          "availability": 0,
+          "errorRate": 1,
+          "p95Ms": 1,
+          "budgetConsumedPct": 100
+        }
+      },
+      "failureHash": "89a7e2208c5ae6de37e1d2e649bd1f627057fcc0afd345f5bd9246a942d7f7a4",
+      "replayMatches": true,
+      "operations": 1
+    }
+  ],
+  "knownFailureHashes": [
+    "89468f953a411fa0ef5a024517676d991c20571490efc7f59108a8f2ed5bce24",
+    "1d05077dceb842a417da55f727f47b213104a208b016c257c12656034b6e754b",
+    "dfe058a5a7416c1b3fca9c29415e28c85d4271c26e56a172a346bd197234c5e6",
+    "f7174f139927973e0aacd8caecf44bcda207669f0ee5dee85a76b115e7c191d0",
+    "89a7e2208c5ae6de37e1d2e649bd1f627057fcc0afd345f5bd9246a942d7f7a4"
+  ]
+}

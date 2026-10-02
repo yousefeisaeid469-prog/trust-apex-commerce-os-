@@ -1,0 +1,18 @@
+{
+  "version": "V267.0.0",
+  "status": "AUTHORIZATION_GOVERNANCE_VERIFIED",
+  "algorithm": "ed25519",
+  "policy": {
+    "maxAuthorizationTtlSeconds": 600,
+    "separationOfDuties": true,
+    "freshNonce": true,
+    "autoPromotion": false
+  },
+  "demo": {
+    "validSignature": true,
+    "tamperedPayloadRejected": true,
+    "noncePresent": true,
+    "ttlSeconds": 600
+  },
+  "privateKeyPersisted": false
+}

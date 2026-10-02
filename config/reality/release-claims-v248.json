@@ -1,0 +1,143 @@
+{
+  "version": "V248.0.0",
+  "policy": "Every production claim must have an implementation artifact, an executable runtime marker, and a regression test. Documentation alone is never evidence.",
+  "claims": [
+    {
+      "id": "v244-runtime-subscriptions",
+      "claim": "Consumer subscriptions are runtime-driven from PostgreSQL.",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_event_publisher.mjs",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "markers": [
+        "listEnabledSubscriptions",
+        "enqueueSubscribedDeliveriesTx",
+        "getSubscription",
+        "subscription.maxAttempts"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-contract-versions",
+      "claim": "Event contract versions are persisted and enforced before durable writes.",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/commerce-events/registry.ts",
+        "modules/platform/durable-events/tx.ts"
+      ],
+      "markers": [
+        "validateJsonSchema",
+        "validateEventContractTx",
+        "schema_version"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-bounded-retries",
+      "claim": "Consumer retry limits are read from the runtime subscription registry.",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "markers": [
+        "max_attempts",
+        "subscription.maxAttempts"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-ordering",
+      "claim": "Aggregate ordering is guarded during durable event processing.",
+      "artifacts": [
+        "modules/platform/durable-events/tx.ts",
+        "modules/platform/durable-events/store.ts"
+      ],
+      "markers": [
+        "pg_advisory_xact_lock",
+        "FOR UPDATE",
+        "NOT EXISTS"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-poison-isolation",
+      "claim": "Consumer failures are persisted and poison events are isolated after bounded retries.",
+      "artifacts": [
+        "scripts/commerce_consumer_mesh.mjs",
+        "modules/platform/durable-events/store.ts",
+        "db/migrations/098_v244_consumer_mesh.sql"
+      ],
+      "markers": [
+        "trust_event_consumer_failures",
+        "DEAD_LETTERED",
+        "retryDelivery"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ]
+    },
+    {
+      "id": "v245-domain-effects",
+      "claim": "Commerce domain consumers execute concrete PostgreSQL-backed effects with idempotency.",
+      "artifacts": [
+        "modules/commerce/consumers/runtime.ts",
+        "modules/commerce/consumers/order.ts",
+        "modules/commerce/consumers/payment.ts",
+        "modules/commerce/consumers/inventory.ts",
+        "modules/commerce/consumers/fulfillment.ts",
+        "db/migrations/099_v245_real_domain_execution.sql"
+      ],
+      "markers": [
+        "trust_domain_effects",
+        "runEffect",
+        "PROCESSING"
+      ],
+      "tests": [
+        "tests/v245-domain-execution.test.mjs"
+      ]
+    },
+    {
+      "id": "v246-registry-authority",
+      "claim": "Runtime registry APIs are the authoritative source for subscriptions and event schemas.",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "db/migrations/100_v246_runtime_consumer_registry.sql",
+        "scripts/consumer_registry_audit.mjs"
+      ],
+      "markers": [
+        "setSubscription",
+        "registerEventSchema",
+        "getEventSchema"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v247-schema-validation",
+      "claim": "Durable commerce events execute JSON-schema validation at runtime.",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/durable-events/tx.ts",
+        "scripts/reality_proof_audit.mjs"
+      ],
+      "markers": [
+        "validateJsonSchema",
+        "EVENT_PAYLOAD_TOO_LARGE",
+        "additionalProperties"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ]
+    }
+  ]
+}

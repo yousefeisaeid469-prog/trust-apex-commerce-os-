@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {arbitrate,simulateDecision,canExecute,decisionDigest} from '../modules/platform/chief-decision-orchestrator/core.ts';
+const policy={maxRiskBps:3000,minConfidenceBps:7000,minSupportBps:3500};
+const base={tenantId:'t1',agentId:'a1',role:'PRICING',confidenceBps:9200,riskBps:1200,expectedImpactBps:500,priority:90,reason:'evidence',signalIds:['s1'],requiresApproval:false};
+test('chief orchestrator selects the strongest action across proposals',()=>{const d=arbitrate('q1','t1',[{...base,candidateId:'c1',proposalId:'p1',action:'adjust-price'},{...base,candidateId:'c2',proposalId:'p2',agentId:'a2',priority:70,action:'hold-price'}],policy,[{signalId:'s1',tenantId:'t1',kind:'demand',strengthBps:9000,createdAt:1}],1);assert.equal(d.action,'adjust-price');assert.deepEqual(d.selectedProposalIds,['p1']);assert.equal(d.status,'DECIDED');assert.equal(canExecute(d),true);});
+test('policy filters unsafe candidates and fails closed when none remain',()=>{const d=arbitrate('q2','t1',[{...base,candidateId:'c1',proposalId:'p1',action:'unsafe',riskBps:9001}],policy,[],2);assert.equal(d.status,'NO_DECISION');assert.equal(d.action,undefined);assert.equal(canExecute(d),false);});
+test('approval is required for agent-gated or low-confidence decisions',()=>{const d=arbitrate('q3','t1',[{...base,candidateId:'c1',proposalId:'p1',action:'review-price',confidenceBps:7800,requiresApproval:true}],policy,[],3);assert.equal(d.status,'APPROVAL_REQUIRED');assert.equal(d.approvalRequired,true);assert.equal(canExecute(d),false);});
+test('simulation is non-mutating and deterministic',()=>{const c=[{...base,candidateId:'c1',proposalId:'p1',action:'restock'}];const a=simulateDecision('q4','t1',c,policy,[]),b=simulateDecision('q4','t1',c,policy,[]);assert.equal(a.createdAt,0);assert.equal(decisionDigest(a),decisionDigest(b));});

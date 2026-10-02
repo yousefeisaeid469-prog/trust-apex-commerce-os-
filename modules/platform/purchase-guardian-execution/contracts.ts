@@ -1,0 +1,3 @@
+export type GuardianExecutionStatus='EXECUTED'|'FAILED'|'BLOCKED'|'DUPLICATE';
+export type GuardianExecutionResult={actionId:string;status:GuardianExecutionStatus;adapter?:string;providerReference?:string;reason:string};
+export type GuardianExecutionAdapter={name:string;provider?:string;environment?:'SANDBOX'|'LIVE';capability?:'PAYMENT_AUTHORIZE'|'PAYMENT_CAPTURE'|'PAYMENT_REFUND'|'FULFILLMENT_CREATE'|'FULFILLMENT_TRACK'|'SUPPORT_CASE';execute(input:{actionId:string;customerId:string;orderId:string;actionType:string;idempotencyKey:string}):Promise<{status:'SUCCESS'|'FAILURE';providerReference?:string;reason?:string}>};

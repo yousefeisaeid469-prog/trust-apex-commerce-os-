@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {assessLogisticsRisk} from '../modules/platform/global-logistics-v308/contracts.ts';
+const base={shipmentStatus:'IN_TRANSIT',etaAt:'2026-09-10T02:00:00Z',lastEventAt:'2026-09-10T01:00:00Z',executionStatus:'LABEL_CREATED',executionAttempts:0,openExceptions:0,criticalExceptions:0,now:'2026-09-10T01:30:00Z'};
+assert.deepEqual(assessLogisticsRisk(base),{riskBand:'GREEN',riskScore:0,riskReasons:[],recommendedAction:'NO_ACTION'});
+const overdue=assessLogisticsRisk({...base,etaAt:'2026-09-09T20:00:00Z'});assert.equal(overdue.riskBand,'AMBER');assert.equal(overdue.recommendedAction,'REVIEW_CUSTOMER_PROMISE');assert.ok(overdue.riskReasons.includes('ETA_OVERDUE'));
+const stale=assessLogisticsRisk({...base,lastEventAt:'2026-09-08T23:00:00Z'});assert.equal(stale.riskBand,'AMBER');assert.equal(stale.recommendedAction,'REQUEST_CARRIER_REFRESH');
+const failed=assessLogisticsRisk({...base,executionStatus:'FAILED',lastExecutionError:'provider timeout'});assert.equal(failed.recommendedAction,'RETRY_LOGISTICS_EXECUTION');assert.ok(failed.riskScore>=25);
+const critical=assessLogisticsRisk({...base,criticalExceptions:1});assert.equal(critical.riskBand,'RED');assert.equal(critical.recommendedAction,'ESCALATE_CRITICAL_EXCEPTION');assert.ok(critical.riskScore<=100);
+const terminal=assessLogisticsRisk({...base,shipmentStatus:'DELIVERED',criticalExceptions:3});assert.deepEqual(terminal,{riskBand:'GREEN',riskScore:0,riskReasons:[],recommendedAction:'NO_ACTION'});
+console.log('V308 control tower tests PASS — risk scoring, SLA drift and operator actions verified.');

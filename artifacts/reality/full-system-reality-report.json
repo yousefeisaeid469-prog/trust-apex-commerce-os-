@@ -1,0 +1,1247 @@
+{
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:48:14.992Z",
+  "sourceLedger": "config/reality/release-claims-v248.json",
+  "statusDefinitions": {
+    "PROVEN": "Implementation, runtime evidence markers, and regression tests are present; documentation references the claim.",
+    "PARTIAL": "Some executable evidence is present, but the evidence chain is incomplete.",
+    "DOCUMENTED_ONLY": "The claim is visible in documentation without a complete executable evidence chain.",
+    "UNWIRED": "Artifacts exist but the declared runtime markers are not wired into them.",
+    "STALE": "The executable evidence exists but no current release documentation references the claim.",
+    "CONTRADICTED": "Evidence contains explicit not-wired/not-implemented or equivalent negative runtime markers."
+  },
+  "counts": {
+    "PROVEN": 8,
+    "PARTIAL": 0,
+    "DOCUMENTED_ONLY": 98,
+    "UNWIRED": 0,
+    "STALE": 0,
+    "CONTRADICTED": 0
+  },
+  "strictMode": false,
+  "results": [
+    {
+      "id": "v244-runtime-subscriptions",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_event_publisher.mjs",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/releases/MASTER-RELEASE-V249.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v244-contract-versions",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/commerce-events/registry.ts",
+        "modules/platform/durable-events/tx.ts"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/releases/MASTER-RELEASE-V249.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v244-bounded-retries",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/releases/MASTER-RELEASE-V249.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v244-ordering",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/durable-events/tx.ts",
+        "modules/platform/durable-events/store.ts"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/releases/MASTER-RELEASE-V249.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v244-poison-isolation",
+      "status": "PROVEN",
+      "artifacts": [
+        "scripts/commerce_consumer_mesh.mjs",
+        "modules/platform/durable-events/store.ts",
+        "db/migrations/098_v244_consumer_mesh.sql"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/releases/MASTER-RELEASE-V249.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v245-domain-effects",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/commerce/consumers/runtime.ts",
+        "modules/commerce/consumers/order.ts",
+        "modules/commerce/consumers/payment.ts",
+        "modules/commerce/consumers/inventory.ts",
+        "modules/commerce/consumers/fulfillment.ts",
+        "db/migrations/099_v245_real_domain_execution.sql"
+      ],
+      "tests": [
+        "tests/v245-domain-execution.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md"
+      ]
+    },
+    {
+      "id": "v246-registry-authority",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "db/migrations/100_v246_runtime_consumer_registry.sql",
+        "scripts/consumer_registry_audit.mjs"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/architecture/REALITY-PROOF-V247.md",
+        "docs/architecture/RUNTIME-CONSUMER-REGISTRY-V246.md"
+      ]
+    },
+    {
+      "id": "v247-schema-validation",
+      "status": "PROVEN",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/durable-events/tx.ts",
+        "scripts/reality_proof_audit.mjs"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V247.md",
+        "docs/releases/MASTER-RELEASE-V248.md",
+        "docs/architecture/REALITY-PROOF-V247.md"
+      ]
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V138.md:31",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V138.md"
+      ],
+      "line": 31,
+      "text": "Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of production sca"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V139.md:10",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V139.md"
+      ],
+      "line": 10,
+      "text": "This release does not claim that source verification substitutes for production deployment, real concurrency/load tests, disaster recovery exercises, third party penetration testing, provider certification, or commercial traction."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V140.md:18",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V140.md"
+      ],
+      "line": 18,
+      "text": "Source level verification does not imply live production load, chaos, DR restore, penetration testing, provider certification or commercial traction. Those require deployment evidence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V141.md:9",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V141.md"
+      ],
+      "line": 9,
+      "text": "Production certification still requires real infrastructure, load, security and DR evidence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V142.md:13",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V142.md"
+      ],
+      "line": 13,
+      "text": "This release provides executable in process reliability evidence. It does not claim live production fault injection, production SLO attainment, or infrastructure RTO/RPO without corresponding deployment evidence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V144.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V144.md"
+      ],
+      "line": 19,
+      "text": "Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V145.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V145.md"
+      ],
+      "line": 1,
+      "text": "TRUST V145 — PRODUCTION RELIABILITY INTEGRATION"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V147.md:13",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V147.md"
+      ],
+      "line": 13,
+      "text": "The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconciliation, "
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V148.md:10",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V148.md"
+      ],
+      "line": 10,
+      "text": "Reference adapter is in memory and explicitly bounded; live cloud control requires production adapters and credentials."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V149.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V149.md"
+      ],
+      "line": 1,
+      "text": "TRUST V149 — Production Infrastructure"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V150.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V150.md"
+      ],
+      "line": 1,
+      "text": "TRUST V150 — Production Control Plane"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V151.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V151.md"
+      ],
+      "line": 1,
+      "text": "TRUST V151 — Production Bootstrap"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V166.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V166.md"
+      ],
+      "line": 3,
+      "text": "TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent commerce e"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V167.md:15",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V167.md"
+      ],
+      "line": 15,
+      "text": "This release provides architecture and deterministic business logic; external ad networks, carriers, payment processors and resale channels still require real integrations and credentials."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V168.md:9",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V168.md"
+      ],
+      "line": 9,
+      "text": "Supplier decisions fail closed for critical risk suppliers."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V169.md:14",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V169.md"
+      ],
+      "line": 14,
+      "text": "This release provides financial domain primitives and contracts. It does not claim to be a bank, tax authority, payment processor, accounting certification, or live banking integration. Production settlement requires approved payment/bankin"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V171.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V171.md"
+      ],
+      "line": 8,
+      "text": "Approval gates and idempotent execution receipts"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V172.md:12",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V172.md"
+      ],
+      "line": 12,
+      "text": "V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be evaluated against a counterfactual twin before production execution."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V173.md:10",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V173.md"
+      ],
+      "line": 10,
+      "text": "No direct production side effects from learning"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V174.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V174.md"
+      ],
+      "line": 5,
+      "text": "Verification is reported by the release gate and test suite for this build. External integrations, real production traffic, browser E2E, DR, and independent security testing remain environment dependent evidence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V175.md:7",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V175.md"
+      ],
+      "line": 7,
+      "text": "Validation targets: full automated suite, migration integrity, contract integrity, and release gate. Environment dependent claims remain unproven until real infrastructure, providers, production traffic, browser E2E, disaster recovery, and "
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V176.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V176.md"
+      ],
+      "line": 3,
+      "text": "V176 adds the execution boundary beneath the Chief Decision Orchestrator: policy validation, approval gates, idempotent execution receipts, tenant scoped rollback, and simulation."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V177.md:6",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V177.md"
+      ],
+      "line": 6,
+      "text": "Adapter routing for pricing, supply, fulfillment, finance, support, trust, and generic actions."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V178.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V178.md"
+      ],
+      "line": 19,
+      "text": "Local tests prove deterministic contracts and in memory semantics. Production broker durability, PostgreSQL transactionality, cross process ordering, external exactly once effects, and provider integration remain environment dependent until"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V179.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V179.md"
+      ],
+      "line": 8,
+      "text": "Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V180.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V180.md"
+      ],
+      "line": 1,
+      "text": "TRUST V180 — Production Data Plane"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V181.md:4",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V181.md"
+      ],
+      "line": 4,
+      "text": "Release: Real Production Integration Layer"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V182.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V182.md"
+      ],
+      "line": 3,
+      "text": "V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V183.md:13",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V183.md"
+      ],
+      "line": 13,
+      "text": "The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing production in"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V185.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V185.md"
+      ],
+      "line": 1,
+      "text": "TRUST APEX OS V185 — Purchase Guardian Production Hardening"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V186.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V186.md"
+      ],
+      "line": 3,
+      "text": "V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V187.md:6",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V187.md"
+      ],
+      "line": 6,
+      "text": "Webhook receipt persists a durable reconciliation job."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V188.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V188.md"
+      ],
+      "line": 5,
+      "text": "Durable provider registry with SANDBOX/LIVE separation."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V189.md:14",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V189.md"
+      ],
+      "line": 14,
+      "text": "Reduced motion accessibility support."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V190.md:14",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V190.md"
+      ],
+      "line": 14,
+      "text": "Preserved accessibility and reduced motion support"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V192.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V192.md"
+      ],
+      "line": 5,
+      "text": "V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities, and int"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V193.md:15",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V193.md"
+      ],
+      "line": 15,
+      "text": "Real payment, fulfillment, tax, advertising, and provider connectivity still require their configured production adapters and credentials. V193 does not claim those integrations merely from UI presence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V194.md:7",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V194.md"
+      ],
+      "line": 7,
+      "text": "Unified AI Experience contracts and deterministic decision support core."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V195.md:7",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V195.md"
+      ],
+      "line": 7,
+      "text": "Unified AI Experience contracts and deterministic decision support core."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V196.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V196.md"
+      ],
+      "line": 19,
+      "text": "No production performance metrics are fabricated."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V197.md:12",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V197.md"
+      ],
+      "line": 12,
+      "text": "V197 does not claim a distributed production search cluster or live semantic/vector search. Ranking runs against the active catalog data returned by the existing PostgreSQL repository."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V198.md:7",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V198.md"
+      ],
+      "line": 7,
+      "text": "A safer product → cart → server preview → order confirmation path with authoritative price/stock/shipping checks, explicit stale state recovery, and idempotent checkout concurrency protection."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V199.md:4",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V199.md"
+      ],
+      "line": 4,
+      "text": "V199 delivers a durable post purchase customer experience on top of the V198 checkout/cart boundary."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V200.md:4",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V200.md"
+      ],
+      "line": 4,
+      "text": "V200 establishes a durable post purchase notification control plane."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V201.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V201.md"
+      ],
+      "line": 5,
+      "text": "V201 adds a durable shipment and tracking domain on top of the V199 order lifecycle and V200 post purchase notifications foundation."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V203.md:13",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V203.md"
+      ],
+      "line": 13,
+      "text": "Durable revenue event and growth experiment schema."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V206.md:26",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V206.md"
+      ],
+      "line": 26,
+      "text": "Production provider integrations remain explicit adapter work."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V207.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V207.md"
+      ],
+      "line": 5,
+      "text": "V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V208.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V208.md"
+      ],
+      "line": 5,
+      "text": "V208 adds TRUST One Commerce Network: a unified retention, protection, savings, bundle, reorder, support, and loyalty decision layer."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V209.md:14",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V209.md"
+      ],
+      "line": 14,
+      "text": "This release improves product coherence and navigation. Production billing, membership, wallet/cashback, carrier, advertising and authenticated personalization still require their real providers and account context."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V211.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V211.md"
+      ],
+      "line": 8,
+      "text": "Explicit separation between decision support and sensitive execution."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V212.md:14",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V212.md"
+      ],
+      "line": 14,
+      "text": "Reconciliation is expected only after a real provider result exists."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V214.md:11",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V214.md"
+      ],
+      "line": 11,
+      "text": "No durable cross process command store is claimed in this release"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V216.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V216.md"
+      ],
+      "line": 8,
+      "text": "Durable PostgreSQL revenue ledger with tenant + idempotency uniqueness."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V217.md:6",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V217.md"
+      ],
+      "line": 6,
+      "text": "Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V220.md:15",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V220.md"
+      ],
+      "line": 15,
+      "text": "A scale signal is not automatic permission to change live economics. Production changes require explicit policy, provider readiness, deployment controls, and evidence."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V221.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V221.md"
+      ],
+      "line": 1,
+      "text": "TRUST V221 — Production Readiness, Security & Scale"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V222.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V222.md"
+      ],
+      "line": 3,
+      "text": "Production Security & Scalability Hardening"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V223.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V223.md"
+      ],
+      "line": 3,
+      "text": "Current release: V223.0.0 — Production Observability & Global Infrastructure"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V224.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V224.md"
+      ],
+      "line": 3,
+      "text": "Production Security & Scale Hardening 2.0"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V227.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V227.md"
+      ],
+      "line": 5,
+      "text": "V227 upgrades the V226 owner room from request only controls to a durable owner live control state for three emergency controls: maintenance mode, global freeze, and autonomy kill switch."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V228.md:16",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V228.md"
+      ],
+      "line": 16,
+      "text": "npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V231.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V231.md"
+      ],
+      "line": 3,
+      "text": "V231 hardens the path from durable checkout to payment evidence and merchant order execution."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V233.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V233.md"
+      ],
+      "line": 8,
+      "text": "Durable provider event and reconciliation job queues."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V234.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V234.md"
+      ],
+      "line": 3,
+      "text": "Durable returns, inspection, refund settlement, reconciliation and customer resolution."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V236.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V236.md"
+      ],
+      "line": 3,
+      "text": "V236 adds a durable customer experience kernel: profiles, addresses, wishlists, saved carts, reviews, preferences, privacy workflows, timeline and maintenance workers."
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V237.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V237.md"
+      ],
+      "line": 3,
+      "text": "V237 extends the V236 customer commerce/data platform with a durable merchant operating system and control plane. It adds merchant scoped persistence and execution primitives across catalog, inventory, pricing, promotions, payouts, tax, sta"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V250.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V250.md"
+      ],
+      "line": 1,
+      "text": "TRUST V250.0.0 — Durable Autonomous Commerce Orchestrator"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V259.md:20",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V259.md"
+      ],
+      "line": 20,
+      "text": "A valid receipt does not by itself prove live production behavior, external provider certification, disaster recovery, load capacity, or deployment success. It proves the declared source artifacts, exact markers, and executable regression t"
+    },
+    {
+      "id": "doc:docs/releases/MASTER-RELEASE-V261.md:28",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/MASTER-RELEASE-V261.md"
+      ],
+      "line": 28,
+      "text": "These receipts prove source level executable evidence for the authored contracts. They do not by themselves establish live provider, live database, load, disaster recovery, or production traffic certification."
+    },
+    {
+      "id": "doc:docs/releases/V161-GLOBAL-MARKETPLACE.md:12",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V161-GLOBAL-MARKETPLACE.md"
+      ],
+      "line": 12,
+      "text": "Stronger TypeScript configuration and production control plane typing fixes."
+    },
+    {
+      "id": "doc:docs/releases/V162-GLOBAL-DISCOVERY.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V162-GLOBAL-DISCOVERY.md"
+      ],
+      "line": 19,
+      "text": "The engine is intentionally deterministic and dependency free. For very large catalogs, the next production step is to back the same contract with PostgreSQL full text/trigram indexes or a dedicated search provider, then blend lexical relev"
+    },
+    {
+      "id": "doc:docs/releases/V163-MARKETPLACE-OFFERS.md:12",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V163-MARKETPLACE-OFFERS.md"
+      ],
+      "line": 12,
+      "text": "This is an engine layer, not a claim that live Amazon/Temu/Shein scale carrier, payment, seller, or inventory networks exist locally. Production deployment still requires real databases, payment providers, carriers, tax engines and seller i"
+    },
+    {
+      "id": "doc:docs/releases/V164-SUPER-COMMERCE.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V164-SUPER-COMMERCE.md"
+      ],
+      "line": 19,
+      "text": "Outputs remain explainable so production policy can audit why an outcome occurred."
+    },
+    {
+      "id": "doc:docs/releases/V237-REALITY-CONSOLIDATION.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V237-REALITY-CONSOLIDATION.md"
+      ],
+      "line": 3,
+      "text": "This patch hardens V237 around one rule: production state must be durable and truthful ."
+    },
+    {
+      "id": "doc:docs/releases/V238-PRODUCTION-REALITY-HARDENING.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V238-PRODUCTION-REALITY-HARDENING.md"
+      ],
+      "line": 1,
+      "text": "TRUST V238 — Production Reality Hardening"
+    },
+    {
+      "id": "doc:docs/releases/V240-PROVIDER-RELIABILITY.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/releases/V240-PROVIDER-RELIABILITY.md"
+      ],
+      "line": 5,
+      "text": "V240 hardens the V239 real provider execution boundary. It does not claim a production provider is certified merely because the generic adapter exists."
+    },
+    {
+      "id": "doc:docs/architecture/AUTONOMOUS-CONTROL-PLANE-V139.md:9",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/AUTONOMOUS-CONTROL-PLANE-V139.md"
+      ],
+      "line": 9,
+      "text": "Controlled chaos scenarios for failure injection tests; production enablement must remain explicitly gated."
+    },
+    {
+      "id": "doc:docs/architecture/AUTONOMOUS-RELIABILITY-LOOP-V144.md:20",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/AUTONOMOUS-RELIABILITY-LOOP-V144.md"
+      ],
+      "line": 20,
+      "text": "V144 does not pretend that an in process adapter is live production infrastructure. InMemoryRuntimeEnforcer is executable integration evidence. A production deployment supplies an implementation of RuntimeEnforcer connected to its orchestra"
+    },
+    {
+      "id": "doc:docs/architecture/CELL-SCALE-V241.md:19",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/CELL-SCALE-V241.md"
+      ],
+      "line": 19,
+      "text": "Important production boundary"
+    },
+    {
+      "id": "doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md"
+      ],
+      "line": 16,
+      "text": "persisted SQL schemas provide durable targets for campaign/verdict/corpus records."
+    },
+    {
+      "id": "doc:docs/architecture/CUSTOMER-COMMERCE-OS-V236.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/CUSTOMER-COMMERCE-OS-V236.md"
+      ],
+      "line": 3,
+      "text": "V236 makes customer owned commerce state durable and auditable. It adds PostgreSQL backed profiles, addresses, wishlists, saved carts, reviews, preferences, privacy jobs and a customer timeline."
+    },
+    {
+      "id": "doc:docs/architecture/CUSTOMER-DATA-PLATFORM-V236.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/CUSTOMER-DATA-PLATFORM-V236.md"
+      ],
+      "line": 3,
+      "text": "This layer turns customer experience into a durable operational domain. It contains an event ledger, deterministic segmentation, consent evaluation, customer search/context, journey execution, analytics, quality policies and maintenance dia"
+    },
+    {
+      "id": "doc:docs/architecture/DEPLOYMENT-AUTOPILOT-V146.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/DEPLOYMENT-AUTOPILOT-V146.md"
+      ],
+      "line": 3,
+      "text": "V146 turns the V145 production reliability boundary into a deterministic deployment state machine."
+    },
+    {
+      "id": "doc:docs/architecture/DURABLE-EVENT-BACKBONE-V242.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/DURABLE-EVENT-BACKBONE-V242.md"
+      ],
+      "line": 1,
+      "text": "TRUST V242 — Durable Event Backbone"
+    },
+    {
+      "id": "doc:docs/architecture/EXECUTABLE-RELIABILITY-LABORATORY-V142.md:6",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/EXECUTABLE-RELIABILITY-LABORATORY-V142.md"
+      ],
+      "line": 6,
+      "text": "Faults are injected into the TRUST reliability execution boundary, not into a live production environment. Production fault injection still requires an explicitly authorized deployment adapter."
+    },
+    {
+      "id": "doc:docs/architecture/FULFILLMENT-PROVIDER-EXECUTION-V233.md:9",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/FULFILLMENT-PROVIDER-EXECUTION-V233.md"
+      ],
+      "line": 9,
+      "text": "3. The adapter performs a real HTTP request when provider endpoint and secret are configured. Otherwise the operation fails closed with PROVIDER REQUIRED ."
+    },
+    {
+      "id": "doc:docs/architecture/GLOBAL-DEPLOYMENT-INTELLIGENCE-V148.md:15",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/GLOBAL-DEPLOYMENT-INTELLIGENCE-V148.md"
+      ],
+      "line": 15,
+      "text": "The reference implementation is an in memory verification adapter. It does not claim live control of Kubernetes, AWS, GCP, Azure, DNS, service mesh, or CDN traffic. Production deployment requires concrete adapters, credentials, RBAC, idempo"
+    },
+    {
+      "id": "doc:docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md"
+      ],
+      "line": 3,
+      "text": "V237 turns the merchant surface into a durable operating control plane. It introduces canonical persistence for merchant operating accounts, catalog publication, inventory balances/reservations/movements, price books and rules, promotions, "
+    },
+    {
+      "id": "doc:docs/architecture/PRODUCTION-CONTROL-PLANE-V150.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/PRODUCTION-CONTROL-PLANE-V150.md"
+      ],
+      "line": 1,
+      "text": "TRUST V150 — Production Control Plane"
+    },
+    {
+      "id": "doc:docs/architecture/PRODUCTION-INFRASTRUCTURE-V149.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/PRODUCTION-INFRASTRUCTURE-V149.md"
+      ],
+      "line": 1,
+      "text": "TRUST V149 — Production Infrastructure"
+    },
+    {
+      "id": "doc:docs/architecture/PRODUCTION-RELIABILITY-INTEGRATION-V145.md:1",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/PRODUCTION-RELIABILITY-INTEGRATION-V145.md"
+      ],
+      "line": 1,
+      "text": "TRUST V145 — Production Reliability Integration"
+    },
+    {
+      "id": "doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/REALITY-CLAIM-LEDGER-V248.md"
+      ],
+      "line": 11,
+      "text": "scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears."
+    },
+    {
+      "id": "doc:docs/architecture/REALITY-CONSOLIDATION-V237.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/REALITY-CONSOLIDATION-V237.md"
+      ],
+      "line": 5,
+      "text": "V237 is now split into one canonical runtime path and explicitly non runtime legacy contracts. Production commerce state is durable PostgreSQL state; process memory and fixtures are not accepted as a production data source."
+    },
+    {
+      "id": "doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/RELIABILITY-ENGINEERING-V140.md"
+      ],
+      "line": 8,
+      "text": "Property Harness: deterministic generators and invariant checks provide repeatable regression cases."
+    },
+    {
+      "id": "doc:docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md:3",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md"
+      ],
+      "line": 3,
+      "text": "V234 turns returns into a durable commerce workflow rather than a support only flag."
+    },
+    {
+      "id": "doc:docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md:5",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md"
+      ],
+      "line": 5,
+      "text": "V235 turns the post delivery side of commerce into a durable execution layer. A return is no longer the end of the workflow: recovered inventory, replacements, store credit and financial evidence are first class aggregates."
+    },
+    {
+      "id": "doc:docs/architecture/VERIFICATION-CHAOS-ENGINE-V141.md:7",
+      "status": "DOCUMENTED_ONLY",
+      "artifacts": [],
+      "tests": [],
+      "referencedDocs": [
+        "docs/architecture/VERIFICATION-CHAOS-ENGINE-V141.md"
+      ],
+      "line": 7,
+      "text": "The system is not considered verified because a happy path test passes. A scenario must be reproducible from a seed, bounded by explicit limits, fail closed on invariant violations, and produce evidence suitable for release review."
+    }
+  ]
+}

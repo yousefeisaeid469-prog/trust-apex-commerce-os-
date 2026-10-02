@@ -1,0 +1,180 @@
+{
+  "id": "evidence-packet:capability-057-v234-turns-returns-into-a-durable-commerce-workflow-rather-than-a-support-only-f",
+  "contractId": "capability-057-v234-turns-returns-into-a-durable-commerce-workflow-rather-than-a-support-only-f",
+  "sourceId": "draft-doc:docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md:3",
+  "claim": "V234 turns returns into a durable commerce workflow rather than a support only flag.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v162-discovery-engine.test.mjs",
+      "tests/v164-super-commerce.test.mjs",
+      "tests/v166-omnichannel-fulfillment.test.mjs",
+      "tests/v169-financial-commerce.test.mjs",
+      "tests/v180-production-data-plane.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v199-order-experience.test.mjs",
+      "tests/v200-notifications-post-purchase.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 485,
+        "token": "returns",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 50,
+        "token": "returns",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V183.md:13 (docs line 13) — The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable a",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 1037,
+        "token": "returns",
+        "excerpt": "\"claim\": \"V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention prioritie",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 36,
+        "token": "returns",
+        "excerpt": "- **capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist** — unassigned — DRAFT — V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 742,
+        "token": "returns",
+        "excerpt": "\"claim\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing pro",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 2315,
+        "token": "returns",
+        "excerpt": "\"file\": \"tests/v234-returns-refunds.test.mjs\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 492,
+        "token": "returns",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 362,
+        "token": "returns",
+        "excerpt": "\"text\": \"The agent does not pretend to execute refunds, returns, warranty claims, or other external actions automatically. V183 establishes the policy and durable action state; execution must use an authorized adapter from the existing prod",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v162-discovery-engine.test.mjs",
+        "hits": [
+          "returns",
+          "commerce",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v164-super-commerce.test.mjs",
+        "hits": [
+          "returns",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v166-omnichannel-fulfillment.test.mjs",
+        "hits": [
+          "commerce",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v169-financial-commerce.test.mjs",
+        "hits": [
+          "returns",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v180-production-data-plane.test.mjs",
+        "hits": [
+          "durable",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "durable",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v199-order-experience.test.mjs",
+        "hits": [
+          "durable",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v200-notifications-post-purchase.test.mjs",
+        "hits": [
+          "durable",
+          "commerce",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "2fc26f6e679be8df594ff9eec5e73398c3f2a21acf2c2863c2f8958f26281ce0",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

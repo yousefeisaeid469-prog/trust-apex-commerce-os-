@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const migration=fs.readFileSync('db/migrations/133_v295_production_hardening.sql','utf8');
+const core=fs.readFileSync('modules/platform/production-hardening/core.ts','utf8');
+const runner=fs.readFileSync('scripts/production_hardening.mjs','utf8');
+for(const table of ['trust_production_hardening_runs','trust_production_hardening_checks']) assert.match(migration,new RegExp(`create table if not exists ${table}`));
+for(const key of ['CONCURRENT_CHECKOUT_NO_OVERSELL','PAYMENT_REPLAY_IDEMPOTENT','WEBHOOK_REPLAY_IDEMPOTENT','LEDGER_BALANCED','FAILURE_RECOVERY_NO_DUPLICATE_EFFECT','LOAD_HARNESS_1000_REQUESTS']) assert.match(core,new RegExp(key));
+assert.match(core,/Promise\.all/); assert.match(core,/AtomicInventory/); assert.match(core,/replayInvariant/); assert.match(core,/ledgerInvariant/);
+assert.match(runner,/production-hardening-v295\.json/); assert.match(runner,/liveDatabase:false/); assert.match(runner,/liveProvider:false/);
+console.log('V295 production hardening contract PASS');

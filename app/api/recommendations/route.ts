@@ -1,0 +1,5 @@
+import {NextRequest,NextResponse} from 'next/server';
+import {queryCatalog} from '../../../modules/commerce/repository/catalog';
+import {buildMarketplaceIntelligence} from '../../../modules/platform/marketplace-intelligence';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function POST(req:NextRequest){const b=await req.json().catch(()=>({}));const catalog=await queryCatalog({limit:60});const result=buildMarketplaceIntelligence(catalog.items,{q:typeof b?.query==='string'?b.query:'',category:typeof b?.category==='string'?b.category:undefined,region:typeof b?.region==='string'?b.region:undefined,maxPrice:Number.isFinite(Number(b?.maxPrice))?Number(b.maxPrice):undefined,preferredTags:Array.isArray(b?.preferredTags)?b.preferredTags.filter((x:any)=>typeof x==='string'):[],inStock:true});return NextResponse.json({ok:true,items:result.offers,strategy:b?.strategy??'marketplace-intelligence-v206',sponsoredDisclosure:true,affiliateDisclosure:true,organicRanking:true})}

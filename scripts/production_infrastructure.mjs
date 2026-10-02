@@ -1,0 +1,4 @@
+import {ProductionOrchestrator} from '../modules/platform/production-infrastructure/orchestrator.ts';
+import {InMemoryDeploymentLock,InMemoryIdempotencyStore} from '../modules/platform/production-infrastructure/idempotency.ts';
+class DemoAdapter{async preflight(){return true}async deploy(){return{revision:'demo-image@sha256:verified'}}async shiftTraffic(){return true}async promote(){return true}async rollback(){return true}async verify(){return true}}
+const out=await new ProductionOrchestrator(new DemoAdapter(),new InMemoryDeploymentLock(),new InMemoryIdempotencyStore()).execute('demo-v149','release-controller',{namespace:'production',workload:'trust-api',container:'api',image:'registry.example/trust-api@sha256:verified',replicas:6},{service:'trust-api',weightPct:10});console.log(JSON.stringify({version:'V149.0.0',...out},null,2));

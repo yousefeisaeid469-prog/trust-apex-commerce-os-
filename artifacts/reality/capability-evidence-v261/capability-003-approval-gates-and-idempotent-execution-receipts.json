@@ -1,0 +1,55 @@
+{
+  "id": "capability-003-approval-gates-and-idempotent-execution-receipts",
+  "version": "V261.0.0",
+  "status": "EXECUTABLE_EVIDENCE",
+  "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/autonomous-decision-fabric/core.ts",
+      "exists": true,
+      "sha256": "db85fe91f8b52ef1f51eb3c9531a7617ae7161e3a9f8c4a7c58359bd61121d7e"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "export function evaluateProposal",
+      "foundIn": [
+        "modules/platform/autonomous-decision-fabric/core.ts"
+      ]
+    },
+    {
+      "marker": "requiresApproval",
+      "foundIn": [
+        "modules/platform/autonomous-decision-fabric/core.ts"
+      ]
+    },
+    {
+      "marker": "export function executeOnce",
+      "foundIn": [
+        "modules/platform/autonomous-decision-fabric/core.ts"
+      ]
+    },
+    {
+      "marker": "idempotencyKey",
+      "foundIn": [
+        "modules/platform/autonomous-decision-fabric/core.ts"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v171-autonomous-decision-fabric.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: evaluates policy-bounded proposal\nok 1 - evaluates policy-bounded proposal\n  ---\n  duration_ms: 1.264282\n  type: 'test'\n  ...\n# Subtest: fails closed on risk and tenant\nok 2 - fails closed on risk and tenant\n  ---\n  duration_ms: 0.424367\n  type: 'test'\n  ...\n# Subtest: builds deterministic plan and rejects duplicate keys\nok 3 - builds deterministic plan and rejects duplicate keys\n  ---\n  duration_ms: 0.39963\n  type: 'test'\n  ...\n# Subtest: simulation never mutates\nok 4 - simulation never mutates\n  ---\n  duration_ms: 0.397861\n  type: 'test'\n  ...\n# Subtest: execution is idempotent and approval gated\nok 5 - execution is idempotent and approval gated\n  ---\n  duration_ms: 0.37512\n  type: 'test'\n  ...\n# Subtest: rank favors confidence minus risk then priority\nok 6 - rank favors confidence minus risk then priority\n  ---\n  duration_ms: 0.253538\n  type: 'test'\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 51.025657",
+      "stderr": "(node:2908) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+    }
+  ],
+  "failureCondition": "Risk or confidence policy violations must fail closed; approval-required proposals must not execute; duplicate idempotency keys must return DUPLICATE.",
+  "evidenceDigest": "ad62057dfada99ea015b5f5d02c3ce0ec356a16725dd4f752429e17ea7f7d256"
+}

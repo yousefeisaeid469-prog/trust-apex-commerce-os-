@@ -1,0 +1,13 @@
+image:
+  repository: YOUR_REGISTRY/trust-apex-os
+  tag: "163.0.0"
+  pullPolicy: IfNotPresent
+replicaCount: 2
+service:
+  port: 3000
+database:
+  url: ""
+  existingSecret: trust-postgres
+  secretKey: DATABASE_URL
+tls:
+  required: true

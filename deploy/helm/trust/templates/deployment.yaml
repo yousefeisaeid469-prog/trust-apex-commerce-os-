@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: {name: {{ .Release.Name }}-trust}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector: {matchLabels: {app: {{ .Release.Name }}-trust}}
+  template:
+    metadata: {labels: {app: {{ .Release.Name }}-trust}}
+    spec:
+      containers:
+        - name: app
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports: [{containerPort: 3000}]
+          env:
+            - name: DATABASE_URL
+              valueFrom: {secretKeyRef: {name: {{ .Values.database.existingSecret }}, key: {{ .Values.database.secretKey }}}}
+            - name: TRUST_REQUIRE_TLS
+              value: "{{ .Values.tls.required }}"
+          readinessProbe: {httpGet: {path: /api/health, port: 3000}}
+          livenessProbe: {httpGet: {path: /api/health, port: 3000}}
+          securityContext: {allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: {drop: [ALL]}}

@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {planLogisticsRecovery} from '../modules/platform/global-logistics-v309/contracts.ts';
+const red=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'RED',riskScore:82,riskReasons:['CRITICAL_EXCEPTION_OPEN'],recommendedAction:'ESCALATE_CRITICAL_EXCEPTION',criticalExceptions:1});
+assert.equal(red.actionType,'ESCALATE_CRITICAL_EXCEPTION');assert.equal(red.requiresOperatorAttention,true);assert.ok(red.priority>=80);
+const failed=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'AMBER',riskScore:45,riskReasons:['LOGISTICS_EXECUTION_FAILED'],recommendedAction:'RETRY_LOGISTICS_EXECUTION',executionStatus:'FAILED'});assert.equal(failed.actionType,'RETRY_LOGISTICS_EXECUTION');
+const stale=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'AMBER',riskScore:20,riskReasons:['CARRIER_EVENT_STALE'],recommendedAction:'REQUEST_CARRIER_REFRESH'});assert.equal(stale.actionType,'REQUEST_CARRIER_REFRESH');
+const overdue=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'AMBER',riskScore:30,riskReasons:['ETA_OVERDUE'],recommendedAction:'REVIEW_CUSTOMER_PROMISE'});assert.equal(overdue.actionType,'REVIEW_CUSTOMER_PROMISE');assert.equal(overdue.requiresOperatorAttention,true);
+const clean=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'GREEN',riskScore:0,riskReasons:[],recommendedAction:'NO_ACTION'});assert.equal(clean.actionType,'NO_ACTION');
+const duplicateReasons=planLogisticsRecovery({shipmentId:'s',orderId:'o',riskBand:'AMBER',riskScore:45,riskReasons:['LOGISTICS_EXECUTION_FAILED','LOGISTICS_EXECUTION_FAILED'],recommendedAction:'RETRY_LOGISTICS_EXECUTION',executionStatus:'FAILED'});assert.deepEqual(duplicateReasons,failed);
+console.log('V309 recovery planner tests PASS — critical escalation, retry, carrier refresh, promise review, no-op and reason dedupe verified.');

@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict'; import test from 'node:test'; import { readFileSync } from 'node:fs';
+const m=readFileSync(new URL('../modules/marketplace/revenue-surfaces.ts',import.meta.url),'utf8'); const ads=readFileSync(new URL('../app/api/ads/route.ts',import.meta.url),'utf8'); const mig=readFileSync(new URL('../db/migrations/116_v278_revenue_surfaces.sql',import.meta.url),'utf8');
+test('V278 activates recurring customer revenue surfaces',()=>{assert.match(m,/activateMembership/);assert.match(m,/createProductSubscription/);assert.match(m,/TRUST_PLUS/);assert.match(m,/TRUST_PRO/)});
+test('V278 activates B2B and affiliate monetization',()=>{assert.match(m,/createB2BAccount/);assert.match(m,/upsertQuantityPrice/);assert.match(m,/recordAffiliateAttribution/);assert.match(m,/idempotencyKey/)});
+test('V278 activates ads mutations and durable revenue snapshot',()=>{assert.match(ads,/create_campaign/);assert.match(ads,/record_click/);assert.match(m,/revenueSnapshot/);assert.match(mig,/renewal_attempts/)});

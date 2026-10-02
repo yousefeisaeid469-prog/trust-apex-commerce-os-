@@ -1,0 +1,62 @@
+{
+  "id": "v246-registry-authority",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:57.323Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/commerce-events/registry.ts",
+      "exists": true,
+      "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+    },
+    {
+      "file": "db/migrations/100_v246_runtime_consumer_registry.sql",
+      "exists": true,
+      "sha256": "0c83fb27ed5d19a9a1ccb16385fe88fb28daa011fd68b769571c185551e6e969"
+    },
+    {
+      "file": "scripts/consumer_registry_audit.mjs",
+      "exists": true,
+      "sha256": "975cce6252484db940da9ae6f3fd3d407c46adaa17c0fc9dfb5c4288f3545c7b"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "setSubscription",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/consumer_registry_audit.mjs"
+      ]
+    },
+    {
+      "marker": "registerEventSchema",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/consumer_registry_audit.mjs"
+      ]
+    },
+    {
+      "marker": "getEventSchema",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/consumer_registry_audit.mjs"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v246-consumer-registry.test.mjs",
+      "command": "node --experimental-strip-types tests/v246-consumer-registry.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V246 runtime consumer registry contract: PASS",
+      "stderr": ""
+    }
+  ],
+  "promotionAllowed": false
+}

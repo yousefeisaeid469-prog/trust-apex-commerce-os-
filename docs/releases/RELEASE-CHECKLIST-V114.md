@@ -1,0 +1,14 @@
+# V114 Release Checklist
+- [x] Agent lifecycle control
+- [x] Global kill switch
+- [x] Tool scope / risk cap evaluator
+- [x] Per-agent budgets and rate limits foundation
+- [x] Agent-to-agent message bus foundation
+- [x] Approval API foundation
+- [x] Durable PostgreSQL migration
+- [x] Agent Control Plane UI
+- [x] Package version 114.0.0
+- [ ] Production auth/authorization adapter verified in deployment
+- [ ] Durable control-plane repository adapter enabled with DATABASE_URL
+- [ ] CI/Vercel next build with installed dependencies
+- [x] Control API requires the existing private admin session

@@ -1,0 +1,130 @@
+{
+  "version": "V315.0.0",
+  "status": "PARTIAL",
+  "liveDatabase": false,
+  "externalProvidersLive": false,
+  "total": 9,
+  "passed": 7,
+  "skipped": 2,
+  "failed": 0,
+  "cases": [
+    {
+      "caseId": "payment-sandbox",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "E2E"
+      ],
+      "evidence": [
+        "payment"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "carrier-sandbox",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "E2E"
+      ],
+      "evidence": [
+        "fulfillment"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "ledger-balance",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "INTEGRATION"
+      ],
+      "evidence": [
+        "finance"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "failure-injection",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "FAILURE_INJECTION"
+      ],
+      "evidence": [
+        "platform"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "event-replay",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "REPLAY"
+      ],
+      "evidence": [
+        "platform"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "postgres-transaction",
+      "status": "SKIPPED",
+      "durationMs": 0,
+      "checks": [
+        "INTEGRATION"
+      ],
+      "evidence": [
+        "database"
+      ],
+      "environment": "sandbox",
+      "executed": false
+    },
+    {
+      "caseId": "load-benchmark",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "LOAD"
+      ],
+      "evidence": [
+        "platform"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "security-gate",
+      "status": "PASS",
+      "durationMs": 102.487,
+      "checks": [
+        "SECURITY"
+      ],
+      "evidence": [
+        "security"
+      ],
+      "environment": "sandbox",
+      "executed": true
+    },
+    {
+      "caseId": "restore-drill",
+      "status": "SKIPPED",
+      "durationMs": 0,
+      "checks": [
+        "DR"
+      ],
+      "evidence": [
+        "infrastructure"
+      ],
+      "environment": "sandbox",
+      "executed": false
+    }
+  ],
+  "evidenceHash": "30a28c6ef74bff43ec86bc40d414ecd1ef350c383050948159ffbec26cad51a9"
+}

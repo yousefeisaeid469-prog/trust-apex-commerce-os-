@@ -1,0 +1,5 @@
+import {ProductionControlPlane} from '../modules/platform/production-control-plane/controller.ts'; import {MemoryControlPlaneStore} from '../modules/platform/production-control-plane/store.ts'; import {StaticTelemetrySource,MemoryTelemetrySink} from '../modules/platform/production-control-plane/telemetry.ts';
+const infra={async preflight(){return true},async deploy(){return{revision:'demo@sha256:verified'}},async shiftTraffic(){return true},async promote(){return true},async rollback(){return true},async verify(){return true}};
+const signal={service:'trust-demo',timestampMs:Date.now(),availability:.9999,errorRate:.0002,p95Ms:96,saturationPct:31,healthy:true};
+const cp=new ProductionControlPlane(infra,new MemoryControlPlaneStore(),new StaticTelemetrySource(signal),new MemoryTelemetrySink(),{minAvailability:.995,maxErrorRate:.005,maxP95Ms:500,maxSaturationPct:90,requireHealthy:true});
+console.log(JSON.stringify(await cp.execute({deploymentId:'demo-v150',owner:'demo',idempotencyKey:'demo-v150',target:{namespace:'prod',workload:'trust',container:'trust',image:'demo@sha256:verified',replicas:3},traffic:{service:'trust',weightPct:10}}),null,2));

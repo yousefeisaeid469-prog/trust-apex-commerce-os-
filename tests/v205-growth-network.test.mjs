@@ -1,0 +1,7 @@
+import assert from 'node:assert/strict';import test from 'node:test';import {buildGrowthNetwork} from '../modules/platform/growth-network/core.ts';
+const products=[{id:'p1',name:'A',price:100,stock:10},{id:'p2',name:'B',price:200,stock:10},{id:'p3',name:'C',price:300,stock:10}];
+const orders=[{id:'o1',customerId:'c1',items:[{productId:'p1',qty:1},{productId:'p2',qty:1}],total:300,createdAt:'2026-09-01',status:'delivered'},{id:'o2',customerId:'c1',items:[{productId:'p1',qty:1}],total:100,createdAt:'2026-09-05',status:'delivered'},{id:'o3',customerId:'c2',items:[{productId:'p2',qty:1}],total:200,createdAt:'2026-09-04',status:'delivered'}];
+test('V205 computes repeat rate from observed customer ids',()=>{const n=buildGrowthNetwork({products,orders});assert.equal(n.customers,2);assert.equal(n.repeatCustomers,1);assert.equal(n.repeatRate,50)});
+test('V205 builds deterministic reorder and cross-sell signals',()=>{const n=buildGrowthNetwork({products,orders});assert.equal(n.reorderCandidates[0].customerId,'c1');assert.ok(n.crossSellPairs.some(x=>x.fromProductId==='p1'&&x.toProductId==='p2'))});
+test('V205 emits monetization paths with guardrails',()=>{const n=buildGrowthNetwork({products,orders});assert.ok(n.signals.some(x=>x.id==='REORDER_LOOP'&&x.monetizable));assert.ok(n.signals.every(x=>x.guardrail.length>0));});
+test('V205 never invents revenue',()=>{const n=buildGrowthNetwork({products,orders});assert.equal(n.revenue,600);assert.equal(n.aov,200);});

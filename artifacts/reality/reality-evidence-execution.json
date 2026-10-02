@@ -1,0 +1,468 @@
+{
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:49.175Z",
+  "policy": "Execution harness runs only the explicit structured ledger. It requires existing implementation artifacts, exact runtime-marker hits, and executable regression tests. It never promotes documentation-only records or lexical candidates.",
+  "counts": {
+    "structuredClaims": 8,
+    "evidenceExecuted": 8,
+    "blocked": 0,
+    "capabilityDraftsExcluded": 58,
+    "autoPromoted": 0
+  },
+  "results": [
+    {
+      "id": "v244-runtime-subscriptions",
+      "claim": "Consumer subscriptions are runtime-driven from PostgreSQL.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true
+        },
+        {
+          "file": "scripts/commerce_event_publisher.mjs",
+          "exists": true
+        },
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "listEnabledSubscriptions",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "enqueueSubscribedDeliveriesTx",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/commerce_event_publisher.mjs"
+          ]
+        },
+        {
+          "marker": "getSubscription",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        },
+        {
+          "marker": "subscription.maxAttempts",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v244-contract-versions",
+      "claim": "Event contract versions are persisted and enforced before durable writes.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/schema-validator.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "validateJsonSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "validateEventContractTx",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "schema_version",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "modules/platform/durable-events/tx.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v247-schema-contract.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V247 schema contract test: PASS",
+          "stderr": "(node:1274) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ]
+    },
+    {
+      "id": "v244-bounded-retries",
+      "claim": "Consumer retry limits are read from the runtime subscription registry.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true
+        },
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "max_attempts",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts"
+          ]
+        },
+        {
+          "marker": "subscription.maxAttempts",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v244-ordering",
+      "claim": "Aggregate ordering is guarded during durable event processing.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/platform/durable-events/store.ts",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "pg_advisory_xact_lock",
+          "foundIn": [
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "FOR UPDATE",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        },
+        {
+          "marker": "NOT EXISTS",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v244-consumer-mesh.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V244 consumer mesh contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v244-poison-isolation",
+      "claim": "Consumer failures are persisted and poison events are isolated after bounded retries.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "scripts/commerce_consumer_mesh.mjs",
+          "exists": true
+        },
+        {
+          "file": "modules/platform/durable-events/store.ts",
+          "exists": true
+        },
+        {
+          "file": "db/migrations/098_v244_consumer_mesh.sql",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "trust_event_consumer_failures",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts",
+            "db/migrations/098_v244_consumer_mesh.sql"
+          ]
+        },
+        {
+          "marker": "DEAD_LETTERED",
+          "foundIn": [
+            "modules/platform/durable-events/store.ts"
+          ]
+        },
+        {
+          "marker": "retryDelivery",
+          "foundIn": [
+            "scripts/commerce_consumer_mesh.mjs",
+            "modules/platform/durable-events/store.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v244-consumer-mesh.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V244 consumer mesh contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v245-domain-effects",
+      "claim": "Commerce domain consumers execute concrete PostgreSQL-backed effects with idempotency.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/commerce/consumers/runtime.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/commerce/consumers/order.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/commerce/consumers/payment.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/commerce/consumers/inventory.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/commerce/consumers/fulfillment.ts",
+          "exists": true
+        },
+        {
+          "file": "db/migrations/099_v245_real_domain_execution.sql",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "trust_domain_effects",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "db/migrations/099_v245_real_domain_execution.sql"
+          ]
+        },
+        {
+          "marker": "runEffect",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "modules/commerce/consumers/order.ts",
+            "modules/commerce/consumers/payment.ts",
+            "modules/commerce/consumers/inventory.ts",
+            "modules/commerce/consumers/fulfillment.ts"
+          ]
+        },
+        {
+          "marker": "PROCESSING",
+          "foundIn": [
+            "modules/commerce/consumers/runtime.ts",
+            "db/migrations/099_v245_real_domain_execution.sql"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v245-domain-execution.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V245 domain execution contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v246-registry-authority",
+      "claim": "Runtime registry APIs are the authoritative source for subscriptions and event schemas.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/registry.ts",
+          "exists": true
+        },
+        {
+          "file": "db/migrations/100_v246_runtime_consumer_registry.sql",
+          "exists": true
+        },
+        {
+          "file": "scripts/consumer_registry_audit.mjs",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "setSubscription",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        },
+        {
+          "marker": "registerEventSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        },
+        {
+          "marker": "getEventSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/registry.ts",
+            "scripts/consumer_registry_audit.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v246-consumer-registry.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V246 runtime consumer registry contract: PASS",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "id": "v247-schema-validation",
+      "claim": "Durable commerce events execute JSON-schema validation at runtime.",
+      "gates": {
+        "implementation": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "status": "EVIDENCE_EXECUTED",
+      "artifacts": [
+        {
+          "file": "modules/platform/commerce-events/schema-validator.ts",
+          "exists": true
+        },
+        {
+          "file": "modules/platform/durable-events/tx.ts",
+          "exists": true
+        },
+        {
+          "file": "scripts/reality_proof_audit.mjs",
+          "exists": true
+        }
+      ],
+      "markers": [
+        {
+          "marker": "validateJsonSchema",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "scripts/reality_proof_audit.mjs"
+          ]
+        },
+        {
+          "marker": "EVENT_PAYLOAD_TOO_LARGE",
+          "foundIn": [
+            "modules/platform/durable-events/tx.ts"
+          ]
+        },
+        {
+          "marker": "additionalProperties",
+          "foundIn": [
+            "modules/platform/commerce-events/schema-validator.ts",
+            "scripts/reality_proof_audit.mjs"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v247-schema-contract.test.mjs",
+          "exists": true,
+          "executed": true,
+          "exitCode": 0,
+          "stdout": "V247 schema contract test: PASS",
+          "stderr": "(node:1340) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ]
+    }
+  ]
+}

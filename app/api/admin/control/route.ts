@@ -1,0 +1,7 @@
+import { NextResponse } from 'next/server';
+import { ADMIN_SESSION_COOKIE, verifyAdminSession } from '../../../../modules/platform/admin/access';
+import { getControlState, setControlMode, type ControlMode } from '../../../../modules/platform/admin/control';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+async function admin(request:Request){const token=request.headers.get('cookie')?.match(new RegExp(`${ADMIN_SESSION_COOKIE}=([^;]+)`))?.[1]??null;return verifyAdminSession(token);}
+export async function GET(request:Request){const a=await admin(request);if(!a)return NextResponse.json({error:'Unauthorized'},{status:401});try{return NextResponse.json({ok:true,state:await getControlState()},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'CONTROL_STATE_UNAVAILABLE'},{status:503})}}
+export async function POST(request:Request){const a=await admin(request);if(!a)return NextResponse.json({error:'Unauthorized'},{status:401});const body=await request.json().catch(()=>({}));const allowed=['normal','safe','readonly','emergency'];if(!allowed.includes(body?.mode))return NextResponse.json({error:'Invalid mode'},{status:400});try{return NextResponse.json({ok:true,state:await setControlMode(body.mode as ControlMode,a.email,typeof body?.reason==='string'?body.reason:''),actor:a.email},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'CONTROL_UPDATE_FAILED'},{status:503})}}

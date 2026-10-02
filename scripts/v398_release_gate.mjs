@@ -1,0 +1,11 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(); const read=f=>fs.readFileSync(path.join(root,f),'utf8'); const exists=f=>fs.existsSync(path.join(root,f)); const errors=[];
+const pkg=JSON.parse(read('package.json')); const lock=JSON.parse(read('package-lock.json')); const manifest=JSON.parse(read('db/migrations/MANIFEST.json'));
+const version=read('lib/runtime/version.ts').match(/V(\d+\.\d+\.\d+)/)?.[1];
+if(pkg.version!=='398.0.0'||version!=='398.0.0'||lock.version!=='398.0.0'||lock.packages?.['']?.version!=='398.0.0') errors.push('version integrity');
+if(manifest.version!=='V398.0.0'||String(manifest.migrations.at(-1)?.id)!=='223'||manifest.migrations.at(-1)?.version!=='V398.0.0') errors.push('migration head');
+for(const f of ['db/migrations/221_v396_seller_settlement_truth.sql','db/migrations/222_v397_unified_commerce_command_surface.sql','db/migrations/223_v398_global_seller_operating_system.sql','scripts/v396_seller_settlement_truth.mjs','scripts/v397_unified_commerce_command_surface.mjs','scripts/v398_global_seller_operating_system.mjs','modules/platform/seller-os-operating-surface.ts','app/api/merchant/operating-surface/route.ts','scripts/v398_seller_operating_truth.mjs','MASTER-RELEASE.md']) if(!exists(f)) errors.push('missing '+f);
+const migration=read('db/migrations/223_v398_global_seller_operating_system.sql'); for(const t of ['trust_global_seller_operating_truth','trust_seller_settlement_truth','trust_merchant_inventory_balances','trust_marketplace_fulfillment_orders','OPERATIONS_EXCEPTION','FINANCIAL_EXCEPTION']) if(!migration.includes(t)) errors.push('operating contract '+t);
+const verifier=read('scripts/v398_seller_operating_truth.mjs'); for(const t of ['DATABASE_NOT_CONFIGURED','trust_global_seller_operating_truth','merchantsWithExceptions']) if(!verifier.includes(t)) errors.push('verifier contract '+t); const mod=read('modules/platform/seller-os-operating-surface.ts'); for(const t of ['catalog','inventory','orders','fulfillment','finance','DATABASE_NOT_CONFIGURED']) if(!mod.includes(t)) errors.push('module contract '+t);
+if(errors.length){console.error('V398 RELEASE GATE FAILED'); errors.forEach(e=>console.error('- '+e)); process.exit(1)}
+console.log('V398 RELEASE GATE PASS — global seller operating system is wired across catalog, inventory, orders, fulfillment and finance.');

@@ -1,0 +1,15 @@
+# V115 Release Checklist
+- [x] Package version 115.0.0
+- [x] Event Bus contracts
+- [x] Workflow Engine contracts
+- [x] Background Jobs contracts
+- [x] Notifications contracts
+- [x] Search boundary
+- [x] Server-only secret boundary
+- [x] Private admin-gated Platform OS UI/API
+- [x] PostgreSQL migration 007
+- [ ] Connect production event broker/worker
+- [ ] Connect durable job worker
+- [ ] Connect production notification providers
+- [ ] Connect production search provider
+- [ ] Run `npm install` and `npm run build` in deployment environment

@@ -1,0 +1,6 @@
+-- V203 — Commerce Growth OS. Durable monetization ledger and transparent campaign accounting.
+CREATE TABLE IF NOT EXISTS trust_revenue_events (id text PRIMARY KEY, tenant_id uuid, surface text NOT NULL CHECK(surface IN ('COMMISSION','ADS','SUBSCRIPTION','FULFILLMENT','SELLER_SERVICES','AFFILIATE','B2B','FINANCIAL_SERVICES')),source_id text NOT NULL,amount_minor bigint NOT NULL CHECK(amount_minor>=0),currency char(3) NOT NULL DEFAULT 'EGP',occurred_at timestamptz NOT NULL,created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_trust_revenue_events_surface_time ON trust_revenue_events(surface,occurred_at DESC);
+CREATE INDEX IF NOT EXISTS idx_trust_revenue_events_source ON trust_revenue_events(source_id,occurred_at DESC);
+CREATE TABLE IF NOT EXISTS trust_growth_experiments (id text PRIMARY KEY,tenant_id uuid,experiment_key text NOT NULL,variant text NOT NULL,allocation_bps integer NOT NULL CHECK(allocation_bps BETWEEN 0 AND 10000),status text NOT NULL CHECK(status IN ('DRAFT','RUNNING','PAUSED','COMPLETED')),created_at timestamptz NOT NULL DEFAULT now(),updated_at timestamptz NOT NULL DEFAULT now());
+CREATE UNIQUE INDEX IF NOT EXISTS idx_trust_growth_experiments_key_variant ON trust_growth_experiments(tenant_id,experiment_key,variant);

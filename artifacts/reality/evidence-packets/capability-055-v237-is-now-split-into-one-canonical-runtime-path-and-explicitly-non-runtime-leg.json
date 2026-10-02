@@ -1,0 +1,184 @@
+{
+  "id": "evidence-packet:capability-055-v237-is-now-split-into-one-canonical-runtime-path-and-explicitly-non-runtime-leg",
+  "contractId": "capability-055-v237-is-now-split-into-one-canonical-runtime-path-and-explicitly-non-runtime-leg",
+  "sourceId": "draft-doc:docs/architecture/REALITY-CONSOLIDATION-V237.md:5",
+  "claim": "V237 is now split into one canonical runtime path and explicitly non runtime legacy contracts. Production commerce state is durable PostgreSQL state; process memory and fixtures are not accepted as a production data source.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/source-invariants.test.mjs",
+      "tests/v134-acquisition.test.mjs",
+      "tests/v135-enterprise.test.mjs",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v141-verification-chaos.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v146-deployment-autopilot.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 441,
+        "token": "canonical",
+        "excerpt": "\"text\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 46,
+        "token": "canonical",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V179.md:8 (docs line 8) — Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 484,
+        "token": "canonical",
+        "excerpt": "\"id\": \"capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 29,
+        "token": "canonical",
+        "excerpt": "- **capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-** — unassigned — DRAFT — Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 638,
+        "token": "canonical",
+        "excerpt": "\"claim\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 3575,
+        "token": "canonical",
+        "excerpt": "\"claim\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 424,
+        "token": "canonical",
+        "excerpt": "\"text\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 330,
+        "token": "canonical",
+        "excerpt": "\"text\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "canonical",
+          "runtime",
+          "production",
+          "durable",
+          "process"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v134-acquisition.test.mjs",
+        "hits": [
+          "canonical",
+          "runtime",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v135-enterprise.test.mjs",
+        "hits": [
+          "canonical",
+          "runtime"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "canonical",
+          "runtime",
+          "contracts"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "canonical",
+          "runtime",
+          "contracts"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v141-verification-chaos.test.mjs",
+        "hits": [
+          "process",
+          "accepted"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "runtime",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v146-deployment-autopilot.test.mjs",
+        "hits": [
+          "runtime",
+          "production"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "daca181f8489628ae2b7b03b944fda907dee907d82a97012e8cc5916e9c99490",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

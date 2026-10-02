@@ -1,0 +1,13 @@
+import fs from 'node:fs'; import {performance} from 'node:perf_hooks'; import {execFileSync} from 'node:child_process';
+const started=new Date().toISOString(); const checks=[];
+function run(name,fn,kind='EXECUTION'){const t=performance.now();try{const details=fn()||{};const durationMs=Math.max(0.001,performance.now()-t);checks.push({name,kind,status:'PASS',durationMs:Number(durationMs.toFixed(3)),details,executed:true});}catch(e){checks.push({name,kind,status:'FAIL',durationMs:Number(Math.max(0.001,performance.now()-t).toFixed(3)),details:{error:String(e.message||e)},executed:true});}}
+run('v319-real-capabilities-tests',()=>{execFileSync(process.execPath,['--experimental-strip-types','tests/v319-real-capabilities.test.mjs'],{stdio:'pipe'});return {tests:true}});
+run('v319-reality-gate',()=>{execFileSync(process.execPath,['scripts/v319_reality_gate.mjs'],{stdio:'pipe'});return {apiPlaceholderScan:true}} ,'REALITY_GATE');
+const liveDatabase=Boolean(process.env.DATABASE_URL); const liveExternalProviders=Boolean(process.env.TRUST_PAYMENT_SMOKE_URL&&process.env.TRUST_CARRIER_SMOKE_URL);
+const liveChecks=[];
+if(liveDatabase)run('live-postgres-migration-and-rollback',()=>{execFileSync(process.execPath,['--experimental-strip-types','scripts/v318_postgres_lab.mjs'],{stdio:'pipe'});return {liveDatabase:true}},'LIVE_DATABASE');else liveChecks.push({name:'live-postgres-migration-and-rollback',kind:'LIVE_DATABASE',status:'SKIPPED',executed:false,reason:'DATABASE_NOT_CONFIGURED'});
+if(liveExternalProviders)liveChecks.push({name:'external-provider-smoke',kind:'LIVE_EXTERNAL',status:'SKIPPED',executed:false,reason:'GENERIC_PROVIDER_SMOKE_ADAPTER_NOT_ENABLED_IN_THIS_ENVIRONMENT'});else liveChecks.push({name:'external-provider-smoke',kind:'LIVE_EXTERNAL',status:'SKIPPED',executed:false,reason:'PROVIDER_SMOKE_URLS_NOT_CONFIGURED'});
+const failed=checks.filter(x=>x.status==='FAIL').length; const runnablePass=checks.filter(x=>x.status==='PASS').length; const productionVerified=liveDatabase&&liveExternalProviders&&!failed;
+const status=failed?'FAIL':productionVerified?'PASS':'PARTIAL';
+const report={version:'V319.0.0',status,productionVerified,liveDatabase,externalProvidersLive:liveExternalProviders,total:checks.length+liveChecks.length,passed:runnablePass,skipped:liveChecks.filter(x=>x.status==='SKIPPED').length,failed,cases:[...checks,...liveChecks],startedAt:started,completedAt:new Date().toISOString()};
+fs.mkdirSync('artifacts/v319',{recursive:true});fs.writeFileSync('artifacts/v319/verification-summary.json',JSON.stringify(report,null,2)+'\n');console.log(`V319 verification ${status} — ${runnablePass} executed PASS, ${report.skipped} live checks skipped, ${failed} FAIL`);if(failed)process.exit(1);

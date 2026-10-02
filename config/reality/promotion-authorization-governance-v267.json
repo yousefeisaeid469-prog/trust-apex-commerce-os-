@@ -1,0 +1,21 @@
+{
+  "version": "V267.0.0",
+  "algorithm": "ed25519",
+  "policy": {
+    "maxAuthorizationTtlSeconds": 600,
+    "requireSeparationOfDuties": true,
+    "requireFreshNonce": true,
+    "autoPromotion": false
+  },
+  "keyGovernance": {
+    "activeOnlyForSigning": true,
+    "expirySweep": true,
+    "rotationLineage": true,
+    "privateKeysPersisted": false
+  },
+  "audit": {
+    "authorizationAcceptedEvents": true,
+    "nonceReplayEvents": true,
+    "appendOnlyHashChain": true
+  }
+}

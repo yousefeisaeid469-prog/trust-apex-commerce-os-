@@ -1,0 +1,54 @@
+{
+  "id": "v244-ordering",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:56.954Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/durable-events/tx.ts",
+      "exists": true,
+      "sha256": "a2f9a97a0960eb0d1754e58b01995808cabed7cc96cee5633d749b37d98b327f"
+    },
+    {
+      "file": "modules/platform/durable-events/store.ts",
+      "exists": true,
+      "sha256": "82c0ce0369dabc5abaa3c32c83d66b8231cf89509c477cb1c597365b1ef44abd"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "pg_advisory_xact_lock",
+      "foundIn": [
+        "modules/platform/durable-events/tx.ts"
+      ]
+    },
+    {
+      "marker": "FOR UPDATE",
+      "foundIn": [
+        "modules/platform/durable-events/store.ts"
+      ]
+    },
+    {
+      "marker": "NOT EXISTS",
+      "foundIn": [
+        "modules/platform/durable-events/store.ts"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v244-consumer-mesh.test.mjs",
+      "command": "node --experimental-strip-types tests/v244-consumer-mesh.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V244 consumer mesh contract: PASS",
+      "stderr": ""
+    }
+  ],
+  "promotionAllowed": false
+}

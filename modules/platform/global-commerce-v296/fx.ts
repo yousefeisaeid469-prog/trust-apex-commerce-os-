@@ -1,0 +1,1 @@
+export function quoteFx(base:string,quote:string,rate:number,expiresAt:string){if(Date.parse(expiresAt)<=Date.now())throw new Error('FX_QUOTE_EXPIRED');if(!rate||rate<0)throw new Error('FX_BASE_MISMATCH');return {base,quote,rate,expiresAt};}

@@ -1,0 +1,1250 @@
+{
+  "migrations": [
+    {
+      "id": "001",
+      "file": "001_core.sql",
+      "checksum": "f46de4f27008af94f484cb5d173ab01848f84200853b30a9f52c7a83ae3ddf52"
+    },
+    {
+      "id": "002",
+      "file": "002_v108_payments_orchestration.sql",
+      "checksum": "49ab759786133e2e0294bbb2edad9b4ca75468aea4edac9915c39562d6a0ee01"
+    },
+    {
+      "id": "003",
+      "file": "003_v112_intelligence.sql",
+      "checksum": "e3b860c064d3aee15281e59dd1d8ab4a90e90f0b888a44f38d0e9d54b77799c4"
+    },
+    {
+      "id": "004",
+      "file": "004_v114_agent_control.sql",
+      "checksum": "5835fde8f5f61d0092898cc858db937a53aa3d0328d90171852a53cbb1698c08"
+    },
+    {
+      "id": "005",
+      "file": "005_v115_platform_os.sql",
+      "checksum": "d9ad598c614721c41543150ac9b4b5b0dbacdf668b1f30ed0e4368379fbd07fb"
+    },
+    {
+      "id": "006",
+      "file": "006_v116_consumer_advantage.sql",
+      "checksum": "855e97d284544776f3e1f47044c42386deacdb640163ce6fb7e3f7385accce7e"
+    },
+    {
+      "id": "007",
+      "file": "007_v117_discovery_revolution.sql",
+      "checksum": "33a460d093aeb8abc6489faeacc17909b77a83cac2eed1f853952fa451ae0673"
+    },
+    {
+      "id": "008",
+      "file": "008_v118_ai_discovery.sql",
+      "checksum": "88e9b87a1e3b9b449dfe19047361623243443490c82dbbd2e3b264e5d4651a58"
+    },
+    {
+      "id": "009",
+      "file": "009_v119_personal_shopper.sql",
+      "checksum": "8eee4debff7279593f9cf1c07d0b0dc00c86347d8048bfa2104c3a22b6804fe2"
+    },
+    {
+      "id": "010",
+      "file": "010_v120_hardening_observability_tenancy.sql",
+      "checksum": "2ecf14dc48b327effed81af26c2b51b8de5a4f28c2e975b954d9d78bc3cb1ccd"
+    },
+    {
+      "id": "011",
+      "file": "011_v121_global_commerce_network.sql",
+      "checksum": "8e8c0baf86e739eb858eb332858b50a902094a92a22858356722170f3283f161"
+    },
+    {
+      "id": "012",
+      "file": "012_v122_merchant_supergraph.sql",
+      "checksum": "90c1ff8234aa69a47ec35b49de21c3213d6881d5e6a51d5fab5dd034249313b9"
+    },
+    {
+      "id": "013",
+      "file": "013_v123_problem_solver.sql",
+      "checksum": "e9f76c4b986d5f870d4f53649fe91eb3ee95ec6ad72557b3698df79bc69ed7a7"
+    },
+    {
+      "id": "014",
+      "file": "014_v124_prevention_os.sql",
+      "checksum": "f6787fbf5d6a1d87fe589dd1ed38c218823b5d285492bc8d6eda4a09789c8ae7"
+    },
+    {
+      "id": "015",
+      "file": "015_v126_protection_os.sql",
+      "checksum": "a33070d3c7f06289b41d151a3454c1f702094cb7e41ad0b09acfca825849aea6"
+    },
+    {
+      "id": "016",
+      "file": "016_v125_life_os.sql",
+      "checksum": "e6f92e1c38abc7a70a8d2fd6cb62835f5064aec5b0d7fdf8584b305ea37cf3ce"
+    },
+    {
+      "id": "017",
+      "file": "017_v127_consumer_rights_financial_intelligence.sql",
+      "checksum": "578c05287d9e5393ad993b64525e2b8fec506bc4a58f2e0d3c72a4c025eb821c"
+    },
+    {
+      "id": "018",
+      "file": "018_v128_decision_fabric.sql",
+      "checksum": "5ee0d75d18e8fac0ee21881f3f70483b0e07f773c59556202204bf2362d131af"
+    },
+    {
+      "id": "019",
+      "file": "019_v129_production_integrity.sql",
+      "checksum": "ed3ea58041877bc94e28fff0e6cd41dab86bf4ac71555fa67a32c80967e487f5"
+    },
+    {
+      "id": "020",
+      "file": "020_v130_operational_completeness.sql",
+      "checksum": "a3ac3a7bd8701e4e74d4d1ea61b14f9b1e6375594a3ed0eef850f3fe3880f0bf"
+    },
+    {
+      "id": "021",
+      "file": "021_v131_operational_excellence.sql",
+      "checksum": "e7b4d19c88057c34e55df999aab82ac66212a371fdcf3e7066bdf322d3f6ede6"
+    },
+    {
+      "id": "022",
+      "file": "022_v132_transactional_hardening.sql",
+      "checksum": "c830dde9d5e7ad9fca9d3965368ec36c50ea2c0d8b892f751292b761465dcaf1"
+    },
+    {
+      "id": "023",
+      "file": "023_v132_atomic_commands.sql",
+      "checksum": "a9aa3699bc157a5730a6cc9cf1d3a04d064c21cd60240dfdca251bed82b50630"
+    },
+    {
+      "id": "024",
+      "file": "024_v134_acquisition_integrity.sql",
+      "checksum": "2601f1567ce38b2b70f45b040fa2c2b7116ba6afeb71c621aff705668424407d"
+    },
+    {
+      "id": "025",
+      "file": "025_v135_enterprise_control_plane.sql",
+      "checksum": "145d32cf30b28f26cdc0a3e2046d3d8c5795224d93fee8bc043f90a4ae7b8484"
+    },
+    {
+      "id": "026",
+      "file": "026_v136_enterprise_platform.sql",
+      "checksum": "acbf0919aac5889109a4de3817d322bc6e3cd2bfec23726c9d1925ea67825231"
+    },
+    {
+      "id": "027",
+      "file": "027_v137_sovereign_platform.sql",
+      "checksum": "03da46094bfb04c909ba026b78682bb26f1c6c66fc35352d6ae78fd2c5b183ba"
+    },
+    {
+      "id": "028",
+      "file": "028_v138_distributed_systems.sql",
+      "checksum": "995c2b3ebf9bd195d3630bff2954f17ff8d56eb5be0d6715693e9eec7adcf39a"
+    },
+    {
+      "id": "029",
+      "file": "029_v139_autonomous_control_plane.sql",
+      "checksum": "aba35913084ca902edbd0e76ce328687ff95851e0f932ec230c5e8a59d0fee2b"
+    },
+    {
+      "id": "030",
+      "file": "030_v140_reliability_engineering.sql",
+      "checksum": "2cef3ee72322b5c8af544f1b1b4e348a4fb7a15d8d617a291ff23e512621abfb"
+    },
+    {
+      "id": "031",
+      "file": "031_v141_verification_chaos_engine.sql",
+      "checksum": "218767b5de6ea90e433647df5d6476174696a758c03b3137ef052557f51b389d"
+    },
+    {
+      "id": "032",
+      "file": "032_v142_executable_reliability_laboratory.sql",
+      "checksum": "c6f44d157e67cfcc24f172e51d3835e653b07c1091a7de43b84b57c7a00618a4"
+    },
+    {
+      "id": "033",
+      "file": "033_v143_continuous_reliability_control_plane.sql",
+      "checksum": "05dcf2215fd09c36594bb82a075049e7230c19d007ac0253d354ede225a2368e"
+    },
+    {
+      "id": "034",
+      "file": "034_v144_autonomous_reliability_loop.sql",
+      "checksum": "c777f0621715d6b6dfaaa29a837cfe8fe3e84baed82e7fe325c22f3ed792f6c3"
+    },
+    {
+      "id": "035",
+      "file": "035_v145_production_reliability_integration.sql",
+      "checksum": "81ca49423cf665a35fe39e09acbe314444b257aa386d2b939dd5f0463bbb8c60"
+    },
+    {
+      "id": "036",
+      "file": "036_v146_deployment_autopilot.sql",
+      "checksum": "51376f08dca6302c64bcfe8bfef79af06875018d368e6179c49af0cdb4af43d2"
+    },
+    {
+      "id": "037",
+      "file": "037_v147_progressive_delivery.sql",
+      "checksum": "4d4f3ab7cd5e0f05355ed2a2321de68ebd0e8ffceb09291469b12a1bc917aa4d"
+    },
+    {
+      "id": "038",
+      "file": "038_v148_global_deployment_control_plane.sql",
+      "checksum": "2316214e7585c2811b8e2e26086d94799b382501db4c278cefb1468c734b93cf"
+    },
+    {
+      "id": "039",
+      "file": "039_v149_production_infrastructure.sql",
+      "checksum": "457f4b782f030acfcdd78470295372dca265400c2061b5657d541c06de471b29"
+    },
+    {
+      "id": "040",
+      "file": "040_v150_production_control_plane.sql",
+      "checksum": "f3d150ee3f293c4d6223aec8c004ebcd3a7f834ede3bc50f09beaf09a8239df7"
+    },
+    {
+      "id": "041",
+      "file": "041_v151_production_bootstrap.sql",
+      "checksum": "fdca78c3e7c00bb20ca31a575c796e10ae7f807d167f158cb9371417cd084268"
+    },
+    {
+      "id": "042",
+      "file": "042_v152_merchant_verification.sql",
+      "checksum": "5588f2b61bbed86a9054ea8a0e679015c05191188132ab2fc5ab1ca82813fdb2"
+    },
+    {
+      "id": "043",
+      "file": "043_v153_trust_products.sql",
+      "checksum": "17a70fba25a66392ca56650565a45973e55163fc305c8cc35cdb2a24ea0306de"
+    },
+    {
+      "id": "044",
+      "file": "044_v154_missing_transactional_core.sql",
+      "checksum": "9f9fb06dccb4b7fc775cfaa039f9b142344bafbc33fd47ac092c7d62f3832dab"
+    },
+    {
+      "id": "045",
+      "file": "045_v155_cash_on_delivery.sql",
+      "checksum": "cfe1d79a2f5b60fde64c3ce756759c913a7e8ee9c24bf08742452ecef40be198"
+    },
+    {
+      "id": "046",
+      "file": "046_v157_guest_checkout.sql",
+      "checksum": "ad40edf7debd1a38cbb1572308f664b695c893f9d5b621db9c22a62cbaa3721d"
+    },
+    {
+      "id": "047",
+      "file": "047_v166_omnichannel_fulfillment.sql",
+      "checksum": "38dbbe43889c7c218742b5d23f70d356ae5d9605079f30dea1fbea514c380de6"
+    },
+    {
+      "id": "048",
+      "file": "048_v168_global_supply_chain.sql",
+      "checksum": "2cd57a94d204d8e9774613973f4a3dd779c1915e320ec258e56081c46ba0990f"
+    },
+    {
+      "id": "049",
+      "file": "049_v169_financial_commerce.sql",
+      "checksum": "2af87bdefedbfb580a4b141f664c47f8c5e2e4cb4567e8609490273112749f4b"
+    },
+    {
+      "id": "050",
+      "file": "050_v170_network_intelligence.sql",
+      "checksum": "ed178c0557a63e9f668e7bf74c28f83daa281a1a83623bdd7602ebe1ab3b16ea"
+    },
+    {
+      "id": "051",
+      "file": "051_v171_autonomous_decision_fabric.sql",
+      "checksum": "4eab41d27b6da73d499ebc894eb1f5dd56a3bcf9606dc5bb1469ef5744bd6fe2"
+    },
+    {
+      "id": "052",
+      "file": "052_v172_digital_twin.sql",
+      "checksum": "a2c30890f980c4c210c6bd5b16455baa8f2dbbb1f08026fab3366c63ce6a13ed"
+    },
+    {
+      "id": "053",
+      "file": "053_v173_learning_loop.sql",
+      "checksum": "e9e4926ce66ad4f0d708c7225782057ea30acf418341a7e76c7875f62e699314"
+    },
+    {
+      "id": "054",
+      "file": "054_v174_agent_orchestration.sql",
+      "checksum": "4440e8619b49aac7b67d4eae1a2962694d6fbb49df25940c7fb1a446e19acde7"
+    },
+    {
+      "id": "055",
+      "file": "055_v175_chief_decision_orchestrator.sql",
+      "checksum": "39b4431e491f8f4f6aa90480940a3115bde879b109ea5b1b889940ada73298a0"
+    },
+    {
+      "id": "056",
+      "file": "056_v176_autonomous_execution_mesh.sql",
+      "checksum": "59511ce20e9b2226503b49d15aff034d2d24e4e7bb4b4d5576fd3eada593bd01"
+    },
+    {
+      "id": "057",
+      "file": "057_v177_execution_adapter_mesh.sql",
+      "checksum": "65262afc291c909ab8e36cadf3418f0e2ad06655e6dc20fb9004abd29f1cf0cb"
+    },
+    {
+      "id": "058",
+      "file": "058_v178_event_driven_execution_fabric.sql",
+      "checksum": "28fc96aab86301dfeb8f7ebd56358d347c44f045bfce297b8ea253b51317efb0"
+    },
+    {
+      "id": "059",
+      "file": "059_v179_autonomous_commerce_reality.sql",
+      "checksum": "d0a942f8b81f24041b27308fb167c700f76c355cbbb0379e88428e3ebaa20844"
+    },
+    {
+      "id": "060",
+      "file": "060_v180_production_data_plane.sql",
+      "checksum": "9f1691622860b6df1efb62fe6516132360759c18ae33e25e66b414ee7436a486"
+    },
+    {
+      "id": "061",
+      "file": "061_v181_production_integration.sql",
+      "checksum": "47949bcc47c3b25bf88973c10705a00ff8625963dc9f3073c16ea849872af733"
+    },
+    {
+      "id": "062",
+      "file": "062_v182_purchase_guardian.sql",
+      "checksum": "fd11097bfae676af9f107fab48915a4e96b99c83ad97e5bd700979afca80badd"
+    },
+    {
+      "id": "063",
+      "file": "063_v183_purchase_guardian_agent.sql",
+      "checksum": "d30099ba8f35279aa259fd463c2bfad12456b806d783d90d163ba351025e2bc1"
+    },
+    {
+      "id": "064",
+      "file": "064_v184_purchase_guardian_execution.sql",
+      "checksum": "3f8d70a3f26fa505614d429a05e60156155213af58b79f44daad9fac01a7358a"
+    },
+    {
+      "id": "065",
+      "file": "065_v185_guardian_production_hardening.sql",
+      "checksum": "6b3055bb36b9f7b08d861049f62e30e2e1a619e3e7544a92a1a1420170ffd310"
+    },
+    {
+      "id": "066",
+      "file": "066_v186_provider_reconciliation.sql",
+      "checksum": "a1903ee06259628e18988b49f6d4d5de91265d67dc2ce6629871a545e7c4968a"
+    },
+    {
+      "id": "067",
+      "file": "067_v187_reconciliation_worker.sql",
+      "checksum": "e109d8a93a7d51d627c3641ecabfdd9eff9985859ad545d29a01afe09ae00df6"
+    },
+    {
+      "id": "068",
+      "file": "068_v188_provider_capability_registry.sql",
+      "checksum": "57b5711013bc9d7f7677a1360a0210ecf2c39d7db6522645bd494f8a9fa9fd84"
+    },
+    {
+      "id": "069",
+      "file": "069_v199_order_experience.sql",
+      "checksum": "00addceefc4436bd321f5ede59b16f3da644bf0c0bb411f5315064b1e9c37027"
+    },
+    {
+      "id": "070",
+      "file": "070_v200_notifications_post_purchase.sql",
+      "checksum": "a20c444a3f682076b04cc27a04a1844315939bb57aeb760005787b7a7673e1ed"
+    },
+    {
+      "id": "071",
+      "file": "071_v201_fulfillment_tracking.sql",
+      "checksum": "e36fe57f276b1f2da045ab01e3b46b28accb94253182854e605e38113c2a41ad"
+    },
+    {
+      "id": "072",
+      "file": "072_v203_commerce_growth_os.sql",
+      "checksum": "d2536d348646c80253f627a285c263c0bd8501f2e96848c0cd63d3745a5c3427"
+    },
+    {
+      "id": "073",
+      "file": "073_v216_revenue_engine.sql",
+      "checksum": "7b8da066ec84aa7491af6e1545c96ccbe4bd1cdf319fd04b539bb7cd1be070ab"
+    },
+    {
+      "id": "074",
+      "file": "074_v223_observability.sql",
+      "checksum": "9a9109da9d4e4bcb1d1b53cc2d57cbdd69e23852d925ef57800964e67a2dc22f"
+    },
+    {
+      "id": "075",
+      "file": "075_v224_security_scale_hardening.sql",
+      "checksum": "5fdf6b56df24d7578e1435fc2e9db3965e8a2043bfa6f9755410e53537c33b61"
+    },
+    {
+      "id": "076",
+      "file": "076_v225_global_reliability.sql",
+      "checksum": "74ee9d0a00a13371cb680de7f077c490d04c2e89ecaf0181a15b1c67ec986344"
+    },
+    {
+      "id": "077",
+      "file": "077_v226_owner_control_room.sql",
+      "checksum": "4a15931bdd7f14a54ece03b4e9ecf8fc2610d8f4c0f89a815a8e3b825d5500b1"
+    },
+    {
+      "id": "078",
+      "file": "078_v227_owner_live_controls.sql",
+      "checksum": "0b2bb077f20dd8d1fab17121ea425c63e03bf9af88a19662daf17372d4094d8f"
+    },
+    {
+      "id": "079",
+      "file": "079_v230_production_kernel.sql",
+      "checksum": "6cda04ce1a3432bd735c9ff4f271357d8faedb98d60b4a1c8cd4168b0298008a"
+    },
+    {
+      "id": "080",
+      "file": "080_v230_notification_center.sql",
+      "checksum": "4f7b9440e1d0af1a1e280cda8f192602fc1e873ab1afb0ba8af52e9fb9d1b0ba"
+    },
+    {
+      "id": "081",
+      "file": "081_v231_commerce_execution.sql",
+      "checksum": "958953186a34409bd68bb61729a0116ea516026be25f310500b1baeb86683f24"
+    },
+    {
+      "id": "082",
+      "file": "082_v232_fulfillment_execution.sql",
+      "checksum": "00762572704083c364cc8f1bdaa9ba2271edcd617de144f923b7efe63751db9e"
+    },
+    {
+      "id": "083",
+      "file": "083_v233_fulfillment_provider_execution.sql",
+      "checksum": "97adb99cc676b711f41be54e4997694ff337324454b8c997c15f8f23132492e4"
+    },
+    {
+      "id": "084",
+      "file": "084_v233_fulfillment_operations.sql",
+      "checksum": "5ce2e88b980922192b2e5f90bbbcf9164ec1a1afe8eb0caa4df7fb98f3da1414"
+    },
+    {
+      "id": "085",
+      "file": "085_v234_returns_refunds_execution.sql",
+      "checksum": "55e51cc1e21cd2053761dd8fe4863137690ed81158008cd03dbc02b5e03ab414"
+    },
+    {
+      "id": "086",
+      "file": "086_v234_return_provider_execution.sql",
+      "checksum": "418f37d5001e2681ab7a2ac833c769e17a43145b330a2e32e61219987d1d3483"
+    },
+    {
+      "id": "087",
+      "file": "087_v235_reverse_commerce_execution.sql",
+      "checksum": "187a2f194db2fbdc8a69a5117787e11730469ed2811d9cc52a62574755d3d364"
+    },
+    {
+      "id": "088",
+      "file": "088_v236_customer_commerce_os.sql",
+      "checksum": "11d70d55e1631529611c171c319a64f4682d455d8e487ebc95a2eb390f75de34"
+    },
+    {
+      "id": "089",
+      "file": "089_v236_customer_data_platform.sql",
+      "checksum": "deb5060dd7e83320e450e6466b4f2b22ef8c46189cf053bc1d0d26dff24988b7"
+    },
+    {
+      "id": "090",
+      "file": "090_v237_merchant_commerce_control_plane.sql",
+      "checksum": "3c3dfcdc9bb7c9b67a9d5c468ef6b37c276ea3faceeec60e7510a652f9d37c40"
+    },
+    {
+      "id": "091",
+      "file": "091_v237_reality_consolidation.sql",
+      "checksum": "7c74e05c995a74d61fca04acef9c980ce300d6c8468a33cd3d627d803ba58577"
+    },
+    {
+      "id": "092",
+      "file": "092_v238_production_reality_hardening.sql",
+      "checksum": "c7fa7f0ce5e4b176923b120dc17ff3a45d5a8c873981dda04b3faecb8246703d"
+    },
+    {
+      "id": "093",
+      "file": "093_v239_real_provider_execution.sql",
+      "checksum": "e78c5b46a9bb6d2097ebedf6f6bdc65eb82e1492f24896d368d69d8eeb165ed3"
+    },
+    {
+      "id": "094",
+      "file": "094_v240_provider_reliability.sql",
+      "checksum": "dc7767d1c99dd7840c6f57aaacbd97bdbe37a0fcad59999309a6166c62ae45eb"
+    },
+    {
+      "id": "095",
+      "file": "095_v241_cell_scaling_foundation.sql",
+      "checksum": "ac85394235ce2691a7326d915d08147b61ef1b0fcfbafe4ac407f42cc0155154"
+    },
+    {
+      "id": "096",
+      "file": "096_v242_durable_event_backbone.sql",
+      "checksum": "84c720f4e0acfa5364b4562279767b4efaac19bacae6f0ad11cca49f42e648b8"
+    },
+    {
+      "id": "097",
+      "file": "097_v243_distributed_commerce_runtime.sql",
+      "checksum": "1b137fd5d88c4b897658f23fc3729638f0d3dbe30e6969f178897a4c63ba1ce0"
+    },
+    {
+      "id": "098",
+      "file": "098_v244_consumer_mesh.sql",
+      "checksum": "9237985be149facd8a23fe4c23aba73d78157cb1825a498695b1a677a7497a5a"
+    },
+    {
+      "id": "099",
+      "file": "099_v245_real_domain_execution.sql",
+      "checksum": "edf06218c2a00c08b1660263b77055150b8d6c959dcb133dff6040a888be64c4"
+    },
+    {
+      "id": "100",
+      "file": "100_v246_runtime_consumer_registry.sql",
+      "checksum": "0c83fb27ed5d19a9a1ccb16385fe88fb28daa011fd68b769571c185551e6e969"
+    },
+    {
+      "id": "101",
+      "file": "101_v250_durable_autonomous_orchestrator.sql",
+      "checksum": "2c731844a848bf2e9eef8e04c0c8ce8d9128153d6a023011c41382c52d0e38a5"
+    },
+    {
+      "id": "102",
+      "file": "102_v264_durable_promotion_ledger.sql",
+      "checksum": "a2760950eb0b17b935c743efd0c3702d9cd8effa3beb861a7d473e5d6772eada"
+    },
+    {
+      "id": "103",
+      "file": "103_v265_cryptographic_promotion_authorization.sql",
+      "checksum": "6b159ba4f2c86328fd4320749ff9cc909bae42c7d88e2ad72fb8f37fcdd61363"
+    },
+    {
+      "id": "104",
+      "file": "104_v266_promotion_key_lifecycle.sql",
+      "checksum": "a027ee258a2cd131cca2cdf11cf8b1564a67fdc8580dd0f4f3a3a62449102e4c"
+    },
+    {
+      "id": "105",
+      "file": "105_v267_promotion_authorization_governance.sql",
+      "checksum": "c1475c0311812f04d81887de64a3a3767f105bfef98dd234694f68102ed77178"
+    },
+    {
+      "id": "106",
+      "file": "106_v268_promotion_command_gateway.sql",
+      "checksum": "b3ba498b8f228e40b555907595925f045961f9f67ba53338204bbdde02888481"
+    },
+    {
+      "id": "107",
+      "file": "107_v270_marketplace_growth_monetization.sql",
+      "checksum": "694ff090a176050dc2012dd50b0e04e11ec7fa8f4653be607f1c44a77a358052"
+    },
+    {
+      "id": "108",
+      "file": "108_v271_marketplace_discovery.sql",
+      "checksum": "b76d2f58ec81d6f1fc78c4db7eacd81223712eb741c9615bbb299f4c41a5cabf"
+    },
+    {
+      "id": "109",
+      "file": "109_v272_marketplace_offer_buybox.sql",
+      "checksum": "6448e95d421788a9f18d2477b306a0d05d1e8415fef188f0a8d61f8297c7cc49"
+    },
+    {
+      "id": "110",
+      "file": "110_v272_offer_checkout_binding.sql",
+      "checksum": "cbc150e801fc8172f39ca3242cea71c0e44486629796a186ff8c456a8b6205bb"
+    },
+    {
+      "id": "111",
+      "file": "111_v273_trust_fulfillment_network.sql",
+      "checksum": "c62aa3e7bbab254c56878a721d565bd6eb358b54a8d18270b098dc715b0969ca"
+    },
+    {
+      "id": "112",
+      "file": "112_v274_intelligent_checkout.sql",
+      "checksum": "ed6bb0d36a7d7b53ae36f305e4cd37fb397b10a0eee4b6dc7eceaaadbb1af840"
+    },
+    {
+      "id": "113",
+      "file": "113_v275_seller_trust_intelligence.sql",
+      "checksum": "b1af2d8f97e5716699d0b2b8b2a6202ced35dfd0d3680d961c55031480f7edcc"
+    },
+    {
+      "id": "114",
+      "file": "114_v276_customer_intelligence.sql",
+      "checksum": "8b70634c3d85e7943f7bc3ccc0dfdcc5acaf690450da962370edd8561a8a6709"
+    },
+    {
+      "id": "115",
+      "file": "115_v277_shopping_missions_smart_bundles.sql",
+      "checksum": "9bdb383d233c0f4dfd6970f61cda2de7ca4ac6f5fc5b297b8dcbfd25fabaf981"
+    },
+    {
+      "id": "116",
+      "file": "116_v278_revenue_surfaces.sql",
+      "checksum": "970d077765752e98c8f73b2b9d2e829e37356207031603a76525f54493df0b86"
+    },
+    {
+      "id": "117",
+      "file": "117_v279_customer_retention_trust.sql",
+      "checksum": "e147cb8bd928f1baa70c0ec05a647650023c297c6799b03f49b09c056ceb92e4"
+    },
+    {
+      "id": "118",
+      "file": "118_v280_deals_coupons_dynamic_pricing.sql",
+      "checksum": "7a1a2da1554cc0f503171a88ec926e63df31fe80b4f76d7756ebfaa042805883"
+    },
+    {
+      "id": "119",
+      "file": "119_v281_promotion_correctness.sql",
+      "checksum": "acdebe57d8d4252e10a289b75abf9c542bffd3b5385baf351d05ec8ef68c61b5"
+    },
+    {
+      "id": "120",
+      "file": "120_v282_economic_core.sql",
+      "checksum": "ca21b8aa53df2bcbdfa2df014245c2811d7e20ab6c1f985942e84d709187f986"
+    },
+    {
+      "id": "121",
+      "file": "121_v283_economic_settlement_runtime.sql",
+      "checksum": "218d538f109daa409e6b5416cf59376b62e5248859c178902acf537b9bbf200c"
+    },
+    {
+      "id": "122",
+      "file": "122_v284_financial_loop.sql",
+      "checksum": "0dee5dd2763a3d314f36c5756cd83da95954f7563d5f3d96a4984c9b15d8825b"
+    },
+    {
+      "id": "123",
+      "file": "123_v285_disputes_payout_reconciliation.sql",
+      "checksum": "e4d9d3f9fe4e925d0c100a155a29751eb03479342e7ff1d2b893ae7e784854e8"
+    },
+    {
+      "id": "124",
+      "file": "124_v286_financial-control-hardening.sql",
+      "checksum": "2cb043808e341240ca7d8953469639946948023c0ec99e65dc5ecd4470b11b82"
+    },
+    {
+      "id": "125",
+      "file": "125_v287_financial-architecture-correctness.sql",
+      "checksum": "99bbe80d6ac80725bde394bd11bb202511a7bc2eb189b31e2ce4294323002964"
+    },
+    {
+      "id": "126",
+      "file": "126_v288_fulfillment_network_runtime.sql",
+      "checksum": "966dcfc35cbba65be74ce228773c036011fc5f3164a24231766b421520d79915"
+    },
+    {
+      "id": "127",
+      "file": "127_v289_fba_inventory_economics.sql",
+      "checksum": "957c4a9968a30e6ea0290535e30c330177cc669cb042b50f7fe845c461757e6e"
+    },
+    {
+      "id": "128",
+      "file": "128_v290_productization_foundation.sql",
+      "checksum": "5a362d972b3dd24da4e9dd1c86a825881b1e0084848d0a0d381c4276077fc51f"
+    },
+    {
+      "id": "129",
+      "file": "129_v291_product_e2e.sql",
+      "checksum": "3310314797983a075a5f24bec81def3478e37ace52440daee7414e1feef23bb6"
+    },
+    {
+      "id": "130",
+      "file": "130_v292_post_sale_orchestration.sql",
+      "checksum": "30ecc71ba10cfb40736c08c2d7a02ad8541c10fa8d979ed874328bdd0899622a"
+    },
+    {
+      "id": "131",
+      "file": "131_v293_post_sale_financial_controls.sql",
+      "checksum": "7da7c50cea18c7e307f15bd93e4affda023434e3c9d51d302287ec3f3152eb16"
+    },
+    {
+      "id": "132",
+      "file": "132_v294_production_e2e_evidence.sql",
+      "checksum": "cd3c691eee310c0dd8ad96a587da266292d051c77b7ee91cfb45b3b54f377c0b"
+    },
+    {
+      "id": "133",
+      "file": "133_v295_production_hardening.sql",
+      "checksum": "22f91cf21e10f30db053aabef860c5758ccfd5bde137a6bc14710eeb485be629"
+    },
+    {
+      "id": "134",
+      "file": "134_v296_global_commerce.sql",
+      "checksum": "51c4f7d0aee97b6b72a7dfb87d0a94b214cc3e12bb93f099971ce741f71f322d"
+    },
+    {
+      "id": "135",
+      "file": "135_v297_global_commerce_runtime.sql",
+      "checksum": "53eb8457c304d9cbebc19bf81cda5b506ae9c42804259a4f3b936a783d6960a0"
+    },
+    {
+      "id": "136",
+      "file": "136_v298_global_checkout_runtime.sql",
+      "checksum": "97e6597621bc55b99cfd47bb643afcea4f55f95e4104b36eb82325e935001897"
+    },
+    {
+      "id": "137",
+      "file": "137_v299_global_payment_runtime.sql",
+      "checksum": "9888bc42e94316896badeb3251123d11c25299d120a6a650c5317edfd6e66b1c"
+    },
+    {
+      "id": "138",
+      "file": "138_v300_global_payment_execution.sql",
+      "checksum": "a765157642f9d200b1ce2e13f9d78ae98bfd5ca38ffe83f65a4b35d34a4e009a"
+    },
+    {
+      "id": "139",
+      "file": "139_v301_global_order_orchestration.sql",
+      "checksum": "c9126be9c2288ea5b40a976a70b30c97747bf5553dc0553b75aa4f6fe4557a3f"
+    },
+    {
+      "id": "140",
+      "file": "140_v302_global_fulfillment_execution.sql",
+      "checksum": "2736f4053c8b29eaf817c5584d013abc0066fd17d64dc7a030a9eb9e4639c104"
+    },
+    {
+      "id": "141",
+      "file": "141_v303_global_fulfillment_reliability.sql",
+      "checksum": "6f8a3f4ca5f2a67fa4efce04b0af3ea9a41d900e70e1e66d986425d692889fa8"
+    },
+    {
+      "id": "142",
+      "file": "142_v304_global_carrier_network.sql",
+      "checksum": "14f9db23f10e02be5bdecd73cf6ef9a1b98524b5a71ee12f6bc60507f3995add"
+    },
+    {
+      "id": "143",
+      "file": "143_v305_global_logistics_intelligence.sql",
+      "checksum": "bf87753becfd2a5bbd8be98183ae0d2340c2b15549eab60cbdae1b14b8df0e4b"
+    },
+    {
+      "id": "144",
+      "file": "144_v306_global_logistics_execution.sql",
+      "checksum": "4fc7322e778e819ce9df76f60c08847b188f12d7146c936f277f73baf110c683"
+    },
+    {
+      "id": "145",
+      "file": "145_v307_global_logistics_tracking_reconciliation.sql",
+      "checksum": "6b7f58cd63cd993806d4f80a919f7e348c81b187235fcbb472954262053f3fab"
+    },
+    {
+      "id": "146",
+      "file": "146_v308_global_logistics_control_tower.sql",
+      "checksum": "9d01469a2038b3a2b658781a366ae8c8e5c9905e651a24345ef5ffbb5afd777f"
+    },
+    {
+      "id": "147",
+      "file": "147_v309_global_logistics_recovery_orchestrator.sql",
+      "checksum": "74c81db45bb51fc9970eb8c7dbab4d2bada45a8868b70166d8905b3da93eb437"
+    },
+    {
+      "id": "148",
+      "file": "148_v310_global_logistics_promise_enforcement.sql",
+      "checksum": "0196a256c439f0a45cc2c748a9069ba5c750a8fcd68466366fe9ad6da1b398fa"
+    },
+    {
+      "id": "149",
+      "file": "149_v311_global_logistics_network_optimization.sql",
+      "checksum": "0b2601ff594ff8e4b965808ee9452e4945d8fc2cf0aba08d9a8fa2f65a43fab7"
+    },
+    {
+      "id": "150",
+      "file": "150_v312_global_logistics_adaptive_learning.sql",
+      "checksum": "268bfb489f10337c50e79f72a184343fc2c70e023e745f0b33c9cc499582acab"
+    },
+    {
+      "id": "151",
+      "file": "151_v313_platform_foundation.sql",
+      "checksum": "f333639ac6eb0d3a89633b000f1bb35717c6bd6d457c45b803117dcccf03745c"
+    },
+    {
+      "id": "152",
+      "file": "152_v314_platform_unification.sql",
+      "checksum": "a42d21c605b8e3d90e30926163c70586cfab1c37defb1e7cd7acfb8bb7a16d38"
+    },
+    {
+      "id": "153",
+      "file": "153_v315_verification_platform.sql",
+      "checksum": "1841e448bcecf8f6b6048f5c1557a35c80acb3575984bf64e0459d40c40b9fbb"
+    },
+    {
+      "id": "154",
+      "file": "154_v316_marketplace_os_vertical_slice.sql",
+      "checksum": "e5f39ddd50dbe5859d957e5b4aa9a11da121b37d2b70db6cfd678303e3037fff"
+    },
+    {
+      "id": "155",
+      "file": "155_v317_transactional_marketplace_execution.sql",
+      "checksum": "a72ad94eb5ba73ed9f82ca1f1c89b5f7804fd6d212839b1d14b622dc88620103"
+    },
+    {
+      "id": "156",
+      "file": "156_v318_production_integration_lab.sql",
+      "checksum": "2d6bd825b9e5f320f3fe0c4b9789a257a0cf08a5ca43796db46f9b78288edc97"
+    },
+    {
+      "id": "157",
+      "file": "157_v319_real_capabilities.sql",
+      "checksum": "ac77d5e8a24ac205032f103b0232a659673aa7ab50b65fc2f16346035be79ecd"
+    },
+    {
+      "id": "158",
+      "file": "158_v320_commerce_monetization.sql",
+      "checksum": "c75c915389f9c0a2ea7bdb5a1f6d58b9972278fd081df5024e9f1c47a13fc3ef"
+    },
+    {
+      "id": "159",
+      "file": "159_v321_monetization_wiring.sql",
+      "checksum": "16af0960053e0592866ac0568b4a68397ddfcdddcdd376b64032190dbbfb3ce6"
+    },
+    {
+      "id": "160",
+      "file": "160_v322_seller_services_b2b_membership.sql",
+      "checksum": "c6a5a2d01686990195e51d02ad1363c09e2092e5196eb56efdb3c5b5ba4b3dd3"
+    },
+    {
+      "id": "161",
+      "file": "161_v323_financial_close.sql",
+      "checksum": "0dcd20cc5de9a9b9da1f8cb2214d0e5ae84ab48d9dfa63482610abd4e26036b5"
+    },
+    {
+      "id": "162",
+      "file": "162_v324_customer_commerce_activation.sql",
+      "checksum": "82323617edb5afb4baee3d3d070b4eb3575fbbbc3cdb995ae88fe1d1fcd94f1b"
+    },
+    {
+      "id": "163",
+      "file": "163_v325_financial_integrity.sql",
+      "checksum": "7d246c0cd225e83dcf8ce2df217bce609deefe4d000d7d665b6dcb4a174b1d97"
+    },
+    {
+      "id": "164",
+      "file": "164_v326_commerce_journey_completion.sql",
+      "checksum": "a0b2a9c8697894369a33bc8e40eb02f9ab79028d868057ce903a41b3f5a00206"
+    },
+    {
+      "id": "165",
+      "file": "165_v327_commerce_execution_runtime.sql",
+      "checksum": "1004bb1754d410b68bb3ec30704f50c70eceb60b91bcc893c6aa77d8a636008f"
+    },
+    {
+      "id": "166",
+      "file": "166_v328_inventory_reservation_runtime.sql",
+      "checksum": "1addbb2fec6708c20b875bf24e54c779e611e2b82c490be66b7a0c986b9544a3"
+    },
+    {
+      "id": "167",
+      "file": "167_v329_fraud_signals.sql",
+      "checksum": "9a9b6439eba1120ce06ea1e9fb67e6428a236b7cc4beec37fbca081cfb3aeba1"
+    },
+    {
+      "id": "168",
+      "file": "168_v330_v331_historical_bridge.sql",
+      "checksum": "4a28cc726e0ff34f14da067bfa2c9e1f474287107c67fd8e6a31d93fa5b4395c"
+    },
+    {
+      "id": "169",
+      "file": "169_v332_checkout_quote_ownership.sql",
+      "checksum": "2ad226fc293ac71df6f063d28c278ab1b2b810384781e76f6f701323e283c2fe"
+    },
+    {
+      "id": "170",
+      "file": "170_v334_order_cancel_inventory_integrity.sql",
+      "checksum": "190144fcef2b1b13b14d4b955a2cfef69569d96bb057e2036fdf631d0140d334"
+    },
+    {
+      "id": "171",
+      "file": "171_v337_catalog_search_runtime.sql",
+      "checksum": "b8dd92f8bf63f79d424d87d5045388a6c006c68f2f1e259cfcdb81ea1f4e4b9a"
+    },
+    {
+      "id": "172",
+      "file": "172_v339_offer_management_runtime.sql",
+      "checksum": "2e8a32ae79d4d4547baf5f31b2b47ec8d515dae6ec0ffe8f4eed1f5ccbc6f6b1"
+    },
+    {
+      "id": "173",
+      "file": "173_v340_order_tracking_indexes.sql",
+      "checksum": "f95c9e7b2ae6ba8453a121bf2449d919f78f135b56b0fe50cf70ce079a9ed1c4"
+    },
+    {
+      "id": "174",
+      "file": "174_v341_multiseller_cart.sql",
+      "checksum": "81e08466d76f14439e181db3c18d7d0b7ad47e24c390f2aab2fbabb22f2a7924"
+    },
+    {
+      "id": "175",
+      "file": "175_v342_seller_order_split.sql",
+      "checksum": "67739a3a23b67a39609327257171a1f9b104df0da4a4794f56caac8b34b28a0d"
+    },
+    {
+      "id": "176",
+      "file": "176_v343_seller_operations_bridge.sql",
+      "checksum": "f1db5f296d0671bbd39072f401d0b0b423ccb625772b6e8650f4a22f1de07369"
+    },
+    {
+      "id": "177",
+      "file": "177_v345_seller_return_financials.sql",
+      "checksum": "1240bc0643ac7db4e62242021dfb943a607d20418b228bbef89ea2f7d9772842"
+    },
+    {
+      "id": "178",
+      "file": "178_v346_seller_dispute_cases.sql",
+      "checksum": "f1760b63876958718744d8f52046f4821822757b7e68545d4ac0fdbab53039a0"
+    },
+    {
+      "id": "179",
+      "file": "179_v347_dispute_refund_execution.sql",
+      "checksum": "879c52d10f746cfa6583014372c8daff2109fe7104352ad03b64728c167c5442"
+    },
+    {
+      "id": "180",
+      "file": "180_v348_payout_protection.sql",
+      "checksum": "3651f52fe76c11c7594afa219ad22ee9d04634230ec5a821e6181e9570c5b7f3"
+    },
+    {
+      "file": "181_v349_payout_provider_execution.sql",
+      "checksum": "90faee29d9b32dae29298bc7b680d93396c16b935c5117d25bd24596d4961c23"
+    },
+    {
+      "id": "182",
+      "file": "182_v350_payout_webhook_reconciliation.sql",
+      "checksum": "8c3e02c231662cc69814635c9df760eb2947ffd880173deda2f3789ba612bbee"
+    },
+    {
+      "id": "183",
+      "file": "183_v351_financial_integrity_reconciliation.sql",
+      "checksum": "b20f93f6a2c7c39f91f55594eec6606b1a417dac48a77c9ffbae2b5cb28457bc"
+    },
+    {
+      "id": "184",
+      "file": "184_v352_unified_inventory_reservation.sql",
+      "checksum": "3576faab4caa3651a38eddf526c08ce9de8323e1ea27695332b0f7b48edc08de"
+    },
+    {
+      "id": "185",
+      "file": "185_v353_fulfillment_allocation_authority.sql",
+      "checksum": "d572ec7aca9d09cc47b072e78ecbd11fdc6d6b27720d1083d131d10cb67744ca"
+    },
+    {
+      "id": "186",
+      "file": "186_v354_fulfillment_inventory_execution.sql",
+      "checksum": "2ef07bb646dbb76041b62d1852313d2a1d6da1103177f14bc25ecf19813a3d1a"
+    },
+    {
+      "id": "187",
+      "file": "187_v355_commerce_execution_kernel.sql",
+      "checksum": "9ce06f153dc68312d0117c1c82b0f25caa6e7acfa1a578e077015a661358155d"
+    },
+    {
+      "id": "188",
+      "file": "188_v356_distributed_commerce_workers.sql",
+      "checksum": "a4d9c439335dd9cb176b0592d5c20fd853cd2f87f26e6d1d1a212635417acf02"
+    },
+    {
+      "id": "189",
+      "file": "189_v359_commerce_control_plane.sql",
+      "checksum": "632df2da81b25bea23c9d4ba0325849bec1717aa63db68f5068631d88df4333d"
+    },
+    {
+      "id": "190",
+      "file": "190_v361_legacy_runtime_restoration.sql",
+      "checksum": "04407adb969bdd2064dd343b4314943e704c938c7f6d8cccda8cb8cd6d652aef"
+    },
+    {
+      "id": "191",
+      "file": "191_v361_durable_autonomous_orchestration.sql",
+      "checksum": "ffe8751f20589593f57bba99775de233e66c985fa59b669ed0b0db83075bd7e9"
+    },
+    {
+      "id": "192",
+      "file": "192_v362_wishlist_runtime_hardening.sql",
+      "checksum": "80bec04f76f797454adb4ac8e49d52dadc03b1318f62066c25214e0d8dcc2091"
+    },
+    {
+      "id": "193",
+      "file": "193_v363_orchestration_runtime_contract.sql",
+      "checksum": "65ef09533ff28ecd9c2890c25038389c43c77b5ecef45ee27557a42dfe79b22a"
+    },
+    {
+      "id": "194",
+      "file": "194_v364_real_commerce_intelligence_wiring.sql",
+      "checksum": "ba85de8a193d2b4fc5c1fdc5c4c6713c9df4c0d0dab3ac6a43da5ee9801c23c8"
+    },
+    {
+      "file": "195_v366_commerce_event_publisher_runtime.sql",
+      "checksum": "365995da99b4564072b05bb759f7bc147c455fb8f21f6ceb9150af2bcc983de6"
+    },
+    {
+      "id": "196",
+      "file": "196_v367_consumer_execution_runtime.sql",
+      "checksum": "2135444b4b6dcaceb0132291596f2530d04520eb4b7a396ec172ec60f18e19c8"
+    },
+    {
+      "id": "197",
+      "file": "197_v368_consumer_control_plane.sql",
+      "checksum": "5a818c67c917168e46c591e85df846873a8722ff0ce6eff70938e06cf1389bbe"
+    },
+    {
+      "id": "198",
+      "file": "198_v369_commerce_operations_brain.sql",
+      "checksum": "17edf130e531e1d4aeffd3c142d9136863c15b14097b1320c260de18396d70fb"
+    },
+    {
+      "id": "199",
+      "file": "199_v370_commerce_command_center.sql",
+      "checksum": "a8bb7136040d6ebe8d6e1a3f60c180a418c76c7506d95cda686913c8957db84d"
+    },
+    {
+      "id": "200",
+      "file": "200_v371_verified_commerce_recovery_loop.sql",
+      "checksum": "a09e5a2d758f3d8b5107b047bf2c2a9b7db8faba57d716089f8007ddc859d75a"
+    },
+    {
+      "id": "201",
+      "file": "201_v372_commerce_reliability_fabric.sql",
+      "checksum": "f69ec619c504d6070c996c3b88334ef3c8cfde9078ee21200a58eb05f475a7b8"
+    },
+    {
+      "id": "202",
+      "file": "202_v373_verified_order_recovery.sql",
+      "checksum": "69ffc409d6cbefc8cda53a187adf5a043bd84832818ab7268321ff6d10d188d4"
+    },
+    {
+      "id": "203",
+      "file": "203_v374_unified_commerce_os.sql",
+      "checksum": "7f67aa91af568934832ab341728cc590682c07b246e8e70df5634ca0dbd046f8"
+    },
+    {
+      "id": "204",
+      "file": "204_v375_global_commerce_control_plane.sql",
+      "checksum": "ed0d9cca2e7b6b368c428dfc604fb072647d7c0b2d29aad4547c621546338935"
+    },
+    {
+      "id": "205",
+      "file": "205_v376_commerce_incident_orchestrator.sql",
+      "checksum": "81892e4745865c94e13946e16ed74f90f46798410400dbb6d817b1855965f373"
+    },
+    {
+      "id": "206",
+      "file": "206_v377_global_commerce_automation.sql",
+      "checksum": "ee0dc86be22ba338e548f1436c8cef7171ac62d1799dbb6c23166f2243577da0"
+    },
+    {
+      "id": "207",
+      "file": "207_v378_learning_policy_engine.sql",
+      "checksum": "7ba9c1b9b2f3158eb332b08b7f1354b748537c8ef78a1dd6a26e0dee20c0c9b3"
+    },
+    {
+      "id": "208",
+      "file": "208_v379_policy_governance_canary.sql",
+      "checksum": "2dc38dcebd31ad3c5580b294d2380dbcbff6dbb05f36ec9f7ffac97e4acba03e"
+    },
+    {
+      "id": "209",
+      "file": "209_v380_global_commerce_decision_fabric.sql",
+      "checksum": "014d66abb5cf342c3db58292a3fd28cdaaea1616123e17a8c64b56473ca2a4c9"
+    },
+    {
+      "id": "210",
+      "file": "210_v381_decision_command_gateway.sql",
+      "checksum": "4df1bad56316c47aff846959dae50b72d0a8ba61d1a971e7a936d6b60b2a123d"
+    },
+    {
+      "id": "211",
+      "file": "211_v382_global_commerce_execution_mesh.sql",
+      "checksum": "396e8d2260278dae296877323c27f74b499be2b3b26db0e1d20fa6175af66a22"
+    },
+    {
+      "id": "212",
+      "file": "212_v383_global_commerce_execution_fabric.sql",
+      "checksum": "a543689138ff94a882da97bd4f18a66b8b554e2ecda6234898e8012555c424b7"
+    },
+    {
+      "id": "213",
+      "file": "213_v387_fulfillment_delivery_unification.sql",
+      "checksum": "dfea328cd492cec43502d785cb71e60027707c7d3f46e7f447b35207f61152e9"
+    },
+    {
+      "id": "214",
+      "file": "214_v388_global_marketplace_order_os.sql",
+      "checksum": "9c681ba2e4f0217a7c8918c36269042b5a4c6cd1e106d80cfcd146f39a5677c1"
+    },
+    {
+      "id": "215",
+      "file": "215_v389_post_purchase_os.sql",
+      "checksum": "c18730b278f2ba21fd5a86349e6f4faf82abd33e2c5d2b43576fc2837738f2b9"
+    },
+    {
+      "file": "216_v390_global_super_control_plane.sql",
+      "version": "V390.0.0",
+      "checksum": "5e03a85f06976278351559101bb5a16cb6eb887996f59583e95ca5c98b63fb7a"
+    },
+    {
+      "id": "217",
+      "file": "217_v391_production_commerce_hardening.sql",
+      "version": "V391.0.0",
+      "checksum": "a954498f32e966befd2427c2e3d7020a0422232c9eef1d68972a1b3a980802d1"
+    },
+    {
+      "id": "218",
+      "file": "218_v392_load_resilience.sql",
+      "version": "V392.0.0",
+      "checksum": "4ff91359e7186ff3fbf3c4aff55c4dfed1572bfcb650bbb61bde43b443ccdebe"
+    },
+    {
+      "id": "219",
+      "file": "219_v394_commerce_reconciliation.sql",
+      "version": "V394.0.0",
+      "checksum": "c71dc8f121a9d9176f65afa39500e1166b570009bb17ae2ad026602c3e3a6411"
+    },
+    {
+      "id": "220",
+      "file": "220_v395_commerce_journey_integrity.sql",
+      "version": "V395.0.0",
+      "checksum": "9c6639ce80273055fe402f9e9b133bfe0cd0ad9d90082fc6b87cbb252a498715"
+    },
+    {
+      "id": "221",
+      "file": "221_v396_seller_settlement_truth.sql",
+      "version": "V396.0.0",
+      "checksum": "8dd80b6cd3a19f4115288af43fbc09f0cea009e104e34918ad5cbc9a343a4e68"
+    },
+    {
+      "id": "222",
+      "file": "222_v397_unified_commerce_command_surface.sql",
+      "version": "V397.0.0",
+      "checksum": "24f6500316b6b849e50871786529da17afd3fc05ecd7009bc696370ec4cbdaf2"
+    },
+    {
+      "id": 223,
+      "version": "V398.0.0",
+      "file": "223_v398_global_seller_operating_system.sql",
+      "checksum": "fb60bc1349348c4e6fad665382c510e7bc6e14472943a7204a4a7a7bcf7c8966"
+    },
+    {
+      "id": 224,
+      "version": "V399.0.0",
+      "file": "224_v399_buyer_operating_system.sql",
+      "checksum": "1fc43f60b59eba996f204963072b89e88d50b24f5080522d0e2369c8008af16b"
+    },
+    {
+      "id": 225,
+      "version": "V400.0.0",
+      "file": "225_v400_global_sellable_catalog_truth.sql",
+      "checksum": "f3ccad1b5fbfcee6527d8dbd60d9dec1644cc9dc5a008984db9d4a2ba8688cf3"
+    },
+    {
+      "id": 226,
+      "version": "V401.0.0",
+      "file": "226_v401_global_inventory_execution_truth.sql",
+      "checksum": "cecad70ea3ca7f3c75e399436e59af1a6d611c49b83c07370c6137c5f76687c0"
+    },
+    {
+      "id": 227,
+      "version": "V402.0.0",
+      "file": "227_v402_inventory_transaction_engine.sql",
+      "checksum": "b2dafed2c55312a6ce5a76dcfac92f98554fecf62a84421ea016e4e51fe4018e"
+    },
+    {
+      "id": 228,
+      "version": "V403.0.0",
+      "file": "228_v403_global_mutation_closure.sql",
+      "checksum": "75acd9a1600de2ec60c95682fc501dcd5fafd90a661eb3ffb7c39b0b31af1f6c"
+    },
+    {
+      "id": "229",
+      "file": "229_v404_global_command_bus.sql",
+      "checksum": "a7d7d0765a10ad730f9541f67c51437bd3b2d1ee93e928e7df2022cf17abcba2",
+      "version": "V404.0.0"
+    },
+    {
+      "id": "230",
+      "file": "230_v405_global_commerce_workflows.sql",
+      "version": "V405.0.0",
+      "checksum": "89d658b37b9467c643c8f9771695f5c40c909b4e335d8185a9fdbadcb0336653"
+    },
+    {
+      "id": "231",
+      "file": "231_v406_order_journey_workflow_bridge.sql",
+      "version": "V406.0.0",
+      "checksum": "f9b0990b7d989cb47db383bee3bb30dc1bbb27d06eabb3af95b5c021189660bc"
+    },
+    {
+      "file": "232_v407_global_runtime_spine.sql",
+      "checksum": "006a194a24b7577b3b121f68e5ffc4a829747206039e763c80daa0fb849ca746"
+    },
+    {
+      "id": 233,
+      "version": "V408.0.0",
+      "file": "233_v408_production_execution_plane.sql",
+      "checksum": "4ca966fc53a4b203d3c9f9c7166e7ae670f866d68a63cf4c6d996a3552044486"
+    },
+    {
+      "id": 234,
+      "version": "V409.0.0",
+      "file": "234_v409_production_failure_closure.sql",
+      "checksum": "4c7a4a084229174cdc2f50509797ee8c5523ed6cfccc6e36d795476701792303"
+    },
+    {
+      "id": 235,
+      "version": "V410.0.0",
+      "file": "235_v410_global_production_worker_plane.sql",
+      "checksum": "2e5b7212014c7ad7b83f1b39edcbe9af0ad515aa46e1ea37072c9091556a3d6b"
+    },
+    {
+      "id": 236,
+      "version": "V411.0.0",
+      "file": "236_v411_global_worker_scheduling_recovery_mesh.sql",
+      "checksum": "e02d8405a11aeaee82a99d59759791c6b57c1481a68acbcc3111d05f4b3a0b07"
+    },
+    {
+      "id": 237,
+      "version": "V412.0.0",
+      "file": "237_v412_global_execution_idempotency_mesh.sql",
+      "checksum": "d7458c4b6397069b78a1a567374fc1f789a97a79805f7b15a5cfb3d5864ab939"
+    },
+    {
+      "id": 238,
+      "version": "V413.0.0",
+      "file": "238_v413_global_transaction_consistency_mesh.sql",
+      "checksum": "c0876500fe9cc0f25bf6d1fe993ec9234207ba37ef1822cb24f6dc2f8cbe0a1a"
+    },
+    {
+      "id": 239,
+      "version": "V414.0.0",
+      "file": "239_v414_external_effect_recovery_plane.sql",
+      "checksum": "2e0c3dcf5a102f91504c1e447118dc7d760dc5b9312386707563a880fbbf8a8e"
+    },
+    {
+      "id": 240,
+      "version": "V415.0.0",
+      "file": "240_v415_global_commerce_domain_kernel.sql",
+      "checksum": "bc0dcb59610f9264244277b8f5f9b5d352ade7f40371d7f8b09bee57c1bcb661"
+    },
+    {
+      "id": 241,
+      "version": "V416.0.0",
+      "file": "241_v416_canonical_commerce_execution_path.sql",
+      "checksum": "79daadd1f732ec55c3509d68c5a4a1039e0f081a1a33c02ee6e705ea9d19dba9"
+    },
+    {
+      "id": 242,
+      "file": "242_v417_commerce_execution_graph.sql",
+      "version": "V417.0.0",
+      "checksum": "a52d24b7067c548bccea35a566a16656d7e2d1b624a0ba72b7d56d6ca173d5c5"
+    },
+    {
+      "id": "243",
+      "file": "243_v418_global_commerce_recovery_engine.sql",
+      "checksum": "16b92ceb2e36e7ef16d1dc0e8c8bb106d9dd039aea81a2062c220a2dcc6cd89f"
+    },
+    {
+      "version": "419.0.0",
+      "migration": 244,
+      "file": "244_v419_global_commerce_state_reconciliation.sql",
+      "checksum": "067389b313151f5f539e921522111928e1bf52180d8fba040beda426e82fe991"
+    }
+  ],
+  "version": "419.0.0",
+  "generatedFor": "V418.0.0",
+  "generateFor": "V419.0.0"
+}

@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const store = fs.readFileSync('modules/platform/durable-events/store.ts','utf8');
+const migration = fs.readFileSync('db/migrations/096_v242_durable_event_backbone.sql','utf8');
+const worker = fs.readFileSync('scripts/durable_event_worker.mjs','utf8');
+for (const token of ['pg_advisory_xact_lock','idempotency_key','FOR UPDATE SKIP LOCKED','enqueueDelivery','completeDelivery','retryDelivery']) assert.ok(store.includes(token) || fs.readFileSync('modules/platform/durable-events/tx.ts','utf8').includes(token), `missing durable primitive ${token}`);
+assert.ok(fs.readFileSync('modules/platform/commerce-events/registry.ts','utf8').includes('trust_event_deliveries'), 'delivery persistence must remain in the runtime registry');
+for (const token of ['ALTER TABLE trust_commerce_events ADD COLUMN IF NOT EXISTS idempotency_key','next_attempt_at','locked_at','uq_trust_commerce_events_idempotency']) assert.ok(migration.includes(token), `missing migration primitive ${token}`);
+assert.ok(worker.includes('TRUST_EVENT_CONSUMER_ID'));
+assert.ok(worker.includes('TRUST_EVENT_HANDLER_MODULE'));
+console.log('V242 durable event backbone test PASS');

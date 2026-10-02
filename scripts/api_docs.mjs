@@ -1,0 +1,7 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(), out=path.join(root,'docs/api/openapi-v1.json');
+const routes=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(['node_modules','.next','.git'].includes(e.name))continue;const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(e.name==='route.ts'||e.name==='route.tsx')routes.push(f)}}; walk(path.join(root,'app/api'));
+const methods=['GET','POST','PUT','PATCH','DELETE']; const paths={};
+for(const f of routes){const rel=path.relative(path.join(root,'app/api'),path.dirname(f));const route='/api/'+rel.split(path.sep).join('/');const src=fs.readFileSync(f,'utf8');const allowed=methods.filter(m=>new RegExp(`export\\s+(?:async\\s+)?function\\s+${m}\\b`).test(src));paths[route]={};for(const m of allowed)paths[route][m.toLowerCase()]={summary:`${m} ${route}`,responses:{'200':{description:'Success'},'400':{description:'Client error'},'500':{description:'Server error'}}};}
+const doc={openapi:'3.0.3',info:{title:'TRUST APEX OS API',version:'V225.0.0',description:'Generated route inventory. Request/response schemas should be extended per domain before external publication.'},servers:[{url:'/'}],paths};
+fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(doc,null,2)+'\n');console.log(`OpenAPI inventory generated: ${Object.keys(paths).length} routes`);

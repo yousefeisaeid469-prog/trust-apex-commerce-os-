@@ -1,0 +1,182 @@
+{
+  "id": "evidence-packet:capability-040-v236-adds-a-durable-customer-experience-kernel-profiles-addresses-wishlists-save",
+  "contractId": "capability-040-v236-adds-a-durable-customer-experience-kernel-profiles-addresses-wishlists-save",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V236.md:3",
+  "claim": "V236 adds a durable customer experience kernel: profiles, addresses, wishlists, saved carts, reviews, preferences, privacy workflows, timeline and maintenance workers.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v192-customer-os.test.mjs",
+      "tests/v195-design-performance.test.mjs",
+      "tests/v199-order-experience.test.mjs",
+      "tests/v200-notifications-post-purchase.test.mjs",
+      "tests/v201-fulfillment-tracking.test.mjs",
+      "tests/v227-owner-live-controls.test.mjs",
+      "tests/v228-reality-completion.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 48,
+        "token": "durable",
+        "excerpt": "\"modules/platform/durable-events/tx.ts\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 29,
+        "token": "durable",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V147.md:13 (docs line 13) — The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 565,
+        "token": "durable",
+        "excerpt": "\"id\": \"capability-008-v182-adds-a-durable-post-purchase-lifecycle-layer-so-customers-can-manage-what-h\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 30,
+        "token": "durable",
+        "excerpt": "- **capability-008-v182-adds-a-durable-post-purchase-lifecycle-layer-so-customers-can-manage-what-h** — unassigned — DRAFT — V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of tr",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 196,
+        "token": "durable",
+        "excerpt": "\"claim\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconc",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 1119,
+        "token": "durable",
+        "excerpt": "\"claim\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconc",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 135,
+        "token": "durable",
+        "excerpt": "\"text\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconci",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 29,
+        "token": "durable",
+        "excerpt": "\"claim\": \"Event contract versions are persisted and enforced before durable writes.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "durable",
+          "customer"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v192-customer-os.test.mjs",
+        "hits": [
+          "customer",
+          "experience",
+          "timeline"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v195-design-performance.test.mjs",
+        "hits": [
+          "customer",
+          "experience"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v199-order-experience.test.mjs",
+        "hits": [
+          "durable",
+          "customer",
+          "experience",
+          "timeline"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v200-notifications-post-purchase.test.mjs",
+        "hits": [
+          "durable",
+          "customer",
+          "preferences"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v201-fulfillment-tracking.test.mjs",
+        "hits": [
+          "durable",
+          "customer"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v227-owner-live-controls.test.mjs",
+        "hits": [
+          "durable",
+          "maintenance"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v228-reality-completion.test.mjs",
+        "hits": [
+          "durable",
+          "profiles"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "7977183f78978d2e2cfc45c1fdefc85e074e100899bdbecd310aac3ec4b675ad",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

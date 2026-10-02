@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+const read=f=>fs.readFileSync(f,'utf8');
+const migration=read('db/migrations/231_v406_order_journey_workflow_bridge.sql');
+for(const t of ['WAITING_EVENT','trust_workflow_signals','wait_event_type','wait_event_key'])if(!migration.includes(t))throw new Error(`migration missing ${t}`);
+const orch=read('modules/platform/workflow-orchestrator.ts');
+for(const t of ['signalWorkflowEventTx','WAIT_FOR_EVENT','trust_workflow_signals'])if(!orch.includes(t))throw new Error(`orchestrator missing ${t}`);
+const reg=read('modules/platform/commands/registry.ts');
+for(const t of ['order-journey','commerce.order.start-execution','commerce.order.complete-delivery'])if(!reg.includes(t))throw new Error(`registry missing ${t}`);
+const tracking=read('modules/platform/fulfillment-tracking-3/core.ts');
+if(!tracking.includes("signalWorkflowEventTx(tx"))throw new Error('delivery signal not wired');
+const payment=read('modules/commerce/payments/orchestrator.ts');
+if(!payment.includes("startWorkflowTx(tx"))throw new Error('payment capture workflow not wired');
+console.log('V406 ORDER JOURNEY WORKFLOW TEST PASS');

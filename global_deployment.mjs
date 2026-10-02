@@ -1,0 +1,10 @@
+import {createReleaseCandidate} from '../modules/platform/production-reliability/candidate.ts';
+import {executeCase} from '../modules/platform/reliability-lab/engine.ts';
+import {InMemoryGlobalDeploymentAdapter} from '../modules/platform/global-deployment-control/adapter.ts';
+import {runGlobalDeployment} from '../modules/platform/global-deployment-control/controller.ts';
+const candidate=createReleaseCandidate({version:'148.0.0',sourceFingerprint:'demo-global-source',migrationFingerprint:'demo-global-migration',policyRevision:'demo-global-policy',buildRef:'demo-global-build',createdAt:'2026-09-03T00:00:00.000Z'});
+const lab=executeCase(1481,[{id:'1',kind:'OPEN'}],[]);
+const healthy=(region,weight)=>({region,trafficWeightPct:weight,capacityAvailablePct:100,availability:1,errorRate:0,p95Ms:10,budgetConsumedPct:0,replayMatches:true,newFailure:false,dependencyHealthy:true,labResult:lab});
+const regions=[['eu',1],['me',5],['us',25],['apac',50]].map(([name,weight],ordinal)=>({name,ordinal,weightPct:weight,capacityPct:100,dependencies:['identity','payments']}));
+const out=runGlobalDeployment({deploymentId:'demo-v148',rolloutId:'demo-global-148',candidate,plan:{regions,maxGlobalBlastRadiusPct:100,maxRegionalBlastRadiusPct:100,requireRegionalHealth:true,requireSequentialRegions:true,allowTrafficShift:true},observations:Object.fromEntries(regions.map(r=>[r.name,healthy(r.name,r.weightPct)]))},new InMemoryGlobalDeploymentAdapter());
+console.log(JSON.stringify({version:candidate.version,candidateHash:candidate.candidateHash,decision:out.decision,phase:out.phase,promotedRegions:out.promotedRegions,globalTrafficPct:out.globalTrafficPct,runtimeVerified:out.runtimeVerified,evidenceHash:out.evidenceHash},null,2));

@@ -1,0 +1,5 @@
+import {runDatabaseProbes,verifyTransactionRollback} from '../modules/platform/v315/integrations/postgres.ts';
+if(!process.env.DATABASE_URL){console.log('V315 PostgreSQL integration SKIPPED — DATABASE_URL not configured.');process.exit(0)}
+let pg;try{pg=await import('pg')}catch{console.error('V315 PostgreSQL integration FAILED — pg dependency unavailable.');process.exit(1)}
+const pool=new pg.default.Pool({connectionString:process.env.DATABASE_URL});
+try{const probes=await runDatabaseProbes(pool,[{name:'server-version',sql:'SELECT current_database() AS database, current_setting(\'server_version\') AS version',expected:r=>r.length===1&&Boolean(r[0].version)},{name:'migration-153',sql:"SELECT to_regclass('trust_v315_verification_runs') AS table_name",expected:r=>r[0]?.table_name==='trust_v315_verification_runs'}]);const rollback=await verifyTransactionRollback(pool);if(probes.some(x=>x.status!=='PASS')||!rollback.passed){console.error(JSON.stringify({probes,rollback},null,2));process.exit(1)}console.log('V315 PostgreSQL integration PASS',JSON.stringify({probes,rollback}));}finally{await pool.end()}

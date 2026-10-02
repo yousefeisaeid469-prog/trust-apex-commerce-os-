@@ -1,0 +1,179 @@
+{
+  "id": "evidence-packet:capability-024-v207-introduces-an-ai-native-decision-support-layer-that-unifies-shopper-search-",
+  "contractId": "capability-024-v207-introduces-an-ai-native-decision-support-layer-that-unifies-shopper-search-",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V207.md:5",
+  "claim": "V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v165-ai-shopping-os.test.mjs",
+      "tests/v166-omnichannel-fulfillment.test.mjs",
+      "tests/v173-learning-loop.test.mjs",
+      "tests/v175-chief-decision-orchestrator.test.mjs",
+      "tests/v184-purchase-guardian-execution.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v194-ai-experience.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 694,
+        "token": "introduces",
+        "excerpt": "\"text\": \"V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 69,
+        "token": "introduces",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V207.md:5 (docs line 5) — V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth n",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 1829,
+        "token": "introduces",
+        "excerpt": "\"id\": \"capability-024-v207-introduces-an-ai-native-decision-support-layer-that-unifies-shopper-search-\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 46,
+        "token": "introduces",
+        "excerpt": "- **capability-024-v207-introduces-an-ai-native-decision-support-layer-that-unifies-shopper-search-** — unassigned — DRAFT — V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routin",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 1236,
+        "token": "introduces",
+        "excerpt": "\"claim\": \"V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 6820,
+        "token": "introduces",
+        "excerpt": "\"claim\": \"V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 815,
+        "token": "introduces",
+        "excerpt": "\"text\": \"V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 514,
+        "token": "introduces",
+        "excerpt": "\"text\": \"V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "decision",
+          "problem"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v165-ai-shopping-os.test.mjs",
+        "hits": [
+          "comparison",
+          "reorder"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v166-omnichannel-fulfillment.test.mjs",
+        "hits": [
+          "support",
+          "customer"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v173-learning-loop.test.mjs",
+        "hits": [
+          "decision",
+          "comparison"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v175-chief-decision-orchestrator.test.mjs",
+        "hits": [
+          "decision",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v184-purchase-guardian-execution.test.mjs",
+        "hits": [
+          "support",
+          "customer"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "support",
+          "customer"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v194-ai-experience.test.mjs",
+        "hits": [
+          "decision",
+          "support",
+          "existing"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "6d7a45da17e358c2f5e6e2a618058d4846e753f581cdc7bdd22ab995ce24b0fd",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

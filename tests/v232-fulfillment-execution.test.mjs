@@ -1,0 +1,6 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import fs from 'node:fs';
+const read=f=>fs.readFileSync(f,'utf8');
+test('V232 has a durable fulfillment execution state machine',()=>{const s=read('modules/platform/fulfillment-execution/core.ts');assert.match(s,/canTransitionShipment/);assert.match(s,/INVALID_SHIPMENT_TRANSITION/);assert.match(s,/withPgTransaction/);});
+test('V232 shipment APIs are authenticated and customer-scoped',()=>{for(const f of ['app/api/shipments/route.ts','app/api/shipments/[id]/route.ts','app/api/shipments/[id]/tracking/route.ts']){const s=read(f);assert.match(s,/getCurrentUser/);assert.match(s,/SHIPMENT_ACCESS_DENIED|ORDER_ACCESS_DENIED/);}});
+test('V232 adds fulfillment execution indexes and canonical migration metadata',()=>{const m=JSON.parse(read('db/migrations/MANIFEST.json'));assert.equal(m.latest,'101');assert.equal(m.version.match(/^V\d+\.0\.0$/)?.[0],m.version);assert.ok(m.migrations.find(x=>x.file==='082_v232_fulfillment_execution.sql')?.checksum);});
+test('V232 canonical runtime is aligned',()=>{assert.match(read('lib/runtime/version.ts'),/V\d+\.0\.0/);assert.equal(JSON.parse(read('package.json')).version.match(/^\d+\.0\.0$/)?.[0],JSON.parse(read('package.json')).version);});

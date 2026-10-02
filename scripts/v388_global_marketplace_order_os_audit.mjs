@@ -1,0 +1,21 @@
+import fs from 'node:fs';
+const checks=[];
+const must=(name,file,pattern)=>{const ok=fs.existsSync(file)&&(!pattern||pattern.test(fs.readFileSync(file,'utf8')));checks.push([name,ok]);};
+must('journey runtime','modules/platform/order-journey-os/core.ts',/getOrderJourney/);
+must('journey API','app/api/orders/[id]/journey/route.ts',/getOrderJourney/);
+must('live order authority','modules/platform/order-journey-os/core.ts',/trust_orders/);
+must('payment authority','modules/platform/order-journey-os/core.ts',/trust_payments/);
+must('payment lifecycle','modules/platform/order-journey-os/core.ts',/trust_global_payment_lifecycle_events/);
+must('seller order authority','modules/platform/order-journey-os/core.ts',/trust_seller_orders/);
+must('fulfillment authority','modules/platform/order-journey-os/core.ts',/trust_marketplace_fulfillment_orders/);
+must('allocation authority','modules/platform/order-journey-os/core.ts',/trust_fulfillment_allocations/);
+must('shipment authority','modules/platform/order-journey-os/core.ts',/trust_shipments/);
+must('returns authority','modules/platform/order-journey-os/core.ts',/trust_returns/);
+must('refund authority','modules/platform/order-journey-os/core.ts',/trust_refunds/);
+must('payout authority','modules/platform/order-journey-os/core.ts',/trust_marketplace_payout_requests/);
+must('revenue authority','modules/platform/order-journey-os/core.ts',/trust_revenue_ledger/);
+must('customer scoping','app/api/orders/[id]/journey/route.ts',/getOrderJourney\(params\.id, privileged \? undefined : user\.id\)/);
+must('no demo source','modules/platform/order-journey-os/core.ts',!/demo|simulation|fake/i);
+const passed=checks.filter(([,ok])=>ok).length;
+console.log(`V388 GLOBAL MARKETPLACE ORDER OS AUDIT ${passed===checks.length?'PASS':'FAIL'} — ${passed}/${checks.length}`);
+if(passed!==checks.length){for(const [n,ok] of checks)if(!ok)console.error('FAIL',n);process.exit(1)}

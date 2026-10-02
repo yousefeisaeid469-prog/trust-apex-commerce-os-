@@ -1,0 +1,19 @@
+{
+  "version": "V264.0.0",
+  "schemaVersion": "1.0",
+  "sourceControlPlane": "artifacts/reality/reality-promotion-control-v263.json",
+  "migration": "db/migrations/102_v264_durable_promotion_ledger.sql",
+  "policy": {
+    "appendOnlyEvents": true,
+    "explicitActorRequired": true,
+    "evidenceBindingRequired": true,
+    "autoPromotion": false,
+    "allowedTransitions": {
+      "PENDING_EXPLICIT_REVIEW": ["APPROVED", "REJECTED"],
+      "APPROVED": ["PROMOTED", "REVOKED"],
+      "REJECTED": [],
+      "PROMOTED": ["REVOKED"],
+      "REVOKED": []
+    }
+  }
+}

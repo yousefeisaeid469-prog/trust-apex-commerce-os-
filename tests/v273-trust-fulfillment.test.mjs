@@ -1,0 +1,4 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import { rankFulfillment } from '../modules/marketplace/fulfillment-ranking.ts';
+test('fulfillment excludes insufficient inventory and prefers fast economical routes',()=>{const r=rankFulfillment([{offerId:'a',locationId:'z',region:'Cairo',minDays:2,maxDays:5,shippingCost:40,fulfillmentCost:20,availableUnits:1,score:0},{offerId:'a',locationId:'a',region:'Cairo',minDays:1,maxDays:3,shippingCost:30,fulfillmentCost:20,availableUnits:10,score:0}],2);assert.equal(r.length,1);assert.equal(r[0].locationId,'a');});
+test('ranking is deterministic',()=>{const x=[{offerId:'a',locationId:'b',region:'x',minDays:1,maxDays:4,shippingCost:20,fulfillmentCost:10,availableUnits:5,score:0},{offerId:'a',locationId:'a',region:'x',minDays:1,maxDays:4,shippingCost:20,fulfillmentCost:10,availableUnits:5,score:0}];assert.deepEqual(rankFulfillment(x).map(v=>v.locationId),['a','b']);});

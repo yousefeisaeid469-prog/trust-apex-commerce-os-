@@ -1,0 +1,3 @@
+import fs from 'node:fs';
+const required=['modules/amazon-parity/features.ts','modules/amazon-parity/catalog/offers.ts','modules/amazon-parity/customer/services.ts','modules/amazon-parity/merchant/services.ts','modules/amazon-parity/fulfillment/promise.ts','app/amazon-parity/page.tsx','modules/experience/prevention/engine.ts','app/prevention/page.tsx','modules/experience/protection/engine.ts','app/protection/page.tsx','modules/platform/decision-fabric/persistence.ts','modules/platform/audit/ledger.ts'];
+const missing=required.filter(x=>!fs.existsSync(x));if(missing.length){console.error('Missing',missing);process.exit(1)}console.log(`TRUST V136 enterprise platform parity: PASS (${required.length} core artifacts)`);

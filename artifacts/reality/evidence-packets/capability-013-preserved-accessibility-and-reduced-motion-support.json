@@ -1,0 +1,115 @@
+{
+  "id": "evidence-packet:capability-013-preserved-accessibility-and-reduced-motion-support",
+  "contractId": "capability-013-preserved-accessibility-and-reduced-motion-support",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V190.md:14",
+  "claim": "Preserved accessibility and reduced motion support",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v195-design-performance.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 551,
+        "token": "preserved",
+        "excerpt": "\"text\": \"Preserved accessibility and reduced motion support\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 56,
+        "token": "preserved",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V190.md:14 (docs line 14) — Preserved accessibility and reduced motion support",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 954,
+        "token": "preserved",
+        "excerpt": "\"id\": \"capability-013-preserved-accessibility-and-reduced-motion-support\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 35,
+        "token": "preserved",
+        "excerpt": "- **capability-013-preserved-accessibility-and-reduced-motion-support** — unassigned — DRAFT — Preserved accessibility and reduced motion support",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 898,
+        "token": "preserved",
+        "excerpt": "\"claim\": \"Preserved accessibility and reduced motion support\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 4966,
+        "token": "preserved",
+        "excerpt": "\"claim\": \"Preserved accessibility and reduced motion support\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 594,
+        "token": "preserved",
+        "excerpt": "\"text\": \"Preserved accessibility and reduced motion support\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 410,
+        "token": "preserved",
+        "excerpt": "\"text\": \"Preserved accessibility and reduced motion support\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v195-design-performance.test.mjs",
+        "hits": [
+          "accessibility",
+          "reduced"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "47382ecbc9baaede1a4efa0932c2e37182faff903f02a7d17611621c33f4d0f2",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

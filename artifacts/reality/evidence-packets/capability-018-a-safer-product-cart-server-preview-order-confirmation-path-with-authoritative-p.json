@@ -1,0 +1,179 @@
+{
+  "id": "evidence-packet:capability-018-a-safer-product-cart-server-preview-order-confirmation-path-with-authoritative-p",
+  "contractId": "capability-018-a-safer-product-cart-server-preview-order-confirmation-path-with-authoritative-p",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V198.md:7",
+  "claim": "A safer product → cart → server preview → order confirmation path with authoritative price/stock/shipping checks, explicit stale state recovery, and idempotent checkout concurrency protection.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v132-hardening.test.mjs",
+      "tests/v135-enterprise.test.mjs",
+      "tests/v139-autonomous-platform.test.mjs",
+      "tests/v144-autonomous-reliability-loop.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v146-deployment-autopilot.test.mjs",
+      "tests/v148-global-deployment-control.test.mjs",
+      "tests/v150-production-control-plane.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 177,
+        "token": "product",
+        "excerpt": "\"text\": \"Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of produ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 22,
+        "token": "product",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V138.md:31 (docs line 31) — Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetrati",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 259,
+        "token": "product",
+        "excerpt": "\"claim\": \"V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be evaluated against a counterfactual twin before production execution.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 26,
+        "token": "product",
+        "excerpt": "- **capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim** — unassigned — DRAFT — V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 14,
+        "token": "product",
+        "excerpt": "\"claim\": \"Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 15,
+        "token": "product",
+        "excerpt": "\"claim\": \"Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of prod",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 16,
+        "token": "product",
+        "excerpt": "\"text\": \"Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of produ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 138,
+        "token": "product",
+        "excerpt": "\"text\": \"Source verification is not equivalent to live production validation. Target environment load, chaos, restore, provider certification, independent penetration testing and commercial evidence remain required before any claim of produ",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v132-hardening.test.mjs",
+        "hits": [
+          "recovery",
+          "checkout"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v135-enterprise.test.mjs",
+        "hits": [
+          "explicit",
+          "idempotent"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v139-autonomous-platform.test.mjs",
+        "hits": [
+          "recovery",
+          "checkout"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v144-autonomous-reliability-loop.test.mjs",
+        "hits": [
+          "recovery",
+          "checkout"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "product",
+          "recovery",
+          "checkout"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v146-deployment-autopilot.test.mjs",
+        "hits": [
+          "product",
+          "recovery"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v148-global-deployment-control.test.mjs",
+        "hits": [
+          "product",
+          "recovery"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v150-production-control-plane.test.mjs",
+        "hits": [
+          "product",
+          "recovery"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "4ed3d7323695464c707ab345a19b27ada989cf11f66555ec32d4a11e3b90bb5f",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

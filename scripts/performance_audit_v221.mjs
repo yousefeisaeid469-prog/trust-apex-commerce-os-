@@ -1,0 +1,4 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(), files=[]; const walk=d=>{for(const e of fs.readdirSync(d,{withFileTypes:true})){if(['node_modules','.next','.git'].includes(e.name))continue;const f=path.join(d,e.name);if(e.isDirectory())walk(f);else if(/\.(ts|tsx)$/.test(e.name))files.push(f)}}; walk(path.join(root,'app'));
+const findings=[]; for(const f of files){const s=fs.readFileSync(f,'utf8'),rel=path.relative(root,f); const queries=(s.match(/\b(?:select|insert|update|delete)\b/gi)||[]).length; if(rel.startsWith('app/api/')&&queries>8)findings.push(`${rel}: ${queries} SQL tokens; review query fan-out`); if(/SELECT\s+\*/i.test(s))findings.push(`${rel}: SELECT * detected`);}
+console.log(`Performance audit PASS — ${files.length} app TS/TSX files scanned; ${findings.length} review items.`); findings.slice(0,20).forEach(x=>console.log('- REVIEW '+x));

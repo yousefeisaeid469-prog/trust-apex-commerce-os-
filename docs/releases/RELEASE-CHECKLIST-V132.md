@@ -1,0 +1,22 @@
+# TRUST V132 Release Checklist
+
+- [x] Canonical runtime version V132
+- [x] Atomic checkout idempotency boundary
+- [x] Payment/refund conflict-safe idempotency
+- [x] Atomic webhook duplicate protection
+- [x] Durable worker lease ownership
+- [x] Expired worker lease recovery
+- [x] Positive payment amount DB constraints
+- [x] Migration manifest updated through 023
+- [x] Automated invariant suite: 25/25
+- [x] Release Gate
+- [x] Deployment Smoke
+- [x] Contract Check
+- [x] Parity Check
+- [x] Release Audit
+- [ ] Real PostgreSQL deployment verification
+- [ ] Real payment-provider verification
+- [ ] Browser E2E
+- [ ] Load/stress test
+- [ ] Disaster-recovery restore drill
+- [ ] Canary/rollback drill

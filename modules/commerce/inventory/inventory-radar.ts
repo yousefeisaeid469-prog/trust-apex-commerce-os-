@@ -1,0 +1,1 @@
+export function rank(nodes:{merchantId:string;region:string;sku:string;quantity:number;dispatchMinutes:number}[]){return [...nodes].sort((a,b)=>a.dispatchMinutes-b.dispatchMinutes);}

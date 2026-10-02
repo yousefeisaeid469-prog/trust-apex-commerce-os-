@@ -1,0 +1,19 @@
+{
+  "version": "63.0.0",
+  "browserMonetization": true,
+  "supplyChain": true,
+  "creditReadiness": true,
+  "tamperEvidentAudit": true,
+  "fitTwin": true,
+  "socialCommerce": true,
+  "arabicVoiceCommerce": true,
+  "brandKit": true,
+  "escrowBoundary": true,
+  "marketPulse": true,
+  "fraudShield": true,
+  "stylist": true,
+  "styleBattles": true,
+  "inventoryRadar": true,
+  "consentRequired": true,
+  "approvalGates": true
+}

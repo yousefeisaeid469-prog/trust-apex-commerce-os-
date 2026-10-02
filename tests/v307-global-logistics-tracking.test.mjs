@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const c=await import('../modules/platform/global-logistics-v307/contracts.ts');
+assert.equal(c.statusRank('IN_TRANSIT')<c.statusRank('DELIVERED'),true);
+assert.equal(c.shouldAdvance('IN_TRANSIT','OUT_FOR_DELIVERY'),true);
+assert.equal(c.shouldAdvance('OUT_FOR_DELIVERY','IN_TRANSIT'),false);
+assert.equal(c.shouldAdvance('DELIVERED','IN_TRANSIT'),false);
+assert.equal(c.shouldAdvance('EXCEPTION','IN_TRANSIT'),true);
+assert.equal(c.normalizeCarrierCode(' trust-e2e '),'TRUST-E2E');
+assert.equal(c.normalizeTrackingNumber(' ABC123 '),'ABC123');
+assert.ok(fs.readFileSync('db/migrations/145_v307_global_logistics_tracking_reconciliation.sql','utf8').includes('trust_global_logistics_tracking_events'));
+assert.ok(fs.readFileSync('modules/platform/global-logistics-v307/runtime.ts','utf8').includes('UNMATCHED'));
+assert.ok(fs.readFileSync('app/api/fulfillment/global-carriers/webhook/route.ts','utf8').includes('ingestCarrierTracking'));
+console.log('V307 global logistics tracking PASS — ordered carrier events, deduplication, stale protection, unmatched receipts, and webhook API verified.');

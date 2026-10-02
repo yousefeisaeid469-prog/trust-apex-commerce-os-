@@ -1,0 +1,4 @@
+export type Span={traceId:string;spanId:string;service:string;tenantId:string;stage:string;durationMs:number;error:boolean;attributes:Record<string,string|number|boolean>};
+export type Slo={maxErrorRate:number;maxP95Ms:number;minSampleCount:number};
+export function validateSpan(s:Span):Span{if(!s.traceId||!s.spanId||!s.service||!s.tenantId||!s.stage||s.durationMs<0)throw new Error('INVALID_SPAN');return s;}
+export function summarizeSpans(spans:Span[],slo:Slo){const ordered=[...spans].sort((a,b)=>a.durationMs-b.durationMs),count=ordered.length,errors=ordered.filter(x=>x.error).length,index=count?Math.min(count-1,Math.ceil(count*.95)-1):0,p95=count?ordered[index].durationMs:0,errorRate=count?errors/count:0;return {count,errorRate,p95Ms:p95,healthy:count>=slo.minSampleCount&&errorRate<=slo.maxErrorRate&&p95<=slo.maxP95Ms};}

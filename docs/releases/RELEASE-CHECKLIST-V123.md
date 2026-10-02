@@ -1,0 +1,11 @@
+# V123 Release Checklist
+- [x] Problem Solver engine
+- [x] Customer Problem Solver page
+- [x] API contract
+- [x] Private admin control plane
+- [x] Durable case/event migration
+- [x] Production boundary documented
+- [ ] Live carrier adapter
+- [ ] Live payment/refund adapter
+- [ ] Evidence/media storage provider
+- [ ] Production LLM/vision provider (optional)

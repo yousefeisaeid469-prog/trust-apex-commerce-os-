@@ -1,0 +1,4 @@
+import { NextResponse } from 'next/server';
+import { productRepository, merchantRepository, orderRepository } from '@/lib/data-core/store';
+export const dynamic='force-dynamic';
+export async function GET(){const started=performance.now();try{const [products,merchants,orders]=await Promise.all([productRepository.list(),merchantRepository.list(),orderRepository.list()]);return NextResponse.json({version:'V237',generatedAt:new Date().toISOString(),latencyMs:Math.round((performance.now()-started)*100)/100,counts:{products:products.length,merchants:merchants.length,orders:orders.length},modes:{repository:'postgresql',database:'configured',events:'outbox'}},{headers:{'Cache-Control':'no-store'}});}catch(error){return NextResponse.json({ok:false,error:error instanceof Error?error.message:'DATA_CORE_UNAVAILABLE'},{status:503});}}

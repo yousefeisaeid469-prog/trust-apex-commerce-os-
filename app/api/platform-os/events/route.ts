@@ -1,0 +1,4 @@
+import {publish} from '../../../../modules/platform/event-bus';
+import {ADMIN_SESSION_COOKIE,verifyAdminSession} from '../../../../modules/platform/admin/access';
+async function admin(req:Request){const c=req.headers.get('cookie')?.match(new RegExp(`${ADMIN_SESSION_COOKIE}=([^;]+)`))?.[1]??null;return verifyAdminSession(c)}
+export async function POST(req:Request){if(!await admin(req))return Response.json({error:'Unauthorized'},{status:401});const b=await req.json().catch(()=>({}));if(typeof b.name!=='string'||typeof b.tenantId!=='string'||typeof b.aggregateId!=='string'||typeof b.correlationId!=='string')return Response.json({error:'INVALID_EVENT'},{status:400});const e=await publish({name:b.name,tenantId:b.tenantId,aggregateId:b.aggregateId,correlationId:b.correlationId,causationId:b.causationId,payload:b.payload??{},metadata:b.metadata});return Response.json(e,{status:201})}

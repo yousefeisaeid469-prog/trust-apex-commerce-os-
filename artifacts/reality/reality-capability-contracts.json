@@ -1,0 +1,4615 @@
+{
+  "version": "V258.0.0",
+  "generatedAt": "2026-09-09T00:52:52.843Z",
+  "schemaVersion": "1.0",
+  "policy": "The compiler turns capability-resolution records into explicit contract shells. It never infers proof, never fills authoritative runtime markers/tests from lexical candidates, and never promotes a claim.",
+  "counts": {
+    "inputCapabilityClaims": 58,
+    "compiledContracts": 58,
+    "readyForExecution": 0,
+    "blockedPendingAuthoring": 58
+  },
+  "contracts": [
+    {
+      "id": "capability-001-trust-v166-extends-the-global-ai-commerce-core-into-an-omnichannel-execution-lay",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V166.md:3",
+      "claim": "TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent commerce e",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "omnichannel"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "warehouse"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "fragmented"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "inventory"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "delivery"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "promises"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "disposition"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "idempotent"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-002-supplier-decisions-fail-closed-for-critical-risk-suppliers",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V168.md:9",
+      "claim": "Supplier decisions fail closed for critical risk suppliers.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "supplier"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decisions"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "critical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "suppliers"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "supplier"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decisions"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "critical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "suppliers"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "supplier"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "decisions"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "critical"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "suppliers"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-003-approval-gates-and-idempotent-execution-receipts",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V171.md:8",
+      "claim": "Approval gates and idempotent execution receipts",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "approval"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "idempotent"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "receipts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "approval"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "idempotent"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "receipts"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "approval"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "idempotent"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "receipts"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-004-v172-turns-the-network-intelligence-autonomous-decision-fabric-layers-into-a-sim",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V172.md:12",
+      "claim": "V172 turns the Network Intelligence + Autonomous Decision Fabric layers into a simulation surface: decisions can be evaluated against a counterfactual twin before production execution.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "intelligence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "autonomous"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "simulation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decisions"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evaluated"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "counterfactual"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "intelligence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "autonomous"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-005-v176-adds-the-execution-boundary-beneath-the-chief-decision-orchestrator-policy-",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V176.md:3",
+      "claim": "V176 adds the execution boundary beneath the Chief Decision Orchestrator: policy validation, approval gates, idempotent execution receipts, tenant scoped rollback, and simulation.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "orchestrator"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "validation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "approval"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "idempotent"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "receipts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "rollback"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "simulation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "boundary"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-006-adapter-routing-for-pricing-supply-fulfillment-finance-support-trust-and-generic",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V177.md:6",
+      "claim": "Adapter routing for pricing, supply, fulfillment, finance, support, trust, and generic actions.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-graph.json",
+            "marker": "fulfillment"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-promotion.json",
+            "marker": "fulfillment"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V179.md:8",
+      "claim": "Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "CHANGELOG.md",
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "CHANGELOG.md",
+            "marker": "checkout"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "canonical"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "creation"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "boundary"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "preserving"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "transactional"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "idempotent"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "behavior"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "canonical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "creation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundary"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-008-v182-adds-a-durable-post-purchase-lifecycle-layer-so-customers-can-manage-what-h",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V182.md:3",
+      "claim": "V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "lifecycle"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customers"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "treating"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "lifecycle"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customers"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "treating"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-009-trust-apex-os-v185-purchase-guardian-production-hardening",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V185.md:1",
+      "claim": "TRUST APEX OS V185 — Purchase Guardian Production Hardening",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "guardian"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "guardian"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "guardian"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "hardening"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V187.md:6",
+      "claim": "Webhook receipt persists a durable reconciliation job.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "persists"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "reconciliation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-011-durable-provider-registry-with-sandbox-live-separation",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V188.md:5",
+      "claim": "Durable provider registry with SANDBOX/LIVE separation.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "registry"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "separation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "registry"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "separation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "registry"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "separation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "registry"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "separation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-012-reduced-motion-accessibility-support",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V189.md:14",
+      "claim": "Reduced motion accessibility support.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-graph.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-promotion.json",
+            "marker": "accessibility"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-013-preserved-accessibility-and-reduced-motion-support",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V190.md:14",
+      "claim": "Preserved accessibility and reduced motion support",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "accessibility"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "preserved"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "accessibility"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-014-v192-upgrades-the-customer-experience-into-a-unified-account-surface-using-exist",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V192.md:5",
+      "claim": "V192 upgrades the customer experience into a unified account surface using existing production data boundaries. It adds deterministic account metrics, a unified activity timeline for orders and returns, bounded attention priorities, and int",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "upgrades"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "existing"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundaries"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "activity"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "timeline"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "attention"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "priorities"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "upgrades"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-015-unified-ai-experience-contracts-and-deterministic-decision-support-core",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V194.md:7",
+      "claim": "Unified AI Experience contracts and deterministic decision support core.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "decision"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-016-unified-ai-experience-contracts-and-deterministic-decision-support-core",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V195.md:7",
+      "claim": "Unified AI Experience contracts and deterministic decision support core.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "decision"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-017-no-production-performance-metrics-are-fabricated",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V196.md:19",
+      "claim": "No production performance metrics are fabricated.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "performance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "fabricated"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "performance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "fabricated"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "performance"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "fabricated"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "performance"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "fabricated"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-018-a-safer-product-cart-server-preview-order-confirmation-path-with-authoritative-p",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V198.md:7",
+      "claim": "A safer product → cart → server preview → order confirmation path with authoritative price/stock/shipping checks, explicit stale state recovery, and idempotent checkout concurrency protection.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "confirmation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "authoritative"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "shipping"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "recovery"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "idempotent"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "concurrency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "protection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "confirmation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "authoritative"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "shipping"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-019-v199-delivers-a-durable-post-purchase-customer-experience-on-top-of-the-v198-che",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V199.md:4",
+      "claim": "V199 delivers a durable post purchase customer experience on top of the V198 checkout/cart boundary.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "delivers"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "delivers"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "boundary"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-020-v200-establishes-a-durable-post-purchase-notification-control-plane",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V200.md:4",
+      "claim": "V200 establishes a durable post purchase notification control plane.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "establishes"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "notification"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "establishes"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "notification"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "establishes"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "notification"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "establishes"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "notification"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-021-v201-adds-a-durable-shipment-and-tracking-domain-on-top-of-the-v199-order-lifecy",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V201.md:5",
+      "claim": "V201 adds a durable shipment and tracking domain on top of the V199 order lifecycle and V200 post purchase notifications foundation.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "shipment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "tracking"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "lifecycle"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "notifications"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "foundation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "shipment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "tracking"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "lifecycle"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "purchase"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "notifications"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "foundation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-022-durable-revenue-event-and-growth-experiment-schema",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V203.md:13",
+      "claim": "Durable revenue event and growth experiment schema.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-graph.json",
+            "marker": "experiment"
+          },
+          {
+            "file": "artifacts/reality/reality-evidence-promotion.json",
+            "marker": "experiment"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-023-production-provider-integrations-remain-explicit-adapter-work",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V206.md:26",
+      "claim": "Production provider integrations remain explicit adapter work.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "integrations"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "integrations"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "integrations"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "explicit"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-024-v207-introduces-an-ai-native-decision-support-layer-that-unifies-shopper-search-",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V207.md:5",
+      "claim": "V207 introduces an AI native decision support layer that unifies shopper search/comparison, customer problem routing, reorder navigation, and seller growth navigation over existing TRUST surfaces.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "introduces"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "comparison"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "navigation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "existing"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "surfaces"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "introduces"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "comparison"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "navigation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-025-v208-adds-trust-one-commerce-network-a-unified-retention-protection-savings-bund",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V208.md:5",
+      "claim": "V208 adds TRUST One Commerce Network: a unified retention, protection, savings, bundle, reorder, support, and loyalty decision layer.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "retention"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "protection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "retention"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "protection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "retention"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "protection"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "decision"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-026-explicit-separation-between-decision-support-and-sensitive-execution",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V211.md:8",
+      "claim": "Explicit separation between decision support and sensitive execution.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "separation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "sensitive"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "separation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "decision"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "sensitive"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "separation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-027-reconciliation-is-expected-only-after-a-real-provider-result-exists",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V212.md:14",
+      "claim": "Reconciliation is expected only after a real provider result exists.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "expected"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "expected"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "expected"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "expected"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "provider"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-028-no-durable-cross-process-command-store-is-claimed-in-this-release",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V214.md:11",
+      "claim": "No durable cross process command store is claimed in this release",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": []
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-029-durable-postgresql-revenue-ledger-with-tenant-idempotency-uniqueness",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V216.md:8",
+      "claim": "Durable PostgreSQL revenue ledger with tenant + idempotency uniqueness.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "CHANGELOG.md",
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "CHANGELOG.md",
+            "marker": "postgresql"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "idempotency"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "uniqueness"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "idempotency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "uniqueness"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "idempotency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "uniqueness"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "idempotency"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "uniqueness"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-030-opportunity-quote-evidence-posted-revenue-durable-tenant-scoped-ledger",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V217.md:6",
+      "claim": "Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "opportunity"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "evidence"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-031-a-scale-signal-is-not-automatic-permission-to-change-live-economics-production-c",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V220.md:15",
+      "claim": "A scale signal is not automatic permission to change live economics. Production changes require explicit policy, provider readiness, deployment controls, and evidence.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "automatic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "permission"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "economics"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicit"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "readiness"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deployment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "controls"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "automatic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "permission"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-032-production-security-scalability-hardening",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V222.md:3",
+      "claim": "Production Security & Scalability Hardening",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "security"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "scalability"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "security"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "scalability"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "security"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "scalability"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "hardening"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-033-current-release-v223-0-0-production-observability-global-infrastructure",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V223.md:3",
+      "claim": "Current release: V223.0.0 — Production Observability & Global Infrastructure",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "observability"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "infrastructure"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "observability"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "infrastructure"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "observability"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "infrastructure"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "observability"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "infrastructure"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-034-production-security-scale-hardening-2-0",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V224.md:3",
+      "claim": "Production Security & Scale Hardening 2.0",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "security",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "app/api/production-security-hardening/route.ts",
+          "app/production-security-hardening/page.tsx",
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "app/api/production-security-hardening/route.ts",
+            "marker": "production"
+          },
+          {
+            "file": "app/api/production-security-hardening/route.ts",
+            "marker": "security"
+          },
+          {
+            "file": "app/api/production-security-hardening/route.ts",
+            "marker": "hardening"
+          },
+          {
+            "file": "app/production-security-hardening/page.tsx",
+            "marker": "production"
+          },
+          {
+            "file": "app/production-security-hardening/page.tsx",
+            "marker": "security"
+          },
+          {
+            "file": "app/production-security-hardening/page.tsx",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "security"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "hardening"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "security"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "hardening"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-035-v227-upgrades-the-v226-owner-room-from-request-only-controls-to-a-durable-owner-",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V227.md:5",
+      "claim": "V227 upgrades the V226 owner room from request only controls to a durable owner live control state for three emergency controls: maintenance mode, global freeze, and autonomy kill switch.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "upgrades"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "controls"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "emergency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "maintenance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "autonomy"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "upgrades"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "controls"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "emergency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "maintenance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "autonomy"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "upgrades"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "controls"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-036-npm-ci-was-attempted-twice-but-timed-out-in-the-execution-environment-therefore-",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V228.md:16",
+      "claim": "npm ci was attempted twice but timed out in the execution environment; therefore a Next production build cannot honestly be marked PASS until dependencies are installed.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "attempted"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "environment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "therefore"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "honestly"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "dependencies"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "installed"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "attempted"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "environment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "therefore"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V231.md:3",
+      "claim": "V231 hardens the path from durable checkout to payment evidence and merchant order execution.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "merchant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "merchant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "checkout"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "merchant"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "execution"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-038-durable-provider-event-and-reconciliation-job-queues",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V233.md:8",
+      "claim": "Durable provider event and reconciliation job queues.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "reconciliation"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-039-durable-returns-inspection-refund-settlement-reconciliation-and-customer-resolut",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V234.md:3",
+      "claim": "Durable returns, inspection, refund settlement, reconciliation and customer resolution.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "inspection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "settlement"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "resolution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "inspection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "settlement"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "reconciliation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "resolution"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "inspection"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "settlement"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-040-v236-adds-a-durable-customer-experience-kernel-profiles-addresses-wishlists-save",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V236.md:3",
+      "claim": "V236 adds a durable customer experience kernel: profiles, addresses, wishlists, saved carts, reviews, preferences, privacy workflows, timeline and maintenance workers.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "profiles"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "addresses"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "wishlists"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "preferences"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "workflows"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "timeline"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "maintenance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "profiles"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-041-v237-extends-the-v236-customer-commerce-data-platform-with-a-durable-merchant-op",
+      "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V237.md:3",
+      "claim": "V237 extends the V236 customer commerce/data platform with a durable merchant operating system and control plane. It adds merchant scoped persistence and execution primitives across catalog, inventory, pricing, promotions, payouts, tax, sta",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "platform"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "merchant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "operating"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "persistence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "primitives"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "inventory"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "promotions"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-042-stronger-typescript-configuration-and-production-control-plane-typing-fixes",
+      "sourceId": "draft-doc:docs/releases/V161-GLOBAL-MARKETPLACE.md:12",
+      "claim": "Stronger TypeScript configuration and production control plane typing fixes.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "stronger"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "typescript"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "configuration"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "stronger"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "typescript"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "configuration"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "stronger"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "typescript"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "configuration"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-043-the-engine-is-intentionally-deterministic-and-dependency-free-for-very-large-cat",
+      "sourceId": "draft-doc:docs/releases/V162-GLOBAL-DISCOVERY.md:19",
+      "claim": "The engine is intentionally deterministic and dependency free. For very large catalogs, the next production step is to back the same contract with PostgreSQL full text/trigram indexes or a dedicated search provider, then blend lexical relev",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "intentionally"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "dependency"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "catalogs"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "contract"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "dedicated"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "intentionally"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "dependency"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-044-outputs-remain-explainable-so-production-policy-can-audit-why-an-outcome-occurre",
+      "sourceId": "draft-doc:docs/releases/V164-SUPER-COMMERCE.md:19",
+      "claim": "Outputs remain explainable so production policy can audit why an outcome occurred.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explainable"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "occurred"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "explainable"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "occurred"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "explainable"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "occurred"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "explainable"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "occurred"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-045-this-patch-hardens-v237-around-one-rule-production-state-must-be-durable-and-tru",
+      "sourceId": "draft-doc:docs/releases/V237-REALITY-CONSOLIDATION.md:3",
+      "claim": "This patch hardens V237 around one rule: production state must be durable and truthful .",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "truthful"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "truthful"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "truthful"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "truthful"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "truthful"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "truthful"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-046-controlled-chaos-scenarios-for-failure-injection-tests-production-enablement-mus",
+      "sourceId": "draft-doc:docs/architecture/AUTONOMOUS-CONTROL-PLANE-V139.md:9",
+      "claim": "Controlled chaos scenarios for failure injection tests; production enablement must remain explicitly gated.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "controlled"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "scenarios"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "injection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "enablement"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicitly"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "controlled"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "scenarios"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "injection"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "enablement"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "explicitly"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-047-important-production-boundary",
+      "sourceId": "draft-doc:docs/architecture/CELL-SCALE-V241.md:19",
+      "claim": "Important production boundary",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "important"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "important"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "important"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "important"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "boundary"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-048-persisted-sql-schemas-provide-durable-targets-for-campaign-verdict-corpus-record",
+      "sourceId": "draft-doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16",
+      "claim": "persisted SQL schemas provide durable targets for campaign/verdict/corpus records.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "campaign"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "campaign"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "campaign"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "campaign"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "campaign"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "persisted"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "campaign"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-049-v236-makes-customer-owned-commerce-state-durable-and-auditable-it-adds-postgresq",
+      "sourceId": "draft-doc:docs/architecture/CUSTOMER-COMMERCE-OS-V236.md:3",
+      "claim": "V236 makes customer owned commerce state durable and auditable. It adds PostgreSQL backed profiles, addresses, wishlists, saved carts, reviews, preferences, privacy jobs and a customer timeline.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "auditable"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "profiles"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "addresses"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "wishlists"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "preferences"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "timeline"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "auditable"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-050-this-layer-turns-customer-experience-into-a-durable-operational-domain-it-contai",
+      "sourceId": "draft-doc:docs/architecture/CUSTOMER-DATA-PLATFORM-V236.md:3",
+      "claim": "This layer turns customer experience into a durable operational domain. It contains an event ledger, deterministic segmentation, consent evaluation, customer search/context, journey execution, analytics, quality policies and maintenance dia",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "customer"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "experience"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "operational"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "contains"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "segmentation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evaluation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "analytics"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "policies"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "maintenance"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "customer"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-051-v146-turns-the-v145-production-reliability-boundary-into-a-deterministic-deploym",
+      "sourceId": "draft-doc:docs/architecture/DEPLOYMENT-AUTOPILOT-V146.md:3",
+      "claim": "V146 turns the V145 production reliability boundary into a deterministic deployment state machine.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "CHANGELOG.md",
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "CHANGELOG.md",
+            "marker": "production"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "reliability"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "boundary"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "deterministic"
+          },
+          {
+            "file": "CHANGELOG.md",
+            "marker": "deployment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reliability"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "boundary"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deployment"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "reliability"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-052-3-the-adapter-performs-a-real-http-request-when-provider-endpoint-and-secret-are",
+      "sourceId": "draft-doc:docs/architecture/FULFILLMENT-PROVIDER-EXECUTION-V233.md:9",
+      "claim": "3. The adapter performs a real HTTP request when provider endpoint and secret are configured. Otherwise the operation fails closed with PROVIDER REQUIRED .",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "performs"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "endpoint"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "configured"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "otherwise"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "operation"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "required"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "performs"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "provider"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "endpoint"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "configured"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "otherwise"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-053-v237-turns-the-merchant-surface-into-a-durable-operating-control-plane-it-introd",
+      "sourceId": "draft-doc:docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md:3",
+      "claim": "V237 turns the merchant surface into a durable operating control plane. It introduces canonical persistence for merchant operating accounts, catalog publication, inventory balances/reservations/movements, price books and rules, promotions, ",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "merchant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "operating"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "introduces"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "canonical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "persistence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "accounts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "publication"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "inventory"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "balances"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "reservations"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "movements"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "promotions"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-054-scripts-reality-claim-audit-mjs-evaluates-the-chain-and-fails-closed-when-any-li",
+      "sourceId": "draft-doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11",
+      "claim": "scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "disappears"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "disappears"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "disappears"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "disappears"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "disappears"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "evaluates"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "disappears"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-055-v237-is-now-split-into-one-canonical-runtime-path-and-explicitly-non-runtime-leg",
+      "sourceId": "draft-doc:docs/architecture/REALITY-CONSOLIDATION-V237.md:5",
+      "claim": "V237 is now split into one canonical runtime path and explicitly non runtime legacy contracts. Production commerce state is durable PostgreSQL state; process memory and fixtures are not accepted as a production data source.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "canonical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "explicitly"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "production"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "postgresql"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "fixtures"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "accepted"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "canonical"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "explicitly"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "contracts"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "production"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-056-property-harness-deterministic-generators-and-invariant-checks-provide-repeatabl",
+      "sourceId": "draft-doc:docs/architecture/RELIABILITY-ENGINEERING-V140.md:8",
+      "claim": "Property Harness: deterministic generators and invariant checks provide repeatable regression cases.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "property"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "generators"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "invariant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "repeatable"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "regression"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "property"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "deterministic"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "generators"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "invariant"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "repeatable"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "regression"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-057-v234-turns-returns-into-a-durable-commerce-workflow-rather-than-a-support-only-f",
+      "sourceId": "draft-doc:docs/architecture/RETURNS-REFUNDS-EXECUTION-V234.md:3",
+      "claim": "V234 turns returns into a durable commerce workflow rather than a support only flag.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.json",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/reality-capability-contracts.md",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-authoring.json",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/reality-claim-resolution.json",
+            "marker": "workflow"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    },
+    {
+      "id": "capability-058-v235-turns-the-post-delivery-side-of-commerce-into-a-durable-execution-layer-a-r",
+      "sourceId": "draft-doc:docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md:5",
+      "claim": "V235 turns the post delivery side of commerce into a durable execution layer. A return is no longer the end of the workflow: recovered inventory, replacements, store credit and financial evidence are first class aggregates.",
+      "lifecycle": "DRAFT",
+      "ownerDomain": "unassigned",
+      "evidenceContract": {
+        "implementationArtifacts": [],
+        "runtimeMarkers": [],
+        "regressionTests": [],
+        "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE",
+        "minimumProof": [
+          "one explicit implementation artifact",
+          "one exact runtime marker or observable entrypoint",
+          "one executable regression test"
+        ]
+      },
+      "discoveryHints": {
+        "candidateArtifacts": [
+          "artifacts/reality/full-system-reality-report.json",
+          "artifacts/reality/full-system-reality-report.md",
+          "artifacts/reality/reality-capability-contracts.json",
+          "artifacts/reality/reality-capability-contracts.md",
+          "artifacts/reality/reality-claim-authoring.json",
+          "artifacts/reality/reality-claim-resolution.json",
+          "artifacts/reality/reality-evidence-graph.json",
+          "artifacts/reality/reality-evidence-promotion.json"
+        ],
+        "lexicalMarkers": [
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "delivery"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "commerce"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "execution"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "workflow"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "recovered"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "inventory"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "replacements"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "financial"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "evidence"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.json",
+            "marker": "aggregates"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "delivery"
+          },
+          {
+            "file": "artifacts/reality/full-system-reality-report.md",
+            "marker": "commerce"
+          }
+        ]
+      },
+      "policy": "Discovery hints are non-authoritative. A human-authored contract must replace them with explicit evidence references before execution or promotion."
+    }
+  ]
+}

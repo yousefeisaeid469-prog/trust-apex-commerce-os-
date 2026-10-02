@@ -1,0 +1,205 @@
+{
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:48:02.195Z",
+  "schemaVersion": "1.0",
+  "policy": "Only explicitly authored evidence may execute. Discovery candidates are never authoritative. Promotion remains a separate decision.",
+  "counts": {
+    "authored": 4,
+    "executable": 4,
+    "blocked": 0,
+    "promotionRequested": 0,
+    "promotionAllowed": 0
+  },
+  "receipts": [
+    {
+      "id": "capability-003-approval-gates-and-idempotent-execution-receipts",
+      "version": "V261.0.0",
+      "status": "EXECUTABLE_EVIDENCE",
+      "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/autonomous-decision-fabric/core.ts",
+          "exists": true,
+          "sha256": "db85fe91f8b52ef1f51eb3c9531a7617ae7161e3a9f8c4a7c58359bd61121d7e"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "export function evaluateProposal",
+          "foundIn": [
+            "modules/platform/autonomous-decision-fabric/core.ts"
+          ]
+        },
+        {
+          "marker": "requiresApproval",
+          "foundIn": [
+            "modules/platform/autonomous-decision-fabric/core.ts"
+          ]
+        },
+        {
+          "marker": "export function executeOnce",
+          "foundIn": [
+            "modules/platform/autonomous-decision-fabric/core.ts"
+          ]
+        },
+        {
+          "marker": "idempotencyKey",
+          "foundIn": [
+            "modules/platform/autonomous-decision-fabric/core.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v171-autonomous-decision-fabric.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "TAP version 13\n# Subtest: evaluates policy-bounded proposal\nok 1 - evaluates policy-bounded proposal\n  ---\n  duration_ms: 1.264282\n  type: 'test'\n  ...\n# Subtest: fails closed on risk and tenant\nok 2 - fails closed on risk and tenant\n  ---\n  duration_ms: 0.424367\n  type: 'test'\n  ...\n# Subtest: builds deterministic plan and rejects duplicate keys\nok 3 - builds deterministic plan and rejects duplicate keys\n  ---\n  duration_ms: 0.39963\n  type: 'test'\n  ...\n# Subtest: simulation never mutates\nok 4 - simulation never mutates\n  ---\n  duration_ms: 0.397861\n  type: 'test'\n  ...\n# Subtest: execution is idempotent and approval gated\nok 5 - execution is idempotent and approval gated\n  ---\n  duration_ms: 0.37512\n  type: 'test'\n  ...\n# Subtest: rank favors confidence minus risk then priority\nok 6 - rank favors confidence minus risk then priority\n  ---\n  duration_ms: 0.253538\n  type: 'test'\n  ...\n1..6\n# tests 6\n# suites 0\n# pass 6\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 51.025657",
+          "stderr": "(node:2908) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ],
+      "failureCondition": "Risk or confidence policy violations must fail closed; approval-required proposals must not execute; duplicate idempotency keys must return DUPLICATE.",
+      "evidenceDigest": "ad62057dfada99ea015b5f5d02c3ce0ec356a16725dd4f752429e17ea7f7d256"
+    },
+    {
+      "id": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+      "version": "V261.0.0",
+      "status": "EXECUTABLE_EVIDENCE",
+      "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/commerce/transactions/checkout.ts",
+          "exists": true,
+          "sha256": "0d9c03c1e530e54fe861c05f3b3a0e30d9cfe430359123dfe1fa9a33481ffca8"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "on conflict(idempotency_key) do nothing",
+          "foundIn": [
+            "modules/commerce/transactions/checkout.ts"
+          ]
+        },
+        {
+          "marker": "IDEMPOTENCY_KEY_REUSED",
+          "foundIn": [
+            "modules/commerce/transactions/checkout.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v132-hardening.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "TAP version 13\n# Subtest: V132 adds lease ownership and recovery primitives\nok 1 - V132 adds lease ownership and recovery primitives\n  ---\n  duration_ms: 1.529746\n  type: 'test'\n  ...\n# Subtest: V132 checkout atomically protects idempotency\nok 2 - V132 checkout atomically protects idempotency\n  ---\n  duration_ms: 0.38304\n  type: 'test'\n  ...\n# Subtest: V132 payment webhook atomically deduplicates events\nok 3 - V132 payment webhook atomically deduplicates events\n  ---\n  duration_ms: 0.376272\n  type: 'test'\n  ...\n# Subtest: V132 payment creation and refund use conflict-safe idempotency\nok 4 - V132 payment creation and refund use conflict-safe idempotency\n  ---\n  duration_ms: 0.409775\n  type: 'test'\n  ...\n# Subtest: V132 SQL enforces positive money amounts\nok 5 - V132 SQL enforces positive money amounts\n  ---\n  duration_ms: 0.321085\n  type: 'test'\n  ...\n1..5\n# tests 5\n# suites 0\n# pass 5\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 21.004554",
+          "stderr": ""
+        }
+      ],
+      "failureCondition": "Checkout must reject reused idempotency keys and preserve the atomic database boundary.",
+      "evidenceDigest": "779022b873a5c441bc67f08c53c6570b3055d1f59b55f78b10d16d4a09eca8b7"
+    },
+    {
+      "id": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+      "version": "V261.0.0",
+      "status": "EXECUTABLE_EVIDENCE",
+      "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "modules/platform/provider-reconciliation/core.ts",
+          "exists": true,
+          "sha256": "0578e8d2377f95cae5487a4b3e8db1596bdb2d5371eede9748a4a37e92bc0af1"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "trust_provider_reconciliation_jobs",
+          "foundIn": [
+            "modules/platform/provider-reconciliation/core.ts"
+          ]
+        },
+        {
+          "marker": "export async function receiveWebhook",
+          "foundIn": [
+            "modules/platform/provider-reconciliation/core.ts"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v187-reconciliation-worker.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "TAP version 13\n# Subtest: V187 verifies timestamp-bound signatures\nok 1 - V187 verifies timestamp-bound signatures\n  ---\n  duration_ms: 1.227209\n  type: 'test'\n  ...\n# Subtest: V187 rejects stale webhook timestamps\nok 2 - V187 rejects stale webhook timestamps\n  ---\n  duration_ms: 0.304613\n  type: 'test'\n  ...\n# Subtest: V187 receipt creates durable reconciliation job\nok 3 - V187 receipt creates durable reconciliation job\n  ---\n  duration_ms: 2.257139\n  type: 'test'\n  ...\n# Subtest: V187 claims jobs with lease query\nok 4 - V187 claims jobs with lease query\n  ---\n  duration_ms: 0.517539\n  type: 'test'\n  ...\n# Subtest: V187 worker retries reconciliation failures\nok 5 - V187 worker retries reconciliation failures\n  ---\n  duration_ms: 0.811756\n  type: 'test'\n  ...\n1..5\n# tests 5\n# suites 0\n# pass 5\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 38.875257",
+          "stderr": "(node:2930) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+        }
+      ],
+      "failureCondition": "A received provider webhook must enqueue a durable reconciliation job and stale/invalid work must not be accepted.",
+      "evidenceDigest": "c6b6cb0a8fde43a5357256140e6410eaff8e9c072ba20031e57939b150782799"
+    },
+    {
+      "id": "capability-012-reduced-motion-accessibility-support",
+      "version": "V261.0.0",
+      "status": "EXECUTABLE_EVIDENCE",
+      "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+      "gates": {
+        "artifacts": true,
+        "runtimeMarkers": true,
+        "regressionTests": true
+      },
+      "artifacts": [
+        {
+          "file": "components/trust-experience-upgrade.tsx",
+          "exists": true,
+          "sha256": "e7fd2250010a0e72928fcf0a173493452c97dd1d9e990e69fd21fedf4616df91"
+        },
+        {
+          "file": "app/globals.css",
+          "exists": true,
+          "sha256": "339a18d054f826b5c163c61cfee8778da3f4e0d0a691c3e445c2b99bd904081a"
+        }
+      ],
+      "markers": [
+        {
+          "marker": "skip-link",
+          "foundIn": [
+            "components/trust-experience-upgrade.tsx",
+            "app/globals.css"
+          ]
+        },
+        {
+          "marker": "prefers-reduced-motion",
+          "foundIn": [
+            "app/globals.css"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "file": "tests/v195-design-performance.test.mjs",
+          "exists": true,
+          "exitCode": 0,
+          "stdout": "TAP version 13\n# Subtest: V195 ships shared design-system primitives for loading, empty and error states\nok 1 - V195 ships shared design-system primitives for loading, empty and error states\n  ---\n  duration_ms: 1.386677\n  type: 'test'\n  ...\n# Subtest: V195 adds explicit performance budgets without inventing runtime metrics\nok 2 - V195 adds explicit performance budgets without inventing runtime metrics\n  ---\n  duration_ms: 0.421395\n  type: 'test'\n  ...\n# Subtest: V195 global CSS adds resilient surface primitives and content-visibility\nok 3 - V195 global CSS adds resilient surface primitives and content-visibility\n  ---\n  duration_ms: 2.437101\n  type: 'test'\n  ...\n# Subtest: V195 improves image loading semantics on customer OS\nok 4 - V195 improves image loading semantics on customer OS\n  ---\n  duration_ms: 0.283545\n  type: 'test'\n  ...\n# Subtest: V195 global layout advertises current version and rendering priorities\nok 5 - V195 global layout advertises current version and rendering priorities\n  ---\n  duration_ms: 0.421422\n  type: 'test'\n  ...\n# Subtest: V195 runtime metadata is aligned\nok 6 - V195 runtime metadata is aligned\n  ---\n  duration_ms: 1.031075\n  type: 'test'\n  ...\n# Subtest: V195 experience shell keeps accessibility and reduced-motion behavior\nok 7 - V195 experience shell keeps accessibility and reduced-motion behavior\n  ---\n  duration_ms: 1.480933\n  type: 'test'\n  ...\n1..7\n# tests 7\n# suites 0\n# pass 7\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 43.640745",
+          "stderr": ""
+        }
+      ],
+      "failureCondition": "The customer experience must retain keyboard skip navigation and reduced-motion behavior.",
+      "evidenceDigest": "3172eb89969a35dc99f143f5fb76f9bc501b0b798b9e82dd502254125f03bf71"
+    }
+  ]
+}

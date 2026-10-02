@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const report = JSON.parse(fs.readFileSync('artifacts/reality/reality-promotion-ledger-v264.json','utf8'));
+const sql = fs.readFileSync('db/migrations/102_v264_durable_promotion_ledger.sql','utf8');
+assert.equal(report.version,'V264.0.0');
+assert.equal(report.counts.decisions,4);
+assert.equal(report.counts.pending,4);
+assert.equal(report.counts.promoted,0);
+assert.equal(report.policy.autoPromotion,false);
+assert.match(report.ledgerRoot,/^[a-f0-9]{64}$/);
+assert.match(sql,/CREATE TABLE IF NOT EXISTS trust_reality_promotion_decisions/);
+assert.match(sql,/CREATE TABLE IF NOT EXISTS trust_reality_promotion_events/);
+assert.match(sql,/previous_event_hash/);
+assert.match(sql,/event_hash/);
+assert.match(sql,/CHECK \(from_state <> to_state\)/);
+console.log('V264 Promotion Ledger Test PASS — durable state, append-only events, 4 pending, 0 promoted.');

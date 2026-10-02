@@ -1,0 +1,3 @@
+export type Telemetry={traceId:string;service:string;region:string;durationMs:number;error:boolean;attributes:Record<string,string|number|boolean>};
+export function normalizeTelemetry(t:Telemetry):Telemetry{if(!t.traceId||!t.service||!t.region||t.durationMs<0)throw new Error('INVALID_TELEMETRY');return t;}
+export function telemetryMetric(events:Telemetry[]){const count=events.length;const errors=events.filter(e=>e.error).length;if(!count)return {count,errorRate:0,p95Ms:0};const ordered=[...events].sort((a,b)=>a.durationMs-b.durationMs);const index=Math.min(count-1,Math.ceil(count*.95)-1);return {count,errorRate:errors/count,p95Ms:ordered[index].durationMs};}

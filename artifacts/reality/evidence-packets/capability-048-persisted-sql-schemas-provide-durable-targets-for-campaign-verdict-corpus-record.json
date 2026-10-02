@@ -1,0 +1,178 @@
+{
+  "id": "evidence-packet:capability-048-persisted-sql-schemas-provide-durable-targets-for-campaign-verdict-corpus-record",
+  "contractId": "capability-048-persisted-sql-schemas-provide-durable-targets-for-campaign-verdict-corpus-record",
+  "sourceId": "draft-doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16",
+  "claim": "persisted SQL schemas provide durable targets for campaign/verdict/corpus records.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/source-invariants.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v187-reconciliation-worker.test.mjs",
+      "tests/v200-notifications-post-purchase.test.mjs",
+      "tests/v201-fulfillment-tracking.test.mjs",
+      "tests/v228-reality-rebuild.test.mjs",
+      "tests/v230-production-kernel.test.mjs",
+      "tests/v231-commerce-execution.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 1057,
+        "token": "persisted",
+        "excerpt": "\"text\": \"persisted SQL schemas provide durable targets for campaign/verdict/corpus records.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 102,
+        "token": "persisted",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/architecture/CONTINUOUS-RELIABILITY-CONTROL-PLANE-V143.md:16 (docs line 16) — persisted SQL schemas provide durable targets for campaign/verdict/corpus records.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 3724,
+        "token": "persisted",
+        "excerpt": "\"id\": \"capability-048-persisted-sql-schemas-provide-durable-targets-for-campaign-verdict-corpus-record\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 70,
+        "token": "persisted",
+        "excerpt": "- **capability-048-persisted-sql-schemas-provide-durable-targets-for-campaign-verdict-corpus-record** — unassigned — DRAFT — persisted SQL schemas provide durable targets for campaign/verdict/corpus records.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 2042,
+        "token": "persisted",
+        "excerpt": "\"claim\": \"persisted SQL schemas provide durable targets for campaign/verdict/corpus records.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 11218,
+        "token": "persisted",
+        "excerpt": "\"claim\": \"persisted SQL schemas provide durable targets for campaign/verdict/corpus records.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1342,
+        "token": "persisted",
+        "excerpt": "\"text\": \"persisted SQL schemas provide durable targets for campaign/verdict/corpus records.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 29,
+        "token": "persisted",
+        "excerpt": "\"claim\": \"Event contract versions are persisted and enforced before durable writes.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "persisted",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v187-reconciliation-worker.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v200-notifications-post-purchase.test.mjs",
+        "hits": [
+          "durable",
+          "records"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v201-fulfillment-tracking.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v228-reality-rebuild.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v230-production-kernel.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v231-commerce-execution.test.mjs",
+        "hits": [
+          "provide",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "2489a458783416c39f46aa40ed7aa627dbf0d3c5ea44c71851bcb730cbf91cf4",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

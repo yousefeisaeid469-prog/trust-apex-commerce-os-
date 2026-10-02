@@ -1,0 +1,22 @@
+{
+  "version": "V266.0.0",
+  "algorithm": "ed25519",
+  "privateKeyStorage": "external-secret-or-kms-only",
+  "keyLifecycle": {
+    "statuses": ["ACTIVE", "RETIRED", "REVOKED", "EXPIRED"],
+    "registrationRequiresActorAndReason": true,
+    "rotationRetiresSupersededKey": true,
+    "revocationIsDurable": true,
+    "expiryEnforcedAtTransition": true,
+    "notBeforeEnforcedAtTransition": true
+  },
+  "authorizationFreshness": {
+    "nonceRequired": true,
+    "signedAtRequired": true,
+    "expiresAtRequired": true,
+    "futureSignaturesRejected": true,
+    "expiredAuthorizationsRejected": true,
+    "replayBinding": "decisionId+payloadHash+authorizationNonce"
+  },
+  "autoPromotion": false
+}

@@ -1,0 +1,181 @@
+{
+  "id": "evidence-packet:capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord",
+  "contractId": "capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V231.md:3",
+  "claim": "V231 hardens the path from durable checkout to payment evidence and merchant order execution.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/source-invariants.test.mjs",
+      "tests/v132-hardening.test.mjs",
+      "tests/v134-acquisition.test.mjs",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v139-autonomous-platform.test.mjs",
+      "tests/v144-autonomous-reliability-loop.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v148-global-deployment-control.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 507,
+        "token": "hardens",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 52,
+        "token": "hardens",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V186.md:3 (docs line 3) — V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and aut",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 2833,
+        "token": "hardens",
+        "excerpt": "\"id\": \"capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 59,
+        "token": "hardens",
+        "excerpt": "- **capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord** — unassigned — DRAFT — V231 hardens the path from durable checkout to payment evidence and merchant order execution.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 794,
+        "token": "hardens",
+        "excerpt": "\"claim\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 4417,
+        "token": "hardens",
+        "excerpt": "\"claim\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 526,
+        "token": "hardens",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 378,
+        "token": "hardens",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "durable",
+          "payment"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v132-hardening.test.mjs",
+        "hits": [
+          "checkout",
+          "payment"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v134-acquisition.test.mjs",
+        "hits": [
+          "payment",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "payment",
+          "evidence",
+          "merchant"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v139-autonomous-platform.test.mjs",
+        "hits": [
+          "checkout",
+          "payment"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v144-autonomous-reliability-loop.test.mjs",
+        "hits": [
+          "checkout",
+          "payment",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "checkout",
+          "payment",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v148-global-deployment-control.test.mjs",
+        "hits": [
+          "payment",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "079c2e0eb81ca4eb7e3ec92f20ab973db32a169b7375feb421f5918b06e8e808",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

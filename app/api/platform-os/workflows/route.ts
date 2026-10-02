@@ -1,0 +1,4 @@
+import {startWorkflow,setWorkflowState} from '../../../../modules/platform/workflows';
+import {ADMIN_SESSION_COOKIE,verifyAdminSession} from '../../../../modules/platform/admin/access';
+async function admin(req:Request){const c=req.headers.get('cookie')?.match(new RegExp(`${ADMIN_SESSION_COOKIE}=([^;]+)`))?.[1]??null;return verifyAdminSession(c)}
+export async function POST(req:Request){if(!await admin(req))return Response.json({error:'Unauthorized'},{status:401});const b=await req.json().catch(()=>({}));if(b.action==='start'&&typeof b.definitionId==='string'&&typeof b.correlationId==='string')return Response.json(startWorkflow(b.definitionId,b.correlationId),{status:201});if(b.action==='state'&&typeof b.id==='string'&&typeof b.state==='string')return Response.json(setWorkflowState(b.id,b.state,b.currentStep));return Response.json({error:'INVALID_WORKFLOW_ACTION'},{status:400})}

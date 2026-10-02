@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: trust-postgres
+stringData:
+  POSTGRES_PASSWORD: CHANGE_ME
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: trust-postgres
+spec:
+  accessModes: [ReadWriteOnce]
+  resources:
+    requests: {storage: 10Gi}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trust-postgres
+spec:
+  replicas: 1
+  selector: {matchLabels: {app: trust-postgres}}
+  template:
+    metadata: {labels: {app: trust-postgres}}
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:16-alpine
+          env:
+            - name: POSTGRES_DB
+              value: trust
+            - name: POSTGRES_USER
+              value: trust
+            - name: POSTGRES_PASSWORD
+              valueFrom: {secretKeyRef: {name: trust-postgres, key: POSTGRES_PASSWORD}}
+          ports: [{containerPort: 5432}]
+          volumeMounts: [{name: data, mountPath: /var/lib/postgresql/data}]
+      volumes: [{name: data, persistentVolumeClaim: {claimName: trust-postgres}}]
+---
+apiVersion: v1
+kind: Service
+metadata: {name: trust-postgres}
+spec:
+  selector: {app: trust-postgres}
+  ports: [{port: 5432, targetPort: 5432}]

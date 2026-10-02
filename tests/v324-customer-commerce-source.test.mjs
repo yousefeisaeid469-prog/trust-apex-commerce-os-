@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+import test from 'node:test';
+const root=process.cwd();
+const service=fs.readFileSync(path.join(root,'modules/platform/v324/customer-commerce.ts'),'utf8');
+const wishlist=fs.readFileSync(path.join(root,'app/api/wishlist/route.ts'),'utf8');
+const loyalty=fs.readFileSync(path.join(root,'app/api/loyalty/route.ts'),'utf8');
+const migration=fs.readFileSync(path.join(root,'db/migrations/162_v324_customer_commerce_activation.sql'),'utf8');
+test('V324 customer commerce is implemented',()=>{
+  assert.match(service,/trust_marketplace_wishlists/);
+  assert.match(service,/trust_marketplace_loyalty_ledger/);
+  assert.match(service,/status!=='delivered'/);
+  assert.match(service,/idempotency_key/);
+  assert.match(service,/for update/);
+  assert.match(service,/trust_outbox_events/);
+  assert.match(wishlist,/export async function POST/);
+  assert.match(wishlist,/surfaceStatus:'LIVE'/);
+  assert.match(loyalty,/EARN_ORDER/);
+  assert.match(migration,/idx_marketplace_loyalty_ledger_customer_reason/);
+});
+console.log('V324 customer commerce source test PASS');

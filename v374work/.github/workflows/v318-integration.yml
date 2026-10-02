@@ -1,0 +1,16 @@
+name: TRUST V318 Integration Lab
+on: [push, pull_request]
+jobs:
+  integration-lab:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm run v318-test
+      - run: npm run v318-integration-lab
+      - run: npm run migration-check
+      - run: npm run release-audit
+      - run: npm run v318-audit
+      - run: npm run release-gate

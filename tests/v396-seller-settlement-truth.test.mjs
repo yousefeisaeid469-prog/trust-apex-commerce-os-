@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const migration=fs.readFileSync('db/migrations/221_v396_seller_settlement_truth.sql','utf8');
+const settlement=fs.readFileSync('modules/marketplace/economic-settlement.ts','utf8');
+const sellerOps=fs.readFileSync('modules/marketplace/seller-operations.ts','utf8');
+const verifier=fs.readFileSync('scripts/v396_seller_settlement_truth.mjs','utf8');
+assert.match(migration,/CREATE OR REPLACE VIEW trust_seller_settlement_truth/);
+for(const token of ['SETTLEMENT_NOT_BALANCED','PAYOUT_OVERALLOCATED','REFUND_ALLOCATION_MISMATCH','FINANCIALS_MISSING','seller_order_id']) assert.match(migration,new RegExp(token));
+for(const token of ['trust_seller_orders','SELLER_ORDER_TOTALS_DO_NOT_BALANCE_ORDER','ORDER_ITEM_SELLER_ORDER_MISSING','trust_marketplace_fee_ledger','trust_seller_order_financials']) assert.match(settlement,new RegExp(token.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+assert.match(sellerOps,/gross_amount,seller_credit_amount,released_amount/);
+assert.match(sellerOps,/so\.total, sellerCredit/);
+for(const token of ['DATABASE_NOT_CONFIGURED','trust_seller_settlement_truth','UNBALANCED_FINANCIALS','DUPLICATE_FEE_LEDGER_KEYS']) assert.match(verifier,new RegExp(token));
+console.log('V396 seller settlement truth static contract: PASS');

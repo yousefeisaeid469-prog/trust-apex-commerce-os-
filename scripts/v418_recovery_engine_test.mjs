@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+const src=await (await import('node:fs/promises')).readFile('modules/commerce/core/recovery-engine.ts','utf8');
+assert(src.includes("'CAPTURED_PAYMENT_NO_EXECUTION'"));
+assert(src.includes("'ENSURE_RUNTIME'"));
+assert(src.includes("'RESUME_EXECUTION'"));
+assert(src.includes("on conflict(idempotency_key)"));
+assert(src.includes("max_attempts"));
+assert(src.includes("NO_SAFE_AUTOFIX"));
+const mig=await (await import('node:fs/promises')).readFile('db/migrations/243_v418_global_commerce_recovery_engine.sql','utf8');
+for(const x of ['trust_commerce_recovery_plans','lease_until','idempotency_key','trust_commerce_recovery_engine_snapshot']) assert(mig.includes(x));
+console.log('V418 RECOVERY ENGINE TEST PASS');

@@ -1,0 +1,50 @@
+{
+  "version": "V295.0.0",
+  "status": "HARDENING_LOCAL_CHECKS_PASS",
+  "generatedAt": "2026-09-09T20:17:16.594Z",
+  "durationMs": 1,
+  "checks": [
+    {
+      "key": "CONCURRENT_CHECKOUT_NO_OVERSELL",
+      "status": "PASS",
+      "expected": "exactly one winner from 100 concurrent reservations",
+      "actual": "winners=1,remaining=0"
+    },
+    {
+      "key": "PAYMENT_REPLAY_IDEMPOTENT",
+      "status": "PASS",
+      "expected": "one financial application",
+      "actual": "applied=1"
+    },
+    {
+      "key": "WEBHOOK_REPLAY_IDEMPOTENT",
+      "status": "PASS",
+      "expected": "one application per event id",
+      "actual": "applied=2"
+    },
+    {
+      "key": "LEDGER_BALANCED",
+      "status": "PASS",
+      "expected": "debits equal credits",
+      "actual": "debit=260,credit=260"
+    },
+    {
+      "key": "FAILURE_RECOVERY_NO_DUPLICATE_EFFECT",
+      "status": "PASS",
+      "expected": "retry commits exactly once",
+      "actual": "{\"attempted\":true,\"failedBeforeCommit\":true,\"committedAfterRetry\":true,\"duplicateEffects\":0}"
+    },
+    {
+      "key": "LOAD_HARNESS_1000_REQUESTS",
+      "status": "PASS",
+      "expected": "1000 deterministic requests completed",
+      "actual": "count=1000,p95_ms=17"
+    }
+  ],
+  "scope": {
+    "mode": "DETERMINISTIC_LOCAL",
+    "liveDatabase": false,
+    "liveProvider": false,
+    "liveLoadGenerator": false
+  }
+}

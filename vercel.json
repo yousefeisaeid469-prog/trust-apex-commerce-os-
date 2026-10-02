@@ -1,0 +1,21 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "npm install",
+  "devCommand": "next dev",
+  "outputDirectory": ".next",
+  "crons": [
+    {
+      "path": "/api/cron/commerce-execution-worker",
+      "schedule": "0 3 * * *"
+    },
+    {
+      "path": "/api/cron/commerce-event-publisher",
+      "schedule": "30 3 * * *"
+    },
+    {
+      "path": "/api/cron/commerce-consumer-control",
+      "schedule": "0 4 * * *"
+    }
+  ]
+}

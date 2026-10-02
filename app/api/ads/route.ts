@@ -1,0 +1,3 @@
+import { NextResponse } from 'next/server';
+import { createAdCampaign, recordAdClick } from '../../../modules/platform/marketplace-growth';
+export async function POST(request:Request){try{const body=await request.json();if(body.action==='create_campaign')return NextResponse.json({ok:true,campaign:await createAdCampaign(body)});if(body.action==='record_click')return NextResponse.json({ok:true,ledger:await recordAdClick(body)});return NextResponse.json({ok:false,error:'UNKNOWN_AD_ACTION'},{status:400})}catch(error){return NextResponse.json({ok:false,error:error instanceof Error?error.message:'AD_OPERATION_FAILED'},{status:400})}}

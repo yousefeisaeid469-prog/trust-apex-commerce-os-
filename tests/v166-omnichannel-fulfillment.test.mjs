@@ -1,0 +1,12 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import {routeWarehouses,planFulfillment,decideReturn} from '../modules/platform/omnichannel-fulfillment/core.ts';
+import {triageSupport} from '../modules/platform/customer-support/core.ts';
+import {createCommerceEvent,dedupeEvents} from '../modules/platform/commerce-events/core.ts';
+const warehouses=[{id:'cairo',region:'EG',lat:30,lon:31,active:true,capacityUnits:1000,availableUnits:700,handlingHours:12},{id:'alex',region:'EG',lat:31,lon:30,active:true,capacityUnits:500,availableUnits:400,handlingHours:36}];
+const nodes=[{warehouseId:'cairo',productId:'p1',available:20,reserved:2,inbound:0},{warehouseId:'alex',productId:'p1',available:5,reserved:0,inbound:0},{warehouseId:'cairo',productId:'p2',available:0,reserved:0,inbound:0},{warehouseId:'alex',productId:'p2',available:8,reserved:0,inbound:0}];
+const lines=[{lineId:'l1',productId:'p1',quantity:3,unitPriceMinor:1000n,weightGrams:100},{lineId:'l2',productId:'p2',quantity:2,unitPriceMinor:2000n,weightGrams:200}];
+test('V166 routes active inventory nodes deterministically',()=>{const r=routeWarehouses(warehouses,nodes,lines,{region:'EG'});assert.equal(r.length,2);assert.equal(r[0].warehouseId,'alex');});
+test('V166 creates split fulfillment when inventory is fragmented',()=>{const p=planFulfillment('o1','WEB',lines,warehouses,nodes);assert.equal(p.shipments.length,2);assert.deepEqual(p.unallocatedLineIds,[]);assert.equal(p.splitCount,2);});
+test('V166 return policy fails closed on expired windows',()=>{const r=decideReturn({id:'r',orderId:'o',lineId:'l',reason:'CHANGED_MIND',quantity:1,eligibleUntil:'2020-01-01T00:00:00Z'},new Date('2026-01-01T00:00:00Z'),{unitPriceMinor:1000n});assert.equal(r.approved,false);});
+test('V166 support routes delivery and urgent cases',()=>{const a=triageSupport({caseId:'c',customerId:'u',orderId:'o',category:'DELIVERY',priority:'URGENT',message:'where is it?',createdAt:new Date().toISOString()});assert.ok(a.some(x=>x.action==='TRACK'));assert.ok(a.some(x=>x.action==='ESCALATE'));});
+test('V166 event bus deduplicates idempotency keys',()=>{const e=createCommerceEvent('ORDER_PLACED','t','o',{total:'100'},1,'k');assert.equal(dedupeEvents([e,e]).length,1);});

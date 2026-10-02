@@ -1,0 +1,12 @@
+{
+  "version": "V269.0.0",
+  "workItems": [],
+  "policy": "Only explicitly requested/currently selected work may enter the implementation backlog. Historical release claims are not work items.",
+  "requiredFields": [
+    "id",
+    "title",
+    "sourceClaimId",
+    "acceptanceCriteria",
+    "targetSurface"
+  ]
+}

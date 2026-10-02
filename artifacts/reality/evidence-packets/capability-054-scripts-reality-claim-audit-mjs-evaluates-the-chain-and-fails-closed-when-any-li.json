@@ -1,0 +1,142 @@
+{
+  "id": "evidence-packet:capability-054-scripts-reality-claim-audit-mjs-evaluates-the-chain-and-fails-closed-when-any-li",
+  "contractId": "capability-054-scripts-reality-claim-audit-mjs-evaluates-the-chain-and-fails-closed-when-any-li",
+  "sourceId": "draft-doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11",
+  "claim": "scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v251-legacy-runtime-surface.test.mjs",
+      "tests/v252-reality-evidence-graph.test.mjs",
+      "tests/v260-reality-evidence-factory.test.mjs",
+      "tests/v261-capability-evidence-execution.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 28,
+        "token": "scripts",
+        "excerpt": "\"scripts/commerce_event_publisher.mjs\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 114,
+        "token": "scripts",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/architecture/REALITY-CLAIM-LEDGER-V248.md:11 (docs line 11) — scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 4210,
+        "token": "scripts",
+        "excerpt": "\"id\": \"capability-054-scripts-reality-claim-audit-mjs-evaluates-the-chain-and-fails-closed-when-any-li\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 76,
+        "token": "scripts",
+        "excerpt": "- **capability-054-scripts-reality-claim-audit-mjs-evaluates-the-chain-and-fails-closed-when-any-li** — unassigned — DRAFT — scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 2354,
+        "token": "scripts",
+        "excerpt": "\"claim\": \"scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 12941,
+        "token": "scripts",
+        "excerpt": "\"claim\": \"scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1546,
+        "token": "scripts",
+        "excerpt": "\"text\": \"scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 858,
+        "token": "scripts",
+        "excerpt": "\"text\": \"scripts/reality claim audit.mjs evaluates the chain and fails closed when any link disappears.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v251-legacy-runtime-surface.test.mjs",
+        "hits": [
+          "scripts",
+          "reality"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v252-reality-evidence-graph.test.mjs",
+        "hits": [
+          "scripts",
+          "reality"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v260-reality-evidence-factory.test.mjs",
+        "hits": [
+          "scripts",
+          "reality"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v261-capability-evidence-execution.test.mjs",
+        "hits": [
+          "scripts",
+          "reality"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "10f0c428a97d76bbb948d2cb53a810157f176995590f28f295cb6b4d698b2106",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

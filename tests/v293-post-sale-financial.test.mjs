@@ -1,0 +1,12 @@
+import fs from 'node:fs'; import assert from 'node:assert/strict';
+const migration=fs.readFileSync('db/migrations/131_v293_post_sale_financial_controls.sql','utf8');
+for(const x of ['trust_post_sale_financial_events','trust_return_inventory_recoveries','RETURN_RECEIPT','ACCOUNTING_JOURNAL_IMMUTABLE']) assert.match(migration,new RegExp(x));
+const finance=fs.readFileSync('modules/platform/post-sale-finance.ts','utf8');
+for(const x of ['recordPostSaleFinancialEventTx','postRefundAccountingTx','recoverReturnInventoryTx','FINANCIAL_EVENT_IDEMPOTENCY_REUSE']) assert.match(finance,new RegExp(x));
+const returns=fs.readFileSync('modules/commerce/returns/service.ts','utf8');
+for(const x of ['recoverReturnInventoryTx','recordPostSaleFinancialEventTx','postRefundAccountingTx']) assert.match(returns,new RegExp(x));
+const payments=fs.readFileSync('modules/commerce/payments/orchestrator.ts','utf8');
+for(const x of ['recordPostSaleFinancialEventTx','postRefundAccountingTx','payment-refund:']) assert.match(payments,new RegExp(x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); assert.equal(pkg.version,'293.0.0');
+const runtime=fs.readFileSync('lib/runtime/version.ts','utf8'); assert.match(runtime,/V293\.0\.0/);
+console.log('V293 post-sale financial controls: 18/18 PASS');

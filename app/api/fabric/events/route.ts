@@ -1,0 +1,7 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { requirePermission } from '../../../../modules/platform/auth/current-user';
+import { appendAuditEvent } from '../../../../modules/platform/audit/ledger';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function POST(req:NextRequest){
+  try{const actor=await requirePermission(req,'trust:event');const event=await req.json();const eventId=typeof event?.eventId==='string'?event.eventId:crypto.randomUUID();const traceId=typeof event?.traceId==='string'?event.traceId:crypto.randomUUID();const audit=await appendAuditEvent({actorId:actor.id,action:'fabric.event.accepted',resourceType:'fabric_event',resourceId:eventId,payload:{eventId,traceId,name:event?.name??'unknown',tenantId:event?.tenantId??'default',aggregateId:event?.aggregateId??'unknown',payload:event?.payload??{}},outbox:{eventType:'fabric.event.accepted',aggregateId:eventId,payload:{eventId,traceId,name:event?.name??'unknown',tenantId:event?.tenantId??'default',payload:event?.payload??{}}}});return NextResponse.json({accepted:true,eventId,normalized:true,traceId,persisted:true,auditHash:audit.chainHash},{headers:{'Cache-Control':'no-store'}});}catch(e){const code=e instanceof Error?e.message:'FABRIC_EVENT_ERROR';return NextResponse.json({accepted:false,persisted:false,error:code},{status:code==='Authentication required'?401:code.includes('permission')?403:code==='DATABASE_NOT_CONFIGURED'?503:400});}
+}

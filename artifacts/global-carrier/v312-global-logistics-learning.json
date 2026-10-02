@@ -1,0 +1,10 @@
+{
+  "version": "V312.0.0",
+  "status": "GLOBAL_LOGISTICS_ADAPTIVE_LEARNING_VERIFIED",
+  "model": "confidence-shrunk deterministic carrier/service profile",
+  "source": "V307 reconciled tracking outcomes",
+  "externalCarrierConnectivity": false,
+  "liveCapacityProviderIntegration": false,
+  "fullTypecheck": false,
+  "livePostgresE2E": false
+}

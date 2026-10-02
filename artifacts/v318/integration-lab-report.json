@@ -1,0 +1,42 @@
+{
+  "version": "V318.0.0",
+  "status": "PARTIAL",
+  "startedAt": "2026-09-13T21:08:45.960Z",
+  "completedAt": "2026-09-13T21:08:46.054Z",
+  "checks": [
+    {
+      "name": "v318-contract-and-rollback-simulator",
+      "kind": "TRANSACTION",
+      "status": "PASS",
+      "durationMs": 93.818,
+      "details": {
+        "deterministic": true,
+        "rollbackOnInjectedFailure": true,
+        "idempotency": true
+      },
+      "executed": true
+    },
+    {
+      "name": "migration-156-present",
+      "kind": "MIGRATION",
+      "status": "PASS",
+      "durationMs": 0.111,
+      "details": {
+        "migration": 156
+      },
+      "executed": true
+    },
+    {
+      "name": "live-postgres-probe",
+      "kind": "TRANSACTION",
+      "status": "SKIPPED",
+      "durationMs": 0.001,
+      "executed": false,
+      "details": {
+        "reason": "DATABASE_NOT_CONFIGURED"
+      }
+    }
+  ],
+  "liveDatabase": false,
+  "externalProvidersLive": false
+}

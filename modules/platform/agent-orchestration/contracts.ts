@@ -1,0 +1,10 @@
+export type AgentRole='SHOPPING'|'SELLER'|'PRICING'|'SUPPLY'|'FULFILLMENT'|'FINANCE'|'TRUST'|'SUPPORT'|'RELIABILITY';
+export type AgentStatus='ACTIVE'|'PAUSED';
+export type TaskKind='DISCOVER'|'COMPARE'|'PRICE'|'REPLENISH'|'FULFILL'|'FINANCE'|'TRUST_REVIEW'|'SUPPORT'|'RELIABILITY'|'GENERAL_COMMERCE';
+export interface AgentCapability{task:TaskKind;weight:number;}
+export interface CommerceAgent{agentId:string;tenantId:string;role:AgentRole;status:AgentStatus;capabilities:AgentCapability[];maxRiskBps:number;minConfidenceBps:number;}
+export interface AgentTask{taskId:string;tenantId:string;kind:TaskKind;objective:string;signalIds:string[];riskBps:number;budgetMinor?:bigint;currency?:string;deadlineMs?:number;}
+export interface AgentProposal{proposalId:string;agentId:string;tenantId:string;role:AgentRole;action:string;priority:number;confidenceBps:number;riskBps:number;expectedImpactBps:number;reason:string;signalIds:string[];idempotencyKey:string;requiresApproval:boolean;}
+export interface AgentMessage{messageId:string;fromAgentId:string;toAgentId?:string;tenantId:string;kind:'PROPOSAL'|'CRITIQUE'|'HANDOFF'|'RESULT';payload:string;createdAt:number;}
+export interface OrchestrationPlan{planId:string;tenantId:string;taskId:string;selectedAgents:string[];proposals:AgentProposal[];approvedForExecution:string[];requiresApproval:boolean;conflicts:string[];explanation:string;}
+export interface OrchestrationReceipt{planId:string;tenantId:string;status:'PLANNED'|'APPROVAL_REQUIRED'|'EXECUTED'|'DUPLICATE';executedProposalIds:string[];createdAt:number;}

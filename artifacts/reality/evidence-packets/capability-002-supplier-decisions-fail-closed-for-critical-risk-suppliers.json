@@ -1,0 +1,125 @@
+{
+  "id": "evidence-packet:capability-002-supplier-decisions-fail-closed-for-critical-risk-suppliers",
+  "contractId": "capability-002-supplier-decisions-fail-closed-for-critical-risk-suppliers",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V168.md:9",
+  "claim": "Supplier decisions fail closed for critical risk suppliers.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v168-global-supply-chain.test.mjs",
+      "tests/v170-network-intelligence.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 331,
+        "token": "supplier",
+        "excerpt": "\"text\": \"Supplier decisions fail closed for critical risk suppliers.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 36,
+        "token": "supplier",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V168.md:9 (docs line 9) — Supplier decisions fail closed for critical risk suppliers.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 95,
+        "token": "supplier",
+        "excerpt": "\"id\": \"capability-002-supplier-decisions-fail-closed-for-critical-risk-suppliers\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 24,
+        "token": "supplier",
+        "excerpt": "- **capability-002-supplier-decisions-fail-closed-for-critical-risk-suppliers** — unassigned — DRAFT — Supplier decisions fail closed for critical risk suppliers.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 378,
+        "token": "supplier",
+        "excerpt": "\"claim\": \"Supplier decisions fail closed for critical risk suppliers.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 2103,
+        "token": "supplier",
+        "excerpt": "\"claim\": \"Supplier decisions fail closed for critical risk suppliers.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 254,
+        "token": "supplier",
+        "excerpt": "\"text\": \"Supplier decisions fail closed for critical risk suppliers.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 250,
+        "token": "supplier",
+        "excerpt": "\"text\": \"Supplier decisions fail closed for critical risk suppliers.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v168-global-supply-chain.test.mjs",
+        "hits": [
+          "supplier",
+          "critical",
+          "suppliers"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v170-network-intelligence.test.mjs",
+        "hits": [
+          "supplier",
+          "decisions"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "30a47e97f753b748da63dae4ed26e5ab0f6be79b3d396853345e859e8e4e1ace",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

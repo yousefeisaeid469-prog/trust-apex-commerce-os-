@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {getCapability} from '../../../../../../modules/platform/global-commerce-v297/index.ts';export async function GET(_req:Request,{params}:{params:{country:string}}){return NextResponse.json(getCapability(params.country.toUpperCase()));}

@@ -1,0 +1,14 @@
+# V121 Release Checklist
+- [x] Global network domain contracts
+- [x] Seller verification/ranking boundary
+- [x] Universal cart currency invariant
+- [x] Cross-border quote composition boundary
+- [x] Reputation graph with sample size
+- [x] Network API and UI
+- [x] PostgreSQL migration
+- [x] Provider-readiness documentation
+- [ ] Real KYC provider
+- [ ] Real carrier/rates provider
+- [ ] FX provider
+- [ ] Duties/tax provider
+- [ ] Cross-border payment/settlement provider

@@ -1,0 +1,20 @@
+{
+  "version": "V313.0.0",
+  "status": "PASS",
+  "criticalWorkflows": [
+    {
+      "name": "v313-platform-foundation.test.mjs",
+      "status": "PASS",
+      "output": "V313 platform foundation tests PASS"
+    },
+    {
+      "name": "v313-evidence-suite.mjs",
+      "status": "PASS",
+      "output": "V313 evidence suite PASS"
+    }
+  ],
+  "liveProviders": false,
+  "liveDatabase": false,
+  "generatedAt": "2026-09-09T23:19:03.517Z",
+  "evidenceHash": "9e1a8dfc9dd27383e04107b9defb4d483a3a65aeb9fcaccadad6d4dc0d182e7a"
+}

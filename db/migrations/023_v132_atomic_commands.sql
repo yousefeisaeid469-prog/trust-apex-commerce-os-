@@ -1,0 +1,5 @@
+-- TRUST V132 — atomic command boundaries for checkout/payment/refund idempotency.
+-- NOTE (V154 fix): trust_orders did not exist yet at this point in the
+-- migration sequence. Its request_hash column and matching index are now
+-- part of its CREATE TABLE in 044_v154_missing_transactional_core.sql.
+-- Fixed pre-deployment; no live database ever ran this migration set.

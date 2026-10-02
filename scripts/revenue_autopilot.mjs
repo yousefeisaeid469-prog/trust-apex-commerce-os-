@@ -1,0 +1,2 @@
+import {runRevenueAutopilot} from '../modules/platform/revenue-autopilot/index.ts';
+const r=await runRevenueAutopilot({tenantId:'00000000-0000-0000-0000-000000000001',sourceId:'demo-order',occurredAt:new Date().toISOString(),programId:'marketplace-commission',meter:{programId:'marketplace-commission',baseMinor:10000n,rateBps:1500},evidenceType:'ORDER',idempotencyKey:'v217-demo',mode:'QUOTE'}); console.log(JSON.stringify(r,(_,v)=>typeof v==='bigint'?v.toString():v));

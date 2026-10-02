@@ -1,0 +1,2 @@
+export function rankAds(c:any[]){return c.map(x=>({...x,candidateId:x.id,eligible:x.budgetRemainingMinor>0})).sort((a,b)=>Number(b.eligible)-Number(a.eligible)||(b.relevance+b.quality)- (a.relevance+a.quality)||Number(b.bidMinor-a.bidMinor));}
+export function campaignInsight(c:any){const utilization=c.budgetMinor===0n?0:Number(c.spentMinor*100n/c.budgetMinor);return {...c,utilization,pacing:utilization>100?'OVER':utilization<80?'ON_TRACK':'AT_CAP'};}

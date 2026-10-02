@@ -1,0 +1,6 @@
+import assert from 'node:assert/strict';import fs from 'node:fs';
+const required=['db/migrations/146_v308_global_logistics_control_tower.sql','modules/platform/global-logistics-v308/contracts.ts','modules/platform/global-logistics-v308/runtime.ts','modules/platform/global-logistics-v308/index.ts','app/api/fulfillment/global-carriers/control-tower/route.ts','tests/v308-global-logistics-control-tower.test.mjs','artifacts/global-carrier/v308-global-logistics-control-tower.json','docs/architecture/GLOBAL-LOGISTICS-CONTROL-TOWER-V308.md','docs/releases/MASTER-RELEASE-V308.md'];
+for(const f of required)assert.ok(fs.existsSync(f),`missing ${f}`);
+const sql=fs.readFileSync('db/migrations/146_v308_global_logistics_control_tower.sql','utf8');for(const token of ['trust_global_logistics_control_tower_snapshots','risk_band','recommended_action','risk_score'])assert.ok(sql.includes(token),`missing SQL capability ${token}`);
+const a=JSON.parse(fs.readFileSync('artifacts/global-carrier/v308-global-logistics-control-tower.json','utf8'));assert.equal(a.version,'V308.0.0');assert.equal(a.status,'GLOBAL_LOGISTICS_CONTROL_TOWER_VERIFIED');assert.equal(a.liveCarrierConnectivity,false);
+console.log('V308 audit PASS — logistics control tower artifacts and non-live boundary verified.');

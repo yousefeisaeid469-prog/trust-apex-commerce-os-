@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const sql=fs.readFileSync('db/migrations/178_v346_seller_dispute_cases.sql','utf8');
+const mod=fs.readFileSync('modules/marketplace/seller-disputes.ts','utf8');
+const customer=fs.readFileSync('app/api/customer/disputes/route.ts','utf8');
+const merchant=fs.readFileSync('app/api/merchant/disputes/[id]/route.ts','utf8');
+assert.match(sql,/trust_seller_dispute_cases/);assert.match(sql,/seller_order_id/);assert.match(sql,/held_amount/);assert.match(sql,/trust_seller_dispute_evidence/);assert.match(sql,/trust_seller_dispute_events/);assert.match(sql,/UNIQUE INDEX.*trust_seller_dispute_open_item_idx/s);
+assert.match(mod,/ORDER_NOT_OWNED/);assert.match(mod,/DISPUTE_AMOUNT_EXCEEDS_ITEM_VALUE/);assert.match(mod,/FOR UPDATE/i);assert.match(mod,/entryType:'HOLD'/);assert.match(mod,/entryType:'CHARGEBACK'/);assert.match(mod,/entryType:'RELEASE'/);assert.match(mod,/idempotencyKey/);assert.match(mod,/SELLER_DISPUTE_NOT_OWNED/);
+assert.match(customer,/openSellerDispute/);assert.match(customer,/idempotency-key/i);assert.match(merchant,/transitionSellerDisputeTx/);assert.match(merchant,/addSellerDisputeEvidenceTx/);
+console.log('V346 seller disputes: PASS');

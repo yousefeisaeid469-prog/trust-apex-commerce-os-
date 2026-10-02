@@ -1,0 +1,3 @@
+export type AnalyticsEvent={id:string;tenantId:string;type:string;occurredAt:string;properties:Record<string,string|number|boolean>};
+export function normalizeEvent(input:AnalyticsEvent):AnalyticsEvent{if(!input.id||!input.tenantId||!input.type)throw new Error('INVALID_ANALYTICS_EVENT');const d=new Date(input.occurredAt);if(Number.isNaN(d.getTime()))throw new Error('INVALID_EVENT_TIME');return {...input,occurredAt:d.toISOString()};}
+export function aggregate(events:AnalyticsEvent[],key:string){const out=new Map<string,number>();for(const e of events){const v=e.properties[key];if(typeof v==='number')out.set(e.tenantId,(out.get(e.tenantId)??0)+v);}return out;}

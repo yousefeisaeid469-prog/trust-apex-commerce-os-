@@ -1,0 +1,6 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getCurrentUser } from '../../../../modules/platform/auth/current-user';
+import { listProductReviews, submitProductReview, voteReviewHelpful } from '../../../../modules/marketplace/customer-retention';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function GET(req:NextRequest){const productId=req.nextUrl.searchParams.get('productId')?.trim();if(!productId)return NextResponse.json({ok:false,error:'PRODUCT_REQUIRED'},{status:400});return NextResponse.json({ok:true,...await listProductReviews(productId)},{headers:{'Cache-Control':'no-store'}})}
+export async function POST(req:NextRequest){const user=await getCurrentUser(req);if(!user)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});try{const b=await req.json();if(b?.action==='helpful')return NextResponse.json({ok:true,result:await voteReviewHelpful(String(b.reviewId),user.id)});const review=await submitProductReview({productId:String(b?.productId??''),customerId:user.id,rating:Number(b?.rating),title:b?.title,body:b?.body});return NextResponse.json({ok:true,review},{status:201});}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'REVIEW_FAILED'},{status:400})}}

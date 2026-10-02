@@ -1,0 +1,66 @@
+{
+  "schema": "trust.production-reliability.v1",
+  "candidateHash": "99a5666b4c4c596ab6d6407f6070fa96a207a38ad5eec8e523623194f09e29c4",
+  "cycle": {
+    "signal": {
+      "serviceId": "checkout",
+      "tenantId": "tenant-demo",
+      "rolloutId": "rollout-v145",
+      "availability": 0.8,
+      "errorRate": 0.2,
+      "p95Ms": 900,
+      "budgetConsumedPct": 100,
+      "replayMatches": false,
+      "newFailure": true
+    },
+    "loop": {
+      "status": "ROLLED_BACK",
+      "decision": "ROLLBACK",
+      "incidentId": "inc-v145-demo",
+      "receipts": [
+        {
+          "action": "OPEN_INCIDENT",
+          "target": "inc-v145-demo",
+          "accepted": true,
+          "reason": "APPLIED",
+          "at": "2026-09-02T22:09:27.557Z"
+        },
+        true,
+        {
+          "action": "ISOLATE_SERVICE",
+          "target": "checkout",
+          "accepted": true,
+          "reason": "APPLIED",
+          "at": "2026-09-02T22:09:27.557Z"
+        },
+        {
+          "action": "ISOLATE_TENANT",
+          "target": "tenant-demo",
+          "accepted": true,
+          "reason": "APPLIED",
+          "at": "2026-09-02T22:09:27.557Z"
+        },
+        {
+          "action": "MITIGATE",
+          "target": "checkout",
+          "accepted": true,
+          "reason": "APPLIED",
+          "at": "2026-09-02T22:09:27.557Z"
+        },
+        true,
+        true
+      ],
+      "recovery": {
+        "verified": true,
+        "gate": "PASS"
+      },
+      "evidenceHash": "ffef5077afb536c63705d955795b940fe9ad2062272f3b6018e68c06a6eaf652"
+    },
+    "runtimeVerified": true,
+    "incident": {
+      "status": "ROLLED_BACK",
+      "decision": "ROLLBACK"
+    }
+  },
+  "bundleHash": "712ba76ad5b172deac45586dd8f7d5de0a5b95ac3438a63765600746179ceaa5"
+}

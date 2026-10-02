@@ -1,0 +1,5 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(), req=['modules/platform/autonomous-reliability-loop/contracts.ts','modules/platform/autonomous-reliability-loop/enforcer.ts','modules/platform/autonomous-reliability-loop/loop.ts','tests/v144-autonomous-reliability-loop.test.mjs','db/migrations/034_v144_autonomous_reliability_loop.sql']; const missing=req.filter(f=>!fs.existsSync(path.join(root,f)));
+const cp=fs.readFileSync(path.join(root,'modules/agents/control-plane.ts'),'utf8'); const errors=[];
+if(missing.length)errors.push(...missing.map(x=>`MISSING:${x}`)); if(cp.includes("version:'129.0.0'"))errors.push('CONTROL_PLANE_VERSION_DRIFT'); if(!cp.includes("if(p.state==='KILLED')return{allowed:false,reason:'AGENT_KILL'}"))errors.push('AGENT_KILL_GLOBAL_SEMANTICS_DRIFT'); if(!cp.includes("reason:'GLOBAL_KILL_SWITCH'"))errors.push('GLOBAL_KILL_SWITCH_REASON_MISSING');
+if(errors.length){console.error('TRUST autonomous reliability audit FAILED'); errors.forEach(e=>console.error('- '+e)); process.exit(1)} console.log('TRUST autonomous reliability audit PASS');

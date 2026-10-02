@@ -1,0 +1,14 @@
+{
+  "version": "V266.0.0",
+  "status": "KEY_LIFECYCLE_AND_FRESHNESS_VERIFIED",
+  "algorithm": "ed25519",
+  "demo": {
+    "validSignature": true,
+    "tamperedPayloadRejected": true,
+    "noncePresent": true,
+    "signedAtPresent": true,
+    "expiresAtPresent": true
+  },
+  "privateKeyPersisted": false,
+  "autoPromotion": false
+}

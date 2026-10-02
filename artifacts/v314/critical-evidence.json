@@ -1,0 +1,18 @@
+{
+  "version": "V314.0.0",
+  "workflow": "critical-platform-unification",
+  "status": "PASS",
+  "checks": [
+    "infrastructure",
+    "payments",
+    "logistics",
+    "decision-engine",
+    "risk",
+    "commerce",
+    "security-tenancy",
+    "observability"
+  ],
+  "timestamp": "2026-09-09T23:26:12.505Z",
+  "inputsHash": "6743c490b95cc2f5280948b4c2ffb41b42f30181e0161ff9ae6d4e4b0727157b",
+  "liveExternalProviders": false
+}

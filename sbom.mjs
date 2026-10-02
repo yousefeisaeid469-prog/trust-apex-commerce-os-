@@ -1,0 +1,6 @@
+import fs from 'node:fs'; import crypto from 'node:crypto';
+const lock=JSON.parse(fs.readFileSync('package-lock.json','utf8')); const pkg=JSON.parse(fs.readFileSync('package.json','utf8')); const components=[];
+if(lock.packages && Object.keys(lock.packages).length>1){ for(const [location,meta] of Object.entries(lock.packages)){ if(location==='') continue; components.push({name:meta.name||location.replace(/^node_modules\//,''),version:meta.version||'unknown',location,dev:!!meta.dev}); } }
+if(!components.length){ for(const [name,version] of Object.entries({...pkg.dependencies,...pkg.devDependencies})){ components.push({name,version,scope:pkg.devDependencies?.[name]?'development':'production'}); } }
+const sbom={bomFormat:'CycloneDX',specVersion:'1.5',version:1,metadata:{timestamp:new Date().toISOString(),component:{type:'application',name:pkg.name,version:pkg.version}},components};
+const out=JSON.stringify(sbom,null,2);fs.writeFileSync('docs/acquisition/SBOM-V138.json',out+'\n');const hash=crypto.createHash('sha256').update(out).digest('hex');fs.writeFileSync('docs/acquisition/SBOM-V138.sha256',`${hash}  SBOM-V138.json\n`);console.log(`TRUST V139 SBOM generated — ${components.length} declared/resolved components — SHA-256 ${hash}`);

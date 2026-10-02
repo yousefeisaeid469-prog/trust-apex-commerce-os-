@@ -1,0 +1,1 @@
+import {createHash} from "crypto"; export function chainHash(previousHash:string,record:string){return createHash("sha256").update(previousHash+"|"+record).digest("hex");}

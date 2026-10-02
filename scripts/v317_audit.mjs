@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+const required=['db/migrations/155_v317_transactional_marketplace_execution.sql','modules/platform/v317/index.ts','modules/platform/v317/marketplace/contracts.ts','modules/platform/v317/marketplace/engine.ts','modules/platform/v317/marketplace/runtime.ts','app/api/platform/v317/marketplace/route.ts','tests/v317-transactional-marketplace.test.mjs','artifacts/v317/transactional-marketplace-evidence.json','docs/architecture/MARKETPLACE-TRANSACTIONAL-EXECUTION-V317.md','docs/releases/MASTER-RELEASE-V317.md'];
+const missing=required.filter(f=>!fs.existsSync(f));if(missing.length){console.error('V317 AUDIT FAILED');missing.forEach(f=>console.error('- '+f));process.exit(1)}
+const runtime=fs.readFileSync('modules/platform/v317/marketplace/runtime.ts','utf8');for(const invariant of ['withPgTransaction','for update','stock>=$1','sandboxPayment','trust_marketplace_seller_balances','trust_marketplace_payment_settlements'])if(!runtime.includes(invariant))throw new Error(`V317 invariant missing: ${invariant}`);
+const a=JSON.parse(fs.readFileSync('artifacts/v317/transactional-marketplace-evidence.json','utf8'));if(a.version!=='V317.0.0'||a.status!=='PASS'||a.liveDatabase!==false||a.liveExternalProviders!==false)throw new Error('V317 evidence claims invalid');
+console.log(`V317 audit PASS — ${required.length} critical artifacts verified.`);

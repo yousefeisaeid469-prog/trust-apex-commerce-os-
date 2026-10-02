@@ -1,0 +1,6 @@
+import fs from 'node:fs';
+const required=['db/migrations/157_v319_real_capabilities.sql','modules/platform/v319/index.ts','modules/platform/v319/real-capabilities.ts','tests/v319-real-capabilities.test.mjs','scripts/v319_reality_gate.mjs','scripts/v319_verification.mjs','artifacts/v319/reality-gate.json','artifacts/v319/verification-summary.json','app/api/gift-cards/route.ts','app/api/merchant-finance/route.ts','app/api/ai-quality/route.ts','app/api/deals/route.ts','app/api/agents/route.ts','app/api/decision-fabric/route.ts','app/api/brands/route.ts'];
+const missing=required.filter(f=>!fs.existsSync(f)); if(missing.length){console.error('V319 audit FAILED\n- '+missing.join('\n- '));process.exit(1)}
+const report=JSON.parse(fs.readFileSync('artifacts/v319/reality-gate.json','utf8')); if(report.status!=='PASS'||report.errors.length)throw new Error('REALITY_GATE_NOT_PASS');
+const verification=JSON.parse(fs.readFileSync('artifacts/v319/verification-summary.json','utf8')); if(!['PASS','PARTIAL'].includes(verification.status)||verification.failed)throw new Error('VERIFICATION_INVALID');
+console.log('V319 audit PASS — real capability surfaces, reality gate, verification evidence, and migration are present.');

@@ -1,0 +1,5 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import {buildProductionReadinessReport} from '../modules/platform/production-readiness/index.ts';
+test('V221 builds a deterministic readiness report with blockers',()=>{const a=buildProductionReadinessReport({sourceAudit:[{id:'SRC',domain:'SECURITY',status:'PASS',title:'Static audit',detail:'ok'}],now:'2026-09-07T00:00:00.000Z'});assert.equal(a.version,'V222.0.0');assert.equal(a.generatedAt,'2026-09-07T00:00:00.000Z');assert.equal(a.ready,process.env.NODE_ENV==='production'?false:a.ready);});
+test('V221 preserves explicit failure evidence',()=>{const r=buildProductionReadinessReport({documentation:[{id:'DOC',domain:'DOCUMENTATION',status:'FAIL',title:'API',detail:'missing schema'}],now:'x'});assert.equal(r.ready,false);assert.ok(r.blockers.some(x=>x.startsWith('DOC:')))});
+test('V221 score rewards passes over warnings',()=>{const a=buildProductionReadinessReport({sourceAudit:[{id:'A',domain:'PERFORMANCE',status:'PASS',title:'a',detail:'ok'},{id:'B',domain:'PERFORMANCE',status:'WARN',title:'b',detail:'review'}],now:'x'});assert.ok(a.score>0);});

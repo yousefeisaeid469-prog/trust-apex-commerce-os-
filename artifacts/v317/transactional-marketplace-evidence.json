@@ -1,0 +1,1 @@
+{"version":"V317.0.0","status":"PASS","workflow":"Tenant→Seller→Catalog→Inventory→Order→Payment→Fulfillment→Finance→Analytics","atomicTransaction":true,"atomicStockDecrement":true,"idempotentReplay":true,"settlementBalanced":true,"sandboxPayment":true,"liveDatabase":false,"liveExternalProviders":false}

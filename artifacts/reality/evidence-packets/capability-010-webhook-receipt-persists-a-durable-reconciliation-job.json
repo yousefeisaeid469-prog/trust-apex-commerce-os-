@@ -1,0 +1,183 @@
+{
+  "id": "evidence-packet:capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+  "contractId": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V187.md:6",
+  "claim": "Webhook receipt persists a durable reconciliation job.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v186-provider-reconciliation.test.mjs",
+      "tests/v187-reconciliation-worker.test.mjs",
+      "tests/v230-production-kernel.test.mjs",
+      "tests/v231-commerce-execution.test.mjs",
+      "tests/v233-fulfillment-provider-execution.test.mjs",
+      "tests/v234-returns-refunds.test.mjs",
+      "tests/v235-reverse-commerce.test.mjs",
+      "tests/v250-durable-autonomous-orchestrator.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 507,
+        "token": "webhook",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 52,
+        "token": "webhook",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V186.md:3 (docs line 3) — V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and aut",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 727,
+        "token": "webhook",
+        "excerpt": "\"id\": \"capability-010-webhook-receipt-persists-a-durable-reconciliation-job\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 32,
+        "token": "webhook",
+        "excerpt": "- **capability-010-webhook-receipt-persists-a-durable-reconciliation-job** — unassigned — DRAFT — Webhook receipt persists a durable reconciliation job.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 794,
+        "token": "webhook",
+        "excerpt": "\"claim\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 4417,
+        "token": "webhook",
+        "excerpt": "\"claim\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 526,
+        "token": "webhook",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 378,
+        "token": "webhook",
+        "excerpt": "\"text\": \"V186 hardens the Purchase Guardian production boundary with a durable provider webhook inbox, signed webhook verification, idempotent reconciliation, and automatic recovery of expired execution leases.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v186-provider-reconciliation.test.mjs",
+        "hits": [
+          "webhook",
+          "reconciliation"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v187-reconciliation-worker.test.mjs",
+        "hits": [
+          "webhook",
+          "receipt",
+          "durable",
+          "reconciliation"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v230-production-kernel.test.mjs",
+        "hits": [
+          "webhook",
+          "persists",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v231-commerce-execution.test.mjs",
+        "hits": [
+          "webhook",
+          "persists",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v233-fulfillment-provider-execution.test.mjs",
+        "hits": [
+          "webhook",
+          "durable",
+          "reconciliation"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v234-returns-refunds.test.mjs",
+        "hits": [
+          "webhook",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v235-reverse-commerce.test.mjs",
+        "hits": [
+          "durable",
+          "reconciliation"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v250-durable-autonomous-orchestrator.test.mjs",
+        "hits": [
+          "persists",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "951a232114d993d9cee533ac4fcb91131048acbaace24caf86dd96504ccfc231",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

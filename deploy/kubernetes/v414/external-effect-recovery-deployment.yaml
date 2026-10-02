@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trust-external-effect-recovery
+  labels: {app: trust-external-effect-recovery, version: v414}
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector: {matchLabels: {app: trust-external-effect-recovery}}
+  template:
+    metadata: {labels: {app: trust-external-effect-recovery, version: v414}}
+    spec:
+      terminationGracePeriodSeconds: 20
+      containers:
+        - name: recovery
+          image: trust-apex-os:414.0.0
+          command: ["node", "--experimental-strip-types", "scripts/external_effect_recovery_daemon.mjs"]
+          env:
+            - name: EXTERNAL_EFFECT_RECOVERY_BATCH
+              value: "100"
+            - name: EXTERNAL_EFFECT_RECOVERY_INTERVAL_MS
+              value: "5000"
+          resources:
+            requests: {cpu: 50m, memory: 128Mi}
+            limits: {cpu: 500m, memory: 512Mi}

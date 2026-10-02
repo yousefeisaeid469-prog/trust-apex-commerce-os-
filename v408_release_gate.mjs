@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+const pkg=JSON.parse(fs.readFileSync('package.json','utf8'));
+if(pkg.version!=='408.0.0') throw new Error(`PACKAGE_VERSION_DRIFT:${pkg.version}`);
+const runtime=fs.readFileSync('lib/runtime/version.ts','utf8'); if(!runtime.includes('V408.0.0')) throw new Error('RUNTIME_VERSION_DRIFT');
+const manifest=JSON.parse(fs.readFileSync('db/migrations/MANIFEST.json','utf8')); if(manifest.version!=='V408.0.0'||manifest.generatedFor!=='V408.0.0') throw new Error('MIGRATION_MANIFEST_VERSION_DRIFT');
+const file='db/migrations/233_v408_production_execution_plane.sql';
+if(!fs.existsSync(file)) throw new Error('MIGRATION_233_MISSING');
+const entry=manifest.migrations.find(x=>String(x.id)==='233'); if(!entry) throw new Error('MIGRATION_233_MANIFEST_MISSING');
+const checksum=crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex'); if(checksum!==entry.checksum) throw new Error(`MIGRATION_233_CHECKSUM_MISMATCH:${checksum}`);
+console.log('V408 RELEASE GATE PASS — version marker, migration 233, manifest checksum and production execution artifacts are aligned.');

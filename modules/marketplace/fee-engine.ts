@@ -1,0 +1,6 @@
+export type FeeInput={baseAmount:number;rateBps?:number;minimumFee?:number;maximumFee?:number;volumeThreshold?:number;volumeRateBps?:number};
+export type FeeAssessment={baseAmount:number;rateBps:number;feeAmount:number;programCode:string;feeType:string};
+const n=(v:unknown)=>Number.isFinite(Number(v))?Number(v):0;
+export function calculateFee(input:FeeInput){const base=Math.max(0,n(input.baseAmount));const rate=base>=Math.max(0,n(input.volumeThreshold))&&input.volumeRateBps!=null?n(input.volumeRateBps):Math.max(0,n(input.rateBps));let fee=base*rate/10000;fee=Math.max(fee,Math.max(0,n(input.minimumFee)));if(input.maximumFee!=null)fee=Math.min(fee,Math.max(0,n(input.maximumFee)));return Number(fee.toFixed(2));}
+export function assessFees(input:{baseAmount:number;programCode:string;category?:string;rules:Array<FeeInput&{feeType:string}>}){return input.rules.map(r=>({baseAmount:Number(Math.max(0,n(input.baseAmount)).toFixed(2)),rateBps:(n(r.volumeThreshold)>0&&n(input.baseAmount)>=n(r.volumeThreshold)&&r.volumeRateBps!=null?n(r.volumeRateBps):n(r.rateBps)),feeAmount:calculateFee({...r,baseAmount:input.baseAmount}),programCode:input.programCode,feeType:r.feeType}));}
+export function sellerNet(gross:number,fees:number){return Number(Math.max(0,n(gross)-Math.max(0,n(fees))).toFixed(2));}

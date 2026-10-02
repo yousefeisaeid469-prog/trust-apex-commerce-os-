@@ -1,0 +1,62 @@
+{
+  "version": "V315.0.0",
+  "status": "VERIFICATION_CATALOG_READY",
+  "cases": [
+    {
+      "id": "payment-sandbox",
+      "kind": "E2E",
+      "workflow": "payment",
+      "requiresLive": false
+    },
+    {
+      "id": "carrier-sandbox",
+      "kind": "E2E",
+      "workflow": "fulfillment",
+      "requiresLive": false
+    },
+    {
+      "id": "ledger-balance",
+      "kind": "INTEGRATION",
+      "workflow": "finance",
+      "requiresLive": false
+    },
+    {
+      "id": "failure-injection",
+      "kind": "FAILURE_INJECTION",
+      "workflow": "platform",
+      "requiresLive": false
+    },
+    {
+      "id": "event-replay",
+      "kind": "REPLAY",
+      "workflow": "platform",
+      "requiresLive": false
+    },
+    {
+      "id": "postgres-transaction",
+      "kind": "INTEGRATION",
+      "workflow": "database",
+      "requiresLive": true
+    },
+    {
+      "id": "load-benchmark",
+      "kind": "LOAD",
+      "workflow": "platform",
+      "requiresLive": false
+    },
+    {
+      "id": "security-gate",
+      "kind": "SECURITY",
+      "workflow": "security",
+      "requiresLive": false
+    },
+    {
+      "id": "restore-drill",
+      "kind": "DR",
+      "workflow": "infrastructure",
+      "requiresLive": true
+    }
+  ],
+  "liveDatabase": false,
+  "externalProvidersLive": false
+}

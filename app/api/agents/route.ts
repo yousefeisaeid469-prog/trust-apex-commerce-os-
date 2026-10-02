@@ -1,0 +1,9 @@
+import { NextResponse } from 'next/server';
+import { TRUST_VERSION_NUMBER } from '../../../lib/runtime/version';
+import { AGENTS } from '../../../modules/agents/registry';
+import { buildAgentDecisions, dispatch } from '../../../modules/agents/orchestrator';
+import { requireAdminSession } from '../../../modules/platform/security/route-auth';
+import { recentAgentActions, recordAgentAction } from '../../../modules/platform/v319';
+export const dynamic='force-dynamic';
+export async function GET(req:Request){try{const session=await requireAdminSession(req);const tenantId=String((session as any).tenantId||'default');return NextResponse.json({ok:true,surfaceStatus:'LIVE',version:TRUST_VERSION_NUMBER,agents:AGENTS,decisions:buildAgentDecisions(),actions:await recentAgentActions(tenantId),executionPolicy:'risk-and-approval-gated'});}catch(e){const code=e instanceof Error?e.message:'ADMIN_AUTH_REQUIRED';return NextResponse.json({ok:false,error:code},{status:401});}}
+export async function POST(req:Request){try{const session=await requireAdminSession(req);const b=await req.json();const result=dispatch(String(b.agentId) as any,String(b.mode) as any,b.decisionId?String(b.decisionId):undefined);const tenantId=String((session as any).tenantId||'default');const action=await recordAgentAction({tenantId,agentId:String(b.agentId),capability:String(b.capability||b.mode||'dispatch'),decision:result.ok?'ALLOWED':result.status==='BLOCKED_BY_AUTONOMY_FIREWALL'?'DENIED':'APPROVAL_REQUIRED',reason:String((result as any).policy?.approvalRequired?'approval required':(result as any).status||'dispatch'),confidence:Number((result as any).decision?.confidence||0),risk:String((result as any).decision?.risk||'HIGH'),payload:b});return NextResponse.json({ok:true,surfaceStatus:'LIVE',result,action},{status:201});}catch(e){const code=e instanceof Error?e.message:'AGENT_OPERATION_FAILED';return NextResponse.json({ok:false,error:code},{status:400});}}

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
+const root=process.cwd();
+const required=['modules/platform/global-commerce-v297/contracts.ts','modules/platform/global-commerce-v297/registry.ts','modules/platform/global-commerce-v297/money.ts','modules/platform/global-commerce-v297/fx.ts','modules/platform/global-commerce-v297/tax.ts','modules/platform/global-commerce-v297/shipping.ts','modules/platform/global-commerce-v297/payments.ts','modules/platform/global-commerce-v297/engine.ts','modules/platform/global-commerce-v297/index.ts','db/migrations/135_v297_global_commerce_runtime.sql','app/api/global-commerce/v297/quote/route.ts','app/api/global-commerce/v297/capabilities/[country]/route.ts'];
+for(const f of required) assert.ok(fs.existsSync(f),`missing ${f}`);
+const registry=fs.readFileSync(required[1],'utf8');
+assert.ok((registry.match(/\['[A-Z]{2}','[A-Z]{3}'/g)||[]).length>=20,'registry must cover at least 20 countries');
+const money=fs.readFileSync(required[2],'utf8'); assert.match(money,/BigInt/); assert.match(money,/FX_BASE_MISMATCH/);
+const fx=fs.readFileSync(required[3],'utf8'); assert.match(fx,/FX_QUOTE_EXPIRED/); assert.match(fx,/IDENTITY_FX_RATE_INVALID/);
+const tax=fs.readFileSync(required[4],'utf8'); assert.match(tax,/includedInPrice/); assert.match(tax,/rateBps/);
+const pay=fs.readFileSync(required[6],'utf8'); assert.match(pay,/PaymentAdapterDescriptor/); assert.match(pay,/sandbox/);
+const migration=fs.readFileSync(required[9],'utf8'); for(const t of ['trust_global_currencies','trust_global_payment_adapters','trust_global_shipping_zones','trust_global_locales']) assert.match(migration,new RegExp(`create table if not exists ${t}`));
+execFileSync(process.execPath,['--experimental-strip-types','-e',`const m=await import(new URL('modules/platform/global-commerce-v297/index.ts', 'file://'+process.cwd()+'/')); const c=m.getCapability('EG'); if(c.locales.length<2) throw new Error('locale registry'); const q=m.quoteGlobalCart({destinationCountry:'EG',locale:'ar-EG',settlementCurrency:'EGP',lines:[{productId:'p',sellerId:'s',quantity:2,unitPrice:m.money(10000,'EGP'),categoryId:'x'}]}); if(q.total.amountMinor!==23300n) throw new Error('quote arithmetic'); console.log('V297 runtime PASS')`],{stdio:'inherit'});

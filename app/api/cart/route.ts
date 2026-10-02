@@ -1,0 +1,6 @@
+import {NextRequest,NextResponse} from 'next/server';
+import {getCurrentUser,AuthRequiredError} from '../../../modules/platform/auth/current-user';
+import {getCart,replaceCart,cartSummary} from '../../../modules/commerce/cart/store';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function GET(req:NextRequest){try{const u=await getCurrentUser(req);if(!u)throw new AuthRequiredError();return NextResponse.json({ok:true,...await cartSummary(u.id)},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'AUTH_REQUIRED'},{status:e instanceof AuthRequiredError?401:400})}}
+export async function PUT(req:NextRequest){try{const u=await getCurrentUser(req);if(!u)throw new AuthRequiredError();const b=await req.json();if(!Array.isArray(b?.items))return NextResponse.json({ok:false,error:'items must be an array'},{status:400});return NextResponse.json({ok:true,...await cartSummary(u.id),cart:await replaceCart(u.id,b.items)},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'Invalid cart'},{status:e instanceof AuthRequiredError?401:400})}}

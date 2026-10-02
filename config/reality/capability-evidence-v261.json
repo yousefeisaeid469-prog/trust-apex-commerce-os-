@@ -1,0 +1,35 @@
+{
+  "version": "V261.0.0",
+  "schemaVersion": "1.0",
+  "policy": "Only explicitly authored evidence may execute. Discovery candidates are never authoritative. Promotion remains a separate decision.",
+  "capabilities": [
+    {
+      "id": "capability-003-approval-gates-and-idempotent-execution-receipts",
+      "artifacts": ["modules/platform/autonomous-decision-fabric/core.ts"],
+      "runtimeMarkers": ["export function evaluateProposal", "requiresApproval", "export function executeOnce", "idempotencyKey"],
+      "tests": ["tests/v171-autonomous-decision-fabric.test.mjs"],
+      "failureCondition": "Risk or confidence policy violations must fail closed; approval-required proposals must not execute; duplicate idempotency keys must return DUPLICATE."
+    },
+    {
+      "id": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+      "artifacts": ["modules/commerce/transactions/checkout.ts"],
+      "runtimeMarkers": ["on conflict(idempotency_key) do nothing", "IDEMPOTENCY_KEY_REUSED"],
+      "tests": ["tests/v132-hardening.test.mjs"],
+      "failureCondition": "Checkout must reject reused idempotency keys and preserve the atomic database boundary."
+    },
+    {
+      "id": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+      "artifacts": ["modules/platform/provider-reconciliation/core.ts"],
+      "runtimeMarkers": ["trust_provider_reconciliation_jobs", "export async function receiveWebhook"],
+      "tests": ["tests/v187-reconciliation-worker.test.mjs"],
+      "failureCondition": "A received provider webhook must enqueue a durable reconciliation job and stale/invalid work must not be accepted."
+    },
+    {
+      "id": "capability-012-reduced-motion-accessibility-support",
+      "artifacts": ["components/trust-experience-upgrade.tsx", "app/globals.css"],
+      "runtimeMarkers": ["skip-link", "prefers-reduced-motion"],
+      "tests": ["tests/v195-design-performance.test.mjs"],
+      "failureCondition": "The customer experience must retain keyboard skip navigation and reduced-motion behavior."
+    }
+  ]
+}

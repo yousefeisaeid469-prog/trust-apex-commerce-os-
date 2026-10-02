@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { execFileSync } from 'node:child_process';
+const migration=fs.readFileSync('db/migrations/104_v266_promotion_key_lifecycle.sql','utf8');
+assert.match(migration,/status_v266/); assert.match(migration,/RETIRED/); assert.match(migration,/EXPIRED/); assert.match(migration,/trust_reality_promotion_key_lifecycle_events/); assert.match(migration,/authorization_nonce/); assert.match(migration,/signed_at/); assert.match(migration,/authorization_expires_at/);
+const lifecycle=fs.readFileSync('modules/platform/reality-promotion/key-lifecycle.ts','utf8');
+assert.match(lifecycle,/registerPromotionSigningKeyTx/); assert.match(lifecycle,/revokePromotionSigningKeyTx/); assert.match(lifecycle,/PROMOTION_SIGNING_KEY_EXPIRED/);
+const auth=fs.readFileSync('modules/platform/reality-promotion/authorization.ts','utf8');
+assert.match(auth,/authorizationNonce/); assert.match(auth,/signedAt/); assert.match(auth,/authorizationExpiresAt/);
+const store=fs.readFileSync('modules/platform/reality-promotion/store.ts','utf8');
+assert.match(store,/assertKeyUsable/); assert.match(store,/PROMOTION_AUTHORIZATION_STALE_OR_FUTURE/); assert.match(store,/authorization_nonce/);
+execFileSync(process.execPath,['scripts/reality_promotion_key_lifecycle.mjs'],{stdio:'pipe'});
+const report=JSON.parse(fs.readFileSync('artifacts/reality/reality-promotion-key-lifecycle-v266.json','utf8'));
+assert.equal(report.status,'KEY_LIFECYCLE_AND_FRESHNESS_VERIFIED'); assert.equal(report.privateKeyPersisted,false); assert.equal(report.autoPromotion,false); assert.equal(report.demo.validSignature,true); assert.equal(report.demo.tamperedPayloadRejected,true);
+console.log('V266 Promotion Key Lifecycle Test PASS — rotation/revocation/expiry governance and authorization freshness verified.');

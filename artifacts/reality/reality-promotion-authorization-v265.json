@@ -1,0 +1,22 @@
+{
+  "version": "V265.0.0",
+  "algorithm": "ed25519",
+  "status": "CRYPTOGRAPHIC_AUTHORIZATION_VERIFIED",
+  "demo": {
+    "keyId": "demo-ed25519-key",
+    "actorId": "demo-reviewer",
+    "payloadHash": "acee57bb3afad50402ddc80511bb87ebe8d333733f4100c5a6764b1d40802f56",
+    "signatureBytes": 64,
+    "validSignature": true,
+    "tamperedPayloadRejected": true
+  },
+  "policy": {
+    "signatureRequiredForEveryTransition": true,
+    "activePublicKeyRequired": true,
+    "actorKeyBindingRequired": true,
+    "payloadBindingRequired": true,
+    "replayBinding": "decisionId+decisionHash+fromState+toState+actorId+keyId+rationale+attestationRoot+evidenceLeaf",
+    "autoPromotion": false
+  },
+  "privateKeyPersisted": false
+}

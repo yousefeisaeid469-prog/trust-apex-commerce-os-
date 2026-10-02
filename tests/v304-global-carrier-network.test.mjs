@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+const {rankCarrierRoutes,selectCarrierRoute}=await import('../modules/platform/global-carrier-v304/routing.ts');
+const {nextCarrierHealth}=await import('../modules/platform/global-carrier-v304/health.ts');
+const eg=rankCarrierRoutes({country:'EG',currency:'EGP',mode:'STANDARD'});
+assert.ok(eg.length>=1); assert.equal(eg[0].carrier.carrierCode,'TRUST-E2E');
+assert.equal(selectCarrierRoute({country:'EG',currency:'EGP',mode:'EXPRESS',idempotencyKey:'v304-eg-1'}).serviceCode,'TRUST-E2E-EXPRESS');
+assert.throws(()=>selectCarrierRoute({country:'ZZ',currency:'USD',mode:'STANDARD',idempotencyKey:'x'}),/NO_CARRIER_ROUTE_AVAILABLE/);
+const initial={carrierCode:'X',successCount:0,failureCount:0,consecutiveFailures:0,circuitState:'CLOSED'};
+let h=initial; for(let i=0;i<5;i++)h=nextCarrierHealth(h,'FAILURE'); assert.equal(h.circuitState,'OPEN');
+h=nextCarrierHealth(h,'SUCCESS'); assert.equal(h.circuitState,'CLOSED'); assert.equal(h.consecutiveFailures,0);
+const avoided=rankCarrierRoutes({country:'EG',currency:'EGP',mode:'STANDARD',avoidCarriers:['TRUST-E2E']}); assert.equal(avoided.length,0);
+console.log('V304 global carrier network PASS — routing, currency/country capability, failover avoidance, and circuit health verified.');

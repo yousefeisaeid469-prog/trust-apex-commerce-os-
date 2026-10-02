@@ -1,0 +1,14 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {executeCase} from '../modules/platform/reliability-lab/engine.ts';
+import {InMemoryDeploymentAdapter} from '../modules/platform/deployment-autopilot/adapter.ts';
+import {runDeploymentAutopilot} from '../modules/platform/deployment-autopilot/controller.ts';
+import {createReleaseCandidate} from '../modules/platform/production-reliability/candidate.ts';
+const candidate=()=>createReleaseCandidate({version:'147.0.0',sourceFingerprint:'source',migrationFingerprint:'migration',policyRevision:'policy',buildRef:'build-146',createdAt:'2026-09-03T00:00:00.000Z'});
+const healthy=()=>({availability:1,errorRate:0,p95Ms:10,budgetConsumedPct:0,replayMatches:true,newFailure:false,labResult:executeCase(1461,[{id:'1',kind:'OPEN'}],[])});
+const failed=()=>({availability:.8,errorRate:.2,p95Ms:900,budgetConsumedPct:20,replayMatches:false,newFailure:true,labResult:executeCase(1462,[{id:'1',kind:'OPEN'}],[{at:0,kind:'THROW',operationId:'1'}])});
+test('V146 healthy canary promotes automatically',()=>{const a=new InMemoryDeploymentAdapter();const out=runDeploymentAutopilot({deploymentId:'d1',rolloutId:'r1',candidate:candidate(),canary:healthy()},a);assert.equal(out.decision,'PROMOTE');assert.equal(out.runtimeVerified,true);assert.equal(out.phase,'COMPLETE');assert.equal(a.snapshot().promoted,true);});
+test('V146 failed canary with verified recovery promotes after verification',()=>{const a=new InMemoryDeploymentAdapter();const out=runDeploymentAutopilot({deploymentId:'d2',rolloutId:'r2',candidate:candidate(),canary:failed(),recovery:healthy()},a);assert.equal(out.decision,'PROMOTE');assert.equal(out.runtimeVerified,true);assert.equal(out.transitions.includes('VERIFY'),true);});
+test('V146 failed recovery rolls back and verifies rollback',()=>{const a=new InMemoryDeploymentAdapter();const out=runDeploymentAutopilot({deploymentId:'d3',rolloutId:'r3',candidate:candidate(),canary:failed(),rollbackVerification:healthy()},a);assert.equal(out.decision,'ROLLBACK');assert.equal(out.runtimeVerified,true);assert.equal(a.snapshot().rolledBack,true);assert.equal(a.snapshot().frozen,false);});
+test('V146 failed rollback verification escalates fail-closed',()=>{const a=new InMemoryDeploymentAdapter();const out=runDeploymentAutopilot({deploymentId:'d4',rolloutId:'r4',candidate:candidate(),canary:failed(),rollbackVerification:failed()},a);assert.equal(out.decision,'ESCALATE');assert.equal(out.phase,'FAILED');assert.equal(out.runtimeVerified,true);assert.equal(a.snapshot().frozen,true);});
+test('V146 evidence is deterministic for identical inputs',()=>{const run=()=>runDeploymentAutopilot({deploymentId:'d5',rolloutId:'r5',candidate:candidate(),canary:healthy()},new InMemoryDeploymentAdapter());assert.equal(run().evidenceHash,run().evidenceHash);});

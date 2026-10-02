@@ -1,0 +1,182 @@
+{
+  "id": "evidence-packet:capability-049-v236-makes-customer-owned-commerce-state-durable-and-auditable-it-adds-postgresq",
+  "contractId": "capability-049-v236-makes-customer-owned-commerce-state-durable-and-auditable-it-adds-postgresq",
+  "sourceId": "draft-doc:docs/architecture/CUSTOMER-COMMERCE-OS-V236.md:3",
+  "claim": "V236 makes customer owned commerce state durable and auditable. It adds PostgreSQL backed profiles, addresses, wishlists, saved carts, reviews, preferences, privacy jobs and a customer timeline.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v157-guest-checkout.test.mjs",
+      "tests/v164-super-commerce.test.mjs",
+      "tests/v166-omnichannel-fulfillment.test.mjs",
+      "tests/v180-production-data-plane.test.mjs",
+      "tests/v185-production-hardening.test.mjs",
+      "tests/v192-customer-os.test.mjs",
+      "tests/v199-order-experience.test.mjs",
+      "tests/v200-notifications-post-purchase.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 474,
+        "token": "customer",
+        "excerpt": "\"text\": \"V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 49,
+        "token": "customer",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V182.md:3 (docs line 3) — V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 565,
+        "token": "customer",
+        "excerpt": "\"id\": \"capability-008-v182-adds-a-durable-post-purchase-lifecycle-layer-so-customers-can-manage-what-h\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 30,
+        "token": "customer",
+        "excerpt": "- **capability-008-v182-adds-a-durable-post-purchase-lifecycle-layer-so-customers-can-manage-what-h** — unassigned — DRAFT — V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of tr",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 284,
+        "token": "customer",
+        "excerpt": "\"app/api/customer-journey/route.ts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 1567,
+        "token": "customer",
+        "excerpt": "\"app/api/customer-journey/route.ts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 194,
+        "token": "customer",
+        "excerpt": "\"app/api/customer-journey/route.ts\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 354,
+        "token": "customer",
+        "excerpt": "\"text\": \"V182 adds a durable post purchase lifecycle layer so customers can manage what happens after checkout instead of treating an order as the end of commerce.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v157-guest-checkout.test.mjs",
+        "hits": [
+          "customer",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v164-super-commerce.test.mjs",
+        "hits": [
+          "customer",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v166-omnichannel-fulfillment.test.mjs",
+        "hits": [
+          "customer",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v180-production-data-plane.test.mjs",
+        "hits": [
+          "commerce",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v185-production-hardening.test.mjs",
+        "hits": [
+          "customer",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v192-customer-os.test.mjs",
+        "hits": [
+          "customer",
+          "timeline"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v199-order-experience.test.mjs",
+        "hits": [
+          "customer",
+          "commerce",
+          "durable",
+          "timeline"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v200-notifications-post-purchase.test.mjs",
+        "hits": [
+          "customer",
+          "commerce",
+          "durable",
+          "preferences"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "ddbf1804def67b2a815ac6bea71314b507ad6eb8f07963521a94e44039787354",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

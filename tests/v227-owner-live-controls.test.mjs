@@ -1,0 +1,6 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+const read=f=>fs.readFileSync(new URL(`../${f}`,import.meta.url),'utf8');
+test('V227 durable owner controls are explicit and singleton',()=>{const s=read('db/migrations/078_v227_owner_live_controls.sql');assert.match(s,/trust_owner_live_control_state/);assert.match(s,/singleton BOOLEAN PRIMARY KEY/);assert.match(s,/global_freeze BOOLEAN/);assert.match(s,/autonomy_kill_switch BOOLEAN/);});
+test('V227 live controls map to real durable state',()=>{const s=read('modules/platform/owner-control-room/live-control.ts');assert.match(s,/setOwnerLiveControl/);assert.match(s,/MAINTENANCE_MODE/);assert.match(s,/GLOBAL_FREEZE/);assert.match(s,/AUTONOMY_KILL_SWITCH/);assert.match(s,/withPgTransaction/);});
+test('V227 autonomy is blocked by kill switch or global freeze',()=>{const s=read('modules/platform/owner-control-room/live-control.ts');assert.match(s,/state\.autonomyKillSwitch\|\|state\.globalFreeze/);});
+test('V227 owner room exposes live toggle state',()=>{const s=read('app/api/owner-control-room/route.ts');assert.match(s,/getOwnerLiveControlState/);assert.match(s,/setOwnerLiveControl/);assert.match(s,/enabled/);});

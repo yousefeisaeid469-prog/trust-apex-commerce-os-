@@ -1,0 +1,2 @@
+import fs from 'node:fs'; import path from 'node:path';
+const root=process.cwd(), f=path.join(root,'docs/api/openapi-v1.json'); if(!fs.existsSync(f)){console.error('Missing OpenAPI inventory');process.exit(1)} const d=JSON.parse(fs.readFileSync(f,'utf8')); if(d.openapi!=='3.0.3'||!Object.keys(d.paths).length){console.error('Invalid OpenAPI inventory');process.exit(1)} console.log(`API docs OK — ${Object.keys(d.paths).length} routes inventoried.`);

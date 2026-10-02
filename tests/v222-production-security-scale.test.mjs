@@ -1,0 +1,6 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import { auditRouteAuth, buildSecurityScaleReport } from '../modules/platform/production-security-scale/core.ts';
+import { configureSharedRateLimitStore, rateLimitDistributed, sharedRateLimitConfigured } from '../modules/platform/security/rate-limit/distributed.ts';
+test('V222 auth audit blocks sensitive unguarded routes',()=>{const r=auditRouteAuth([{route:'/api/merchant/products',methods:['POST'],source:'export async function POST(){}'},{route:'/api/catalog',methods:['GET'],source:'export async function GET(){}'}]); assert.equal(r[0].status,'FAIL'); assert.equal(r[1].status,'PASS');});
+test('V222 report exposes blockers and score',()=>{const r=buildSecurityScaleReport({routes:[{route:'/api/orders',methods:['GET'],source:'getCurrentUser requireUser'}],controls:[{id:'RATE_LIMIT',status:'PASS',detail:'shared'}],now:'2026-09-07T00:00:00.000Z'}); assert.equal(r.version,'V222.0.0'); assert.equal(r.ready,true); assert.equal(r.score,100);});
+test('V222 shared rate limit supports injected distributed store',async()=>{configureSharedRateLimitStore({increment:async()=>({allowed:true,remaining:9,resetAt:123})}); const r=await rateLimitDistributed('k',10,1000); assert.equal(r.remaining,9); assert.equal(sharedRateLimitConfigured(),true);});

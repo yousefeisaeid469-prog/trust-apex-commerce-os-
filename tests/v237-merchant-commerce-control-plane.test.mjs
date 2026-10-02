@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const read=f=>fs.readFileSync(path.join(root,f),'utf8');
+const files=['modules/merchant-commerce/index.ts','modules/merchant-commerce/store.ts','app/api/merchant/control-plane/route.ts','db/migrations/090_v237_merchant_commerce_control_plane.sql'];
+for(const f of files)assert.equal(fs.existsSync(path.join(root,f)),true,`missing ${f}`);
+const store=read('modules/merchant-commerce/store.ts');
+assert.match(store,/withPgTransaction/); assert.match(store,/for update/); assert.match(store,/INVENTORY_UNDERFLOW/); assert.match(store,/MERCHANT_REQUIRED/); assert.match(store,/appendAuditEvent/);
+const sql=read('db/migrations/090_v237_merchant_commerce_control_plane.sql');
+for(const t of ['trust_merchant_operating_accounts','trust_merchant_catalog_items','trust_merchant_inventory_balances','trust_merchant_price_books','trust_merchant_promotions','trust_merchant_payout_ledger','trust_merchant_tax_profiles','trust_merchant_staff_members','trust_merchant_purchase_orders','trust_merchant_channels','trust_merchant_billing_accounts','trust_merchant_risk_assessments','trust_merchant_compliance_cases','trust_merchant_support_cases','trust_merchant_automation_workflows','trust_merchant_forecasts','trust_merchant_reconciliation_cases','trust_merchant_control_alerts','trust_merchant_control_snapshots','trust_merchant_decisions']) assert.match(sql,new RegExp(`create table if not exists ${t}`,'i'));
+assert.doesNotMatch(store,/accepted:\s*true/); assert.match(read('lib/runtime/version.ts'),/V\d+\.0\.0/); assert.equal(JSON.parse(read('package.json')).version.match(/^\d+\.0\.0$/)?.[0],JSON.parse(read('package.json')).version);
+const manifest=JSON.parse(read('db/migrations/MANIFEST.json')); assert.equal(manifest.latest,'101'); assert.equal(manifest.version.match(/^V\d+\.0\.0$/)?.[0],manifest.version); assert.ok(manifest.migrations.find(x=>x.file==='090_v237_merchant_commerce_control_plane.sql')?.checksum);
+console.log('V237 merchant commerce control plane tests: PASS');

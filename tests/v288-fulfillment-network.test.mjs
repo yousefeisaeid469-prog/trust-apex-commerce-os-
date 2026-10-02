@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const root=process.cwd();
+const migration=fs.readFileSync(`${root}/db/migrations/126_v288_fulfillment_network_runtime.sql`,'utf8');
+const runtime=fs.readFileSync(`${root}/modules/marketplace/fulfillment-runtime.ts`,'utf8');
+const route=fs.readFileSync(`${root}/app/api/fulfillment/network/route.ts`,'utf8');
+assert.match(migration,/trust_marketplace_fulfillment_orders/);
+assert.match(migration,/trust_marketplace_fulfillment_custody/);
+assert.match(migration,/trust_marketplace_inventory_movements/);
+assert.match(migration,/UNIQUE\(fulfillment_order_id,offer_id,product_id\)/);
+assert.match(runtime,/SHIPMENT_REQUIRED_BEFORE_HANDOFF/);
+assert.match(runtime,/SHIPMENT_NOT_DELIVERED/);
+assert.match(runtime,/on conflict\(event_key\) do nothing/);
+assert.match(runtime,/INBOUND_RECEIPT/);
+assert.match(route,/action==='create'/);
+assert.match(route,/action==='transition'/);
+assert.match(route,/action==='receive_inventory'/);
+console.log('V288 fulfillment network contracts: 10/10 PASS');

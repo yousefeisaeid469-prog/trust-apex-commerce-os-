@@ -1,0 +1,49 @@
+{
+  "version": "V319.0.0",
+  "status": "PARTIAL",
+  "productionVerified": false,
+  "liveDatabase": false,
+  "externalProvidersLive": false,
+  "total": 4,
+  "passed": 2,
+  "skipped": 2,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "v319-real-capabilities-tests",
+      "kind": "EXECUTION",
+      "status": "PASS",
+      "durationMs": 29.788,
+      "details": {
+        "tests": true
+      },
+      "executed": true
+    },
+    {
+      "name": "v319-reality-gate",
+      "kind": "REALITY_GATE",
+      "status": "PASS",
+      "durationMs": 44.185,
+      "details": {
+        "apiPlaceholderScan": true
+      },
+      "executed": true
+    },
+    {
+      "name": "live-postgres-migration-and-rollback",
+      "kind": "LIVE_DATABASE",
+      "status": "SKIPPED",
+      "executed": false,
+      "reason": "DATABASE_NOT_CONFIGURED"
+    },
+    {
+      "name": "external-provider-smoke",
+      "kind": "LIVE_EXTERNAL",
+      "status": "SKIPPED",
+      "executed": false,
+      "reason": "PROVIDER_SMOKE_URLS_NOT_CONFIGURED"
+    }
+  ],
+  "startedAt": "2026-09-13T21:08:46.125Z",
+  "completedAt": "2026-09-13T21:08:46.199Z"
+}

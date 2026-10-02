@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {registerAgents,routeTask,propose,buildOrchestrationPlan,executePlan,handoffChain} from '../modules/platform/agent-orchestration/core.ts';
+const agents=registerAgents([
+ {agentId:'shopping-1',tenantId:'t1',role:'SHOPPING',status:'ACTIVE',capabilities:[{task:'COMPARE',weight:1}],maxRiskBps:3000,minConfidenceBps:7000},
+ {agentId:'pricing-1',tenantId:'t1',role:'PRICING',status:'ACTIVE',capabilities:[{task:'PRICE',weight:2},{task:'COMPARE',weight:.5}],maxRiskBps:1800,minConfidenceBps:8000},
+ {agentId:'other-1',tenantId:'t2',role:'PRICING',status:'ACTIVE',capabilities:[{task:'PRICE',weight:9}],maxRiskBps:9000,minConfidenceBps:1000}
+]);
+test('routes only active agents in the tenant',()=>{const r=routeTask({taskId:'q1',tenantId:'t1',kind:'COMPARE',objective:'compare offers',signalIds:['s1'],riskBps:500},agents);assert.deepEqual(r.map(x=>x.agentId),['shopping-1','pricing-1']);assert.deepEqual(handoffChain({taskId:'q1',tenantId:'t1',kind:'COMPARE',objective:'compare offers',signalIds:[],riskBps:500},agents),['shopping-1','pricing-1']);});
+test('proposal enforces agent confidence and risk ceilings',()=>assert.throws(()=>propose({taskId:'q2',tenantId:'t1',kind:'PRICE',objective:'price',signalIds:[],riskBps:2000},agents[1],'adjust','too risky',50,9000,100)));
+test('orchestrator deduplicates competing actions and requires approval for risky work',()=>{const task={taskId:'q3',tenantId:'t1',kind:'PRICE',objective:'optimize price',signalIds:['s2'],riskBps:1800};const p1=propose(task,agents[1],'adjust-price','strong signal',90,8500,300);const p2=propose({...task,riskBps:1000},agents[1],'adjust-price','duplicate action',80,9500,250);const plan=buildOrchestrationPlan(task,agents,[p1,p2]);assert.equal(plan.proposals.length,1);assert.ok(plan.conflicts.some(x=>x.startsWith('competing-action:')));assert.equal(plan.requiresApproval,true);});
+test('execution is idempotent and fail-closed on approval',()=>{const plan={planId:'p',tenantId:'t1',taskId:'q',selectedAgents:[],proposals:[],approvedForExecution:[],requiresApproval:true,conflicts:[],explanation:'x'};const seen=new Set();assert.equal(executePlan(plan,seen,1).status,'APPROVAL_REQUIRED');plan.requiresApproval=false;plan.approvedForExecution=['x'];assert.equal(executePlan(plan,seen,2).status,'EXECUTED');assert.equal(executePlan(plan,seen,3).status,'DUPLICATE');});

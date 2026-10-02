@@ -1,0 +1,5 @@
+-- TRUST V170: network intelligence primitives
+CREATE TABLE IF NOT EXISTS trust_network_nodes (tenant_id TEXT NOT NULL, node_id TEXT NOT NULL, node_type TEXT NOT NULL, labels JSONB NOT NULL DEFAULT '[]'::jsonb, score NUMERIC, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), PRIMARY KEY (tenant_id,node_id));
+CREATE TABLE IF NOT EXISTS trust_network_edges (tenant_id TEXT NOT NULL, from_node TEXT NOT NULL, to_node TEXT NOT NULL, kind TEXT NOT NULL, weight NUMERIC NOT NULL DEFAULT 0, updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), PRIMARY KEY (tenant_id,from_node,to_node,kind));
+CREATE TABLE IF NOT EXISTS trust_network_events (tenant_id TEXT NOT NULL, event_id TEXT NOT NULL, event_type TEXT NOT NULL, subject_id TEXT NOT NULL, related_ids JSONB NOT NULL DEFAULT '[]'::jsonb, occurred_at TIMESTAMPTZ NOT NULL, metadata JSONB NOT NULL DEFAULT '{}'::jsonb, PRIMARY KEY (tenant_id,event_id));
+CREATE INDEX IF NOT EXISTS idx_trust_network_events_subject_time ON trust_network_events (tenant_id,subject_id,occurred_at DESC);

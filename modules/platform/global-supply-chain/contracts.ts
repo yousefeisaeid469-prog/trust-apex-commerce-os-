@@ -1,0 +1,13 @@
+export type SupplyRisk='LOW'|'MEDIUM'|'HIGH'|'CRITICAL';
+export interface DemandSignal{date:string;quantity:number;weight?:number;}
+export interface DemandForecast{productId:string;horizonDays:number;dailyDemand:number;peakDailyDemand:number;confidence:number;method:'WEIGHTED_HISTORY'|'BASELINE';}
+export interface SupplyPosition{productId:string;onHand:number;reserved:number;inbound:number;leadTimeDays:number;safetyDays:number;reviewDays:number;}
+export interface ReplenishmentPlan{productId:string;recommendedQuantity:number;targetStock:number;projectedCoverageDays:number;urgency:'NOW'|'SOON'|'HEALTHY';reason:string;}
+export interface Supplier{supplierId:string;name:string;active:boolean;leadTimeDays:number;minOrderQty:number;capacityUnits:number;qualityScore:number;onTimeScore:number;priceScore:number;regions:string[];risk:SupplyRisk;}
+export interface SupplierRecommendation{supplierId:string;score:number;eligible:boolean;reason:string;}
+export interface PurchaseOrderLine{productId:string;quantity:number;unitCostMinor:bigint;}
+export interface PurchaseOrder{purchaseOrderId:string;supplierId:string;currency:string;lines:PurchaseOrderLine[];subtotalMinor:bigint;status:'DRAFT'|'APPROVED'|'SENT';expectedArrivalDays:number;}
+export interface LandedCostInput{unitCostMinor:bigint;freightMinor:bigint;dutyMinor:bigint;taxMinor:bigint;otherMinor:bigint;quantity:number;}
+export interface LandedCost{totalMinor:bigint;unitLandedMinor:bigint;}
+export interface AllocationNode{nodeId:string;region:string;availableUnits:number;capacityUnits:number;distanceScore:number;}
+export interface AllocationPlan{nodeId:string;quantity:number;score:number;reason:string;}

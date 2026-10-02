@@ -1,0 +1,5 @@
+import assert from 'node:assert/strict'; import fs from 'node:fs';
+const root=process.cwd(); const migration=fs.readFileSync(`${root}/db/migrations/127_v289_fba_inventory_economics.sql`,'utf8'); const runtime=fs.readFileSync(`${root}/modules/marketplace/fba-runtime.ts`,'utf8'); const route=fs.readFileSync(`${root}/app/api/fulfillment/fba/route.ts`,'utf8');
+assert.match(migration,/trust_marketplace_fulfillment_enrollments/); assert.match(migration,/trust_marketplace_inventory_reservations/); assert.match(migration,/trust_marketplace_fulfillment_cost_ledger/); assert.match(migration,/PICK/); assert.match(migration,/SHIP/);
+assert.match(runtime,/INVENTORY_NOT_RESERVED_FOR_ORDER/); assert.match(runtime,/reserved_units=reserved_units-\$1/); assert.match(runtime,/on_hand_units=on_hand_units-\$1/); assert.match(runtime,/status='SHIPPED'/); assert.match(runtime,/PICK_PACK/);
+assert.match(route,/action==='enroll'/); assert.match(route,/action==='reserve'/); assert.match(route,/action==='dispatch'/); console.log('V289 FBA inventory economics contracts: 12/12 PASS');

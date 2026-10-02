@@ -1,0 +1,185 @@
+{
+  "id": "evidence-packet:capability-053-v237-turns-the-merchant-surface-into-a-durable-operating-control-plane-it-introd",
+  "contractId": "capability-053-v237-turns-the-merchant-surface-into-a-durable-operating-control-plane-it-introd",
+  "sourceId": "draft-doc:docs/architecture/MERCHANT-COMMERCE-CONTROL-PLANE-V237.md:3",
+  "claim": "V237 turns the merchant surface into a durable operating control plane. It introduces canonical persistence for merchant operating accounts, catalog publication, inventory balances/reservations/movements, price books and rules, promotions, ",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/source-invariants.test.mjs",
+      "tests/v134-acquisition.test.mjs",
+      "tests/v135-enterprise.test.mjs",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v144-autonomous-reliability-loop.test.mjs",
+      "tests/v161-global-marketplace.test.mjs",
+      "tests/v163-marketplace-offers.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 859,
+        "token": "merchant",
+        "excerpt": "\"text\": \"V231 hardens the path from durable checkout to payment evidence and merchant order execution.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 84,
+        "token": "merchant",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V231.md:3 (docs line 3) — V231 hardens the path from durable checkout to payment evidence and merchant order execution.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 2833,
+        "token": "merchant",
+        "excerpt": "\"id\": \"capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 59,
+        "token": "merchant",
+        "excerpt": "- **capability-037-v231-hardens-the-path-from-durable-checkout-to-payment-evidence-and-merchant-ord** — unassigned — DRAFT — V231 hardens the path from durable checkout to payment evidence and merchant order execution.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 1626,
+        "token": "merchant",
+        "excerpt": "\"claim\": \"V231 hardens the path from durable checkout to payment evidence and merchant order execution.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 5149,
+        "token": "merchant",
+        "excerpt": "\"file\": \"tests/v193-merchant-os.test.mjs\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 1070,
+        "token": "merchant",
+        "excerpt": "\"text\": \"V231 hardens the path from durable checkout to payment evidence and merchant order execution.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 634,
+        "token": "merchant",
+        "excerpt": "\"text\": \"V231 hardens the path from durable checkout to payment evidence and merchant order execution.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/source-invariants.test.mjs",
+        "hits": [
+          "durable",
+          "control",
+          "canonical",
+          "persistence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v134-acquisition.test.mjs",
+        "hits": [
+          "canonical",
+          "persistence",
+          "inventory",
+          "reservations"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v135-enterprise.test.mjs",
+        "hits": [
+          "control",
+          "canonical"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "merchant",
+          "control",
+          "canonical",
+          "persistence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "merchant",
+          "control",
+          "canonical"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v144-autonomous-reliability-loop.test.mjs",
+        "hits": [
+          "control",
+          "catalog"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v161-global-marketplace.test.mjs",
+        "hits": [
+          "merchant",
+          "inventory"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v163-marketplace-offers.test.mjs",
+        "hits": [
+          "inventory",
+          "reservations"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "f8daca926bb02dea2d397696f5d09e8c02ae05163c853fd5fb1ec34a02846e32",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

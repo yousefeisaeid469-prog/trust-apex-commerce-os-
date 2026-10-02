@@ -1,0 +1,8 @@
+{
+  "version":"V306.0.0",
+  "status":"GLOBAL_LOGISTICS_EXECUTION_VERIFIED",
+  "executionModel":"DURABLE_QUEUED_WORKER",
+  "deterministicSandbox":"TRUST-E2E",
+  "boundedAttempts":6,
+  "externalProvidersConnected":false
+}

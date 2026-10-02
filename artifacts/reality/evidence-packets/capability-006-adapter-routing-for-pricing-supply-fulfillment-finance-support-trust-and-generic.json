@@ -1,0 +1,183 @@
+{
+  "id": "evidence-packet:capability-006-adapter-routing-for-pricing-supply-fulfillment-finance-support-trust-and-generic",
+  "contractId": "capability-006-adapter-routing-for-pricing-supply-fulfillment-finance-support-trust-and-generic",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V177.md:6",
+  "claim": "Adapter routing for pricing, supply, fulfillment, finance, support, trust, and generic actions.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v161-global-marketplace.test.mjs",
+      "tests/v166-omnichannel-fulfillment.test.mjs",
+      "tests/v174-agent-orchestration.test.mjs",
+      "tests/v175-chief-decision-orchestrator.test.mjs",
+      "tests/v176-autonomous-execution-mesh.test.mjs",
+      "tests/v177-execution-adapter-mesh.test.mjs",
+      "tests/v184-purchase-guardian-execution.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 232,
+        "token": "adapter",
+        "excerpt": "\"text\": \"Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 27,
+        "token": "adapter",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V144.md:19 (docs line 19) — Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 419,
+        "token": "adapter",
+        "excerpt": "\"id\": \"capability-006-adapter-routing-for-pricing-supply-fulfillment-finance-support-trust-and-generic\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 28,
+        "token": "adapter",
+        "excerpt": "- **capability-006-adapter-routing-for-pricing-supply-fulfillment-finance-support-trust-and-generic** — unassigned — DRAFT — Adapter routing for pricing, supply, fulfillment, finance, support, trust, and generic actions.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 144,
+        "token": "adapter",
+        "excerpt": "\"claim\": \"Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 824,
+        "token": "adapter",
+        "excerpt": "\"claim\": \"Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 101,
+        "token": "adapter",
+        "excerpt": "\"text\": \"Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 178,
+        "token": "adapter",
+        "excerpt": "\"text\": \"Production note: live infrastructure enforcement requires a deployment specific RuntimeEnforcer implementation. The default test adapter is in process and deterministic; it is not represented as a live production integration.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "adapter",
+          "support",
+          "actions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v161-global-marketplace.test.mjs",
+        "hits": [
+          "fulfillment",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v166-omnichannel-fulfillment.test.mjs",
+        "hits": [
+          "fulfillment",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v174-agent-orchestration.test.mjs",
+        "hits": [
+          "pricing",
+          "actions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v175-chief-decision-orchestrator.test.mjs",
+        "hits": [
+          "pricing",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v176-autonomous-execution-mesh.test.mjs",
+        "hits": [
+          "finance",
+          "actions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v177-execution-adapter-mesh.test.mjs",
+        "hits": [
+          "adapter",
+          "routing",
+          "fulfillment",
+          "finance",
+          "actions"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v184-purchase-guardian-execution.test.mjs",
+        "hits": [
+          "adapter",
+          "support",
+          "actions"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "469baf6dacd227cf343145644d696344aa852c180110981967b0f197610535d1",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

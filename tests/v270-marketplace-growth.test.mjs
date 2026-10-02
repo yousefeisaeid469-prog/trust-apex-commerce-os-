@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import { readFile } from 'node:fs/promises';
+
+const migration=await readFile('db/migrations/107_v270_marketplace_growth_monetization.sql','utf8');
+assert.match(migration,/trust_marketplace_seller_plans/);
+assert.match(migration,/trust_marketplace_ad_campaigns/);
+assert.match(migration,/trust_marketplace_customer_memberships/);
+assert.match(migration,/trust_marketplace_product_subscriptions/);
+assert.match(migration,/trust_marketplace_fulfillment_programs/);
+assert.match(migration,/trust_marketplace_b2b_accounts/);
+assert.match(migration,/trust_marketplace_affiliate_ledger/);
+const runtime=await readFile('modules/platform/marketplace-growth.ts','utf8');
+assert.match(runtime,/recordAdClick/);
+assert.match(runtime,/recordMarketplaceFee/);
+assert.match(runtime,/createSellerPlan/);
+assert.match(runtime,/withPgTransaction/);
+const route=await readFile('app/api/marketplace-growth/route.ts','utf8');
+assert.match(route,/SET_SELLER_PLAN/);
+assert.match(route,/CREATE_AD_CAMPAIGN/);
+assert.match(route,/RECORD_AD_CLICK/);
+assert.match(route,/RECORD_MARKETPLACE_FEE/);
+console.log('V270 marketplace growth test PASS');

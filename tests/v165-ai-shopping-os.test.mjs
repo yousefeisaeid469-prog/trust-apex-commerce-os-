@@ -1,0 +1,12 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import {classifyIntent,recommend,compareProducts,priceInsight,buildShoppingPlan} from '../modules/platform/ai-shopping-os/index.ts';
+import {sellerHealth,replenishmentNeed,activePromotions} from '../modules/platform/seller-os/index.ts';
+const products=[{productId:'a',rating:4.8,reviewCount:1000,priceMinor:500n,currency:'EGP',stock:10,deliveryDays:2,sellerTrust:95,attributes:{},tags:['tech']},{productId:'b',rating:4.2,reviewCount:200,priceMinor:300n,currency:'EGP',stock:10,deliveryDays:5,sellerTrust:70,attributes:{},tags:[]}];
+test('V165 classifies conversational shopping intents',()=>assert.equal(classifyIntent('compare these phones'),'COMPARE'));
+test('V165 recommendation engine combines trust, reviews, rating and speed',()=>assert.equal(recommend(products,{id:'r',query:'phone',locale:'en',currency:'EGP'} ,{preferredTags:['tech']})[0].productId,'a'));
+test('V165 comparison identifies the winner per dimension',()=>{const rows=compareProducts(products,['price','rating']);assert.equal(rows[0].winnerId,'b');assert.equal(rows[1].winnerId,'a');});
+test('V165 price intelligence calculates a useful percentile verdict',()=>assert.equal(priceInsight([100n,120n,150n,200n],100n).verdict,'LOW'));
+test('V165 agent plans always require checkout confirmation',()=>{const p=buildShoppingPlan({id:'1',query:'buy headphones',locale:'en',currency:'EGP'});assert.equal(p.approvalLevel,'CHECKOUT_CONFIRMATION');assert.equal(p.steps.at(-1).requiresApproval,true);});
+test('V165 seller health turns operational signals into a bounded score',()=>assert.equal(sellerHealth({sellerId:'s',lateShipmentRate:0,cancellationRate:0,returnRate:0,responseHours:1,defectRate:0}).status,'HEALTHY'));
+test('V165 replenishment accounts for reserved and inbound stock',()=>assert.equal(replenishmentNeed({sku:'x',available:4,reserved:1,inbound:2,reorderPoint:10}),5));
+test('V165 promotion engine honors active windows',()=>assert.equal(activePromotions([{id:'p',type:'DEAL',active:true,startsAt:'2026-01-01T00:00:00Z',endsAt:'2027-01-01T00:00:00Z'}],new Date('2026-09-05T00:00:00Z')).length,1));

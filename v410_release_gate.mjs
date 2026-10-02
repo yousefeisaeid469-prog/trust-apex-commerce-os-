@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const run=(file,args=[])=>execFileSync(process.execPath,[path.join(root,file),...args],{cwd:root,stdio:'inherit'});
+const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
+if(pkg.version!=='410.0.0') throw new Error('V410_PACKAGE_VERSION_MISMATCH');
+run('scripts/v410_worker_plane_test.mjs');
+run('scripts/v410_worker_plane_audit.mjs');
+run('scripts/migration_check.mjs');
+console.log('V410 RELEASE GATE PASS');

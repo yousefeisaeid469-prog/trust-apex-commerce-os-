@@ -1,0 +1,16 @@
+# V119 Release Checklist
+- [x] Package version 119.0.0
+- [x] Personal Shopper engine
+- [x] Personal Shopper API
+- [x] Customer UI
+- [x] Private admin UI
+- [x] Migration 009
+- [x] Main navigation
+- [x] Release scripts updated
+- [x] Relative-import audit
+- [x] Secret-pattern audit
+- [x] Syntax validation
+- [x] ZIP integrity
+- [ ] Connect durable event store in production
+- [ ] Connect real checkout validation providers
+- [ ] Connect production analytics and consent storage

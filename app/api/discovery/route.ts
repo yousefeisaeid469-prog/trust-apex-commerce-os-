@@ -1,0 +1,5 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { queryCatalog } from '../../../modules/commerce/repository/catalog';
+import { searchDiscovery3 } from '../../../modules/platform/discovery/search-3';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function GET(request:NextRequest){const p=request.nextUrl.searchParams;const maxPrice=p.get('maxPrice'),minPrice=p.get('minPrice'),minRating=p.get('minRating');const catalog=await queryCatalog({limit:60});const result=searchDiscovery3(catalog.items,{q:p.get('q')||'',page:Number(p.get('page')||'1'),limit:Number(p.get('limit')||'24'),suggest:p.get('suggest')!=='0',filters:{category:p.get('category')||undefined,region:p.get('region')||undefined,maxPrice:maxPrice?Number(maxPrice):undefined,minPrice:minPrice?Number(minPrice):undefined,minRating:minRating?Number(minRating):undefined,inStock:p.get('inStock')==='1'}});return NextResponse.json({ok:true,...result},{headers:{'Cache-Control':'no-store'}})}

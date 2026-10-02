@@ -1,0 +1,7 @@
+import { NextRequest,NextResponse } from 'next/server';
+import { getCurrentUser } from '../../../../modules/platform/auth/current-user';
+import { createPriceAlert,removePriceAlert,listPriceAlerts } from '../../../../modules/marketplace/customer-retention';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function GET(req:NextRequest){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});return NextResponse.json({ok:true,items:await listPriceAlerts(u.id)},{headers:{'Cache-Control':'no-store'}})}
+export async function POST(req:NextRequest){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});try{const b=await req.json();return NextResponse.json({ok:true,alert:await createPriceAlert({customerId:u.id,productId:String(b?.productId??''),targetPrice:Number(b?.targetPrice)})},{status:201});}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'PRICE_ALERT_FAILED'},{status:400})}}
+export async function DELETE(req:NextRequest){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});const id=req.nextUrl.searchParams.get('productId');if(!id)return NextResponse.json({ok:false,error:'PRODUCT_REQUIRED'},{status:400});return NextResponse.json({ok:true,...await removePriceAlert(u.id,id)})}

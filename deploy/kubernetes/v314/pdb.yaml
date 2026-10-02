@@ -1,0 +1,6 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata: {name: trust-api}
+spec:
+  minAvailable: 2
+  selector: {matchLabels: {app: trust-api}}

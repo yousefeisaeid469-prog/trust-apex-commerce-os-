@@ -1,0 +1,179 @@
+{
+  "id": "evidence-packet:capability-058-v235-turns-the-post-delivery-side-of-commerce-into-a-durable-execution-layer-a-r",
+  "contractId": "capability-058-v235-turns-the-post-delivery-side-of-commerce-into-a-durable-execution-layer-a-r",
+  "sourceId": "draft-doc:docs/architecture/REVERSE-COMMERCE-EXECUTION-V235.md:5",
+  "claim": "V235 turns the post delivery side of commerce into a durable execution layer. A return is no longer the end of the workflow: recovered inventory, replacements, store credit and financial evidence are first class aggregates.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v134-acquisition.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v144-autonomous-reliability-loop.test.mjs",
+      "tests/v145-production-reliability.test.mjs",
+      "tests/v147-progressive-delivery.test.mjs",
+      "tests/v152-merchant-verification.test.mjs",
+      "tests/v157-guest-checkout.test.mjs",
+      "tests/v163-marketplace-offers.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 309,
+        "token": "delivery",
+        "excerpt": "\"text\": \"TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent c",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 34,
+        "token": "delivery",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V166.md:3 (docs line 3) — TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 16,
+        "token": "delivery",
+        "excerpt": "\"claim\": \"TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 23,
+        "token": "delivery",
+        "excerpt": "- **capability-001-trust-v166-extends-the-global-ai-commerce-core-into-an-omnichannel-execution-lay** — unassigned — DRAFT — TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 326,
+        "token": "delivery",
+        "excerpt": "\"claim\": \"TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 275,
+        "token": "delivery",
+        "excerpt": "\"file\": \"tests/v147-progressive-delivery.test.mjs\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 220,
+        "token": "delivery",
+        "excerpt": "\"text\": \"TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent c",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 234,
+        "token": "delivery",
+        "excerpt": "\"text\": \"TRUST V166 extends the global AI commerce core into an omnichannel execution layer: deterministic warehouse routing, fragmented inventory split fulfillment, delivery promises, return disposition, support triage, and an idempotent c",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v134-acquisition.test.mjs",
+        "hits": [
+          "commerce",
+          "inventory",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "delivery",
+          "workflow"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v144-autonomous-reliability-loop.test.mjs",
+        "hits": [
+          "recovered",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v145-production-reliability.test.mjs",
+        "hits": [
+          "recovered",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v147-progressive-delivery.test.mjs",
+        "hits": [
+          "delivery",
+          "evidence"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v152-merchant-verification.test.mjs",
+        "hits": [
+          "delivery",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v157-guest-checkout.test.mjs",
+        "hits": [
+          "delivery",
+          "commerce"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v163-marketplace-offers.test.mjs",
+        "hits": [
+          "delivery",
+          "inventory"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "a290a0417a3e292c70f6e7e32035906aab985c5c1320d6a444bd3e0059b182c6",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

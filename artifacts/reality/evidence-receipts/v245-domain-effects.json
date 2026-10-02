@@ -1,0 +1,80 @@
+{
+  "id": "v245-domain-effects",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:57.196Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/commerce/consumers/runtime.ts",
+      "exists": true,
+      "sha256": "e28eae0ebdbfb9b09abcef90e1bc44638bdb48d75582bc3c9665d5824e352eda"
+    },
+    {
+      "file": "modules/commerce/consumers/order.ts",
+      "exists": true,
+      "sha256": "18af02b85e86bb63d1e1190669f9f02072fdadafb2c0534a15ef733d60cc9185"
+    },
+    {
+      "file": "modules/commerce/consumers/payment.ts",
+      "exists": true,
+      "sha256": "63d81cc75f253fef1ebbdbdee00a3f679d9e65e9124f8c853d217b7465bf9d7e"
+    },
+    {
+      "file": "modules/commerce/consumers/inventory.ts",
+      "exists": true,
+      "sha256": "0f8f3b486bb2d1ccbafac70748a15ce0fe290efc4ded2efddef1fa22caa3a7ca"
+    },
+    {
+      "file": "modules/commerce/consumers/fulfillment.ts",
+      "exists": true,
+      "sha256": "d8c4fd337c8ba92595038dbec526ab959970eadc28f8caa1987b248d0f8e8264"
+    },
+    {
+      "file": "db/migrations/099_v245_real_domain_execution.sql",
+      "exists": true,
+      "sha256": "edf06218c2a00c08b1660263b77055150b8d6c959dcb133dff6040a888be64c4"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "trust_domain_effects",
+      "foundIn": [
+        "modules/commerce/consumers/runtime.ts",
+        "db/migrations/099_v245_real_domain_execution.sql"
+      ]
+    },
+    {
+      "marker": "runEffect",
+      "foundIn": [
+        "modules/commerce/consumers/runtime.ts",
+        "modules/commerce/consumers/order.ts",
+        "modules/commerce/consumers/payment.ts",
+        "modules/commerce/consumers/inventory.ts",
+        "modules/commerce/consumers/fulfillment.ts"
+      ]
+    },
+    {
+      "marker": "PROCESSING",
+      "foundIn": [
+        "modules/commerce/consumers/runtime.ts",
+        "db/migrations/099_v245_real_domain_execution.sql"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v245-domain-execution.test.mjs",
+      "command": "node --experimental-strip-types tests/v245-domain-execution.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V245 domain execution contract: PASS",
+      "stderr": ""
+    }
+  ],
+  "promotionAllowed": false
+}

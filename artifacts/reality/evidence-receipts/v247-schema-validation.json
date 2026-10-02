@@ -1,0 +1,61 @@
+{
+  "id": "v247-schema-validation",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:57.711Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/commerce-events/schema-validator.ts",
+      "exists": true,
+      "sha256": "c202f5d86e21c9a0b82274f34057b6f8a60f626c8104c459870037818bfaab55"
+    },
+    {
+      "file": "modules/platform/durable-events/tx.ts",
+      "exists": true,
+      "sha256": "a2f9a97a0960eb0d1754e58b01995808cabed7cc96cee5633d749b37d98b327f"
+    },
+    {
+      "file": "scripts/reality_proof_audit.mjs",
+      "exists": true,
+      "sha256": "ae39bb08db99751e21f1dc6f298a062c7be789c14d6470b60ad1f1793800f101"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "validateJsonSchema",
+      "foundIn": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "scripts/reality_proof_audit.mjs"
+      ]
+    },
+    {
+      "marker": "EVENT_PAYLOAD_TOO_LARGE",
+      "foundIn": [
+        "modules/platform/durable-events/tx.ts"
+      ]
+    },
+    {
+      "marker": "additionalProperties",
+      "foundIn": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "scripts/reality_proof_audit.mjs"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v247-schema-contract.test.mjs",
+      "command": "node --experimental-strip-types tests/v247-schema-contract.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V247 schema contract test: PASS",
+      "stderr": "(node:1476) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+    }
+  ],
+  "promotionAllowed": false
+}

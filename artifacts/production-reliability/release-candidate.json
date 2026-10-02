@@ -1,0 +1,9 @@
+{
+  "version": "V145.0.0",
+  "sourceFingerprint": "602ddcd4ca36700e9dd50e63e21fb4f91178fdd1adc68ccc2f58312cb84ff7fc",
+  "migrationFingerprint": "534503f926954b673cb6837bd95a93752f568fc0b3acf90e1b3974b4c9c95986",
+  "policyRevision": "v145-default-reliability-policy",
+  "buildRef": "local-production-reliability",
+  "createdAt": "2026-09-03T00:00:00.000Z",
+  "candidateHash": "99a5666b4c4c596ab6d6407f6070fa96a207a38ad5eec8e523623194f09e29c4"
+}

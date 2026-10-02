@@ -1,0 +1,6 @@
+import test from 'node:test'; import assert from 'node:assert/strict';
+import {rankAds,campaignInsight} from '../modules/platform/growth-ads/core.ts';
+import {priceReturnedItem} from '../modules/platform/recommerce/core.ts';
+test('V167 ranks eligible ads with frequency and budget controls',()=>{const r=rankAds([{id:'a',productId:'p',sellerId:'s',placement:'SEARCH',relevance:90,quality:80,bidMinor:120n,budgetRemainingMinor:1000n,frequencyKey:'u:p'},{id:'b',productId:'p2',sellerId:'s2',placement:'SEARCH',relevance:99,quality:99,bidMinor:900n,budgetRemainingMinor:0n,frequencyKey:'u:p2'}]);assert.equal(r[0].candidateId,'a');assert.equal(r[1].eligible,false);});
+test('V167 campaign pacing is deterministic',()=>{const x=campaignInsight({id:'c',sellerId:'s',objective:'CONVERSION',budgetMinor:10000n,spentMinor:6000n,dailyCapMinor:10000n,active:true});assert.equal(x.utilization,60);assert.equal(x.pacing,'ON_TRACK');});
+test('V167 returned goods preserve value through recommerce',()=>{const x=priceReturnedItem({id:'r',productId:'p',sellerId:'s',quantity:1,condition:'LIKE_NEW',unitCostMinor:10000n,ageDays:4},20000n);assert.equal(x.disposition,'RESALE');assert.equal(x.offers[0].priceMinor,16400n);});

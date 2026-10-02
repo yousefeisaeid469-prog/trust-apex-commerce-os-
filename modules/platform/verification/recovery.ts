@@ -1,0 +1,2 @@
+export type RecoveryStep={name:string;ok:boolean};
+export function verifyRecovery(steps:RecoveryStep[],required:string[]){const byName=new Map(steps.map(s=>[s.name,s.ok]));const missing=required.filter(x=>!byName.has(x));const failed=required.filter(x=>byName.has(x)&&!byName.get(x));if(missing.length||failed.length)throw new Error(`RECOVERY_NOT_VERIFIED:${[...missing.map(x=>`MISSING:${x}`),...failed.map(x=>`FAILED:${x}`)].join(',')}`);return {verified:true,steps:required.length}}

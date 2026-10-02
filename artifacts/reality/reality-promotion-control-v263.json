@@ -1,0 +1,71 @@
+{
+  "version": "V263.0.0",
+  "schemaVersion": "1.0",
+  "generatedAt": "2026-09-09T02:08:46.975Z",
+  "policy": "Promotion requires an explicit decision record bound to an attestation root and exact evidence leaves. This control plane never auto-promotes; pending decisions remain non-authoritative until an authorized explicit decision is supplied.",
+  "attestation": "artifacts/reality/reality-evidence-attestation-v262.json",
+  "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+  "counts": {
+    "considered": 4,
+    "pendingExplicitReview": 4,
+    "approved": 0,
+    "promoted": 0,
+    "rejected": 0,
+    "promotionAllowed": 0
+  },
+  "decisionRoot": "c4525479eba2d393bdd34accbf4335887e0581278738e375c0bdf8a699ac9875",
+  "decisions": [
+    {
+      "decisionId": "v263-decision-001",
+      "capabilityId": "capability-003-approval-gates-and-idempotent-execution-receipts",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "d6dc677ebe962cc3a5306badb506b25fd0daa065827258b262fa64dfb6e3fdd8",
+      "baselineEvidenceDigest": "ad62057dfada99ea015b5f5d02c3ce0ec356a16725dd4f752429e17ea7f7d256",
+      "requestedAction": "NO_AUTO_PROMOTION",
+      "reviewer": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient.",
+      "createdBy": "TRUST-V263-PROMOTION-CONTROL-PLANE",
+      "decisionHash": "800f85c8717632f91ccd93581477653f58fcc8f5bd4b0ed461ca85ee12ba2e6b"
+    },
+    {
+      "decisionId": "v263-decision-002",
+      "capabilityId": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "99402e8fc3bd6e1be9acf19672f9c03efb9ea873f75d1751ccb885871cf66577",
+      "baselineEvidenceDigest": "779022b873a5c441bc67f08c53c6570b3055d1f59b55f78b10d16d4a09eca8b7",
+      "requestedAction": "NO_AUTO_PROMOTION",
+      "reviewer": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient.",
+      "createdBy": "TRUST-V263-PROMOTION-CONTROL-PLANE",
+      "decisionHash": "48d29446fab3c7fd252a04a95981def7baebb06e13b6ba20c8d0496fa98cc558"
+    },
+    {
+      "decisionId": "v263-decision-003",
+      "capabilityId": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "5cdd8d73391c29732dd63e9bb7880de532892133b1bb3057b64a4284266c0206",
+      "baselineEvidenceDigest": "c6b6cb0a8fde43a5357256140e6410eaff8e9c072ba20031e57939b150782799",
+      "requestedAction": "NO_AUTO_PROMOTION",
+      "reviewer": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient.",
+      "createdBy": "TRUST-V263-PROMOTION-CONTROL-PLANE",
+      "decisionHash": "80657ac03da185407913bb01fbf802e6553499564dfb563d2e885fd8b1702b09"
+    },
+    {
+      "decisionId": "v263-decision-004",
+      "capabilityId": "capability-012-reduced-motion-accessibility-support",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "60c362bb9f1627b200b49d713b7899eb041f6dfeee8c6ea562f52b2b76541e6e",
+      "baselineEvidenceDigest": "3172eb89969a35dc99f143f5fb76f9bc501b0b798b9e82dd502254125f03bf71",
+      "requestedAction": "NO_AUTO_PROMOTION",
+      "reviewer": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient.",
+      "createdBy": "TRUST-V263-PROMOTION-CONTROL-PLANE",
+      "decisionHash": "3b00a4f1747cf02d424d9084dd1b028a29d432845276db7d6e66a2031565a5fb"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const spine=fs.readFileSync('modules/platform/runtime-spine.ts','utf8');
+const migration=fs.readFileSync('db/migrations/232_v407_global_runtime_spine.sql','utf8');
+assert.match(migration,/UNIQUE\(tenant_id,operation_type,operation_key\)/,{message:'operation identity must be unique'});
+assert.match(spine,/RUNTIME_OPERATION_IDENTITY_REQUIRED/);
+assert.match(spine,/trust_runtime_operation_events/);
+const command=fs.readFileSync('modules/platform/command-bus.ts','utf8');
+assert.match(command,/ensureRuntimeOperationTx/);
+const worker=fs.readFileSync('scripts/command_worker.mjs','utf8');
+assert.match(worker,/transitionRuntimeOperationTx/);
+const workflow=fs.readFileSync('modules/platform/workflow-orchestrator.ts','utf8');
+assert.match(workflow,/ensureRuntimeOperationTx/);
+console.log('V407 RUNTIME SPINE TEST PASS');

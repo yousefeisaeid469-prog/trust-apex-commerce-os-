@@ -1,0 +1,11 @@
+export type NetworkNodeType='CUSTOMER'|'SELLER'|'PRODUCT'|'OFFER'|'ORDER'|'WAREHOUSE'|'SUPPLIER'|'CAMPAIGN'|'ROUTE';
+export type NetworkEventType='VIEW'|'SEARCH'|'CART'|'PURCHASE'|'RETURN'|'PRICE_CHANGE'|'STOCKOUT'|'DELAY'|'SUPPLIER_RISK'|'CAMPAIGN_IMPRESSION'|'CAMPAIGN_CLICK';
+export type DecisionDomain='DISCOVERY'|'PRICING'|'INVENTORY'|'FULFILLMENT'|'SUPPLY'|'MARKETING'|'FINANCE'|'TRUST';
+export interface NetworkNode{id:string;tenantId:string;type:NetworkNodeType;labels?:string[];score?:number;}
+export interface NetworkEdge{from:string;to:string;kind:string;weight:number;updatedAt:number;}
+export interface NetworkEvent{id:string;tenantId:string;type:NetworkEventType;at:number;subjectId:string;relatedIds:string[];value?:number;currency?:string;metadata?:Record<string,string|number|boolean>;}
+export interface Signal{signalId:string;tenantId:string;domain:DecisionDomain;severity:'INFO'|'WATCH'|'HIGH'|'CRITICAL';score:number;reason:string;nodeIds:string[];eventIds:string[];}
+export interface Decision{decisionId:string;tenantId:string;domain:DecisionDomain;priority:number;action:string;reason:string;expectedImpactBps:number;requiresApproval:boolean;sourceSignalIds:string[];}
+export interface NetworkSnapshot{nodes:NetworkNode[];edges:NetworkEdge[];events:NetworkEvent[];}
+export interface OptimizationConstraint{domain:DecisionDomain;maxRiskBps?:number;minMarginBps?:number;maxDeliveryDays?:number;budgetMinor?:bigint;}
+export interface OptimizationResult{selected:Decision[];rejected:Decision[];objectiveScore:number;constraintViolations:string[];}

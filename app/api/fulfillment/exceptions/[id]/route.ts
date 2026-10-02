@@ -1,0 +1,6 @@
+import {NextRequest,NextResponse} from 'next/server';
+import {getCurrentUser} from '@/modules/platform/auth/current-user';
+import {applyExceptionAction,type ExceptionAction} from '@/modules/platform/fulfillment-providers/operations';
+const privileged=['admin','support','operations']; const actions=new Set<ExceptionAction>(['ACKNOWLEDGE','RESOLVE','ESCALATE']);
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function POST(req:NextRequest,{params}:{params:{id:string}}){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED',surfaceStatus:'ERROR'},{status:401});if(!privileged.includes(u.role))return NextResponse.json({ok:false,error:'PRIVILEGED_ACCESS_REQUIRED',surfaceStatus:'ERROR'},{status:403});try{const b=await req.json();const action=String(b.action??'') as ExceptionAction;if(!actions.has(action))return NextResponse.json({ok:false,error:'INVALID_EXCEPTION_ACTION',surfaceStatus:'ERROR'},{status:400});const result=await applyExceptionAction({shipmentId:params.id,action,note:String(b.note??''),actorId:u.id});return NextResponse.json({ok:true,surfaceStatus:'LIVE',result},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'EXCEPTION_ACTION_ERROR',surfaceStatus:'ERROR'},{status:400})}}

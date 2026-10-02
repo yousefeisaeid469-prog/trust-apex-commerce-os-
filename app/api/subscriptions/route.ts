@@ -1,0 +1,4 @@
+import { NextResponse } from 'next/server';
+import { activateMembership, createProductSubscription } from '../../../modules/marketplace/revenue-surfaces';
+export async function GET(){return NextResponse.json({ok:true,plans:[{planCode:'TRUST_PLUS',monthlyFee:149},{planCode:'TRUST_PRO',monthlyFee:299}]});}
+export async function POST(request:Request){try{const body=await request.json();if(body.action==='membership')return NextResponse.json({ok:true,membership:await activateMembership(body)});if(body.action==='product')return NextResponse.json({ok:true,subscription:await createProductSubscription(body)});return NextResponse.json({ok:false,error:'UNKNOWN_SUBSCRIPTION_ACTION'},{status:400})}catch(error){return NextResponse.json({ok:false,error:error instanceof Error?error.message:'SUBSCRIPTION_OPERATION_FAILED'},{status:400})}}

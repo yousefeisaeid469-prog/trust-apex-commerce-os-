@@ -1,0 +1,11 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { buildSnapshot, simulateScenario, propagateImpact, replayAt, diffSnapshots } from '../modules/platform/digital-twin/core.ts';
+const nodes=[{id:'p1',kind:'PRODUCT',tenantId:'t1',state:{inventory:100,price:50}},{id:'w1',kind:'WAREHOUSE',tenantId:'t1',state:{capacity:1000}},{id:'s1',kind:'SUPPLIER',tenantId:'t1',state:{risk:10}}];
+const edges=[{from:'p1',to:'w1',kind:'STORED_AT',weight:0.8},{from:'w1',to:'s1',kind:'SOURCED_FROM',weight:0.5}];
+test('builds tenant-safe snapshot',()=>{const s=buildSnapshot('t1',nodes,edges,1);assert.equal(s.nodes.length,3);assert.throws(()=>buildSnapshot('t1',[{...nodes[0],tenantId:'t2'}],[],1));});
+test('counterfactual simulation never mutates production snapshot',()=>{const s=buildSnapshot('t1',nodes,edges,1);const r=simulateScenario(s,{name:'price-test',horizonHours:24,changes:[{nodeId:'p1',metric:'price',delta:5}]});assert.equal(r.status,'SIMULATED');assert.equal(r.productionSideEffects,false);assert.equal(s.nodes[0].state.price,50);assert.equal(r.impacts[0].projected,55);});
+test('propagates bounded impact through graph',()=>{const s=buildSnapshot('t1',nodes,edges,1);const impacts=propagateImpact(s,'p1','inventory',-20,2);assert.deepEqual(impacts.map(x=>x.nodeId),['p1','w1','s1']);assert.equal(impacts[2].delta,-8);});
+test('replay is deterministic and tenant isolated',()=>{const events=[{eventId:'2',tenantId:'t1',timestamp:2,nodeId:'p1',metric:'inventory',value:80},{eventId:'1',tenantId:'t1',timestamp:1,nodeId:'p1',metric:'inventory',value:100},{eventId:'x',tenantId:'t2',timestamp:3,nodeId:'p1',metric:'inventory',value:1}];assert.equal(replayAt(events,'t1',2).get('p1').inventory,80);assert.equal(replayAt(events,'t1',0).size,0);});
+test('diff snapshots reports only changed metrics',()=>{const a=buildSnapshot('t1',nodes,edges,1);const b=buildSnapshot('t1',nodes.map(n=>n.id==='p1'?{...n,state:{...n.state,inventory:70}}:n),edges,2);const d=diffSnapshots(a,b);assert.deepEqual(d.map(x=>[x.nodeId,x.metric,x.delta]),[['p1','inventory',-30]]);});
+test('fails closed on invalid horizon and graph references',()=>{const s=buildSnapshot('t1',nodes,edges,1);assert.throws(()=>simulateScenario(s,{name:'bad',horizonHours:0,changes:[]}));assert.throws(()=>buildSnapshot('t1',nodes,[{...edges[0],to:'missing'}],1));});

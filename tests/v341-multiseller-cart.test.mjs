@@ -1,0 +1,17 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const store=fs.readFileSync('modules/commerce/cart/store.ts','utf8');
+const api=fs.readFileSync('app/api/cart/items/route.ts','utf8');
+const button=fs.readFileSync('components/add-to-cart-button.tsx','utf8');
+const page=fs.readFileSync('app/product/[id]/page.tsx','utf8');
+const migration=fs.readFileSync('db/migrations/174_v341_multiseller_cart.sql','utf8');
+assert.match(store,/lineKey/);
+assert.match(store,/offer_id/);
+assert.match(store,/OFFER_NOT_AVAILABLE/);
+assert.match(store,/multiSellerLines/);
+assert.match(api,/b\?\.offerId/);
+assert.match(button,/offerId/);
+assert.match(page,/data\.marketplace\?\.offer\?\.id/);
+assert.match(migration,/uq_trust_cart_items_product_offer/);
+assert.match(migration,/DROP CONSTRAINT IF EXISTS trust_cart_items_pkey/);
+console.log('V341 multi-seller cart source contract: PASS');

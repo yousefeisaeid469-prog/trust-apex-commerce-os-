@@ -1,0 +1,10 @@
+import fs from 'node:fs'; import crypto from 'node:crypto';
+const errors=[]; const read=f=>fs.readFileSync(f,'utf8'); const exists=f=>fs.existsSync(f);
+const pkg=JSON.parse(read('package.json')); const lock=JSON.parse(read('package-lock.json')); const runtime=read('lib/runtime/version.ts'); const manifest=JSON.parse(read('db/migrations/MANIFEST.json'));
+if(pkg.version!=='405.0.0')errors.push('package version'); if(lock.version!=='405.0.0')errors.push('lock version');
+for(const t of ["TRUST_RUNTIME_VERSION='V405.0.0'","TRUST_VERSION='V405.0.0'","TRUST_VERSION_NUMBER='V405.0.0'"])if(!runtime.includes(t))errors.push('runtime '+t);
+const head=manifest.migrations.at(-1); if(manifest.version!=='V405.0.0'||String(head?.id)!=='230'||head?.version!=='V405.0.0')errors.push('migration head');
+for(const f of ['db/migrations/230_v405_global_commerce_workflows.sql','modules/platform/workflow-orchestrator.ts','modules/platform/commands/registry.ts','scripts/workflow_worker.mjs','scripts/v405_workflow_orchestration.mjs','scripts/v405_release_gate.mjs','app/api/workflows/route.ts','app/api/workflows/[id]/route.ts','MASTER-RELEASE.md'])if(!exists(f))errors.push('missing '+f);
+const migration=read('db/migrations/230_v405_global_commerce_workflows.sql'); for(const t of ['trust_workflow_instances','trust_workflow_steps','trust_workflow_events','COMPENSATING'])if(!migration.includes(t))errors.push('migration contract '+t);
+const checksum=crypto.createHash('sha256').update(fs.readFileSync('db/migrations/230_v405_global_commerce_workflows.sql')).digest('hex'); if(head?.checksum!==checksum)errors.push('migration checksum mismatch');
+if(errors.length){console.error('V405 RELEASE GATE FAILED');errors.forEach(e=>console.error('- '+e));process.exit(1)} console.log('V405 RELEASE GATE PASS — global commerce workflows are durable, ordered, compensatable and routed through the V404 command bus.');

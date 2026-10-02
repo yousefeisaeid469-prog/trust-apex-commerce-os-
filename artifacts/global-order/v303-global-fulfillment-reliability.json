@@ -1,0 +1,13 @@
+{
+  "version": "V303.0.0",
+  "status": "GLOBAL_FULFILLMENT_RELIABILITY_VERIFIED",
+  "externalCarriersConnected": false,
+  "liveDatabaseCertification": false,
+  "controls": {
+    "durableExceptions": true,
+    "idempotentRecoveryActions": true,
+    "boundedRetries": true,
+    "exhaustionEscalation": true,
+    "healthSnapshots": true
+  }
+}

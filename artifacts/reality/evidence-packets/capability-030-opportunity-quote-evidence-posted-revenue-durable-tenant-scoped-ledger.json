@@ -1,0 +1,171 @@
+{
+  "id": "evidence-packet:capability-030-opportunity-quote-evidence-posted-revenue-durable-tenant-scoped-ledger",
+  "contractId": "capability-030-opportunity-quote-evidence-posted-revenue-durable-tenant-scoped-ledger",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V217.md:6",
+  "claim": "Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v216-revenue-engine.test.mjs",
+      "tests/v217-revenue-autopilot.test.mjs",
+      "tests/v218-revenue-intelligence.test.mjs",
+      "tests/v219-revenue-experimentation.test.mjs",
+      "tests/v220-revenue-decision-loop.test.mjs",
+      "tests/v231-commerce-execution.test.mjs",
+      "tests/v235-reverse-commerce.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 771,
+        "token": "opportunity",
+        "excerpt": "\"text\": \"Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 76,
+        "token": "opportunity",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V217.md:6 (docs line 6) — Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 2266,
+        "token": "opportunity",
+        "excerpt": "\"id\": \"capability-030-opportunity-quote-evidence-posted-revenue-durable-tenant-scoped-ledger\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 52,
+        "token": "opportunity",
+        "excerpt": "- **capability-030-opportunity-quote-evidence-posted-revenue-durable-tenant-scoped-ledger** — unassigned — DRAFT — Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 1418,
+        "token": "opportunity",
+        "excerpt": "\"claim\": \"Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 7816,
+        "token": "opportunity",
+        "excerpt": "\"claim\": \"Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 934,
+        "token": "opportunity",
+        "excerpt": "\"text\": \"Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 570,
+        "token": "opportunity",
+        "excerpt": "\"text\": \"Opportunity → Quote → Evidence → POSTED Revenue → durable tenant scoped ledger.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v216-revenue-engine.test.mjs",
+        "hits": [
+          "evidence",
+          "revenue"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v217-revenue-autopilot.test.mjs",
+        "hits": [
+          "opportunity",
+          "evidence",
+          "revenue",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v218-revenue-intelligence.test.mjs",
+        "hits": [
+          "evidence",
+          "revenue"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v219-revenue-experimentation.test.mjs",
+        "hits": [
+          "evidence",
+          "revenue"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v220-revenue-decision-loop.test.mjs",
+        "hits": [
+          "evidence",
+          "revenue"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v231-commerce-execution.test.mjs",
+        "hits": [
+          "evidence",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v235-reverse-commerce.test.mjs",
+        "hits": [
+          "evidence",
+          "durable"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "0c42229c61ca20a75b80236b7f5570608cc2872e6a306641db2625a8b4fe5c3a",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

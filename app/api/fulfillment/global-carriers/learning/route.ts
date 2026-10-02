@@ -1,0 +1,4 @@
+import {NextResponse} from 'next/server';
+import {listLearnedProfiles,previewLearning,runLearning} from '../../../../../modules/platform/global-logistics-v312/runtime';
+export async function GET(){return NextResponse.json({version:'V312.0.0',profiles:await listLearnedProfiles()});}
+export async function POST(req:Request){try{const body=await req.json().catch(()=>({}));const observations=Array.isArray(body.observations)?body.observations:undefined;const limit=Number.isFinite(Number(body.limit))?Math.max(1,Number(body.limit)):5000;if(body.preview===true)return NextResponse.json(await previewLearning(observations,limit));return NextResponse.json(await runLearning({observations,limit}));}catch(error){return NextResponse.json({error:error instanceof Error?error.message:'GLOBAL_LOGISTICS_LEARNING_FAILED'},{status:400});}}

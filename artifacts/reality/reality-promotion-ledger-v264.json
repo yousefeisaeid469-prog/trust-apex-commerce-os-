@@ -1,0 +1,81 @@
+{
+  "version": "V264.0.0",
+  "schemaVersion": "1.0",
+  "source": "artifacts/reality/reality-promotion-control-v263.json",
+  "policy": {
+    "appendOnlyEvents": true,
+    "durableState": true,
+    "explicitActorRequired": true,
+    "evidenceBindingRequired": true,
+    "autoPromotion": false
+  },
+  "counts": {
+    "decisions": 4,
+    "pending": 4,
+    "approved": 0,
+    "promoted": 0,
+    "rejected": 0
+  },
+  "ledgerRoot": "e54fc42949b4794dc00871e4eacd4220daca36a1051ba958b6d5b2d9a92f4186",
+  "decisions": [
+    {
+      "decisionId": "v263-decision-001",
+      "capabilityId": "capability-003-approval-gates-and-idempotent-execution-receipts",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "d6dc677ebe962cc3a5306badb506b25fd0daa065827258b262fa64dfb6e3fdd8",
+      "baselineEvidenceDigest": "ad62057dfada99ea015b5f5d02c3ce0ec356a16725dd4f752429e17ea7f7d256",
+      "decisionHash": "800f85c8717632f91ccd93581477653f58fcc8f5bd4b0ed461ca85ee12ba2e6b",
+      "reviewerId": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient."
+    },
+    {
+      "decisionId": "v263-decision-002",
+      "capabilityId": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "99402e8fc3bd6e1be9acf19672f9c03efb9ea873f75d1751ccb885871cf66577",
+      "baselineEvidenceDigest": "779022b873a5c441bc67f08c53c6570b3055d1f59b55f78b10d16d4a09eca8b7",
+      "decisionHash": "48d29446fab3c7fd252a04a95981def7baebb06e13b6ba20c8d0496fa98cc558",
+      "reviewerId": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient."
+    },
+    {
+      "decisionId": "v263-decision-003",
+      "capabilityId": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "5cdd8d73391c29732dd63e9bb7880de532892133b1bb3057b64a4284266c0206",
+      "baselineEvidenceDigest": "c6b6cb0a8fde43a5357256140e6410eaff8e9c072ba20031e57939b150782799",
+      "decisionHash": "80657ac03da185407913bb01fbf802e6553499564dfb563d2e885fd8b1702b09",
+      "reviewerId": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient."
+    },
+    {
+      "decisionId": "v263-decision-004",
+      "capabilityId": "capability-012-reduced-motion-accessibility-support",
+      "state": "PENDING_EXPLICIT_REVIEW",
+      "attestationRoot": "4f3152422816083f47ba84939a68058cd486aa1a47203df51d7e9743dfbec03d",
+      "evidenceLeaf": "60c362bb9f1627b200b49d713b7899eb041f6dfeee8c6ea562f52b2b76541e6e",
+      "baselineEvidenceDigest": "3172eb89969a35dc99f143f5fb76f9bc501b0b798b9e82dd502254125f03bf71",
+      "decisionHash": "3b00a4f1747cf02d424d9084dd1b028a29d432845276db7d6e66a2031565a5fb",
+      "reviewerId": null,
+      "rationale": "Awaiting an explicit authorized promotion decision; attestation alone is not sufficient."
+    }
+  ],
+  "transitionMatrix": {
+    "PENDING_EXPLICIT_REVIEW": [
+      "APPROVED",
+      "REJECTED"
+    ],
+    "APPROVED": [
+      "PROMOTED",
+      "REVOKED"
+    ],
+    "REJECTED": [],
+    "PROMOTED": [
+      "REVOKED"
+    ],
+    "REVOKED": []
+  }
+}

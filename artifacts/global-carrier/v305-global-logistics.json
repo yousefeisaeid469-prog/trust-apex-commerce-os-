@@ -1,0 +1,6 @@
+{
+  "version":"V305.0.0",
+  "scope":"DETERMINISTIC_LOGISTICS_INTELLIGENCE",
+  "capabilities":["weighted route scoring","cost/speed/reliability priorities","circuit exclusion","decision evidence","idempotent durable decisions"],
+  "externalProviderCertification":false
+}

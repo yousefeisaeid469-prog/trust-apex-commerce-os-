@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {ExecutionAdapterMesh} from '../modules/platform/execution-adapter-mesh/core.ts';
+const policy={maxAttempts:3,baseDelayMs:0,failureThreshold:2,cooldownMs:1000};
+const cmd=(id='c1',tenant='t1')=>({commandId:id,tenantId:tenant,action:'FULFILLMENT',payload:{orderId:'o1'},idempotencyKey:id});
+test('routes action to exactly one adapter',async()=>{const m=new ExecutionAdapterMesh();m.register({name:'carrier',actions:['FULFILLMENT'],execute:async()=>({status:'SUCCESS',providerReference:'p1'})});const r=await m.dispatch(cmd(),policy);assert.equal(r.status,'EXECUTED');assert.equal(r.providerReference,'p1');});
+test('enforces tenant-aware idempotency',async()=>{const m=new ExecutionAdapterMesh();let n=0;m.register({name:'carrier',actions:['FULFILLMENT'],execute:async()=>{n++;return {status:'SUCCESS'}}});assert.equal((await m.dispatch(cmd('x','a'),policy)).status,'EXECUTED');assert.equal((await m.dispatch(cmd('x','a'),policy)).status,'DUPLICATE');assert.equal((await m.dispatch(cmd('x','b'),policy)).status,'EXECUTED');assert.equal(n,2);});
+test('opens circuit and dead-letters repeated failures',async()=>{const m=new ExecutionAdapterMesh();m.register({name:'carrier',actions:['FULFILLMENT'],execute:async()=>({status:'FAILURE',reason:'provider down'})});const r=await m.dispatch(cmd(),policy);assert.equal(r.status,'DEAD_LETTERED');assert.equal(m.deadLettersSnapshot().length,1);const blocked=await m.dispatch(cmd('c2'),policy);assert.equal(blocked.status,'CIRCUIT_OPEN');});
+test('fails closed for ambiguous routing',async()=>{const m=new ExecutionAdapterMesh();m.register({name:'a',actions:['FINANCE'],execute:async()=>({status:'SUCCESS'})});m.register({name:'b',actions:['FINANCE'],execute:async()=>({status:'SUCCESS'})});await assert.rejects(()=>m.dispatch({...cmd(),action:'FINANCE'},policy),/AMBIGUOUS/);});
+test('rejects invalid policy',async()=>{const m=new ExecutionAdapterMesh();m.register({name:'x',actions:['FULFILLMENT'],execute:async()=>({status:'SUCCESS'})});await assert.rejects(()=>m.dispatch(cmd(),{...policy,maxAttempts:0}),/INVALID/);});

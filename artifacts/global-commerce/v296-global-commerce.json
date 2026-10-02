@@ -1,0 +1,12 @@
+{
+  "version": "V296.0.0",
+  "status": "GLOBAL_COMMERCE_FOUNDATION_VERIFIED",
+  "scope": ["country-policy", "multi-currency", "fx-validation", "tax-boundary", "shipping-options", "payment-method-boundary", "durable-quote-evidence"],
+  "supportedCountries": ["EG", "AE", "SA", "US", "GB"],
+  "externalProvidersConnected": false,
+  "liveTaxCertification": false,
+  "liveFXProviderCertification": false,
+  "liveCarrierCertification": false,
+  "livePaymentProviderCertification": false,
+  "policy": {"noImplicitFX": true, "noUnsupportedCountry": true, "integerMinorMoney": true}
+}

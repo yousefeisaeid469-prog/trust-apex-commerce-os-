@@ -1,0 +1,6 @@
+apiVersion: v2
+name: trust-apex-os
+description: TRUST APEX OS production control-plane bootstrap
+type: application
+version: 163.0.0
+appVersion: 163.0.0

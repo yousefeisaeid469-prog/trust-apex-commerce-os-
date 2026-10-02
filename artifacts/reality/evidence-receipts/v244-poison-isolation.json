@@ -1,0 +1,61 @@
+{
+  "id": "v244-poison-isolation",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:57.075Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "scripts/commerce_consumer_mesh.mjs",
+      "exists": true,
+      "sha256": "4e2ebd9f143faa4d3cda497c8e4dc42f3b3bea77c8cd6ba612dc5b4a28e5acca"
+    },
+    {
+      "file": "modules/platform/durable-events/store.ts",
+      "exists": true,
+      "sha256": "82c0ce0369dabc5abaa3c32c83d66b8231cf89509c477cb1c597365b1ef44abd"
+    },
+    {
+      "file": "db/migrations/098_v244_consumer_mesh.sql",
+      "exists": true,
+      "sha256": "9237985be149facd8a23fe4c23aba73d78157cb1825a498695b1a677a7497a5a"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "trust_event_consumer_failures",
+      "foundIn": [
+        "modules/platform/durable-events/store.ts",
+        "db/migrations/098_v244_consumer_mesh.sql"
+      ]
+    },
+    {
+      "marker": "DEAD_LETTERED",
+      "foundIn": [
+        "modules/platform/durable-events/store.ts"
+      ]
+    },
+    {
+      "marker": "retryDelivery",
+      "foundIn": [
+        "scripts/commerce_consumer_mesh.mjs",
+        "modules/platform/durable-events/store.ts"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v244-consumer-mesh.test.mjs",
+      "command": "node --experimental-strip-types tests/v244-consumer-mesh.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V244 consumer mesh contract: PASS",
+      "stderr": ""
+    }
+  ],
+  "promotionAllowed": false
+}

@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS trust_v150_control_plane_deployments (deployment_id TEXT PRIMARY KEY, owner TEXT NOT NULL, idempotency_key TEXT NOT NULL UNIQUE, phase TEXT NOT NULL, decision TEXT, revision TEXT, runtime_verified BOOLEAN NOT NULL DEFAULT false, error TEXT, evidence_hash TEXT, target JSONB NOT NULL, traffic JSONB NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT now(), updated_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS trust_v150_control_plane_leases (deployment_id TEXT PRIMARY KEY REFERENCES trust_v150_control_plane_deployments(deployment_id) ON DELETE CASCADE, owner TEXT NOT NULL, expires_at TIMESTAMPTZ NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_trust_v150_leases_expiry ON trust_v150_control_plane_leases(expires_at);
+CREATE TABLE IF NOT EXISTS trust_v150_control_plane_idempotency (idempotency_key TEXT PRIMARY KEY, record JSONB NOT NULL, expires_at TIMESTAMPTZ NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_trust_v150_idempotency_expiry ON trust_v150_control_plane_idempotency(expires_at);
+CREATE TABLE IF NOT EXISTS trust_v150_telemetry_signals (id BIGSERIAL PRIMARY KEY, service TEXT NOT NULL, region TEXT, timestamp_ms BIGINT NOT NULL, availability DOUBLE PRECISION NOT NULL, error_rate DOUBLE PRECISION NOT NULL, p95_ms DOUBLE PRECISION NOT NULL, saturation_pct DOUBLE PRECISION NOT NULL, healthy BOOLEAN NOT NULL, attributes JSONB, created_at TIMESTAMPTZ NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS idx_trust_v150_telemetry_service_time ON trust_v150_telemetry_signals(service,created_at DESC);

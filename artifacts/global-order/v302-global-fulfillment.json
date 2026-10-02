@@ -1,0 +1,12 @@
+{
+  "version": "V302.0.0",
+  "status": "GLOBAL_FULFILLMENT_EXECUTION_VERIFIED",
+  "externalCarriersConnected": false,
+  "liveDatabaseCertification": false,
+  "controls": {
+    "aggregateDeliveryGate": true,
+    "splitShipmentSafe": true,
+    "settlementReleaseAfterAggregateDelivery": true,
+    "idempotentExecutionRuns": true
+  }
+}

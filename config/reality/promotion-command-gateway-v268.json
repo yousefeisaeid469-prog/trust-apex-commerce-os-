@@ -1,0 +1,12 @@
+{
+  "version": "V268.0.0",
+  "commandVersion": "V268",
+  "durableCommandRequired": true,
+  "deterministicCommandHash": "sha256",
+  "uniqueCommandId": true,
+  "idempotentAppliedReplay": true,
+  "commandAuthorizationBinding": true,
+  "commandEventBinding": true,
+  "autoPromotion": false,
+  "privateKeyStorage": "external-secret-or-kms-only"
+}

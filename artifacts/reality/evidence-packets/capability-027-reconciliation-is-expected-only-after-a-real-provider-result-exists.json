@@ -1,0 +1,153 @@
+{
+  "id": "evidence-packet:capability-027-reconciliation-is-expected-only-after-a-real-provider-result-exists",
+  "contractId": "capability-027-reconciliation-is-expected-only-after-a-real-provider-result-exists",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V212.md:14",
+  "claim": "Reconciliation is expected only after a real provider result exists.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/v186-provider-reconciliation.test.mjs",
+      "tests/v187-reconciliation-worker.test.mjs",
+      "tests/v212-autonomous-commerce-control-plane.test.mjs",
+      "tests/v233-fulfillment-provider-execution.test.mjs",
+      "tests/v235-reverse-commerce.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 254,
+        "token": "reconciliation",
+        "excerpt": "\"text\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconci",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 29,
+        "token": "reconciliation",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V147.md:13 (docs line 13) — The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 727,
+        "token": "reconciliation",
+        "excerpt": "\"id\": \"capability-010-webhook-receipt-persists-a-durable-reconciliation-job\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 32,
+        "token": "reconciliation",
+        "excerpt": "- **capability-010-webhook-receipt-persists-a-durable-reconciliation-job** — unassigned — DRAFT — Webhook receipt persists a durable reconciliation job.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 196,
+        "token": "reconciliation",
+        "excerpt": "\"claim\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconc",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 1119,
+        "token": "reconciliation",
+        "excerpt": "\"claim\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconc",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 135,
+        "token": "reconciliation",
+        "excerpt": "\"text\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconci",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 194,
+        "token": "reconciliation",
+        "excerpt": "\"text\": \"The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and requires deployment provider credentials, RBAC, idempotency, durable reconci",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v186-provider-reconciliation.test.mjs",
+        "hits": [
+          "reconciliation",
+          "provider"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v187-reconciliation-worker.test.mjs",
+        "hits": [
+          "reconciliation",
+          "provider"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v212-autonomous-commerce-control-plane.test.mjs",
+        "hits": [
+          "reconciliation",
+          "expected",
+          "provider"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v233-fulfillment-provider-execution.test.mjs",
+        "hits": [
+          "reconciliation",
+          "provider"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v235-reverse-commerce.test.mjs",
+        "hits": [
+          "reconciliation",
+          "expected",
+          "provider"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "c1870f88c98609b80ec91ed643e15ef1b3d2830e6876b35086ec5342b74adfa9",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

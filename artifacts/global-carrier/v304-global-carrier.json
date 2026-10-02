@@ -1,0 +1,7 @@
+{
+  "version":"V304.0.0",
+  "status":"GLOBAL_CARRIER_NETWORK_RUNTIME_VERIFIED",
+  "carrierDescriptors":4,
+  "liveThirdPartyProvidersConnected":false,
+  "scope":"DETERMINISTIC_RUNTIME_AND_CONTRACT_VALIDATION"
+}

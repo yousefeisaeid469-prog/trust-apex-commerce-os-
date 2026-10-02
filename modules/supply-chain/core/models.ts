@@ -1,0 +1,2 @@
+export type RestockRecommendation={productId:string;recommendedUnits:number;reason:string;urgency:'low'|'medium'|'high'};
+export function recommendRestock(stock:number,weeklyUnits:number):RestockRecommendation{const cover=weeklyUnits?stock/weeklyUnits:Infinity;const urgency=cover<1?'high':cover<2?'medium':'low';return {productId:'',recommendedUnits:Math.max(0,Math.ceil(weeklyUnits*2-stock)),reason:`Projected cover: ${Number.isFinite(cover)?cover.toFixed(1):'∞'} weeks`,urgency};}

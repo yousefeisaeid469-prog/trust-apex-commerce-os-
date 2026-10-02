@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {createCommand,advanceCommand,requiresApproval,executeDeterministicLoop} from '../modules/platform/v314/control-plane/core.ts';
+import {routeWithFailover,validateFinancialCommand,idempotencyFingerprint,captureLedger,reconcile} from '../modules/platform/v314/payments/core.ts';
+import {riskDecision,actionForRisk} from '../modules/platform/v314/risk/core.ts';
+import {resolveCountryPolicy,taxMinor} from '../modules/platform/v314/commerce/core.ts';
+import {validateSpan,summarizeSpans} from '../modules/platform/v314/observability/core.ts';
+import {receipt,verifyReceipt} from '../modules/platform/v314/evidence/core.ts';
+
+const cmd=createCommand({id:'cmd-1',tenantId:'tenant-a',workflow:'order.fulfillment',idempotencyKey:'idem-1',correlationId:'trace-1',now:'2026-09-10T00:00:00Z'});
+assert.equal(cmd.stage,'OBSERVE'); assert.equal(advanceCommand(cmd,'PREDICT').stage,'PREDICT'); assert.equal(requiresApproval(81,80),'HUMAN');
+const blocked=executeDeterministicLoop({command:cmd,risk:81,approvalThreshold:80,verified:true}); assert.equal(blocked.command.stage,'FAILED');
+const completed=executeDeterministicLoop({command:cmd,risk:10,approvalThreshold:80,verified:true}); assert.equal(completed.command.stage,'COMPLETED'); assert.equal(completed.events.length,8);
+const routed=routeWithFailover([{id:'bad',currencies:['USD'],methods:['card'],health:0,priority:1,enabled:true,capacityPct:100},{id:'good',currencies:['USD'],methods:['card'],health:.92,priority:2,enabled:true,capacityPct:80}],{currency:'USD',method:'card'}); assert.equal(routed.provider.id,'good');
+const fc={operation:'CAPTURE',idempotencyKey:'k1',amountMinor:10000n,currency:'USD',tenantId:'t',orderId:'o'}; validateFinancialCommand(fc); assert.ok(idempotencyFingerprint(fc).includes('k1'));
+assert.equal(captureLedger({grossMinor:10000n,platformFeeMinor:1000n,providerFeeMinor:300n,currency:'USD'}).length,4); assert.equal(reconcile(100n,90n).status,'MISMATCH');
+const risk=riskDecision({subjectType:'ORDER',velocity:12,paymentFailures:3,chargebacks:2,deviceAnomaly:.8,graphRisk:.9}); assert.equal(risk.band,'BLOCK'); assert.equal(actionForRisk(risk.band),'BLOCK'); assert(risk.explanation.length>=3);
+const ctx=resolveCountryPolicy({country:'EG',currency:'EGP',languages:['ar','en'],tax:{mode:'VAT',inclusive:true,rateBps:1400},checkoutMethods:['card','cod'],catalogRegion:'mena',shippingModes:['standard','express']},{language:'ar',method:'cod',shippingMode:'express'}); assert.equal(ctx.language,'ar'); assert.equal(taxMinor(11400n,1400,true),1400n);
+const s1=validateSpan({traceId:'t',spanId:'1',service:'api',tenantId:'tenant-a',stage:'PAYMENT',durationMs:100,error:false,attributes:{route:'/pay'}}); const s2=validateSpan({...s1,spanId:'2',durationMs:200,error:true}); const summary=summarizeSpans([s1,s2],{maxErrorRate:.5,maxP95Ms:300,minSampleCount:2}); assert.equal(summary.healthy,true); assert.equal(summary.count,2);
+const r=receipt({version:'V314.0.0',workflow:'critical-global-order',status:'PASS',checks:['infra','payment','logistics','decision','risk','commerce','tenant','observability'],timestamp:'2026-09-10T00:00:00Z',inputs:{orderId:'o1',currency:'USD',amountMinor:1000n}}); assert.equal(verifyReceipt(r),true); assert.equal(r.inputsHash.length,64);
+console.log('V314 platform unification tests PASS');

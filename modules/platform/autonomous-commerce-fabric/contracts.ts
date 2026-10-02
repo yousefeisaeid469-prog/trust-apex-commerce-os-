@@ -1,0 +1,10 @@
+export type AutonomyLevel='SUGGEST'|'APPROVAL_REQUIRED'|'AUTO_EXECUTE';
+export type AgentStatus='ACTIVE'|'DEGRADED'|'SUSPENDED';
+export type RiskLevel='low'|'medium'|'high'|'critical';
+export type AgentRecord={agentId:string;tenantId:string;name:string;version:string;capabilities:string[];status:AgentStatus;trustScore:number;maxRisk:RiskLevel;maxAutonomy:AutonomyLevel};
+export type ActionContext={tenantId:string;agentId:string;capability:string;risk:RiskLevel;confidence:number;reversible:boolean;estimatedCost:number;budget:number;payload:Record<string,unknown>};
+export type ActionDecision={allowed:boolean;approvalRequired:boolean;reason:string;score:number;policyVersion:string};
+export type FraudInput={velocity:number;returnRate:number;deviceRisk:number;paymentMismatch:boolean;accountAgeDays:number;shippingMismatch:boolean};
+export type FabricProduct={id:string;name:string;price:number;oldPrice?:number;rating:number;stock:number;merchant:string;category:string;tags:string[]};
+export type FabricSnapshot={agents:AgentRecord[];pendingActions:number;events:number;failedExecutions:number;products:FabricProduct[];fraudSignals:FraudInput[]};
+export type FabricOverview={healthScore:number;autonomyRate:number;inventoryValue:number;averageRating:number;fraudRisk:'low'|'medium'|'high';topProducts:Array<FabricProduct & {score:number;reason:string}>;agents:Array<AgentRecord & {load:string}>};

@@ -1,0 +1,67 @@
+{
+  "id": "v244-runtime-subscriptions",
+  "version": "V261.0.0",
+  "generatedAt": "2026-09-09T01:46:56.377Z",
+  "status": "EVIDENCE_RECEIPT_VALID",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/commerce-events/registry.ts",
+      "exists": true,
+      "sha256": "b1f1827fb6d18d3aaa15ce0f5a69cbc6c0923f7672da4126dbb2253ac949c422"
+    },
+    {
+      "file": "scripts/commerce_event_publisher.mjs",
+      "exists": true,
+      "sha256": "738907d5616f93825247ff501c517d2180ac0b96517af35fb7f7a855ca51720b"
+    },
+    {
+      "file": "scripts/commerce_consumer_mesh.mjs",
+      "exists": true,
+      "sha256": "4e2ebd9f143faa4d3cda497c8e4dc42f3b3bea77c8cd6ba612dc5b4a28e5acca"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "listEnabledSubscriptions",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts"
+      ]
+    },
+    {
+      "marker": "enqueueSubscribedDeliveriesTx",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_event_publisher.mjs"
+      ]
+    },
+    {
+      "marker": "getSubscription",
+      "foundIn": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_consumer_mesh.mjs"
+      ]
+    },
+    {
+      "marker": "subscription.maxAttempts",
+      "foundIn": [
+        "scripts/commerce_consumer_mesh.mjs"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v246-consumer-registry.test.mjs",
+      "command": "node --experimental-strip-types tests/v246-consumer-registry.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "V246 runtime consumer registry contract: PASS",
+      "stderr": ""
+    }
+  ],
+  "promotionAllowed": false
+}

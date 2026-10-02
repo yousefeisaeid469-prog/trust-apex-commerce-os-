@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {deploymentGate,restoreDrill} from '../modules/platform/v313/infrastructure/core.ts';
+import {validateJournal,captureJournal} from '../modules/platform/v313/payments/core.ts';
+import {decide,advanceDecision} from '../modules/platform/v313/decision-engine/core.ts';
+import {scoreRisk} from '../modules/platform/v313/risk/core.ts';
+import {assertTenantIsolation} from '../modules/platform/v313/tenancy/core.ts';
+assert(deploymentGate({healthyRegions:2,minHealthyRegions:2,errorRate:.01,p95Ms:120,maxErrorRate:.02,maxP95Ms:400}));
+assert(restoreDrill({backupChecksum:'sha',restoredChecksum:'sha',criticalRowsBefore:100,criticalRowsAfter:100}).passed);
+validateJournal(captureJournal({amountMinor:10000n,currency:'USD',platformFeeMinor:1000n,paymentFeeMinor:300n}));
+let d=decide({delayRisk:95,costIncreasePct:30,confidence:.9,action:'REPLAN_CARRIER',highRiskThreshold:70});assert(d.requiresHumanApproval);assert.equal(advanceDecision(d,'ACT').stage,'ACT');
+assert.equal(scoreRisk({accountVelocity:10,paymentFailures:3,sellerChargebacks:2,deviceAnomaly:.8,graphLinks:5}).band,'BLOCK');
+assert.throws(()=>assertTenantIsolation('tenant-a','tenant-b'),/TENANT_ISOLATION_VIOLATION/);
+console.log('V313 evidence suite PASS');

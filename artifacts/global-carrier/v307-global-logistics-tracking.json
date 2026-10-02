@@ -1,0 +1,7 @@
+{
+  "version":"V307.0.0",
+  "status":"GLOBAL_LOGISTICS_TRACKING_VERIFIED",
+  "migration":145,
+  "liveCarrierWebhooksConnected":false,
+  "capabilities":["durable carrier event receipt","external event deduplication","stale/out-of-order protection","unmatched event capture","shipment state reconciliation","tracking query API"]
+}

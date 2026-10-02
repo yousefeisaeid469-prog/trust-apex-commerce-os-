@@ -1,0 +1,22 @@
+{
+  "version": "V268.0.0",
+  "status": "PROMOTION_COMMAND_GATEWAY_VERIFIED",
+  "command": {
+    "commandHash": "e00ae93e755c25dd2517017a92af2b6f188f6e0236050a8e18605fba3b04be62",
+    "tamperedCommandRejected": true,
+    "idempotencyKeyBound": true,
+    "targetStateBound": true
+  },
+  "controls": {
+    "durableCommandRecord": true,
+    "commandToAuthorizationBinding": true,
+    "commandToEventBinding": true,
+    "noAutoPromotion": true,
+    "privateKeyPersisted": false
+  },
+  "migration": {
+    "latest": 106,
+    "hasCommandTable": true,
+    "uniqueCommandHash": true
+  }
+}

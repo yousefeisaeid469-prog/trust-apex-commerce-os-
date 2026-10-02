@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {execFileSync} from 'node:child_process';
+const root=process.cwd();
+execFileSync(process.execPath,['scripts/legacy_runtime_surface_audit.mjs'],{stdio:'inherit'});
+const report=JSON.parse(fs.readFileSync(`${root}/artifacts/reality/legacy-runtime-surface-report.json`,'utf8'));
+assert.equal(report.version,'V251.0.0');
+assert.deepEqual(report.violations,[]);
+const cli=fs.readFileSync(`${root}/scripts/autonomous_commerce_orchestrator.mjs`,'utf8');
+assert.match(cli,/acceptDurableOrchestration/);
+assert.doesNotMatch(cli,/from ['"].*autonomous-commerce-orchestrator[\\/]core\.ts/);
+console.log('V251 legacy runtime surface test PASS');

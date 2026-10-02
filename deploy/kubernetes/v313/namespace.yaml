@@ -1,0 +1,77 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: trust-prod
+  labels:
+    trust.io/environment: production
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trust-api-v313
+  namespace: trust-prod
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 0
+      maxSurge: 1
+  selector:
+    matchLabels: {app: trust-api-v313}
+  template:
+    metadata:
+      labels: {app: trust-api-v313}
+      annotations:
+        instrumentation.opentelemetry.io/inject-nodejs: "true"
+    spec:
+      containers:
+        - name: trust-api
+          image: trust-apex-os:313.0.0
+          ports: [{containerPort: 3000}]
+          readinessProbe:
+            httpGet: {path: /api/health, port: 3000}
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /api/health, port: 3000}
+            periodSeconds: 20
+          resources:
+            requests: {cpu: 250m, memory: 512Mi}
+            limits: {cpu: "2", memory: 2Gi}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: trust-api-v313
+  namespace: trust-prod
+spec:
+  selector: {app: trust-api-v313}
+  ports: [{port: 80, targetPort: 3000}]
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: trust-api-v313
+  namespace: trust-prod
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels: {app: trust-api-v313}
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: trust-api-v313
+  namespace: trust-prod
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: trust-api-v313
+  minReplicas: 3
+  maxReplicas: 20
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target: {type: Utilization, averageUtilization: 65}

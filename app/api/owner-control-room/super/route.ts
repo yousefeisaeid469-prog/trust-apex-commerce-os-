@@ -1,0 +1,7 @@
+import { NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
+import { requireOwnerSession } from '../../../../modules/platform/security/owner-auth';
+import { executeOwnerCommand, getSuperControlSnapshot } from '../../../../modules/platform/owner-control-room/super-control-plane';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+export async function GET(req:Request){try{await requireOwnerSession(req);return NextResponse.json({ok:true,controlPlane:await getSuperControlSnapshot()},{headers:{'Cache-Control':'no-store'}})}catch(e){const code=e instanceof Error?e.message:'OWNER_CONTROL_ERROR';return NextResponse.json({ok:false,error:code},{status:code==='OWNER_ACCESS_NOT_CONFIGURED'?503:401})}}
+export async function POST(req:Request){try{const owner=await requireOwnerSession(req);const b=await req.json().catch(()=>({}));const result=await executeOwnerCommand({actorEmail:owner.email,action:String(b.action) as any,target:String(b.target) as any,enabled:typeof b.enabled==='boolean'?b.enabled:undefined,reason:String(b.reason??''),requestId:req.headers.get('x-request-id')??randomUUID()});return NextResponse.json({ok:true,...result},{headers:{'Cache-Control':'no-store'}})}catch(e){const code=e instanceof Error?e.message:'OWNER_COMMAND_FAILED';const status=['OWNER_ACCESS_REQUIRED','OWNER_AUTH_REQUIRED'].includes(code)?401:['OWNER_COMMAND_NOT_ALLOWED','OWNER_REASON_REQUIRED'].includes(code)?400:503;return NextResponse.json({ok:false,error:code},{status})}}

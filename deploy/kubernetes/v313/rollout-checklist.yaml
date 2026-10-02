@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: trust-v313-release-policy
+  namespace: trust-prod
+data:
+  policy.json: |
+    {"strategy":"CANARY","maxErrorRate":0.02,"maxP95Ms":400,"minHealthyRegions":2,"rollbackOnFailure":true,"evidenceRequired":true}

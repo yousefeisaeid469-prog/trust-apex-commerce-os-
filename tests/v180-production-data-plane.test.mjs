@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {loadSnapshot,upsertAgent,recordAutonomyDecision,recordFraudAssessment} from '../modules/platform/autonomous-commerce-data-plane/core.ts';
+
+function fakeDb(){const calls=[];return {calls,async query(sql,params=[]){calls.push({sql,params});if(sql.includes('count(*)::text as count'))return {rows:[{count:'7',value:'12000'}]};if(sql.includes('trust_agent_registry'))return {rows:[{agentId:'a1',tenantId:'00000000-0000-4000-8000-000000000001',name:'Ops',version:'180.0',capabilities:['ship'],status:'ACTIVE',trustScore:.97,maxRisk:'high',maxAutonomy:'AUTO_EXECUTE'}]};return {rows:[]};}}}
+
+test('production data plane snapshot reads durable state',async()=>{const db=fakeDb();const s=await loadSnapshot(db);assert.equal(s.productCount,7);assert.equal(s.inventoryValue,12000);assert.equal(s.agents[0].agentId,'a1');assert.ok(db.calls.length>=6);});
+test('agent persistence is tenant scoped and upserted',async()=>{const db=fakeDb();await upsertAgent(db,{agentId:'a1',tenantId:'00000000-0000-4000-8000-000000000001',name:'Ops',version:'180.0',capabilities:['ship'],status:'ACTIVE',trustScore:.9,maxRisk:'medium',maxAutonomy:'SUGGEST'});assert.match(db.calls[0].sql,/on conflict\(tenant_id,agent_id\)/);});
+test('autonomy decision persistence validates tenant and confidence',async()=>{const db=fakeDb();await assert.rejects(()=>recordAutonomyDecision(db,{tenantId:'not-a-uuid',agentId:'a',capability:'x',decision:'DENIED',reason:'x',confidence:.5,risk:'high',estimatedCost:1,payload:{}}),/TENANT_ID_REQUIRED/);await recordAutonomyDecision(db,{tenantId:'00000000-0000-4000-8000-000000000001',agentId:'a',capability:'x',decision:'ALLOWED',reason:'ok',confidence:.9,risk:'low',estimatedCost:1,payload:{}});assert.match(db.calls.at(-1).sql,/insert into trust_autonomy_actions/);});
+test('fraud assessment persistence rejects invalid score',async()=>{const db=fakeDb();await assert.rejects(()=>recordFraudAssessment(db,{tenantId:'00000000-0000-4000-8000-000000000001',subjectId:'u',score:101,risk:'critical',signals:{}}),/INVALID_FRAUD_SCORE/);});

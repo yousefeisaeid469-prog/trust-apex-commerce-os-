@@ -1,0 +1,18 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {executeCase} from '../modules/platform/reliability-lab/engine.ts';
+import {InMemoryGlobalDeploymentAdapter} from '../modules/platform/global-deployment-control/adapter.ts';
+import {runGlobalDeployment} from '../modules/platform/global-deployment-control/controller.ts';
+import {createReleaseCandidate} from '../modules/platform/production-reliability/candidate.ts';
+const candidate=()=>createReleaseCandidate({version:'150.0.0',sourceFingerprint:'source',migrationFingerprint:'migration',policyRevision:'policy',buildRef:'build-148',createdAt:'2026-09-03T00:00:00.000Z'});
+const regions=[['eu',1],['me',5],['us',25],['apac',50]].map(([name,weight],ordinal)=>({name,ordinal,weightPct:weight,capacityPct:100,dependencies:['identity','payments']}));
+const plan={regions,maxGlobalBlastRadiusPct:100,maxRegionalBlastRadiusPct:100,requireRegionalHealth:true,requireSequentialRegions:true,allowTrafficShift:true};
+const healthy=(region,weight)=>({region,trafficWeightPct:weight,capacityAvailablePct:100,availability:1,errorRate:0,p95Ms:10,budgetConsumedPct:0,replayMatches:true,newFailure:false,dependencyHealthy:true,labResult:executeCase(1481,[{id:'1',kind:'OPEN'}],[])});
+const failed=(region,weight)=>({...healthy(region,weight),availability:.8,errorRate:.2,p95Ms:900,replayMatches:false,newFailure:true,dependencyHealthy:false});
+const obs=()=>Object.fromEntries(regions.map(r=>[r.name,healthy(r.name,r.weightPct)]));
+test('V148 promotes sequentially across regions',()=>{const a=new InMemoryGlobalDeploymentAdapter();const out=runGlobalDeployment({deploymentId:'g1',rolloutId:'r1',candidate:candidate(),plan,observations:obs()},a);assert.equal(out.decision,'PROMOTE');assert.equal(out.promotedRegions.length,4);assert.equal(out.globalTrafficPct,50);assert.equal(out.runtimeVerified,true);});
+test('V148 halts on regional dependency failure',()=>{const a=new InMemoryGlobalDeploymentAdapter();const o=obs();o.us=failed('us',25);const out=runGlobalDeployment({deploymentId:'g2',rolloutId:'r2',candidate:candidate(),plan,observations:o},a);assert.equal(out.decision,'HALT');assert.deepEqual(out.promotedRegions,['eu','me']);assert.equal(a.snapshot().halted,true);});
+test('V148 rolls back failed region when recovery verifies',()=>{const a=new InMemoryGlobalDeploymentAdapter();const o=obs();o.us=failed('us',25);const recovery={...obs(),us:healthy('us',25)};const out=runGlobalDeployment({deploymentId:'g3',rolloutId:'r3',candidate:candidate(),plan,observations:o,recoveryObservations:recovery},a);assert.equal(out.decision,'ROLLBACK');assert.equal(out.runtimeVerified,true);assert.equal(a.snapshot().rolledBack,true);});
+test('V148 rejects invalid regional blast radius',()=>{const a=new InMemoryGlobalDeploymentAdapter();const out=runGlobalDeployment({deploymentId:'g4',rolloutId:'r4',candidate:candidate(),plan:{...plan,maxRegionalBlastRadiusPct:0},observations:obs()},a);assert.equal(out.decision,'ESCALATE');});
+test('V148 fail-closes when a region is missing observation',()=>{const a=new InMemoryGlobalDeploymentAdapter();const o=obs();delete o.apac;const out=runGlobalDeployment({deploymentId:'g5',rolloutId:'r5',candidate:candidate(),plan,observations:o},a);assert.equal(out.decision,'HALT');});
+test('V148 evidence is deterministic',()=>{const run=()=>runGlobalDeployment({deploymentId:'g6',rolloutId:'r6',candidate:candidate(),plan,observations:obs()},new InMemoryGlobalDeploymentAdapter());assert.equal(run().evidenceHash,run().evidenceHash);});

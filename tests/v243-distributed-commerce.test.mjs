@@ -1,0 +1,16 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+const migration=fs.readFileSync('db/migrations/097_v243_distributed_commerce_runtime.sql','utf8');
+const publisher=fs.readFileSync('scripts/commerce_event_publisher.mjs','utf8');
+const tx=fs.readFileSync('modules/platform/durable-events/tx.ts','utf8');
+assert.match(migration,/ALTER TABLE trust_outbox_events ADD COLUMN IF NOT EXISTS tenant_id/);
+assert.match(migration,/idx_trust_outbox_claim_v243/);
+assert.match(publisher,/FOR UPDATE SKIP LOCKED/);
+assert.match(publisher,/outbox:\$\{row\.id\}/);
+assert.match(publisher,/enqueueSubscribedDeliveriesTx/);
+assert.match(fs.readFileSync('modules/platform/commerce-events/registry.ts','utf8'),/trust_event_deliveries/);
+assert.match(publisher,/status='published'/);
+assert.match(publisher,/status='failed'/);
+assert.match(tx,/pg_advisory_xact_lock/);
+assert.match(tx,/idempotency_key/);
+console.log('V243 distributed commerce test: PASS');

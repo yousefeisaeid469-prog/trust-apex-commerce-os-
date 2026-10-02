@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {EventDrivenExecutionFabric} from '../modules/platform/event-driven-execution-fabric/core.ts';
+const policy={maxAttempts:3,maxPayloadBytes:2048,strictOrdering:true};
+const event=(id='e1',seq=1)=>({eventId:id,tenantId:'t1',type:'ORDER_CREATED',aggregateId:'o1',sequence:seq,occurredAt:1,payload:{orderId:'o1'}});
+test('appends with tenant aggregate ordering and deduplication',()=>{const f=new EventDrivenExecutionFabric();const a=f.append(event(),policy);const b=f.append(event(),policy);assert.equal(a.eventId,b.eventId);assert.throws(()=>f.append(event('e2',3),policy),/SEQUENCE_GAP/);});
+test('delivers once and makes business effects idempotent',async()=>{const f=new EventDrivenExecutionFabric();let n=0;f.append(event(),policy);f.subscribe({consumerId:'fulfillment',eventTypes:['ORDER_CREATED'],handler:async()=>{n++;return {status:'SUCCESS',effectKey:'reserve:o1'}}});assert.equal((await f.publish('e1',policy))[0].status,'PROCESSED');assert.equal((await f.publish('e1',policy))[0].status,'DUPLICATE');assert.equal(n,1);});
+test('retries then dead-letters',async()=>{const f=new EventDrivenExecutionFabric();f.append(event(),policy);f.subscribe({consumerId:'bad',eventTypes:['*'],handler:()=>({status:'RETRY',reason:'down'})});const r=await f.publish('e1',policy);assert.equal(r[0].status,'DEAD_LETTERED');assert.equal(f.deadLettersSnapshot().length,1);});
+test('replays selected events',async()=>{const f=new EventDrivenExecutionFabric();f.append(event(),policy);f.subscribe({consumerId:'audit',eventTypes:['*'],handler:()=>({status:'SUCCESS'})});const r=await f.replay(e=>e.type==='ORDER_CREATED',policy);assert.equal(r.requested,1);assert.equal(r.replayed,1);});
+test('enforces payload bounds',()=>{const f=new EventDrivenExecutionFabric();assert.throws(()=>f.append({...event(),payload:{x:'x'.repeat(3000)}},policy),/PAYLOAD_TOO_LARGE/);});

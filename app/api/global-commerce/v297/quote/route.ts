@@ -1,0 +1,1 @@
+import {NextResponse} from 'next/server';import {quoteGlobalCart} from '../../../../../modules/platform/global-commerce-v297/index.ts';export async function POST(req:Request){const body=await req.json();return NextResponse.json(quoteGlobalCart(body));}

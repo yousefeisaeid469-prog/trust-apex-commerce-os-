@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import {newState,executeOnce,stateFingerprint,cloneState} from '../modules/platform/v318/integration-lab/simulator.ts';
+import {concurrentReservationProbe} from '../modules/platform/v318/integration-lab/concurrency.ts';
+const s=newState(10); const o=executeOnce(s,'k1',2,2500n); assert.equal(o.status,'FULFILLED'); assert.equal(s.inventory.get('SKU-1').available,8); assert.equal(s.ledger,2500n);
+const again=executeOnce(s,'k1',2,2500n); assert.equal(again.id,o.id); assert.equal(s.inventory.get('SKU-1').available,8); assert.equal(s.ledger,2500n);
+const before=stateFingerprint(s); assert.throws(()=>executeOnce(s,'k2',3,3000n,'PAYMENT'),/INJECTED_FAILURE:PAYMENT/); assert.equal(stateFingerprint(s),before);
+assert.throws(()=>executeOnce(s,'k3',20,1n),/INSUFFICIENT_STOCK/); assert.equal(stateFingerprint(s),before);
+const a=newState(5); executeOnce(a,'same',1,100n); const b=cloneState(a); assert.equal(stateFingerprint(a),stateFingerprint(b));
+const race=await concurrentReservationProbe(20,5); assert.equal(race.fulfilled,5); assert.equal(race.rejected,15); assert.equal(race.remaining,0); assert.equal(race.ledger,'500');
+console.log('V318 integration lab tests PASS');

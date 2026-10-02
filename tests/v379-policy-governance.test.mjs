@@ -1,0 +1,2 @@
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
+test('V379 governance lifecycle is durable and bounded',()=>{const s=fs.readFileSync('modules/platform/global-commerce-automation/policy-governance.ts','utf8');const m=fs.readFileSync('db/migrations/208_v379_policy_governance_canary.sql','utf8');assert.match(s,/MIN_CANARY_SAMPLES = 3/);assert.match(s,/withPgTransaction/);assert.match(s,/LATEST_CANARY_NOT_PASSED/);assert.match(s,/ALLOWED_ACTIONS/);assert.match(m,/Replay-only/);assert.match(m,/ROLLED_BACK/)});

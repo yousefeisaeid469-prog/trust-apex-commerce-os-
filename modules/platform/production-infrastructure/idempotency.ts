@@ -1,0 +1,3 @@
+import type {IdempotencyStore,DeploymentLock} from './contracts.ts';
+export class InMemoryIdempotencyStore implements IdempotencyStore { private m=new Map<string,{v:string;e:number}>(); async get(k:string){const x=this.m.get(k);if(!x||Date.now()>x.e)return null;return x.v} async put(k:string,v:string,ttl:number){this.m.set(k,{v,e:Date.now()+ttl})} }
+export class InMemoryDeploymentLock implements DeploymentLock { private m=new Map<string,{o:string;e:number}>(); async acquire(k:string,o:string,ttl:number){const x=this.m.get(k);if(x&&x.e>Date.now()&&x.o!==o)return false;this.m.set(k,{o,e:Date.now()+ttl});return true} async release(k:string,o:string){if(this.m.get(k)?.o===o)this.m.delete(k)} }

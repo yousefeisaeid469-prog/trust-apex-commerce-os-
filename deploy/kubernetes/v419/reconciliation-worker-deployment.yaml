@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: trust-commerce-reconciliation-v419
+  labels:
+    app: trust-commerce-reconciliation-v419
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: trust-commerce-reconciliation-v419
+  template:
+    metadata:
+      labels:
+        app: trust-commerce-reconciliation-v419
+    spec:
+      containers:
+        - name: reconciliation-worker
+          image: ${TRUST_IMAGE}
+          command: ["node", "--experimental-strip-types", "scripts/v419_commerce_reconciliation_worker.mjs"]
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: trust-database
+                  key: DATABASE_URL
+            - name: TRUST_V419_RECONCILIATION_BATCH
+              value: "10"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"

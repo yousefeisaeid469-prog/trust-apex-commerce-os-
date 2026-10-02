@@ -1,0 +1,1 @@
+export const GLOBAL_COMMERCE_VERSION='V296.0.0';

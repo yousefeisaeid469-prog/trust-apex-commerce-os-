@@ -1,0 +1,12 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { evaluateProposal, buildDecisionPlan, simulate, executeOnce, rankForAutonomy } from '../modules/platform/autonomous-decision-fabric/core.ts';
+const base={tenantId:'t1',signalIds:['s1'],domains:['INVENTORY'],riskBps:120,expectedImpactBps:900,confidenceBps:9200,budgetMinor:1000n,currency:'USD'};
+const auto={id:'p1',tenantId:'t1',action:'REBALANCE_INVENTORY',maxRiskBps:300,minConfidenceBps:8000,maxBudgetMinor:2000n,autonomy:'AUTO_EXECUTE',enabled:true};
+const approval={...auto,id:'p2',autonomy:'APPROVAL_REQUIRED'};
+test('evaluates policy-bounded proposal',()=>{const p=evaluateProposal(base,auto,'stockout cluster',90,['s1']);assert.equal(p.requiresApproval,false);assert.equal(p.confidenceBps,9200)});
+test('fails closed on risk and tenant',()=>{assert.throws(()=>evaluateProposal({...base,riskBps:301},auto,'x',1,['s1']));assert.throws(()=>evaluateProposal(base,{...auto,tenantId:'t2'},'x',1,['s1']))});
+test('builds deterministic plan and rejects duplicate keys',()=>{const p=evaluateProposal(base,auto,'x',90,['s1']);const q=evaluateProposal({...base,signalIds:['s2']},approval,'y',80,['s2']);const plan=buildDecisionPlan('t1',[q,p]);assert.equal(plan.proposals[0].proposalId,p.proposalId);assert.equal(plan.requiresApproval,true);assert.throws(()=>buildDecisionPlan('t1',[p,p]))});
+test('simulation never mutates',()=>{const p=evaluateProposal(base,auto,'x',90,['s1']);const s=simulate(p,50);assert.equal(s.baselineScore,50);assert.ok(s.projectedScore>50);assert.match(s.assumptions.join('|'),/does not mutate/)});
+test('execution is idempotent and approval gated',()=>{const p=evaluateProposal(base,auto,'x',90,['s1']);const seen=new Set();assert.equal(executeOnce(p,seen,1).status,'EXECUTED');assert.equal(executeOnce(p,seen,2).status,'DUPLICATE');const q=evaluateProposal(base,approval,'x',80,['s2']);assert.equal(executeOnce(q,new Set(),3).status,'PENDING_APPROVAL')});
+test('rank favors confidence minus risk then priority',()=>{const p=evaluateProposal(base,auto,'x',90,['s1']);const q=evaluateProposal({...base,confidenceBps:8500,riskBps:100},auto,'y',100,['s2']);assert.equal(rankForAutonomy(buildDecisionPlan('t1',[p,q]))[0].proposalId,p.proposalId)});

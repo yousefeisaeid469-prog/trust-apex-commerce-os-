@@ -1,0 +1,22 @@
+{
+  "version": "V298.0.0",
+  "status": "GLOBAL_CHECKOUT_RUNTIME_INTEGRATED",
+  "globalQuotePath": "/api/checkout/global/quote",
+  "globalCommitPath": "/api/checkout/global/commit",
+  "authoritativeSnapshot": true,
+  "idempotentCommit": true,
+  "targetCurrencyOrderItems": true,
+  "inventoryAtomicPath": true,
+  "paymentCapabilityEnforced": true,
+  "externalPaymentProvidersConnected": false,
+  "liveDatabaseE2E": false,
+  "requiredArtifacts": [
+    "db/migrations/136_v298_global_checkout_runtime.sql",
+    "modules/platform/global-commerce-v298.ts",
+    "modules/platform/global-money-v298.ts",
+    "modules/commerce/transactions/global-checkout.ts",
+    "app/api/checkout/global/quote/route.ts",
+    "app/api/checkout/global/commit/route.ts",
+    "tests/v298-global-checkout.test.mjs"
+  ]
+}

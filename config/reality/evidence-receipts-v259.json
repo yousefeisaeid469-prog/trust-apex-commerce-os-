@@ -1,0 +1,136 @@
+{
+  "version": "V261.0.0",
+  "schemaVersion": "1.0",
+  "policy": "An evidence receipt is valid only when every declared artifact exists and its SHA-256 digest is recorded, every exact runtime marker is present in a declared artifact, and every declared regression test command exits with code 0. Receipts never promote claims by themselves.",
+  "claims": [
+    {
+      "id": "v244-runtime-subscriptions",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_event_publisher.mjs",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "markers": [
+        "listEnabledSubscriptions",
+        "enqueueSubscribedDeliveriesTx",
+        "getSubscription",
+        "subscription.maxAttempts"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-contract-versions",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/commerce-events/registry.ts",
+        "modules/platform/durable-events/tx.ts"
+      ],
+      "markers": [
+        "validateJsonSchema",
+        "validateEventContractTx",
+        "schema_version"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-bounded-retries",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "scripts/commerce_consumer_mesh.mjs"
+      ],
+      "markers": [
+        "max_attempts",
+        "subscription.maxAttempts"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-ordering",
+      "artifacts": [
+        "modules/platform/durable-events/tx.ts",
+        "modules/platform/durable-events/store.ts"
+      ],
+      "markers": [
+        "pg_advisory_xact_lock",
+        "FOR UPDATE",
+        "NOT EXISTS"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ]
+    },
+    {
+      "id": "v244-poison-isolation",
+      "artifacts": [
+        "scripts/commerce_consumer_mesh.mjs",
+        "modules/platform/durable-events/store.ts",
+        "db/migrations/098_v244_consumer_mesh.sql"
+      ],
+      "markers": [
+        "trust_event_consumer_failures",
+        "DEAD_LETTERED",
+        "retryDelivery"
+      ],
+      "tests": [
+        "tests/v244-consumer-mesh.test.mjs"
+      ]
+    },
+    {
+      "id": "v245-domain-effects",
+      "artifacts": [
+        "modules/commerce/consumers/runtime.ts",
+        "modules/commerce/consumers/order.ts",
+        "modules/commerce/consumers/payment.ts",
+        "modules/commerce/consumers/inventory.ts",
+        "modules/commerce/consumers/fulfillment.ts",
+        "db/migrations/099_v245_real_domain_execution.sql"
+      ],
+      "markers": [
+        "trust_domain_effects",
+        "runEffect",
+        "PROCESSING"
+      ],
+      "tests": [
+        "tests/v245-domain-execution.test.mjs"
+      ]
+    },
+    {
+      "id": "v246-registry-authority",
+      "artifacts": [
+        "modules/platform/commerce-events/registry.ts",
+        "db/migrations/100_v246_runtime_consumer_registry.sql",
+        "scripts/consumer_registry_audit.mjs"
+      ],
+      "markers": [
+        "setSubscription",
+        "registerEventSchema",
+        "getEventSchema"
+      ],
+      "tests": [
+        "tests/v246-consumer-registry.test.mjs"
+      ]
+    },
+    {
+      "id": "v247-schema-validation",
+      "artifacts": [
+        "modules/platform/commerce-events/schema-validator.ts",
+        "modules/platform/durable-events/tx.ts",
+        "scripts/reality_proof_audit.mjs"
+      ],
+      "markers": [
+        "validateJsonSchema",
+        "EVENT_PAYLOAD_TOO_LARGE",
+        "additionalProperties"
+      ],
+      "tests": [
+        "tests/v247-schema-contract.test.mjs"
+      ]
+    }
+  ]
+}

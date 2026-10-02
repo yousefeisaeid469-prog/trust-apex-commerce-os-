@@ -1,0 +1,9 @@
+import { NextRequest, NextResponse } from 'next/server';
+import { getCurrentUser } from '../../../../modules/platform/auth/current-user';
+import { createOnboarding, advanceOnboarding, type OnboardingStage, type OnboardingState } from '../../../../modules/platform/tenancy/onboarding';
+import { query } from '../../../../modules/platform/db/postgres';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+async function load(userId:string):Promise<OnboardingState>{const r=await query(`select user_id,stage,state_json,updated_at from trust_merchant_onboarding where user_id=$1 limit 1`,[userId]);if(!r.rows[0])return createOnboarding(userId);const j=r.rows[0].state_json??{};return{userId,stage:r.rows[0].stage as OnboardingStage,completed:Array.isArray(j.completed)?j.completed:[],updatedAt:new Date(r.rows[0].updated_at).toISOString()};}
+async function save(state:OnboardingState){await query(`insert into trust_merchant_onboarding(user_id,stage,state_json) values($1,$2,$3) on conflict(user_id) do update set stage=excluded.stage,state_json=excluded.state_json,updated_at=now()`,[state.userId,state.stage,JSON.stringify({completed:state.completed})]);return state;}
+export async function GET(req:NextRequest){const user=await getCurrentUser(req);if(!user)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});return NextResponse.json({ok:true,onboarding:await load(user.id)},{headers:{'Cache-Control':'no-store'}});}
+export async function POST(req:NextRequest){const user=await getCurrentUser(req);if(!user)return NextResponse.json({ok:false,error:'AUTH_REQUIRED'},{status:401});const body=await req.json().catch(()=>({}));try{const next=advanceOnboarding(await load(user.id),String(body?.stage) as OnboardingStage);return NextResponse.json({ok:true,onboarding:await save(next)},{headers:{'Cache-Control':'no-store'}});}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'ONBOARDING_ERROR'},{status:400});}}

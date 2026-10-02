@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const sql=fs.readFileSync('db/migrations/233_v408_production_execution_plane.sql','utf8');
+assert.match(sql,/trust_production_execution_snapshot/);
+assert.match(sql,/CAPTURED_PAYMENT_NO_EXECUTION/);
+assert.match(sql,/FULFILLMENT_BLOCKED/);
+assert.match(sql,/SETTLEMENT_PENDING/);
+const spine=fs.readFileSync('modules/platform/runtime-spine.ts','utf8');
+assert.match(spine,/SUCCEEDED: \['SUCCEEDED'\]/);
+assert.match(spine,/RUNTIME_STATUS_TRANSITION_INVALID/);
+const checkout=fs.readFileSync('modules/commerce/transactions/checkout.ts','utf8'); assert.match(checkout,/ensureOrderRuntimeOperationTx/);
+const payment=fs.readFileSync('modules/commerce/payments/orchestrator.ts','utf8'); assert.match(payment,/payment\.captured/); assert.match(payment,/PAYMENT_FAILED/);
+const execution=fs.readFileSync('modules/commerce/core/order-execution.ts','utf8'); assert.match(execution,/commerce\.order\.completed/);
+console.log('V408 PRODUCTION EXECUTION TEST PASS');

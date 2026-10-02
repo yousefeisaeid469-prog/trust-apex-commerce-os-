@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+const a = JSON.parse(fs.readFileSync('artifacts/reality/reality-claim-resolution.json','utf8'));
+const pkg = JSON.parse(fs.readFileSync('package.json','utf8')); if (a.version !== `V${pkg.version}`) throw new Error(`version=${a.version}`);
+if (a.counts.NEEDS_EXPLICIT_AUTHORING !== 58) throw new Error(`capabilityQueue=${a.counts.NEEDS_EXPLICIT_AUTHORING}`);
+if (a.counts.NON_CLAIM_LIMITATION !== 24) throw new Error(`limitations=${a.counts.NON_CLAIM_LIMITATION}`);
+if (a.counts.NON_CLAIM_TITLE !== 13) throw new Error(`titles=${a.counts.NON_CLAIM_TITLE}`);
+if (a.counts.VERIFICATION_NARRATIVE !== 1) throw new Error(`verificationNarrative=${a.counts.VERIFICATION_NARRATIVE}`);
+const forbidden = a.records.filter(r => ['LIMITATION_STATEMENT','RELEASE_TITLE','VERIFICATION_STATEMENT'].includes(r.classification) && r.status === 'NEEDS_EXPLICIT_AUTHORING');
+if (forbidden.length) throw new Error(`non-claim records entered capability queue: ${forbidden.map(x=>x.id).join(',')}`);
+if (a.records.some(r => r.status === 'PROMOTED')) throw new Error('resolver must never auto-promote claims');
+console.log('V255 reality claim resolution PASS — non-claims separated; capability queue requires explicit evidence authoring.');

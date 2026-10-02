@@ -1,0 +1,7 @@
+import { query } from '../db/postgres';
+const tables=['trust_users','trust_sessions','trust_carts','trust_reviews','trust_returns','trust_payment_intents','trust_decision_records','trust_evidence_records','trust_audit_events','trust_outbox_events','trust_agent_approvals','trust_agent_messages','trust_admin_control_state','trust_admin_rate_limits','trust_jobs'];
+export async function integrityOverview(){
+ const results=await Promise.all(tables.map(async table=>{try{const r=await query(`select count(*)::bigint as count from ${table}`);return{table,count:Number(r.rows[0]?.count??0),status:'reachable'};}catch(error){return{table,count:null,status:error instanceof Error?error.message:'unavailable'};}}));
+ const [decisions,evidence,audit,outbox]=await Promise.all([query(`select count(*)::int as count from trust_decision_records`),query(`select count(*)::int as count from trust_evidence_records`),query(`select count(*)::int as count from trust_audit_events`),query(`select count(*)::int as count from trust_outbox_events where status='pending'`)]);
+ return{version:'134.0.0',persistence:'postgres',authoritativeState:['identity','sessions','carts','merchant profiles','returns','reviews','payment intents','agent control','admin control','decisions','evidence','audit','outbox','jobs'],counts:{decisions:Number(decisions.rows[0]?.count??0),evidence:Number(evidence.rows[0]?.count??0),audit:Number(audit.rows[0]?.count??0),pendingOutbox:Number(outbox.rows[0]?.count??0)},tables:results,generatedAt:new Date().toISOString()};
+}

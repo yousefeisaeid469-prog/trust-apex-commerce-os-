@@ -1,0 +1,6 @@
+import {NextRequest,NextResponse} from 'next/server';
+import {getCurrentUser} from '@/modules/platform/auth/current-user';
+import {query} from '@/modules/platform/db/postgres';
+import {shipmentTimeline} from '@/modules/platform/fulfillment-execution/core';
+export const dynamic='force-dynamic';export const runtime='nodejs';
+export async function GET(req:NextRequest,{params}:{params:{id:string}}){const u=await getCurrentUser(req);if(!u)return NextResponse.json({ok:false,error:'AUTH_REQUIRED',surfaceStatus:'ERROR'},{status:401});try{const s=(await query(`select id,order_id,customer_id from trust_shipments s join trust_orders o on o.id=s.order_id where s.id=$1`,[params.id])).rows[0];if(!s)return NextResponse.json({ok:false,error:'SHIPMENT_NOT_FOUND',surfaceStatus:'ERROR'},{status:404});if(s.customer_id!==u.id&&!['admin','support','operations'].includes(u.role))return NextResponse.json({ok:false,error:'SHIPMENT_ACCESS_DENIED',surfaceStatus:'ERROR'},{status:403});return NextResponse.json({ok:true,surfaceStatus:'LIVE',shipmentId:params.id,events:await shipmentTimeline(params.id)},{headers:{'Cache-Control':'no-store'}})}catch(e){return NextResponse.json({ok:false,error:e instanceof Error?e.message:'TRACKING_ERROR',surfaceStatus:'ERROR'},{status:400})}}

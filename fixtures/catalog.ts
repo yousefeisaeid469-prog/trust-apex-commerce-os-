@@ -1,0 +1,9 @@
+export type Product={id:string;name:string;category:string;price:number;oldPrice?:number;merchant:string;rating:number;stock:number;region:string;tags:string[];image:string};
+export const products:Product[]=[
+{id:'p1',name:'TRUST Heavy Oversized Hoodie',category:'Streetwear',price:1299,oldPrice:1599,merchant:'NOVA LAB',rating:4.9,stock:42,region:'Cairo',tags:['oversized','black','heavy'],image:'https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=85'},
+{id:'p2',name:'Midnight Cargo 2.0',category:'Pants',price:999,merchant:'VOID SUPPLY',rating:4.8,stock:17,region:'Alexandria',tags:['cargo','dark','street'],image:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=85'},
+{id:'p3',name:'Essential Heavy Tee',category:'T-Shirts',price:549,oldPrice:699,merchant:'NORTH 09',rating:4.7,stock:83,region:'Dakahlia',tags:['cotton','minimal','black'],image:'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=85'},
+{id:'p4',name:'Chrome Utility Crossbody',category:'Accessories',price:699,merchant:'FORM',rating:4.8,stock:31,region:'Giza',tags:['utility','silver','street'],image:'https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=900&q=85'},
+{id:'p5',name:'Noir Runner',category:'Sneakers',price:1899,oldPrice:2199,merchant:'VECTOR',rating:4.9,stock:12,region:'Cairo',tags:['black','runner','night'],image:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85'},
+{id:'p6',name:'Milton Premium Zip Jacket',category:'Outerwear',price:1699,merchant:'ATELIER 7',rating:4.6,stock:26,region:'Mansoura',tags:['milton','premium','dark'],image:'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=85'}
+];

@@ -1,0 +1,3 @@
+export type ChaosScenario = { id:string; target:string; fault:'latency'|'timeout'|'error'|'duplicate'|'reorder'; probability:number };
+export function validateScenario(s:ChaosScenario){ if(!s.id||!s.target) throw new Error('CHAOS_SCENARIO_REQUIRED'); if(s.probability<0||s.probability>1) throw new Error('CHAOS_PROBABILITY_INVALID'); return Object.freeze({...s}); }
+export function inject<T>(scenario:ChaosScenario, value:T, rng=()=>0.5):T { validateScenario(scenario); if(rng()>scenario.probability) return value; if(scenario.fault==='timeout') throw new Error('CHAOS_TIMEOUT'); if(scenario.fault==='error') throw new Error('CHAOS_INJECTED_FAILURE'); return value; }

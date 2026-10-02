@@ -1,0 +1,179 @@
+{
+  "id": "evidence-packet:capability-026-explicit-separation-between-decision-support-and-sensitive-execution",
+  "contractId": "capability-026-explicit-separation-between-decision-support-and-sensitive-execution",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V211.md:8",
+  "claim": "Explicit separation between decision support and sensitive execution.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "artifacts/reality/reality-evidence-promotion.json",
+      "tests/decision-fabric.test.ts",
+      "tests/v136-enterprise-platform.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v161-global-marketplace.test.mjs",
+      "tests/v171-autonomous-decision-fabric.test.mjs",
+      "tests/v173-learning-loop.test.mjs",
+      "tests/v175-chief-decision-orchestrator.test.mjs",
+      "tests/v176-autonomous-execution-mesh.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 11,
+        "token": "explicit",
+        "excerpt": "\"CONTRADICTED\": \"Evidence contains explicit not-wired/not-implemented or equivalent negative runtime markers.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 29,
+        "token": "explicit",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V147.md:13 (docs line 13) — The reference implementation uses an in memory adapter for deterministic tests. Production infrastructure control remains an explicit adapter boundary and ",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 5,
+        "token": "explicit",
+        "excerpt": "\"policy\": \"The compiler turns capability-resolution records into explicit contract shells. It never infers proof, never fills authoritative runtime markers/tests from lexical candidates, and never promotes a claim.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 5,
+        "token": "explicit",
+        "excerpt": "The compiler turns capability-resolution records into explicit contract shells. It never infers proof, never fills authoritative runtime markers/tests from lexical candidates, and never promotes a claim.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 4,
+        "token": "explicit",
+        "excerpt": "\"policy\": \"Authoring separates lexical discovery from proof. No draft can become PROVEN without explicit artifact, runtime-marker, and regression-test references.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 4,
+        "token": "explicit",
+        "excerpt": "\"policy\": \"The resolver separates capability claims from limitation/title/verification prose and produces discovery candidates without treating lexical matches as proof. Only an explicit structured contract may enter promotion.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 4,
+        "token": "explicit",
+        "excerpt": "\"method\": \"Conservative lexical candidate mapping; candidates are NOT proof until tests/runtime markers are explicitly attached.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-promotion.json",
+        "line": 4,
+        "token": "explicit",
+        "excerpt": "\"policy\": \"Promotion requires an explicit structured claim plus complete implementation, runtime-marker, and regression-test evidence. Lexical candidates never auto-promote.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/decision-fabric.test.ts",
+        "hits": [
+          "explicit",
+          "decision"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v136-enterprise-platform.test.mjs",
+        "hits": [
+          "explicit",
+          "between",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "explicit",
+          "decision"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v161-global-marketplace.test.mjs",
+        "hits": [
+          "explicit",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v171-autonomous-decision-fabric.test.mjs",
+        "hits": [
+          "decision",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v173-learning-loop.test.mjs",
+        "hits": [
+          "explicit",
+          "decision"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v175-chief-decision-orchestrator.test.mjs",
+        "hits": [
+          "decision",
+          "support"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v176-autonomous-execution-mesh.test.mjs",
+        "hits": [
+          "decision",
+          "execution"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "961d717eba04676d7137c888638b17f97b4b2b615e173b2d8d8321bda4737acd",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

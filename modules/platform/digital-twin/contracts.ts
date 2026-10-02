@@ -1,0 +1,10 @@
+export type TwinNodeKind='CUSTOMER'|'SELLER'|'PRODUCT'|'OFFER'|'ORDER'|'WAREHOUSE'|'SUPPLIER'|'CAMPAIGN'|'ROUTE'|'FINANCE';
+export type TwinEdgeKind='PURCHASED'|'SOLD_BY'|'OFFERS'|'FULFILLED_BY'|'STORED_AT'|'SOURCED_FROM'|'PROMOTED_BY'|'USES_ROUTE'|'IMPACTS'|'DEPENDS_ON';
+export interface TwinNode{id:string;kind:TwinNodeKind;tenantId:string;state:Record<string,number>;tags?:string[];}
+export interface TwinEdge{from:string;to:string;kind:TwinEdgeKind;weight:number;}
+export interface TwinSnapshot{snapshotId:string;tenantId:string;timestamp:number;nodes:TwinNode[];edges:TwinEdge[];}
+export interface ScenarioChange{nodeId:string;metric:string;delta:number;}
+export interface Scenario{name:string;changes:ScenarioChange[];horizonHours:number;}
+export interface Impact{nodeId:string;metric:string;baseline:number;projected:number;delta:number;confidenceBps:number;}
+export interface ScenarioResult{scenarioId:string;tenantId:string;status:'SIMULATED';horizonHours:number;impacts:Impact[];netScore:number;assumptions:string[];productionSideEffects:false;}
+export interface ReplayEvent{eventId:string;tenantId:string;timestamp:number;nodeId:string;metric:string;value:number;}

@@ -1,0 +1,14 @@
+import fs from 'node:fs'; import assert from 'node:assert/strict';
+const read=f=>fs.readFileSync(f,'utf8');
+const sql=read('db/migrations/125_v287_financial-architecture-correctness.sql');
+const finance=read('modules/marketplace/financial-loop.ts');
+const disputes=read('modules/marketplace/disputes-finance.ts');
+const settlement=read('modules/marketplace/economic-settlement.ts');
+const ledger=read('modules/marketplace/payment-ledger.ts');
+assert.match(disputes,/DISPUTE_ALLOCATION_INCOMPLETE/); assert.match(disputes,/for update/i); assert.match(disputes,/providerEventReplay/);
+assert.match(disputes,/PAYOUT_PROVIDER_EVENT_PAYLOAD_CONFLICT/); assert.match(disputes,/ADJUSTMENT_PENDING/); assert.match(disputes,/PAYOUT_ADJUSTMENT/);
+assert.match(finance,/PAYOUT_CURRENCY_MISMATCH/); assert.match(settlement,/SELLER_BALANCE_CURRENCY_MISMATCH/);
+assert.match(sql,/DISPUTE_ALLOCATION_IMMUTABLE/); assert.match(sql,/account_owner_ck/); assert.match(sql,/PAYOUT_ADJUSTMENT/);
+assert.match(ledger,/entryType.*PAYOUT_ADJUSTMENT/); assert.doesNotMatch(settlement,/merchantId,entryType:'PLATFORM_FEE'/); assert.doesNotMatch(ledger,/merchantId:input\.merchantId,entryType:'PLATFORM_FEE'/);
+for (const f of ['app/api/finance/disputes/route.ts','app/api/finance/payout-reconciliation/route.ts','app/api/merchant/finance/statements/route.ts']) assert.ok(fs.existsSync(f),`missing API ${f}`);
+console.log('V287 financial architecture correctness contracts: 14/14 PASS');

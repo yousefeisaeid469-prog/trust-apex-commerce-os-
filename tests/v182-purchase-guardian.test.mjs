@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {buildAlerts} from '../modules/commerce/purchase-guardian/core.ts';
+test('V182 return window alert',()=>{const end=new Date(Date.now()+3*86400000).toISOString();const a=buildAlerts({returnWindowEndsAt:end,warrantyEndsAt:null,status:'confirmed'});assert.equal(a[0]?.type,'return_window');assert.equal(a[0]?.action,'review_return');});
+test('V182 warranty alert',()=>{const end=new Date(Date.now()+10*86400000).toISOString();const a=buildAlerts({returnWindowEndsAt:null,warrantyEndsAt:end,status:'confirmed'});assert.equal(a[0]?.type,'warranty');});
+test('V182 no alert outside windows',()=>{const end=new Date(Date.now()+90*86400000).toISOString();assert.equal(buildAlerts({returnWindowEndsAt:end,warrantyEndsAt:null,status:'confirmed'}).length,0);});

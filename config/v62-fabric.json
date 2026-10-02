@@ -1,0 +1,13 @@
+{
+  "version": "62.0.0",
+  "mode": "governed-autonomy",
+  "eventFabric": true,
+  "multiAgent": true,
+  "digitalTwin": true,
+  "decisionEngine": true,
+  "experimentation": true,
+  "autonomyFirewall": true,
+  "zeroTrustAgents": true,
+  "approvalRequiredForHighImpactActions": true,
+  "tenantIsolation": true
+}

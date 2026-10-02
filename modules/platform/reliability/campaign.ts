@@ -1,0 +1,3 @@
+import { deterministicCases } from './property/invariants.ts';
+export type Campaign={id:string;seed:number;iterations:number;faults:string[]};
+export function runCampaign(c:Campaign):{id:string;executed:number;faults:string[];fingerprint:string}{if(c.iterations<1||c.iterations>100000)throw new Error('CAMPAIGN_ITERATION_LIMIT');if(!c.faults.length)throw new Error('CAMPAIGN_NO_FAULTS');const cases=deterministicCases(c.seed,c.iterations);let acc=0;for(const n of cases)acc=(acc^(n&255))>>>0;return{id:c.id,executed:c.iterations,faults:[...new Set(c.faults)].sort(),fingerprint:`${c.seed.toString(16)}-${acc.toString(16)}`};}

@@ -1,0 +1,7 @@
+export type NetworkObjective='BALANCED'|'COST'|'SPEED'|'RELIABILITY'|'PROMISE';
+export interface NetworkShipment { shipmentId:string; country:string; currency:string; mode:'STANDARD'|'EXPRESS'|'PICKUP'; priority?:'BALANCED'|'COST'|'SPEED'|'RELIABILITY'; promisedAt?:string|null; etaAt?:string|null; currentCarrier?:string|null; }
+export interface NetworkCapacity { carrierCode:string; serviceCode:string; country:string; currency:string; mode:'STANDARD'|'EXPRESS'|'PICKUP'; maxShipments:number; reservedShipments?:number; }
+export interface LearnedNetworkProfile { carrierCode:string; serviceCode:string; adaptiveReliability:number; confidence:number; sampleCount:number; avgTransitDays:number|null; promiseHitRate:number; }
+export interface NetworkCandidate { carrierCode:string; serviceCode:string; costMinor:bigint; minDays:number; maxDays:number; reliability:number; capacityRemaining:number|null; networkScore:number; reasons:string[]; }
+export interface NetworkAllocation { shipmentId:string; carrierCode:string; serviceCode:string; score:number; costMinor:bigint; maxDays:number; reliability:number; reasons:string[]; }
+export interface NetworkPlan { version:string; objective:NetworkObjective; allocations:NetworkAllocation[]; unallocatedShipmentIds:string[]; summary:{shipments:number;allocated:number;unallocated:number;carriersUsed:number;totalCostMinor:bigint;averageMaxDays:number|null}; idempotencyKey:string; }

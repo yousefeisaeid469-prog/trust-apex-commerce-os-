@@ -1,0 +1,6 @@
+{
+  "version": "V301.0.0",
+  "status": "GLOBAL_ORDER_ORCHESTRATION_VERIFIED",
+  "externalProvidersConnected": false,
+  "scope": "runtime-contract-and-durable-orchestration"
+}

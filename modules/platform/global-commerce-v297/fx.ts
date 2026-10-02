@@ -1,0 +1,1 @@
+export function validateFxQuote(q:any){if(q?.expiresAt&&Date.parse(q.expiresAt)<=Date.now())throw new Error('FX_QUOTE_EXPIRED');if(q?.base!==q?.quote&&q?.rate<=0)throw new Error('IDENTITY_FX_RATE_INVALID');return q;}

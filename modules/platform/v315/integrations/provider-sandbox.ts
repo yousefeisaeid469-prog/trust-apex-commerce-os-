@@ -1,0 +1,4 @@
+import {createHash} from 'node:crypto';
+export type ProviderSandbox={id:string;currency:string;method:string;available:boolean;failNext?:boolean};
+export function sandboxPayment(provider:ProviderSandbox,input:{operation:'AUTHORIZE'|'CAPTURE'|'REFUND';idempotencyKey:string;amountMinor:bigint}){if(!provider.available)throw new Error('SANDBOX_PROVIDER_UNAVAILABLE');if(provider.failNext)throw new Error('SANDBOX_PROVIDER_FAILURE');if(input.amountMinor<=0n)throw new Error('INVALID_AMOUNT');return {providerId:provider.id,status:'SUCCEEDED',providerReference:createHash('sha256').update(`${provider.id}|${input.operation}|${input.idempotencyKey}`).digest('hex').slice(0,24)};}
+export function sandboxCarrier(input:{carrierId:string;trackingSeed:string;fail?:boolean}){if(input.fail)throw new Error('SANDBOX_CARRIER_FAILURE');return {carrierId:input.carrierId,trackingNumber:`TRK-${createHash('sha256').update(input.trackingSeed).digest('hex').slice(0,16).toUpperCase()}`};}

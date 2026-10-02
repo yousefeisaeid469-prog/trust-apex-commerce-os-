@@ -1,0 +1,8 @@
+{
+  "version": "124.0.0",
+  "codename": "PREVENTION-OS",
+  "foundation": "TRUST V123 Problem Solver OS",
+  "liveProvidersConnected": false,
+  "productionBuildClaimed": false,
+  "majorModules": ["prevention-engine", "prevention-api", "prevention-customer", "prevention-admin", "prevention-sql-contract"]
+}

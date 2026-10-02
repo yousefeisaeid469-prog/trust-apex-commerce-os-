@@ -1,0 +1,4 @@
+import { dispatch } from '../../../../modules/agents/orchestrator';
+import { requireAdminSession } from '../../../../modules/platform/security/route-auth';
+export const dynamic='force-dynamic';
+export async function POST(request:Request){try{await requireAdminSession(request);const b=await request.json().catch(()=>({}));if(typeof b.agentId!=='string'||typeof b.mode!=='string')return Response.json({error:'AGENT_ID_AND_MODE_REQUIRED'},{status:400});const r=dispatch(b.agentId,b.mode,b.decisionId);if(!r.ok&&r.error)return Response.json(r,{status:r.error==='AGENT_NOT_FOUND'?404:409});return Response.json(r,{status:r.status==='PENDING_APPROVAL'?202:200});}catch(e){return Response.json({ok:false,error:e instanceof Error&&e.message==='ADMIN_AUTH_REQUIRED'?'Unauthorized':'CONTROL_SURFACE_ERROR'},{status:e instanceof Error&&e.message==='ADMIN_AUTH_REQUIRED'?401:400});}}

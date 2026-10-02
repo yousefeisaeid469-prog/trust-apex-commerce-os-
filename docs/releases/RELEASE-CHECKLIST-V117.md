@@ -1,0 +1,15 @@
+# V117 Release Checklist
+- [x] Discovery engine added
+- [x] Mission search added
+- [x] Reasoned ranking added
+- [x] Smart bundle foundation added
+- [x] Discovery API added
+- [x] Visual provider boundary added
+- [x] Private discovery admin surface added
+- [x] SQL migration added
+- [x] Release scripts updated
+- [x] ZIP integrity validated
+- [ ] Connect real Vision Provider
+- [ ] Connect durable discovery analytics provider
+- [ ] Add production experiment assignment and privacy retention policy
+- [ ] Run full dependency-installed `next build` in CI

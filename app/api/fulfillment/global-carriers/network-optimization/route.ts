@@ -1,0 +1,4 @@
+import {NextResponse} from 'next/server';
+import {planNetwork,previewNetwork} from '../../../../../modules/platform/global-logistics-v311/runtime';
+export async function GET(){return NextResponse.json(await import('../../../../../modules/platform/global-logistics-v311/runtime').then(x=>x.listNetworkPlans()));}
+export async function POST(req:Request){try{const body=await req.json();if(!Array.isArray(body.shipments)||!body.shipments.length)return NextResponse.json({error:'SHIPMENTS_REQUIRED'},{status:400});const input={shipments:body.shipments,capacities:body.capacities??[],objective:body.objective??'BALANCED',now:body.now,idempotencyKey:body.idempotencyKey??`preview:${Date.now()}`};const result=body.preview===true?await previewNetwork(input):await planNetwork(input);return NextResponse.json(result);}catch(error){return NextResponse.json({error:error instanceof Error?error.message:'NETWORK_OPTIMIZATION_FAILED'},{status:400});}}

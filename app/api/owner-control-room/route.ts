@@ -1,0 +1,17 @@
+import { NextResponse } from 'next/server';
+import { randomUUID } from 'node:crypto';
+import { requireOwnerSession } from '../../../modules/platform/security/owner-auth';
+import { buildOwnerSnapshot, appendOwnerAudit, listOwnerAudit, controlById, getOwnerLiveControlState, setOwnerLiveControl } from '../../../modules/platform/owner-control-room';
+import { getControlState, setControlMode } from '../../../modules/platform/admin/control';
+export const dynamic='force-dynamic'; export const runtime='nodejs';
+function requestId(req:Request){return req.headers.get('x-request-id')??randomUUID();}
+export async function GET(req:Request){try{const owner=await requireOwnerSession(req);const [audit,control,live]=await Promise.all([listOwnerAudit(),getControlState(),getOwnerLiveControlState()]);return NextResponse.json({ok:true,room:buildOwnerSnapshot({ownerEmail:owner.email,controlMode:control.mode,audit}),live},{headers:{'Cache-Control':'no-store'}});}catch(e){const code=e instanceof Error?e.message:'OWNER_ACCESS_ERROR';return NextResponse.json({ok:false,error:code},{status:code==='OWNER_ACCESS_NOT_CONFIGURED'?503:401});}}
+export async function POST(req:Request){let owner;try{owner=await requireOwnerSession(req);}catch(e){const code=e instanceof Error?e.message:'OWNER_ACCESS_ERROR';return NextResponse.json({ok:false,error:code},{status:code==='OWNER_ACCESS_NOT_CONFIGURED'?503:401});}
+ const body=await req.json().catch(()=>({})); const control=controlById(String(body?.controlId??'')); if(!control)return NextResponse.json({ok:false,error:'UNKNOWN_OWNER_CONTROL'},{status:400}); const rid=requestId(req); const reason=typeof body?.reason==='string'?body.reason:'';
+ if(control.readOnly){const event=await appendOwnerAudit({actorEmail:owner.email,action:'owner.control.inspect',target:control.id,result:'SIMULATED',requestId:rid,payload:{}}).catch(()=>null);return NextResponse.json({ok:true,status:'READ_ONLY',control,event,live:await getOwnerLiveControlState()},{headers:{'Cache-Control':'no-store'}});}
+ const enabled=Boolean(body?.enabled); const confirmed=body?.confirmation==='I_UNDERSTAND';
+ if(['MAINTENANCE_MODE','GLOBAL_FREEZE','AUTONOMY_KILL_SWITCH'].includes(control.id)&&confirmed){
+   try{const live=await setOwnerLiveControl(control.id as any,enabled,owner.email,reason); const mode=control.id==='MAINTENANCE_MODE'?(enabled?'readonly':'normal'):control.id==='GLOBAL_FREEZE'?(enabled?'emergency':'normal'):(enabled?'safe':'normal'); const state=await setControlMode(mode as any,owner.email,reason); const event=await appendOwnerAudit({actorEmail:owner.email,action:'owner.control.execute',target:control.id,result:'ACCEPTED',requestId:rid,payload:{enabled,mode}});return NextResponse.json({ok:true,status:'EXECUTED',control,enabled,live,state,event},{headers:{'Cache-Control':'no-store'}});}catch(e){const event=await appendOwnerAudit({actorEmail:owner.email,action:'owner.control.execute',target:control.id,result:'FAILED',requestId:rid,payload:{enabled,error:e instanceof Error?e.message:'CONTROL_FAILED'}}).catch(()=>null);return NextResponse.json({ok:false,status:'FAILED',error:e instanceof Error?e.message:'CONTROL_FAILED',event},{status:503});}
+ }
+ const event=await appendOwnerAudit({actorEmail:owner.email,action:'owner.control.request',target:control.id,result:'BLOCKED',requestId:rid,payload:{reason,enabled,confirmationRequired:true}}).catch(()=>null);return NextResponse.json({ok:true,status:'CONFIRMATION_REQUIRED',control,event},{status:202,headers:{'Cache-Control':'no-store'}});
+}

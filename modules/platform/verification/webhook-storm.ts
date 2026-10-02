@@ -1,0 +1,3 @@
+import {stableDigest} from './invariants.ts';
+export type Webhook={provider:string;eventId:string;sequence:number;tenantId:string};
+export function processWebhookStorm(events:Webhook[]){const seen=new Set<string>(),accepted:Webhook[]=[],duplicates:Webhook[]=[];for(const e of events){const key=`${e.provider}:${e.eventId}`;if(seen.has(key)){duplicates.push(e);continue}seen.add(key);accepted.push(e)}const ordered=[...accepted].sort((a,b)=>a.sequence-b.sequence);let gaps=0;for(let i=1;i<ordered.length;i++)if(ordered[i].sequence!==ordered[i-1].sequence+1)gaps++;return {accepted,duplicates,gaps,fingerprint:stableDigest(accepted.map(e=>`${e.provider}|${e.eventId}|${e.sequence}|${e.tenantId}`))}}

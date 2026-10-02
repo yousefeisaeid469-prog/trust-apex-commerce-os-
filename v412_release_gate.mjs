@@ -1,0 +1,11 @@
+import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
+import path from 'node:path';
+const root=process.cwd();
+const pkg=JSON.parse(fs.readFileSync(path.join(root,'package.json'),'utf8'));
+if(pkg.version!=='412.0.0') throw new Error('V412_PACKAGE_VERSION_MISMATCH');
+const run=f=>execFileSync(process.execPath,[path.join(root,f)],{cwd:root,stdio:'inherit'});
+run('scripts/v412_execution_idempotency_test.mjs');
+run('scripts/v412_execution_idempotency_audit.mjs');
+run('scripts/migration_check.mjs');
+console.log('V412 RELEASE GATE PASS');

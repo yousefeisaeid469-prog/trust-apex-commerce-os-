@@ -1,0 +1,11 @@
+import assert from 'node:assert/strict';
+import {calculateFee,assessFees,sellerNet} from '../modules/marketplace/fee-engine.ts';
+import {calculateFinalPrice} from '../modules/marketplace/economic-core.ts';
+assert.equal(calculateFinalPrice({base:100,seller:0,dynamic:0,deal:10,coupon:0,voucher:0,quantity:0,membership:0,b2b:0,regional:0,tax:0,shipping:0}),90);
+assert.equal(calculateFinalPrice({base:100,seller:0,dynamic:0,deal:10,coupon:5,voucher:0,quantity:0,membership:0,b2b:0,regional:0,tax:0,shipping:0}),85);
+assert.equal(calculateFee({baseAmount:1000,rateBps:1000}),100);
+assert.equal(calculateFee({baseAmount:1000,rateBps:1000,minimumFee:150}),150);
+assert.equal(calculateFee({baseAmount:1000,rateBps:1000,maximumFee:80}),80);
+assert.deepEqual(assessFees({baseAmount:1000,programCode:'ORDER',rules:[{feeType:'REFERRAL',rateBps:1000},{feeType:'PAYMENT',rateBps:200}]}).map(x=>x.feeAmount),[100,20]);
+assert.equal(sellerNet(1000,120),880);
+console.log('V282 economic core: 7/7 PASS');

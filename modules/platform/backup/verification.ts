@@ -1,0 +1,2 @@
+export type BackupVerification = { id: string; backupId: string; startedAt: string; completedAt?: string; status: 'started' | 'passed' | 'failed'; restoredObjects?: number; checksumVerified?: boolean; notes?: string };
+export function assertBackupEvidence(result: BackupVerification) { if (result.status !== 'passed') throw new Error('BACKUP_VERIFICATION_FAILED'); if (!result.completedAt || result.checksumVerified !== true) throw new Error('BACKUP_EVIDENCE_INCOMPLETE'); return true; }

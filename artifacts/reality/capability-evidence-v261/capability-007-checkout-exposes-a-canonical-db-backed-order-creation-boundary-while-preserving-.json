@@ -1,0 +1,43 @@
+{
+  "id": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+  "version": "V261.0.0",
+  "status": "EXECUTABLE_EVIDENCE",
+  "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/commerce/transactions/checkout.ts",
+      "exists": true,
+      "sha256": "0d9c03c1e530e54fe861c05f3b3a0e30d9cfe430359123dfe1fa9a33481ffca8"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "on conflict(idempotency_key) do nothing",
+      "foundIn": [
+        "modules/commerce/transactions/checkout.ts"
+      ]
+    },
+    {
+      "marker": "IDEMPOTENCY_KEY_REUSED",
+      "foundIn": [
+        "modules/commerce/transactions/checkout.ts"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v132-hardening.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: V132 adds lease ownership and recovery primitives\nok 1 - V132 adds lease ownership and recovery primitives\n  ---\n  duration_ms: 1.529746\n  type: 'test'\n  ...\n# Subtest: V132 checkout atomically protects idempotency\nok 2 - V132 checkout atomically protects idempotency\n  ---\n  duration_ms: 0.38304\n  type: 'test'\n  ...\n# Subtest: V132 payment webhook atomically deduplicates events\nok 3 - V132 payment webhook atomically deduplicates events\n  ---\n  duration_ms: 0.376272\n  type: 'test'\n  ...\n# Subtest: V132 payment creation and refund use conflict-safe idempotency\nok 4 - V132 payment creation and refund use conflict-safe idempotency\n  ---\n  duration_ms: 0.409775\n  type: 'test'\n  ...\n# Subtest: V132 SQL enforces positive money amounts\nok 5 - V132 SQL enforces positive money amounts\n  ---\n  duration_ms: 0.321085\n  type: 'test'\n  ...\n1..5\n# tests 5\n# suites 0\n# pass 5\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 21.004554",
+      "stderr": ""
+    }
+  ],
+  "failureCondition": "Checkout must reject reused idempotency keys and preserve the atomic database boundary.",
+  "evidenceDigest": "779022b873a5c441bc67f08c53c6570b3055d1f59b55f78b10d16d4a09eca8b7"
+}

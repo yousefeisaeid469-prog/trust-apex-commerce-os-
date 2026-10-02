@@ -1,0 +1,43 @@
+{
+  "id": "capability-010-webhook-receipt-persists-a-durable-reconciliation-job",
+  "version": "V261.0.0",
+  "status": "EXECUTABLE_EVIDENCE",
+  "promotionDecision": "REQUIRES_SEPARATE_REVIEW",
+  "gates": {
+    "artifacts": true,
+    "runtimeMarkers": true,
+    "regressionTests": true
+  },
+  "artifacts": [
+    {
+      "file": "modules/platform/provider-reconciliation/core.ts",
+      "exists": true,
+      "sha256": "0578e8d2377f95cae5487a4b3e8db1596bdb2d5371eede9748a4a37e92bc0af1"
+    }
+  ],
+  "markers": [
+    {
+      "marker": "trust_provider_reconciliation_jobs",
+      "foundIn": [
+        "modules/platform/provider-reconciliation/core.ts"
+      ]
+    },
+    {
+      "marker": "export async function receiveWebhook",
+      "foundIn": [
+        "modules/platform/provider-reconciliation/core.ts"
+      ]
+    }
+  ],
+  "tests": [
+    {
+      "file": "tests/v187-reconciliation-worker.test.mjs",
+      "exists": true,
+      "exitCode": 0,
+      "stdout": "TAP version 13\n# Subtest: V187 verifies timestamp-bound signatures\nok 1 - V187 verifies timestamp-bound signatures\n  ---\n  duration_ms: 1.227209\n  type: 'test'\n  ...\n# Subtest: V187 rejects stale webhook timestamps\nok 2 - V187 rejects stale webhook timestamps\n  ---\n  duration_ms: 0.304613\n  type: 'test'\n  ...\n# Subtest: V187 receipt creates durable reconciliation job\nok 3 - V187 receipt creates durable reconciliation job\n  ---\n  duration_ms: 2.257139\n  type: 'test'\n  ...\n# Subtest: V187 claims jobs with lease query\nok 4 - V187 claims jobs with lease query\n  ---\n  duration_ms: 0.517539\n  type: 'test'\n  ...\n# Subtest: V187 worker retries reconciliation failures\nok 5 - V187 worker retries reconciliation failures\n  ---\n  duration_ms: 0.811756\n  type: 'test'\n  ...\n1..5\n# tests 5\n# suites 0\n# pass 5\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 38.875257",
+      "stderr": "(node:2930) ExperimentalWarning: Type Stripping is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)"
+    }
+  ],
+  "failureCondition": "A received provider webhook must enqueue a durable reconciliation job and stale/invalid work must not be accepted.",
+  "evidenceDigest": "c6b6cb0a8fde43a5357256140e6410eaff8e9c072ba20031e57939b150782799"
+}

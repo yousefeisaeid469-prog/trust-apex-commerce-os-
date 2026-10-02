@@ -1,0 +1,60 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-09-02T16:42:06.739Z",
+    "component": {
+      "type": "application",
+      "name": "trust-apex-os",
+      "version": "137.0.0"
+    }
+  },
+  "components": [
+    {
+      "name": "next",
+      "version": "14.2.31",
+      "scope": "production"
+    },
+    {
+      "name": "react",
+      "version": "18.3.1",
+      "scope": "production"
+    },
+    {
+      "name": "react-dom",
+      "version": "18.3.1",
+      "scope": "production"
+    },
+    {
+      "name": "pg",
+      "version": "8.16.3",
+      "scope": "production"
+    },
+    {
+      "name": "@types/node",
+      "version": "20.17.30",
+      "scope": "development"
+    },
+    {
+      "name": "@types/react",
+      "version": "18.3.18",
+      "scope": "development"
+    },
+    {
+      "name": "@types/react-dom",
+      "version": "18.3.5",
+      "scope": "development"
+    },
+    {
+      "name": "typescript",
+      "version": "5.8.2",
+      "scope": "development"
+    },
+    {
+      "name": "@types/pg",
+      "version": "8.15.5",
+      "scope": "development"
+    }
+  ]
+}

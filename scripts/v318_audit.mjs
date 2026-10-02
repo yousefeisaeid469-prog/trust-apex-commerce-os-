@@ -1,0 +1,5 @@
+import fs from 'node:fs';
+const required=['db/migrations/156_v318_production_integration_lab.sql','modules/platform/v318/integration-lab/contracts.ts','modules/platform/v318/integration-lab/simulator.ts','modules/platform/v318/integration-lab/concurrency.ts','modules/platform/v318/integration-lab/index.ts','app/api/platform/v318/integration-lab/route.ts','tests/v318-integration-lab.test.mjs','scripts/v318_integration_lab.mjs','scripts/v318_postgres_lab.mjs','artifacts/v318/integration-lab-report.json','docs/architecture/PRODUCTION-INTEGRATION-LAB-V318.md','docs/releases/MASTER-RELEASE-V318.md'];
+const missing=required.filter(f=>!fs.existsSync(f)); if(missing.length){console.error('V318 audit FAILED\n- '+missing.join('\n- '));process.exit(1)}
+const r=JSON.parse(fs.readFileSync('artifacts/v318/integration-lab-report.json','utf8')); if(r.version!=='V318.0.0'||r.status!=='PASS')throw new Error('V318 report invalid'); if(r.externalProvidersLive!==false)throw new Error('V318 external provider claim invalid');
+console.log(`V318 audit PASS — ${required.length} artifacts verified; liveDatabase=${r.liveDatabase}; externalProvidersLive=false`);

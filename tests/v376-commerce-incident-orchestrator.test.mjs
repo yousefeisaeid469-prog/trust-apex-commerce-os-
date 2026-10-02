@@ -1,0 +1,3 @@
+import test from 'node:test'; import assert from 'node:assert/strict'; import {readFile} from 'node:fs/promises';
+test('V376 incident discovery is cross-domain and bounded',async()=>{const s=await readFile('modules/platform/global-commerce-incident-orchestrator/core.ts','utf8'); assert.match(s,/trust_event_deliveries/); assert.match(s,/trust_payments/); assert.match(s,/trust_inventory_reservations/); assert.match(s,/RECOVER_ORDER_LEASES/);});
+test('V376 action delegates to existing control authority',async()=>{const s=await readFile('modules/platform/global-commerce-incident-orchestrator/core.ts','utf8'); assert.match(s,/executeControlCommand/); assert.match(s,/INCIDENT_NOT_ACTIVE/);});

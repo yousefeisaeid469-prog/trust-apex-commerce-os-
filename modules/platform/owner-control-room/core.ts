@@ -1,0 +1,25 @@
+import { createHash } from 'node:crypto';
+import { query, withPgTransaction } from '../db/postgres';
+import type { OwnerAuditEvent, OwnerControl, OwnerControlId, OwnerAuditResult, OwnerControlRoomSnapshot } from './contracts';
+export { getOwnerLiveControlState, setOwnerLiveControl, isAutonomyBlocked } from './live-control';
+
+export const OWNER_CONTROLS:OwnerControl[]=[
+ {id:'SYSTEM_HEALTH',title:'System Health',description:'Production readiness, observability and SLO signals.',risk:'LOW',requiresApproval:false,readOnly:true},
+ {id:'GLOBAL_RELIABILITY',title:'Global Reliability',description:'Regions, backup evidence, recovery plans and drills.',risk:'HIGH',requiresApproval:true,readOnly:false},
+ {id:'REVENUE',title:'Revenue',description:'Revenue engine, intelligence, experiments and decision loop.',risk:'HIGH',requiresApproval:true,readOnly:false},
+ {id:'COMMERCE',title:'Commerce',description:'Orders, catalog, fulfillment, customer and seller surfaces.',risk:'HIGH',requiresApproval:true,readOnly:false},
+ {id:'AI_AUTONOMY',title:'AI & Autonomy',description:'Brain, control plane, runtime and orchestration.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+ {id:'SECURITY_FRAUD',title:'Security & Fraud',description:'Security posture, fraud controls and abuse boundaries.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+ {id:'PROVIDERS',title:'Providers',description:'Payment, fulfillment and external capability boundaries.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+ {id:'MAINTENANCE_MODE',title:'Maintenance Mode',description:'Enter controlled maintenance/read-only operation.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+ {id:'GLOBAL_FREEZE',title:'Global Freeze',description:'Stop high-impact commerce mutations pending recovery.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+ {id:'AUTONOMY_KILL_SWITCH',title:'Autonomy Kill Switch',description:'Disable autonomous execution intents; preserve evidence and audit.',risk:'CRITICAL',requiresApproval:true,readOnly:false},
+];
+const sha=(s:string)=>createHash('sha256').update(s).digest('hex');
+export function ownerEmailConfigured(){return Boolean(process.env.TRUST_OWNER_EMAILS?.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean).length);}
+export function isOwnerEmail(email:string){const list=(process.env.TRUST_OWNER_EMAILS??'').split(',').map(x=>x.trim().toLowerCase()).filter(Boolean);return list.includes(email.trim().toLowerCase());}
+export function buildOwnerSnapshot(input:{ownerEmail:string;controlMode?:string;audit?:OwnerAuditEvent[]}):OwnerControlRoomSnapshot{return{ownerEmail:input.ownerEmail,controls:OWNER_CONTROLS,controlMode:input.controlMode??'unknown',audit:input.audit??[],generatedAt:new Date().toISOString()};}
+export function makeOwnerAuditHash(input:{previousHash:string|null;actorEmail:string;action:string;target:string;result:OwnerAuditResult;requestId:string;payloadHash:string;createdAt:string}){return sha(`${input.previousHash??''}:owner:${input.actorEmail}:${input.action}:${input.target}:${input.result}:${input.requestId}:${input.payloadHash}:${input.createdAt}`);}
+export async function appendOwnerAudit(input:{actorEmail:string;action:string;target:string;result:OwnerAuditResult;requestId:string;payload:unknown}){return withPgTransaction(async client=>{const createdAt=new Date().toISOString();const payloadHash=sha(JSON.stringify(input.payload??{}));const previous=(await client.query<{event_hash:string}>(`select event_hash from trust_owner_audit_events order by id desc limit 1`)).rows[0]?.event_hash??null;const eventHash=makeOwnerAuditHash({previousHash:previous,actorEmail:input.actorEmail,action:input.action,target:input.target,result:input.result,requestId:input.requestId,payloadHash,createdAt});const eventId=sha(`${input.actorEmail}:${input.action}:${input.target}:${input.requestId}:${createdAt}`);await client.query(`insert into trust_owner_audit_events(event_id,actor_email,action,target,result,request_id,payload_hash,previous_hash,event_hash,created_at) values($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,[eventId,input.actorEmail,input.action,input.target,input.result,input.requestId,payloadHash,previous,eventHash,createdAt]);return{eventId,actorEmail:input.actorEmail,action:input.action,target:input.target,result:input.result,requestId:input.requestId,payloadHash,previousHash:previous,eventHash,createdAt};});}
+export async function listOwnerAudit(limit=20):Promise<OwnerAuditEvent[]>{const r=await query(`select event_id,actor_email,action,target,result,request_id,payload_hash,previous_hash,event_hash,created_at from trust_owner_audit_events order by id desc limit $1`,[Math.min(Math.max(limit,1),100)]);return r.rows.map((x:any)=>({eventId:x.event_id,actorEmail:x.actor_email,action:x.action,target:x.target,result:x.result,requestId:x.request_id,payloadHash:x.payload_hash,previousHash:x.previous_hash,eventHash:x.event_hash,createdAt:new Date(x.created_at).toISOString()}));}
+export function controlById(id:string){return OWNER_CONTROLS.find(x=>x.id===id as OwnerControlId);}

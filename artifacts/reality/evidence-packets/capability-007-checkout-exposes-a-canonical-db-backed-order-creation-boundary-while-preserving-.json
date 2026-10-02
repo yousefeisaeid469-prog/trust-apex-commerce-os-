@@ -1,0 +1,183 @@
+{
+  "id": "evidence-packet:capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+  "contractId": "capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-",
+  "sourceId": "draft-doc:docs/releases/MASTER-RELEASE-V179.md:8",
+  "claim": "Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+  "ownerDomain": "unassigned",
+  "version": "V363.0.0",
+  "status": "BLOCKED_PENDING_EXPLICIT_EVIDENCE",
+  "execution": {
+    "state": "NOT_ELIGIBLE",
+    "eligible": false,
+    "reason": "Evidence slots are intentionally empty; discovery candidates cannot be executed as authoritative evidence.",
+    "requiredSequence": [
+      "AUTHOR_IMPLEMENTATION_ARTIFACTS",
+      "AUTHOR_EXACT_RUNTIME_MARKERS",
+      "AUTHOR_EXECUTABLE_REGRESSION_TESTS",
+      "VALIDATE_FAILURE_CONDITION",
+      "EXECUTE_PACKET",
+      "ISSUE_RECEIPT",
+      "REQUEST_PROMOTION"
+    ]
+  },
+  "evidence": {
+    "implementationArtifacts": [],
+    "runtimeMarkers": [],
+    "regressionTests": [],
+    "failureCondition": "BLOCKED_UNTIL_EXPLICIT_EVIDENCE"
+  },
+  "discoveryOnly": {
+    "candidateArtifacts": [
+      "CHANGELOG.md",
+      "artifacts/reality/full-system-reality-report.json",
+      "artifacts/reality/full-system-reality-report.md",
+      "artifacts/reality/reality-capability-contracts.json",
+      "artifacts/reality/reality-capability-contracts.md",
+      "artifacts/reality/reality-claim-authoring.json",
+      "artifacts/reality/reality-claim-resolution.json",
+      "artifacts/reality/reality-evidence-graph.json",
+      "tests/v132-hardening.test.mjs",
+      "tests/v135-enterprise.test.mjs",
+      "tests/v137-sovereign-platform.test.mjs",
+      "tests/v156-honest-currency-display.test.mjs",
+      "tests/v181-production-integration.test.mjs",
+      "tests/v197-search-discovery.test.mjs",
+      "tests/v198-cart-checkout.test.mjs",
+      "tests/v199-order-experience.test.mjs"
+    ],
+    "candidateRuntimeMarkers": [
+      {
+        "file": "CHANGELOG.md",
+        "line": 43,
+        "token": "checkout",
+        "excerpt": "- Durable checkout quotes in PostgreSQL.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.json",
+        "line": 441,
+        "token": "checkout",
+        "excerpt": "\"text\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\"",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/full-system-reality-report.md",
+        "line": 46,
+        "token": "checkout",
+        "excerpt": "- **DOCUMENTED_ONLY** — doc:docs/releases/MASTER-RELEASE-V179.md:8 (docs line 8) — Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.json",
+        "line": 484,
+        "token": "checkout",
+        "excerpt": "\"id\": \"capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-capability-contracts.md",
+        "line": 29,
+        "token": "checkout",
+        "excerpt": "- **capability-007-checkout-exposes-a-canonical-db-backed-order-creation-boundary-while-preserving-** — unassigned — DRAFT — Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-authoring.json",
+        "line": 638,
+        "token": "checkout",
+        "excerpt": "\"claim\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-claim-resolution.json",
+        "line": 3575,
+        "token": "checkout",
+        "excerpt": "\"claim\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      },
+      {
+        "file": "artifacts/reality/reality-evidence-graph.json",
+        "line": 424,
+        "token": "checkout",
+        "excerpt": "\"text\": \"Checkout exposes a canonical DB backed order creation boundary while preserving transactional/idempotent behavior.\",",
+        "basis": "lexical-runtime-candidate"
+      }
+    ],
+    "candidateTests": [
+      {
+        "file": "tests/v132-hardening.test.mjs",
+        "hits": [
+          "checkout",
+          "creation",
+          "transactional"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v135-enterprise.test.mjs",
+        "hits": [
+          "exposes",
+          "canonical",
+          "idempotent"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v137-sovereign-platform.test.mjs",
+        "hits": [
+          "canonical",
+          "boundary"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v156-honest-currency-display.test.mjs",
+        "hits": [
+          "checkout",
+          "exposes"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v181-production-integration.test.mjs",
+        "hits": [
+          "checkout",
+          "canonical",
+          "boundary"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v197-search-discovery.test.mjs",
+        "hits": [
+          "canonical",
+          "behavior"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v198-cart-checkout.test.mjs",
+        "hits": [
+          "checkout",
+          "exposes",
+          "canonical"
+        ],
+        "basis": "lexical-test-candidate"
+      },
+      {
+        "file": "tests/v199-order-experience.test.mjs",
+        "hits": [
+          "checkout",
+          "exposes",
+          "transactional"
+        ],
+        "basis": "lexical-test-candidate"
+      }
+    ]
+  },
+  "integrity": {
+    "contractDigest": "0c758aefad75ebee2e07c5439d6648b54e337949d3a33e7b27b8f8f95b79c87b",
+    "evidenceDigest": "babc61873c2312508ba949df1af61f3326dd06a9e7c594045e29bef5dcada8e6"
+  },
+  "policy": "Discovery candidates are hints only. This packet cannot execute or promote until every authoritative evidence slot is explicitly authored."
+}

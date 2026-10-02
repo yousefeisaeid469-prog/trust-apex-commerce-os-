@@ -1,0 +1,10 @@
+{
+  "version": "V316.0.0",
+  "status": "PASS",
+  "workflow": ["TENANT","SELLER","CATALOG","INVENTORY","ORDER","PAYMENT","FULFILLMENT","FINANCE","ANALYTICS"],
+  "idempotency": true,
+  "commissionAccounting": true,
+  "durableRunStorage": true,
+  "liveDatabase": false,
+  "liveExternalProviders": false
+}
