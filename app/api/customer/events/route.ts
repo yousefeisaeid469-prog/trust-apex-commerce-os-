@@ -6,7 +6,6 @@ export function fail(e:unknown,status=400){return NextResponse.json({ok:false,er
 export async function auth(request:NextRequest){const user=await getCurrentUser(request);if(!user)throw Object.assign(new Error('AUTH_REQUIRED'),{status:401});return user;}
 export async function opsAuth(request:NextRequest){return requirePermission(request,'manage_system');}
 
-import {auth} from '../ops/_shared';
 import {appendCustomerEvent,listCustomerEvents} from '../../../../modules/customer-experience/events';
 export async function GET(request:NextRequest){try{const u=await auth(request);return ok({events:await listCustomerEvents(u.id,Number(request.nextUrl.searchParams.get('limit')??100))})}catch(e){return fail(e,401)}}
 export async function POST(request:NextRequest){try{const u=await auth(request);const b=await request.json();return ok({event:await appendCustomerEvent({...b,customerId:u.id})},201)}catch(e){return fail(e)}}

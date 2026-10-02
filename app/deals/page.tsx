@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useMemo, useState } from 'react';
-import AddToCartButton from '@/components/add-to-cart-button';
+import AddToCartButton from '../components/add-to-cart-button';
 
 function Countdown({endsAt}:{endsAt:string}){const [left,setLeft]=useState(Math.max(0,Date.parse(endsAt)-Date.now()));useEffect(()=>{const id=setInterval(()=>setLeft(Math.max(0,Date.parse(endsAt)-Date.now())),1000);return()=>clearInterval(id)},[endsAt]);const sec=Math.floor(left/1000),d=Math.floor(sec/86400),h=Math.floor(sec%86400/3600),m=Math.floor(sec%3600/60),s=sec%60;return <strong>{d?`${d}d `:''}{String(h).padStart(2,'0')}:{String(m).padStart(2,'0')}:{String(s).padStart(2,'0')}</strong>}
 

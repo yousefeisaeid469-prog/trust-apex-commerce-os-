@@ -1,8 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getCurrentUser } from '../../../../modules/platform/auth/current-user';
-import { getOrderJourney } from '../../../../modules/platform/order-journey-os/core';
-import { getCommerceCommandSnapshot } from '../../../../modules/platform/order-journey-os/command-snapshot';
-
+import { getCurrentUser } from '@/modules/platform/auth/current-user';
+import { getOrderJourney } from '@/modules/platform/order-journey-os/core';
+import { getCommerceCommandSnapshot } from '@/modules/platform/order-journey-os/command-snapshot';
 export const dynamic = 'force-dynamic';
 export const runtime = 'nodejs';
 
